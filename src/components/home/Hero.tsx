@@ -76,6 +76,7 @@ export default function Hero() {
         <AnimatePresence mode="sync">
           <motion.div
             key={current}
+            data-ssr-failsafe
             initial={{ opacity: 0, scale: 1.05 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0 }}
@@ -103,6 +104,7 @@ export default function Hero() {
         className="absolute inset-0 flex flex-col items-center justify-center px-6"
       >
         <motion.h1
+          data-ssr-failsafe
           initial={{ opacity: 0, y: 60, letterSpacing: '0.1em' }}
           animate={{ opacity: 1, y: 0, letterSpacing: '-0.05em' }}
           transition={{ duration: 1.4, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
@@ -116,6 +118,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1 }}
+          data-ssr-failsafe
           className="mt-8"
         >
           <Link
@@ -132,6 +135,7 @@ export default function Hero() {
       {annotations.map((ann, i) => (
         <motion.div
           key={i}
+          data-ssr-failsafe
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: ann.delay, ease: [0.16, 1, 0.3, 1] }}
@@ -162,6 +166,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 2 }}
+            data-ssr-failsafe
             className="max-w-xs hidden md:block"
           >
             <p className="text-xs leading-relaxed text-stone">
@@ -175,6 +180,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 2 }}
+            data-ssr-failsafe
             className="flex items-center gap-3"
           >
             <button
@@ -210,6 +216,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 2 }}
+            data-ssr-failsafe
             className="hidden md:flex gap-3"
           >
             {socials.map(({ Icon, label }) => (

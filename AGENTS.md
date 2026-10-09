@@ -75,6 +75,12 @@ The app boots at http://localhost:3000. First boot runs `npm install`, Prisma mi
 - Scroll reveals via IntersectionObserver (`ScrollReveal` component)
 - `prefers-reduced-motion` respected throughout
 
+## Sandbox preview notes
+- **Dev server runs with Turbopack** (`next dev --turbo`) in `docker-compose.base44.yml` only (`npm run dev` is unchanged and still uses webpack). Reason: webpack's dev `eval-source-map` makes the page JS ~11 MB (Next reverts any `devtool` override), and through the preview proxy the browser stalled ~60s loading it, leaving the page unhydrated. Turbopack cuts it to ~4.6 MB. The compose command also clears `.next` on start so webpack/Turbopack caches never mix.
+- **Blank-page failsafe:** SSR output is intentionally hidden until JS reveals it (`.reveal`, and Hero's framer-motion `initial` opacity 0). `globals.css` has a CSS-only failsafe that reveals anything marked `.reveal` / `data-ssr-failsafe` after 3s while `html[data-hydrated]` is absent; `HydrationFlag` sets that attribute once React hydrates. Add `data-ssr-failsafe` to any new motion element that renders with `initial={{ opacity: 0 }}`.
+- This is a general resilience fix (not gated on `BASE44_PREVIEW_MODE`).
+- Database schema is applied with `prisma db push` (there is no `prisma/migrations`); a fresh DB volume needs the compose startup flow (push + seed) before any page renders.
+
 ## Notes
 - All property listings and testimonials are clearly labeled as demonstration content.
 - No real business addresses, phone numbers, or verified reviews are used.

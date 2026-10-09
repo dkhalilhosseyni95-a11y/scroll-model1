@@ -3,6 +3,7 @@ import './globals.css';
 import ConditionalLayout from '@/components/layout/ConditionalLayout';
 import Toaster from '@/components/ui/Toaster';
 import Providers from '@/components/layout/Providers';
+import HydrationFlag from '@/components/layout/HydrationFlag';
 
 export const metadata: Metadata = {
   title: {
@@ -41,6 +42,7 @@ export default function RootLayout({
           <ConditionalLayout>{children}</ConditionalLayout>
           <Toaster />
         </Providers>
+        <HydrationFlag />
       </body>
     </html>
   );

@@ -45,7 +45,8 @@ services:
         npx prisma generate
         npx prisma db push --accept-data-loss
         npx prisma db seed
-        exec npm run dev
+        rm -rf .next
+        exec npx next dev --turbo -H 0.0.0.0
     healthcheck:
       test: ["CMD-SHELL", "node -e \"fetch('http://localhost:3000').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))\""]
       interval: 15s

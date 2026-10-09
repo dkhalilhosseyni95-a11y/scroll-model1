@@ -23,6 +23,12 @@ export default function ScrollReveal({
     const el = ref.current;
     if (!el) return;
 
+    // Hydration was slow and the CSS failsafe already revealed this element: keep it visible.
+    if (!el.classList.contains('is-visible') && getComputedStyle(el).opacity === '1') {
+      el.classList.add('is-visible');
+      return;
+    }
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {

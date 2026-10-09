@@ -114,6 +114,24 @@
   }
 }
 
+/*
+ * Failsafe: server-rendered content starts hidden (opacity 0) until JS reveals it.
+ * If hydration is slow or fails, the page would stay blank, so reveal it with pure CSS
+ * after a short delay. HydrationFlag sets html[data-hydrated] once React is running,
+ * which switches this off and hands control back to the normal reveal animations.
+ */
+@keyframes ssr-failsafe {
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+html:not([data-hydrated]) .reveal,
+html:not([data-hydrated]) [data-ssr-failsafe] {
+  animation: ssr-failsafe 0.6s ease 3s forwards;
+}
+
 /* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
   *,
