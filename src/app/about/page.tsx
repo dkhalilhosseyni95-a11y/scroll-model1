@@ -27,7 +27,7 @@ export default function AboutPage() {
       <ScrollReveal className="container-wide mb-20">
         <div className="relative aspect-[21/9] rounded-card overflow-hidden">
           <Image
-            src="https://images.unsplash.com/photo-1600607687938-ce4d6c4b8be1?auto=format&fit=crop&w=2000&q=80"
+            src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=2000&q=80"
             alt="Modern architectural villa with organic forms"
             fill
             sizes="100vw"

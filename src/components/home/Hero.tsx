@@ -8,15 +8,15 @@ import { ArrowRight, ArrowUp, Facebook, Instagram, Twitter, Linkedin } from 'luc
 
 const heroImages = [
   {
-    src: 'https://images.unsplash.com/photo-1600585154340-be6161a8a8a4?auto=format&fit=crop&w=2000&q=80',
+    src: 'https://images.unsplash.com/photo-1505843513577-22bb7d21e455?auto=format&fit=crop&w=2000&q=80',
     alt: 'Futuristic luxury villa with organic concrete forms and warm interior lighting at dusk',
   },
   {
-    src: 'https://images.unsplash.com/photo-1600607687938-ce4d6c4b8be1?auto=format&fit=crop&w=2000&q=80',
+    src: 'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=2000&q=80',
     alt: 'Modern architectural villa with cantilevered roof and expansive glass walls',
   },
   {
-    src: 'https://images.unsplash.com/photo-1600596542815-ff1a41622a3a?auto=format&fit=crop&w=2000&q=80',
+    src: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=2000&q=80',
     alt: 'Luxury home with infinity pool reflecting the evening sky',
   },
 ];

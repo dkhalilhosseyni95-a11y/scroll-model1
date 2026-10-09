@@ -11,7 +11,7 @@ const testimonials = [
       'HOUSEN didn\'t just find us a house — they found us a piece of architecture that has transformed how we live. Their attention to every detail, from the structural integrity to the way light moves through the space, was extraordinary.',
     name: 'Adrian Voss',
     role: 'Property Owner, Malibu',
-    image: 'https://images.unsplash.com/photo-1600585154340-be6161a8a8a4?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1505843513577-22bb7d21e455?auto=format&fit=crop&w=800&q=80',
     portrait: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=400&q=80',
   },
   {
@@ -19,15 +19,15 @@ const testimonials = [
       'Working with HOUSEN felt like collaborating with a gallery curator. Every property they showed us had a story, a reason for being. We ended up with a home that feels like it was designed specifically for us.',
     name: 'Camille Laurent',
     role: 'Interior Designer, New York',
-    image: 'https://images.unsplash.com/photo-1600607687938-ce4d6c4b8be1?auto=format&fit=crop&w=800&q=80',
-    portrait: 'https://images.unsplash.com/photo-1494790108755-2616b612b5ed?auto=format&fit=crop&w=400&q=80',
+    image: 'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=800&q=80',
+    portrait: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=400&q=80',
   },
   {
     quote:
       'The level of service was unmatched. HOUSEN understood that buying a home of this calibre is not just a transaction — it is a life decision. They guided us with patience, expertise, and genuine care.',
     name: 'Marcus Holloway',
     role: 'Investor, Miami',
-    image: 'https://images.unsplash.com/photo-1600596542815-ff1a41622a3a?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80',
     portrait: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80',
   },
 ];

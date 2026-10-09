@@ -10,7 +10,7 @@ export default function CtaSection() {
         <ScrollReveal className="relative rounded-card overflow-hidden">
           <div className="relative aspect-[16/9] md:aspect-[21/9]">
             <Image
-              src="https://images.unsplash.com/photo-1600596542815-ff1a41622a3a?auto=format&fit=crop&w=2000&q=80"
+              src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=2000&q=80"
               alt="Luxury villa at dusk with warm interior lighting"
               fill
               sizes="100vw"

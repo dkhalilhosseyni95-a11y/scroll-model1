@@ -9,7 +9,7 @@ export default function BrandStory() {
           {/* Image */}
           <ScrollReveal className="relative aspect-[4/5] rounded-card overflow-hidden">
             <Image
-              src="https://images.unsplash.com/photo-1600607687938-ce4d6c4b8be1?auto=format&fit=crop&w=1200&q=80"
+              src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=1200&q=80"
               alt="Architectural detail of a modern villa with organic concrete forms"
               fill
               sizes="(max-width: 1024px) 100vw, 50vw"
