@@ -27,7 +27,7 @@ export default function BrandStory() {
             </h2>
             <div className="space-y-5 text-base leading-relaxed text-stone max-w-lg">
               <p>
-                At HOUSEN, we believe a home is more than an address — it is a
+                At HORIZON PROPERTIES, we believe a home is more than an address — it is a
                 work of architecture that shapes daily life. We partner with
                 visionary architects and discerning owners to curate properties
                 of genuine distinction.

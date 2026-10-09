@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Privacy Policy',
-  description: 'HOUSEN privacy policy — how we collect, use, and protect your data.',
+  description: 'HORIZON PROPERTIES privacy policy — how we collect, use, and protect your data.',
 };
 
 export default function PrivacyPage() {
@@ -29,7 +29,7 @@ export default function PrivacyPage() {
         <ScrollReveal delay={100}>
           <div className="space-y-8">
             <p className="text-base leading-relaxed text-stone">
-              This privacy policy describes how HOUSEN collects, uses, and protects
+              This privacy policy describes how HORIZON PROPERTIES collects, uses, and protects
               your personal information when you use our website and services. This
               is a demonstration website and this policy is provided for illustrative
               purposes only.
@@ -44,8 +44,8 @@ export default function PrivacyPage() {
               <h2 className="text-xl font-semibold text-ink mb-3">Contact Us</h2>
               <p className="text-base leading-relaxed text-stone">
                 If you have questions about this privacy policy, please contact us at{' '}
-                <a href="mailto:contact@housen.com" className="text-amber hover:text-amber-light transition-colors">
-                  contact@housen.com
+                <a href="mailto:contact@horizonproperties.com" className="text-amber hover:text-amber-light transition-colors">
+                  contact@horizonproperties.com
                 </a>
                 .
               </p>

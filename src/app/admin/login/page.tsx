@@ -41,7 +41,7 @@ export default function AdminLoginPage() {
             <Logo />
           </div>
           <h1 className="text-3xl font-bold text-parchment mb-2">Admin Access</h1>
-          <p className="text-sm text-stone-dark">Sign in to manage HOUSEN</p>
+          <p className="text-sm text-stone-dark">Sign in to manage HORIZON PROPERTIES</p>
         </div>
 
         <form onSubmit={handleSubmit} className="rounded-card border border-charcoal/40 p-6 md:p-8 space-y-4">
@@ -55,7 +55,7 @@ export default function AdminLoginPage() {
                 onChange={(e) => setEmail(e.target.value)}
                 disabled={loading}
                 className="input-field pl-11"
-                placeholder="admin@housen.com"
+                placeholder="admin@horizonproperties.com"
                 required
               />
             </div>
@@ -81,7 +81,7 @@ export default function AdminLoginPage() {
         </form>
 
         <p className="text-center text-xs text-stone-dark mt-6">
-          Demo credentials: admin@housen.com / Housen2024!
+          Demo credentials: admin@horizonproperties.com / Horizon2024!
         </p>
         <p className="text-center mt-4">
           <a href="/" className="text-sm text-stone hover:text-amber transition-colors">← Back to website</a>

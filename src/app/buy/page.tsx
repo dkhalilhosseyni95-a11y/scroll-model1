@@ -5,7 +5,7 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Properties for Sale',
-  description: 'Browse luxury properties available for purchase through HOUSEN.',
+  description: 'Browse luxury properties available for purchase through HORIZON PROPERTIES.',
 };
 
 export default async function BuyPage() {

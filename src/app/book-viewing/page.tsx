@@ -6,7 +6,7 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Book a Viewing',
-  description: 'Schedule a private viewing of a HOUSEN luxury property.',
+  description: 'Schedule a private viewing of a HORIZON PROPERTIES luxury property.',
 };
 
 export default async function BookViewingPage({

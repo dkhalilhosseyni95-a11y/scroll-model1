@@ -5,7 +5,7 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Properties',
-  description: 'Browse HOUSEN\'s curated collection of luxury villas, penthouses, apartments, and waterfront homes.',
+  description: 'Browse HORIZON PROPERTIES\'s curated collection of luxury villas, penthouses, apartments, and waterfront homes.',
 };
 
 export default async function PropertiesPage({

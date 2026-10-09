@@ -29,7 +29,7 @@ export default async function AdminDashboard() {
     <div>
       <div className="mb-8">
         <h1 className="text-3xl font-bold text-parchment mb-2">Dashboard</h1>
-        <p className="text-stone-dark text-sm">Overview of your HOUSEN platform</p>
+        <p className="text-stone-dark text-sm">Overview of your HORIZON PROPERTIES platform</p>
       </div>
 
       {/* Stats grid */}

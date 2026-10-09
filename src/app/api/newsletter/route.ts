@@ -38,7 +38,7 @@ export async function POST(req: NextRequest) {
     });
 
     return NextResponse.json(
-      { message: 'Subscribed successfully. Welcome to HOUSEN.' },
+      { message: 'Subscribed successfully. Welcome to HORIZON PROPERTIES.' },
       { status: 201 }
     );
   } catch (error) {

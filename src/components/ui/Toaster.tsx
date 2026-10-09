@@ -13,7 +13,7 @@ interface ToastItem {
 export function toast(message: string, type: ToastType = 'success') {
   if (typeof window !== 'undefined') {
     window.dispatchEvent(
-      new CustomEvent('housen-toast', { detail: { message, type } })
+      new CustomEvent('horizon-toast', { detail: { message, type } })
     );
   }
 }
@@ -30,8 +30,8 @@ export default function Toaster() {
         setToasts((prev) => prev.filter((t) => t.id !== id));
       }, 4500);
     };
-    window.addEventListener('housen-toast', handler);
-    return () => window.removeEventListener('housen-toast', handler);
+    window.addEventListener('horizon-toast', handler);
+    return () => window.removeEventListener('horizon-toast', handler);
   }, []);
 
   return (

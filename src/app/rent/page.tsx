@@ -5,7 +5,7 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Properties for Rent',
-  description: 'Browse luxury properties available for lease through HOUSEN.',
+  description: 'Browse luxury properties available for lease through HORIZON PROPERTIES.',
 };
 
 export default async function RentPage() {

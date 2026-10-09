@@ -8,7 +8,7 @@ import ScrollReveal from '@/components/ui/ScrollReveal';
 const testimonials = [
   {
     quote:
-      'HOUSEN didn\'t just find us a house — they found us a piece of architecture that has transformed how we live. Their attention to every detail, from the structural integrity to the way light moves through the space, was extraordinary.',
+      'HORIZON PROPERTIES didn\'t just find us a house — they found us a piece of architecture that has transformed how we live. Their attention to every detail, from the structural integrity to the way light moves through the space, was extraordinary.',
     name: 'Adrian Voss',
     role: 'Property Owner, Malibu',
     image: 'https://images.unsplash.com/photo-1505843513577-22bb7d21e455?auto=format&fit=crop&w=800&q=80',
@@ -16,7 +16,7 @@ const testimonials = [
   },
   {
     quote:
-      'Working with HOUSEN felt like collaborating with a gallery curator. Every property they showed us had a story, a reason for being. We ended up with a home that feels like it was designed specifically for us.',
+      'Working with HORIZON PROPERTIES felt like collaborating with a gallery curator. Every property they showed us had a story, a reason for being. We ended up with a home that feels like it was designed specifically for us.',
     name: 'Camille Laurent',
     role: 'Interior Designer, New York',
     image: 'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=800&q=80',
@@ -24,7 +24,7 @@ const testimonials = [
   },
   {
     quote:
-      'The level of service was unmatched. HOUSEN understood that buying a home of this calibre is not just a transaction — it is a life decision. They guided us with patience, expertise, and genuine care.',
+      'The level of service was unmatched. HORIZON PROPERTIES understood that buying a home of this calibre is not just a transaction — it is a life decision. They guided us with patience, expertise, and genuine care.',
     name: 'Marcus Holloway',
     role: 'Investor, Miami',
     image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80',
