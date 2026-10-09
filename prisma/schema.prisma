@@ -1,0 +1,114 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String     @id @default(cuid())
+  name      String?
+  email     String     @unique
+  password  String
+  role       String    @default("USER")
+  favorites  Favorite[]
+  createdAt  DateTime   @default(now())
+}
+
+model Property {
+  id              String           @id @default(cuid())
+  title           String
+  slug            String           @unique
+  description     String
+  price           Float
+  currency        String           @default("USD")
+  transactionType String           @default("BUY")
+  propertyType    String
+  location        String
+  city            String
+  bedrooms        Int
+  bathrooms       Int
+  area            Int
+  areaUnit        String           @default("sqft")
+  images          String[]
+  featured        Boolean          @default(false)
+  status          String           @default("AVAILABLE")
+  amenities       String[]
+  agentId         String?
+  agent           Agent?           @relation(fields: [agentId], references: [id])
+  createdAt       DateTime         @default(now())
+  inquiries       Inquiry[]
+  viewingRequests ViewingRequest[]
+  favorites       Favorite[]
+}
+
+model Agent {
+  id              String           @id @default(cuid())
+  name            String
+  slug            String           @unique
+  biography       String
+  profileImage    String
+  email           String
+  phone           String
+  specialties     String[]
+  activeStatus    Boolean          @default(true)
+  properties      Property[]
+  createdAt       DateTime         @default(now())
+}
+
+model ViewingRequest {
+  id            String    @id @default(cuid())
+  propertyId    String
+  property      Property  @relation(fields: [propertyId], references: [id])
+  customerName  String
+  email         String
+  phone         String
+  preferredDate String
+  preferredTime String
+  message       String?
+  status        String    @default("PENDING")
+  createdAt     DateTime  @default(now())
+}
+
+model Inquiry {
+  id           String    @id @default(cuid())
+  propertyId   String
+  property     Property  @relation(fields: [propertyId], references: [id])
+  customerName String
+  email        String
+  phone        String?
+  message      String
+  status       String    @default("PENDING")
+  createdAt    DateTime   @default(now())
+}
+
+model Favorite {
+  id         String   @id @default(cuid())
+  userId     String
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  propertyId String
+  property   Property @relation(fields: [propertyId], references: [id], onDelete: Cascade)
+  createdAt  DateTime @default(now())
+
+  @@unique([userId, propertyId])
+}
+
+model ContactMessage {
+  id        String   @id @default(cuid())
+  name      String
+  email     String
+  phone     String?
+  subject   String
+  message   String
+  status    String   @default("PENDING")
+  createdAt DateTime @default(now())
+}
+
+model NewsletterSubscriber {
+  id                 String   @id @default(cuid())
+  email              String   @unique
+  subscriptionStatus String   @default("ACTIVE")
+  createdAt          DateTime @default(now())
+}
