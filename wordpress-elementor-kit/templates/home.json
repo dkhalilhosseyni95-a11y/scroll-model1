@@ -1,0 +1,932 @@
+{
+  "version": "0.4",
+  "title": "HOUSEN — Home",
+  "type": "page",
+  "page_settings": {
+    "template": "elementor_header_footer",
+    "hide_title": "yes"
+  },
+  "content": [
+    {
+      "id": "h1s0001",
+      "elType": "section",
+      "isInner": false,
+      "settings": {
+        "layout": "full_width",
+        "gap": "no",
+        "height": "min-height",
+        "custom_height": { "unit": "px", "size": 760, "sizes": [] },
+        "content_position": "middle",
+        "structure": "10",
+        "background_background": "classic",
+        "background_image": { "url": "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1920&q=80", "id": "" },
+        "background_size": "cover",
+        "background_position": "center center",
+        "background_repeat": "no-repeat",
+        "background_overlay_background": "classic",
+        "background_overlay_color": "#080909",
+        "background_overlay_opacity": { "unit": "px", "size": 0.62, "sizes": [] },
+        "padding": { "unit": "px", "top": "160", "right": "40", "bottom": "160", "left": "40", "isLinked": false }
+      },
+      "elements": [
+        {
+          "id": "h1c0001",
+          "elType": "column",
+          "isInner": false,
+          "settings": { "_column_size": 100, "_inline_size": null, "content_position": "center", "align": "center" },
+          "elements": [
+            {
+              "id": "h1w0001",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "Housen Estates",
+                "header_size": "h6",
+                "align": "center",
+                "title_color": "#E7A45E",
+                "typography_typography": "custom",
+                "typography_font_family": "Jost",
+                "typography_font_size": { "unit": "px", "size": 13, "sizes": [] },
+                "typography_font_weight": "500",
+                "typography_text_transform": "uppercase",
+                "typography_letter_spacing": { "unit": "px", "size": 5, "sizes": [] }
+              },
+              "elements": [],
+              "isInner": false
+            },
+            {
+              "id": "h1w0002",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "Residences of<br>Quiet Distinction",
+                "header_size": "h1",
+                "align": "center",
+                "title_color": "#FFFFFF",
+                "typography_typography": "custom",
+                "typography_font_family": "Playfair Display",
+                "typography_font_size": { "unit": "px", "size": 66, "sizes": [] },
+                "typography_font_weight": "500",
+                "typography_line_height": { "unit": "em", "size": 1.12, "sizes": [] },
+                "typography_letter_spacing": { "unit": "px", "size": -0.5, "sizes": [] }
+              },
+              "elements": [],
+              "isInner": false
+            },
+            {
+              "id": "h1w0003",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p>Curated properties for those who measure home in more than square metres — a portfolio built on discretion, craft and two decades of judgment.</p>",
+                "align": "center",
+                "text_color": "#F7F6F2",
+                "typography_typography": "custom",
+                "typography_font_family": "Jost",
+                "typography_font_size": { "unit": "px", "size": 18, "sizes": [] },
+                "typography_font_weight": "300"
+              },
+              "elements": [],
+              "isInner": false
+            },
+            {
+              "id": "h1s0002",
+              "elType": "section",
+              "isInner": true,
+              "settings": {
+                "structure": "20",
+                "gap": "default",
+                "padding": { "unit": "px", "top": "24", "right": "0", "bottom": "0", "left": "0", "isLinked": false }
+              },
+              "elements": [
+                {
+                  "id": "h1c0002",
+                  "elType": "column",
+                  "isInner": true,
+                  "settings": { "_column_size": 50, "_inline_size": null, "align": "center" },
+                  "elements": [
+                    {
+                      "id": "h1w0004",
+                      "elType": "widget",
+                      "widgetType": "button",
+                      "settings": {
+                        "text": "Explore the Collection",
+                        "link": { "url": "/properties", "is_external": "", "nofollow": "", "custom_attributes": "" },
+                        "align": "center",
+                        "button_text_color": "#080909",
+                        "background_color": "#E7A45E",
+                        "hover_color": "#080909",
+                        "button_background_hover_color": "#FFFFFF",
+                        "text_padding": { "unit": "px", "top": "18", "right": "42", "bottom": "18", "left": "42", "isLinked": false },
+                        "typography_typography": "custom",
+                        "typography_font_family": "Jost",
+                        "typography_font_size": { "unit": "px", "size": 13, "sizes": [] },
+                        "typography_font_weight": "500",
+                        "typography_text_transform": "uppercase",
+                        "typography_letter_spacing": { "unit": "px", "size": 2, "sizes": [] }
+                      },
+                      "elements": [],
+                      "isInner": false
+                    }
+                  ]
+                },
+                {
+                  "id": "h1c0003",
+                  "elType": "column",
+                  "isInner": true,
+                  "settings": { "_column_size": 50, "_inline_size": null, "align": "center" },
+                  "elements": [
+                    {
+                      "id": "h1w0005",
+                      "elType": "widget",
+                      "widgetType": "button",
+                      "settings": {
+                        "text": "Book a Private Viewing",
+                        "link": { "url": "/contact", "is_external": "", "nofollow": "", "custom_attributes": "" },
+                        "align": "center",
+                        "button_text_color": "#FFFFFF",
+                        "background_color": "rgba(255,255,255,0)",
+                        "hover_color": "#080909",
+                        "button_background_hover_color": "#FFFFFF",
+                        "border_border": "solid",
+                        "border_width": { "unit": "px", "top": "1", "right": "1", "bottom": "1", "left": "1", "isLinked": true },
+                        "border_color": "rgba(255,255,255,0.7)",
+                        "text_padding": { "unit": "px", "top": "18", "right": "42", "bottom": "18", "left": "42", "isLinked": false },
+                        "typography_typography": "custom",
+                        "typography_font_family": "Jost",
+                        "typography_font_size": { "unit": "px", "size": 13, "sizes": [] },
+                        "typography_font_weight": "500",
+                        "typography_text_transform": "uppercase",
+                        "typography_letter_spacing": { "unit": "px", "size": 2, "sizes": [] }
+                      },
+                      "elements": [],
+                      "isInner": false
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "h1s0003",
+      "elType": "section",
+      "isInner": false,
+      "settings": {
+        "layout": "boxed",
+        "gap": "default",
+        "structure": "40",
+        "background_background": "classic",
+        "background_color": "#080909",
+        "padding": { "unit": "px", "top": "90", "right": "20", "bottom": "90", "left": "20", "isLinked": false }
+      },
+      "elements": [
+        {
+          "id": "h1c0004",
+          "elType": "column",
+          "isInner": false,
+          "settings": { "_column_size": 25, "_inline_size": null },
+          "elements": [
+            {
+              "id": "h1w0006",
+              "elType": "widget",
+              "widgetType": "counter",
+              "settings": {
+                "starting_number": 0,
+                "ending_number": 240,
+                "suffix": "+",
+                "title": "Properties Sold",
+                "number_color": "#EDBE85",
+                "title_color": "#F7F6F2",
+                "typography_number_typography": "custom",
+                "typography_number_font_family": "Playfair Display",
+                "typography_number_font_size": { "unit": "px", "size": 52, "sizes": [] },
+                "typography_number_font_weight": "500",
+                "typography_title_typography": "custom",
+                "typography_title_font_family": "Jost",
+                "typography_title_font_size": { "unit": "px", "size": 13, "sizes": [] },
+                "typography_title_text_transform": "uppercase",
+                "typography_title_letter_spacing": { "unit": "px", "size": 2, "sizes": [] }
+              },
+              "elements": [],
+              "isInner": false
+            }
+          ]
+        },
+        {
+          "id": "h1c0005",
+          "elType": "column",
+          "isInner": false,
+          "settings": { "_column_size": 25, "_inline_size": null },
+          "elements": [
+            {
+              "id": "h1w0007",
+              "elType": "widget",
+              "widgetType": "counter",
+              "settings": {
+                "starting_number": 0,
+                "ending_number": 18,
+                "title": "Years of Practice",
+                "number_color": "#EDBE85",
+                "title_color": "#F7F6F2",
+                "typography_number_typography": "custom",
+                "typography_number_font_family": "Playfair Display",
+                "typography_number_font_size": { "unit": "px", "size": 52, "sizes": [] },
+                "typography_number_font_weight": "500",
+                "typography_title_typography": "custom",
+                "typography_title_font_family": "Jost",
+                "typography_title_font_size": { "unit": "px", "size": 13, "sizes": [] },
+                "typography_title_text_transform": "uppercase",
+                "typography_title_letter_spacing": { "unit": "px", "size": 2, "sizes": [] }
+              },
+              "elements": [],
+              "isInner": false
+            }
+          ]
+        },
+        {
+          "id": "h1c0006",
+          "elType": "column",
+          "isInner": false,
+          "settings": { "_column_size": 25, "_inline_size": null },
+          "elements": [
+            {
+              "id": "h1w0008",
+              "elType": "widget",
+              "widgetType": "counter",
+              "settings": {
+                "starting_number": 0,
+                "ending_number": 96,
+                "suffix": "%",
+                "title": "Client Retention",
+                "number_color": "#EDBE85",
+                "title_color": "#F7F6F2",
+                "typography_number_typography": "custom",
+                "typography_number_font_family": "Playfair Display",
+                "typography_number_font_size": { "unit": "px", "size": 52, "sizes": [] },
+                "typography_number_font_weight": "500",
+                "typography_title_typography": "custom",
+                "typography_title_font_family": "Jost",
+                "typography_title_font_size": { "unit": "px", "size": 13, "sizes": [] },
+                "typography_title_text_transform": "uppercase",
+                "typography_title_letter_spacing": { "unit": "px", "size": 2, "sizes": [] }
+              },
+              "elements": [],
+              "isInner": false
+            }
+          ]
+        },
+        {
+          "id": "h1c0007",
+          "elType": "column",
+          "isInner": false,
+          "settings": { "_column_size": 25, "_inline_size": null },
+          "elements": [
+            {
+              "id": "h1w0009",
+              "elType": "widget",
+              "widgetType": "counter",
+              "settings": {
+                "starting_number": 0,
+                "ending_number": 2400,
+                "prefix": "$",
+                "suffix": "M+",
+                "title": "Portfolio Value",
+                "number_color": "#EDBE85",
+                "title_color": "#F7F6F2",
+                "typography_number_typography": "custom",
+                "typography_number_font_family": "Playfair Display",
+                "typography_number_font_size": { "unit": "px", "size": 52, "sizes": [] },
+                "typography_number_font_weight": "500",
+                "typography_title_typography": "custom",
+                "typography_title_font_family": "Jost",
+                "typography_title_font_size": { "unit": "px", "size": 13, "sizes": [] },
+                "typography_title_text_transform": "uppercase",
+                "typography_title_letter_spacing": { "unit": "px", "size": 2, "sizes": [] }
+              },
+              "elements": [],
+              "isInner": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "h1s0004",
+      "elType": "section",
+      "isInner": false,
+      "settings": {
+        "layout": "boxed",
+        "gap": "extended",
+        "structure": "20",
+        "background_background": "classic",
+        "background_color": "#FFFFFF",
+        "padding": { "unit": "px", "top": "120", "right": "20", "bottom": "120", "left": "20", "isLinked": false }
+      },
+      "elements": [
+        {
+          "id": "h1c0008",
+          "elType": "column",
+          "isInner": false,
+          "settings": { "_column_size": 50, "_inline_size": null },
+          "elements": [
+            {
+              "id": "h1w0010",
+              "elType": "widget",
+              "widgetType": "image",
+              "settings": {
+                "image": { "url": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80", "id": "" },
+                "image_size": "full",
+                "image_border_radius": { "unit": "px", "top": "24", "right": "24", "bottom": "24", "left": "24", "isLinked": true }
+              },
+              "elements": [],
+              "isInner": false
+            }
+          ]
+        },
+        {
+          "id": "h1c0009",
+          "elType": "column",
+          "isInner": false,
+          "settings": { "_column_size": 50, "_inline_size": null },
+          "elements": [
+            {
+              "id": "h1w0011",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "The Housen Standard",
+                "header_size": "h6",
+                "title_color": "#E7A45E",
+                "typography_typography": "custom",
+                "typography_font_family": "Jost",
+                "typography_font_size": { "unit": "px", "size": 13, "sizes": [] },
+                "typography_font_weight": "500",
+                "typography_text_transform": "uppercase",
+                "typography_letter_spacing": { "unit": "px", "size": 5, "sizes": [] }
+              },
+              "elements": [],
+              "isInner": false
+            },
+            {
+              "id": "h1w0012",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "Two decades of quiet, considered brokerage.",
+                "header_size": "h2",
+                "title_color": "#080909",
+                "typography_typography": "custom",
+                "typography_font_family": "Playfair Display",
+                "typography_font_size": { "unit": "px", "size": 42, "sizes": [] },
+                "typography_font_weight": "500",
+                "typography_line_height": { "unit": "em", "size": 1.2, "sizes": [] }
+              },
+              "elements": [],
+              "isInner": false
+            },
+            {
+              "id": "h1w0013",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p>We represent a deliberately small portfolio, giving every residence the attention, photography and narrative it deserves — and every client the confidentiality they expect.</p>",
+                "text_color": "#343635",
+                "typography_typography": "custom",
+                "typography_font_family": "Jost",
+                "typography_font_size": { "unit": "px", "size": 17, "sizes": [] },
+                "typography_font_weight": "300"
+              },
+              "elements": [],
+              "isInner": false
+            },
+            {
+              "id": "h1w0014",
+              "elType": "widget",
+              "widgetType": "icon-list",
+              "settings": {
+                "icon_list": [
+                  { "text": "Off-market access to private listings", "selected_icon": { "value": "fas fa-check", "library": "fa-solid" }, "_id": "hl001" },
+                  { "text": "White-glove negotiation & closing", "selected_icon": { "value": "fas fa-check", "library": "fa-solid" }, "_id": "hl002" },
+                  { "text": "Discretion as a professional standard", "selected_icon": { "value": "fas fa-check", "library": "fa-solid" }, "_id": "hl003" }
+                ],
+                "space_between": { "unit": "px", "size": 14, "sizes": [] },
+                "icon_color": "#E7A45E",
+                "text_color": "#343635",
+                "icon_typography_typography": "custom",
+                "icon_typography_font_family": "Jost",
+                "icon_typography_font_size": { "unit": "px", "size": 16, "sizes": [] }
+              },
+              "elements": [],
+              "isInner": false
+            },
+            {
+              "id": "h1w0015",
+              "elType": "widget",
+              "widgetType": "button",
+              "settings": {
+                "text": "Our Story",
+                "link": { "url": "/about", "is_external": "", "nofollow": "", "custom_attributes": "" },
+                "button_text_color": "#080909",
+                "background_color": "#E7A45E",
+                "hover_color": "#080909",
+                "button_background_hover_color": "#FFFFFF",
+                "text_padding": { "unit": "px", "top": "18", "right": "42", "bottom": "18", "left": "42", "isLinked": false },
+                "typography_typography": "custom",
+                "typography_font_family": "Jost",
+                "typography_font_size": { "unit": "px", "size": 13, "sizes": [] },
+                "typography_font_weight": "500",
+                "typography_text_transform": "uppercase",
+                "typography_letter_spacing": { "unit": "px", "size": 2, "sizes": [] }
+              },
+              "elements": [],
+              "isInner": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "h1s0005",
+      "elType": "section",
+      "isInner": false,
+      "settings": {
+        "layout": "boxed",
+        "gap": "default",
+        "structure": "10",
+        "background_background": "classic",
+        "background_color": "#F7F6F2",
+        "padding": { "unit": "px", "top": "110", "right": "20", "bottom": "30", "left": "20", "isLinked": false }
+      },
+      "elements": [
+        {
+          "id": "h1c0010",
+          "elType": "column",
+          "isInner": false,
+          "settings": { "_column_size": 100, "_inline_size": null, "align": "center" },
+          "elements": [
+            {
+              "id": "h1w0016",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "Hand-Picked",
+                "header_size": "h6",
+                "align": "center",
+                "title_color": "#E7A45E",
+                "typography_typography": "custom",
+                "typography_font_family": "Jost",
+                "typography_font_size": { "unit": "px", "size": 13, "sizes": [] },
+                "typography_font_weight": "500",
+                "typography_text_transform": "uppercase",
+                "typography_letter_spacing": { "unit": "px", "size": 5, "sizes": [] }
+              },
+              "elements": [],
+              "isInner": false
+            },
+            {
+              "id": "h1w0017",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "Featured Residences",
+                "header_size": "h2",
+                "align": "center",
+                "title_color": "#080909",
+                "typography_typography": "custom",
+                "typography_font_family": "Playfair Display",
+                "typography_font_size": { "unit": "px", "size": 42, "sizes": [] },
+                "typography_font_weight": "500"
+              },
+              "elements": [],
+              "isInner": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "h1s0006",
+      "elType": "section",
+      "isInner": false,
+      "settings": {
+        "layout": "boxed",
+        "gap": "extended",
+        "structure": "30",
+        "background_background": "classic",
+        "background_color": "#F7F6F2",
+        "padding": { "unit": "px", "top": "0", "right": "20", "bottom": "110", "left": "20", "isLinked": false }
+      },
+      "elements": [
+        {
+          "id": "h1c0011",
+          "elType": "column",
+          "isInner": false,
+          "settings": { "_column_size": 33, "_inline_size": null },
+          "elements": [
+            {
+              "id": "h1w0018",
+              "elType": "widget",
+              "widgetType": "image-box",
+              "settings": {
+                "image": { "url": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=900&q=80", "id": "" },
+                "title_text": "Hillside Modern Villa — Los Angeles",
+                "description_text": "6 bed · 8 bath · 12,400 sq ft · $12,500,000",
+                "position": "top",
+                "title_color": "#080909",
+                "description_color": "#343635",
+                "title_typography_typography": "custom",
+                "title_typography_font_family": "Playfair Display",
+                "title_typography_font_size": { "unit": "px", "size": 23, "sizes": [] },
+                "title_typography_font_weight": "500",
+                "description_typography_typography": "custom",
+                "description_typography_font_family": "Jost",
+                "description_typography_font_size": { "unit": "px", "size": 14, "sizes": [] },
+                "link": { "url": "/properties", "is_external": "", "nofollow": "" }
+              },
+              "elements": [],
+              "isInner": false
+            }
+          ]
+        },
+        {
+          "id": "h1c0012",
+          "elType": "column",
+          "isInner": false,
+          "settings": { "_column_size": 33, "_inline_size": null },
+          "elements": [
+            {
+              "id": "h1w0019",
+              "elType": "widget",
+              "widgetType": "image-box",
+              "settings": {
+                "image": { "url": "https://images.unsplash.com/photo-1613490443576-7f14bdd1f5cd?auto=format&fit=crop&w=900&q=80", "id": "" },
+                "title_text": "Mayfair Penthouse — London",
+                "description_text": "4 bed · 5 bath · 4,800 sq ft · £8,200,000",
+                "position": "top",
+                "title_color": "#080909",
+                "description_color": "#343635",
+                "title_typography_typography": "custom",
+                "title_typography_font_family": "Playfair Display",
+                "title_typography_font_size": { "unit": "px", "size": 23, "sizes": [] },
+                "title_typography_font_weight": "500",
+                "description_typography_typography": "custom",
+                "description_typography_font_family": "Jost",
+                "description_typography_font_size": { "unit": "px", "size": 14, "sizes": [] },
+                "link": { "url": "/properties", "is_external": "", "nofollow": "" }
+              },
+              "elements": [],
+              "isInner": false
+            }
+          ]
+        },
+        {
+          "id": "h1c0013",
+          "elType": "column",
+          "isInner": false,
+          "settings": { "_column_size": 33, "_inline_size": null },
+          "elements": [
+            {
+              "id": "h1w0020",
+              "elType": "widget",
+              "widgetType": "image-box",
+              "settings": {
+                "image": { "url": "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=900&q=80", "id": "" },
+                "title_text": "Sea Front Estate — Dubai",
+                "description_text": "7 bed · 9 bath · 16,000 sq ft · $21,000,000",
+                "position": "top",
+                "title_color": "#080909",
+                "description_color": "#343635",
+                "title_typography_typography": "custom",
+                "title_typography_font_family": "Playfair Display",
+                "title_typography_font_size": { "unit": "px", "size": 23, "sizes": [] },
+                "title_typography_font_weight": "500",
+                "description_typography_typography": "custom",
+                "description_typography_font_family": "Jost",
+                "description_typography_font_size": { "unit": "px", "size": 14, "sizes": [] },
+                "link": { "url": "/properties", "is_external": "", "nofollow": "" }
+              },
+              "elements": [],
+              "isInner": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "h1s0007",
+      "elType": "section",
+      "isInner": false,
+      "settings": {
+        "layout": "boxed",
+        "gap": "default",
+        "structure": "10",
+        "background_background": "classic",
+        "background_color": "#FFFFFF",
+        "padding": { "unit": "px", "top": "110", "right": "20", "bottom": "30", "left": "20", "isLinked": false }
+      },
+      "elements": [
+        {
+          "id": "h1c0014",
+          "elType": "column",
+          "isInner": false,
+          "settings": { "_column_size": 100, "_inline_size": null, "align": "center" },
+          "elements": [
+            {
+              "id": "h1w0021",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "What We Do",
+                "header_size": "h6",
+                "align": "center",
+                "title_color": "#E7A45E",
+                "typography_typography": "custom",
+                "typography_font_family": "Jost",
+                "typography_font_size": { "unit": "px", "size": 13, "sizes": [] },
+                "typography_font_weight": "500",
+                "typography_text_transform": "uppercase",
+                "typography_letter_spacing": { "unit": "px", "size": 5, "sizes": [] }
+              },
+              "elements": [],
+              "isInner": false
+            },
+            {
+              "id": "h1w0022",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "A Service Beyond the Sale",
+                "header_size": "h2",
+                "align": "center",
+                "title_color": "#080909",
+                "typography_typography": "custom",
+                "typography_font_family": "Playfair Display",
+                "typography_font_size": { "unit": "px", "size": 42, "sizes": [] },
+                "typography_font_weight": "500"
+              },
+              "elements": [],
+              "isInner": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "h1s0008",
+      "elType": "section",
+      "isInner": false,
+      "settings": {
+        "layout": "boxed",
+        "gap": "extended",
+        "structure": "30",
+        "background_background": "classic",
+        "background_color": "#FFFFFF",
+        "padding": { "unit": "px", "top": "0", "right": "20", "bottom": "110", "left": "20", "isLinked": false }
+      },
+      "elements": [
+        {
+          "id": "h1c0015",
+          "elType": "column",
+          "isInner": false,
+          "settings": { "_column_size": 33, "_inline_size": null, "align": "center" },
+          "elements": [
+            {
+              "id": "h1w0023",
+              "elType": "widget",
+              "widgetType": "icon-box",
+              "settings": {
+                "title_text": "Private Acquisition",
+                "description_text": "Off-market sourcing and quiet representation for principals acquiring primary residences, pied-à-terres and legacy estates.",
+                "position": "top",
+                "selected_icon": { "value": "fas fa-gem", "library": "fa-solid" },
+                "primary_color": "#E7A45E",
+                "title_color": "#080909",
+                "description_color": "#343635",
+                "title_typography_typography": "custom",
+                "title_typography_font_family": "Playfair Display",
+                "title_typography_font_size": { "unit": "px", "size": 24, "sizes": [] },
+                "description_typography_typography": "custom",
+                "description_typography_font_family": "Jost",
+                "description_typography_font_size": { "unit": "px", "size": 16, "sizes": [] }
+              },
+              "elements": [],
+              "isInner": false
+            }
+          ]
+        },
+        {
+          "id": "h1c0016",
+          "elType": "column",
+          "isInner": false,
+          "settings": { "_column_size": 33, "_inline_size": null, "align": "center" },
+          "elements": [
+            {
+              "id": "h1w0024",
+              "elType": "widget",
+              "widgetType": "icon-box",
+              "settings": {
+                "title_text": "Investment Advisory",
+                "description_text": "Portfolio-level analysis across prime markets — yield, currency and timing — delivered with institutional rigor.",
+                "position": "top",
+                "selected_icon": { "value": "fas fa-chart-line", "library": "fa-solid" },
+                "primary_color": "#E7A45E",
+                "title_color": "#080909",
+                "description_color": "#343635",
+                "title_typography_typography": "custom",
+                "title_typography_font_family": "Playfair Display",
+                "title_typography_font_size": { "unit": "px", "size": 24, "sizes": [] },
+                "description_typography_typography": "custom",
+                "description_typography_font_family": "Jost",
+                "description_typography_font_size": { "unit": "px", "size": 16, "sizes": [] }
+              },
+              "elements": [],
+              "isInner": false
+            }
+          ]
+        },
+        {
+          "id": "h1c0017",
+          "elType": "column",
+          "isInner": false,
+          "settings": { "_column_size": 33, "_inline_size": null, "align": "center" },
+          "elements": [
+            {
+              "id": "h1w0025",
+              "elType": "widget",
+              "widgetType": "icon-box",
+              "settings": {
+                "title_text": "Estate Management",
+                "description_text": "Continuous stewardship of your property: staffing, maintenance, security and seasonal readiness, handled invisibly.",
+                "position": "top",
+                "selected_icon": { "value": "fas fa-key", "library": "fa-solid" },
+                "primary_color": "#E7A45E",
+                "title_color": "#080909",
+                "description_color": "#343635",
+                "title_typography_typography": "custom",
+                "title_typography_font_family": "Playfair Display",
+                "title_typography_font_size": { "unit": "px", "size": 24, "sizes": [] },
+                "description_typography_typography": "custom",
+                "description_typography_font_family": "Jost",
+                "description_typography_font_size": { "unit": "px", "size": 16, "sizes": [] }
+              },
+              "elements": [],
+              "isInner": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "h1s0009",
+      "elType": "section",
+      "isInner": false,
+      "settings": {
+        "layout": "boxed",
+        "gap": "default",
+        "structure": "10",
+        "background_background": "classic",
+        "background_color": "#080909",
+        "padding": { "unit": "px", "top": "120", "right": "20", "bottom": "120", "left": "20", "isLinked": false }
+      },
+      "elements": [
+        {
+          "id": "h1c0018",
+          "elType": "column",
+          "isInner": false,
+          "settings": { "_column_size": 100, "_inline_size": null, "align": "center", "content_position": "center" },
+          "elements": [
+            {
+              "id": "h1w0026",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "Client Words",
+                "header_size": "h6",
+                "align": "center",
+                "title_color": "#E7A45E",
+                "typography_typography": "custom",
+                "typography_font_family": "Jost",
+                "typography_font_size": { "unit": "px", "size": 13, "sizes": [] },
+                "typography_font_weight": "500",
+                "typography_text_transform": "uppercase",
+                "typography_letter_spacing": { "unit": "px", "size": 5, "sizes": [] }
+              },
+              "elements": [],
+              "isInner": false
+            },
+            {
+              "id": "h1w0027",
+              "elType": "widget",
+              "widgetType": "testimonial",
+              "settings": {
+                "testimonial_content": "Houseen understood that we were not buying a house; we were choosing the stage for the next thirty years of our lives. Discreet, exacting, and simply excellent.",
+                "testimonial_name": "Alexander & Marie Whitmore",
+                "testimonial_job": "London",
+                "testimonial_alignment": "center",
+                "testimonial_image": { "url": "", "id": "" },
+                "content_content_color": "#F7F6F2",
+                "content_content_typography_typography": "custom",
+                "content_content_typography_font_family": "Playfair Display",
+                "content_content_typography_font_size": { "unit": "px", "size": 27, "sizes": [] },
+                "content_content_typography_font_style": "italic",
+                "name_text_color": "#E7A45E",
+                "name_text_typography_typography": "custom",
+                "name_text_typography_font_family": "Jost",
+                "name_text_typography_font_size": { "unit": "px", "size": 13, "sizes": [] },
+                "name_text_typography_text_transform": "uppercase",
+                "name_text_typography_letter_spacing": { "unit": "px", "size": 2, "sizes": [] },
+                "job_text_color": "#F7F6F2",
+                "job_text_typography_typography": "custom",
+                "job_text_typography_font_family": "Jost",
+                "job_text_typography_font_size": { "unit": "px", "size": 14, "sizes": [] }
+              },
+              "elements": [],
+              "isInner": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "h1s0010",
+      "elType": "section",
+      "isInner": false,
+      "settings": {
+        "layout": "boxed",
+        "gap": "default",
+        "structure": "10",
+        "background_background": "classic",
+        "background_color": "#D9D5CE",
+        "padding": { "unit": "px", "top": "100", "right": "20", "bottom": "100", "left": "20", "isLinked": false }
+      },
+      "elements": [
+        {
+          "id": "h1c0019",
+          "elType": "column",
+          "isInner": false,
+          "settings": { "_column_size": 100, "_inline_size": null, "align": "center" },
+          "elements": [
+            {
+              "id": "h1w0028",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "Begin the Conversation",
+                "header_size": "h2",
+                "align": "center",
+                "title_color": "#080909",
+                "typography_typography": "custom",
+                "typography_font_family": "Playfair Display",
+                "typography_font_size": { "unit": "px", "size": 40, "sizes": [] },
+                "typography_font_weight": "500"
+              },
+              "elements": [],
+              "isInner": false
+            },
+            {
+              "id": "h1w0029",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p>A private consultation is the first step. Tell us what home means to you.</p>",
+                "align": "center",
+                "text_color": "#343635",
+                "typography_typography": "custom",
+                "typography_font_family": "Jost",
+                "typography_font_size": { "unit": "px", "size": 17, "sizes": [] }
+              },
+              "elements": [],
+              "isInner": false
+            },
+            {
+              "id": "h1w0030",
+              "elType": "widget",
+              "widgetType": "button",
+              "settings": {
+                "text": "Contact Housen",
+                "link": { "url": "/contact", "is_external": "", "nofollow": "", "custom_attributes": "" },
+                "align": "center",
+                "button_text_color": "#080909",
+                "background_color": "#E7A45E",
+                "hover_color": "#080909",
+                "button_background_hover_color": "#FFFFFF",
+                "text_padding": { "unit": "px", "top": "18", "right": "42", "bottom": "18", "left": "42", "isLinked": false },
+                "typography_typography": "custom",
+                "typography_font_family": "Jost",
+                "typography_font_size": { "unit": "px", "size": 13, "sizes": [] },
+                "typography_font_weight": "500",
+                "typography_text_transform": "uppercase",
+                "typography_letter_spacing": { "unit": "px", "size": 2, "sizes": [] }
+              },
+              "elements": [],
+              "isInner": false
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

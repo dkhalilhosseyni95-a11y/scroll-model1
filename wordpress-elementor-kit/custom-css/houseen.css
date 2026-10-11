@@ -1,0 +1,55 @@
+/* ============================================================
+   HOUSEN — Elementor custom CSS
+   Paste into: Elementor → Site Settings → Custom CSS
+   (also embedded in kit/houseen-kit.json)
+   ============================================================ */
+
+/* Buttons: quiet easing, tracking opens on hover */
+.elementor-widget-button .elementor-button {
+  transition: all .35s ease;
+}
+.elementor-widget-button .elementor-button:hover {
+  letter-spacing: 2.5px;
+}
+
+/* Headings: tighten display type slightly */
+.elementor-widget-heading .elementor-heading-title {
+  letter-spacing: -0.01em;
+}
+
+/* Eyebrow-style H6 headings */
+h6.elementor-heading-title {
+  letter-spacing: 3px;
+}
+
+/* Image boxes: left-aligned editorial cards */
+.elementor-widget-image-box .elementor-image-box-wrapper {
+  text-align: left;
+}
+.elementor-widget-image-box .elementor-image-box-content {
+  padding-top: 18px;
+}
+
+/* Icon boxes: breathing room under the icon */
+.elementor-widget-icon-box .elementor-icon-box-icon {
+  margin-bottom: 18px;
+}
+
+/* Counters: serif numbers */
+.elementor-widget-counter .elementor-counter-number-wrapper {
+  font-family: 'Playfair Display', serif;
+  font-size: 52px;
+  font-weight: 500;
+  line-height: 1.1;
+}
+
+/* Image boxes / cards: 24px editorial radius */
+.elementor-widget-image-box .elementor-image-box-wrapper {
+  border-radius: 24px;
+  overflow: hidden;
+}
+
+/* Boxed content width */
+.elementor-section.elementor-section-boxed > .elementor-container {
+  max-width: 1200px;
+}

@@ -1,0 +1,519 @@
+{
+  "version": "0.4",
+  "title": "HOUSEN — About",
+  "type": "page",
+  "page_settings": {
+    "template": "elementor_header_footer",
+    "hide_title": "yes"
+  },
+  "content": [
+    {
+      "id": "has0001",
+      "elType": "section",
+      "isInner": false,
+      "settings": {
+        "layout": "full_width",
+        "gap": "no",
+        "structure": "10",
+        "background_background": "classic",
+        "background_color": "#080909",
+        "padding": { "unit": "px", "top": "150", "right": "40", "bottom": "90", "left": "40", "isLinked": false }
+      },
+      "elements": [
+        {
+          "id": "hac0001",
+          "elType": "column",
+          "isInner": false,
+          "settings": { "_column_size": 100, "_inline_size": null, "align": "center" },
+          "elements": [
+            {
+              "id": "haw0001",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "Our Story",
+                "header_size": "h1",
+                "align": "center",
+                "title_color": "#FFFFFF",
+                "typography_typography": "custom",
+                "typography_font_family": "Playfair Display",
+                "typography_font_size": { "unit": "px", "size": 56, "sizes": [] },
+                "typography_font_weight": "500"
+              },
+              "elements": [],
+              "isInner": false
+            },
+            {
+              "id": "haw0002",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p>Eighteen years, three continents, one standard.</p>",
+                "align": "center",
+                "text_color": "#E7A45E",
+                "typography_typography": "custom",
+                "typography_font_family": "Jost",
+                "typography_font_size": { "unit": "px", "size": 14, "sizes": [] },
+                "typography_text_transform": "uppercase",
+                "typography_letter_spacing": { "unit": "px", "size": 3, "sizes": [] }
+              },
+              "elements": [],
+              "isInner": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "has0002",
+      "elType": "section",
+      "isInner": false,
+      "settings": {
+        "layout": "boxed",
+        "gap": "extended",
+        "structure": "20",
+        "background_background": "classic",
+        "background_color": "#FFFFFF",
+        "padding": { "unit": "px", "top": "120", "right": "20", "bottom": "120", "left": "20", "isLinked": false }
+      },
+      "elements": [
+        {
+          "id": "hac0002",
+          "elType": "column",
+          "isInner": false,
+          "settings": { "_column_size": 50, "_inline_size": null },
+          "elements": [
+            {
+              "id": "haw0003",
+              "elType": "widget",
+              "widgetType": "image",
+              "settings": {
+                "image": { "url": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80", "id": "" },
+                "image_size": "full",
+                "image_border_radius": { "unit": "px", "top": "24", "right": "24", "bottom": "24", "left": "24", "isLinked": true }
+              },
+              "elements": [],
+              "isInner": false
+            }
+          ]
+        },
+        {
+          "id": "hac0003",
+          "elType": "column",
+          "isInner": false,
+          "settings": { "_column_size": 50, "_inline_size": null },
+          "elements": [
+            {
+              "id": "haw0004",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "Founded on restraint.",
+                "header_size": "h2",
+                "title_color": "#080909",
+                "typography_typography": "custom",
+                "typography_font_family": "Playfair Display",
+                "typography_font_size": { "unit": "px", "size": 40, "sizes": [] },
+                "typography_font_weight": "500"
+              },
+              "elements": [],
+              "isInner": false
+            },
+            {
+              "id": "haw0005",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p>Houseen was founded on a simple observation: exceptional homes are sold quietly, by people who understand them. We never chase volume. A property earns its place in our portfolio through architecture, provenance and potential — nothing else.</p><p>Our clients are founders, families and collectors across three continents. They return, and they refer. That is the entire business plan.</p>",
+                "text_color": "#343635",
+                "typography_typography": "custom",
+                "typography_font_family": "Jost",
+                "typography_font_size": { "unit": "px", "size": 17, "sizes": [] }
+              },
+              "elements": [],
+              "isInner": false
+            },
+            {
+              "id": "haw0006",
+              "elType": "widget",
+              "widgetType": "button",
+              "settings": {
+                "text": "Meet the Team",
+                "link": { "url": "/agents", "is_external": "", "nofollow": "", "custom_attributes": "" },
+                "button_text_color": "#080909",
+                "background_color": "#E7A45E",
+                "hover_color": "#080909",
+                "button_background_hover_color": "#FFFFFF",
+                "text_padding": { "unit": "px", "top": "18", "right": "42", "bottom": "18", "left": "42", "isLinked": false },
+                "typography_typography": "custom",
+                "typography_font_family": "Jost",
+                "typography_font_size": { "unit": "px", "size": 13, "sizes": [] },
+                "typography_font_weight": "500",
+                "typography_text_transform": "uppercase",
+                "typography_letter_spacing": { "unit": "px", "size": 2, "sizes": [] }
+              },
+              "elements": [],
+              "isInner": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "has0003",
+      "elType": "section",
+      "isInner": false,
+      "settings": {
+        "layout": "boxed",
+        "gap": "default",
+        "structure": "10",
+        "background_background": "classic",
+        "background_color": "#F7F6F2",
+        "padding": { "unit": "px", "top": "100", "right": "20", "bottom": "30", "left": "20", "isLinked": false }
+      },
+      "elements": [
+        {
+          "id": "hac0004",
+          "elType": "column",
+          "isInner": false,
+          "settings": { "_column_size": 100, "_inline_size": null, "align": "center" },
+          "elements": [
+            {
+              "id": "haw0007",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "What We Stand For",
+                "header_size": "h2",
+                "align": "center",
+                "title_color": "#080909",
+                "typography_typography": "custom",
+                "typography_font_family": "Playfair Display",
+                "typography_font_size": { "unit": "px", "size": 40, "sizes": [] },
+                "typography_font_weight": "500"
+              },
+              "elements": [],
+              "isInner": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "has0004",
+      "elType": "section",
+      "isInner": false,
+      "settings": {
+        "layout": "boxed",
+        "gap": "extended",
+        "structure": "30",
+        "background_background": "classic",
+        "background_color": "#F7F6F2",
+        "padding": { "unit": "px", "top": "0", "right": "20", "bottom": "110", "left": "20", "isLinked": false }
+      },
+      "elements": [
+        {
+          "id": "hac0005",
+          "elType": "column",
+          "isInner": false,
+          "settings": { "_column_size": 33, "_inline_size": null, "align": "center" },
+          "elements": [
+            {
+              "id": "haw0008",
+              "elType": "widget",
+              "widgetType": "icon-box",
+              "settings": {
+                "title_text": "Discretion",
+                "description_text": "Most of our work is never public. Confidentiality is the first line of every engagement, not a premium tier.",
+                "position": "top",
+                "selected_icon": { "value": "fas fa-user-shield", "library": "fa-solid" },
+                "primary_color": "#E7A45E",
+                "title_color": "#080909",
+                "description_color": "#343635",
+                "title_typography_typography": "custom",
+                "title_typography_font_family": "Playfair Display",
+                "title_typography_font_size": { "unit": "px", "size": 24, "sizes": [] },
+                "description_typography_typography": "custom",
+                "description_typography_font_family": "Jost",
+                "description_typography_font_size": { "unit": "px", "size": 16, "sizes": [] }
+              },
+              "elements": [],
+              "isInner": false
+            }
+          ]
+        },
+        {
+          "id": "hac0006",
+          "elType": "column",
+          "isInner": false,
+          "settings": { "_column_size": 33, "_inline_size": null, "align": "center" },
+          "elements": [
+            {
+              "id": "haw0009",
+              "elType": "widget",
+              "widgetType": "icon-box",
+              "settings": {
+                "title_text": "Craft",
+                "description_text": "Editorial photography, architectural literacy and honest narrative — every listing is a document worth keeping.",
+                "position": "top",
+                "selected_icon": { "value": "fas fa-pen-nib", "library": "fa-solid" },
+                "primary_color": "#E7A45E",
+                "title_color": "#080909",
+                "description_color": "#343635",
+                "title_typography_typography": "custom",
+                "title_typography_font_family": "Playfair Display",
+                "title_typography_font_size": { "unit": "px", "size": 24, "sizes": [] },
+                "description_typography_typography": "custom",
+                "description_typography_font_family": "Jost",
+                "description_typography_font_size": { "unit": "px", "size": 16, "sizes": [] }
+              },
+              "elements": [],
+              "isInner": false
+            }
+          ]
+        },
+        {
+          "id": "hac0007",
+          "elType": "column",
+          "isInner": false,
+          "settings": { "_column_size": 33, "_inline_size": null, "align": "center" },
+          "elements": [
+            {
+              "id": "haw0010",
+              "elType": "widget",
+              "widgetType": "icon-box",
+              "settings": {
+                "title_text": "Fidelity",
+                "description_text": "We advise against purchases more often than we advise for them. Ninety-six percent of our clients return.",
+                "position": "top",
+                "selected_icon": { "value": "fas fa-handshake", "library": "fa-solid" },
+                "primary_color": "#E7A45E",
+                "title_color": "#080909",
+                "description_color": "#343635",
+                "title_typography_typography": "custom",
+                "title_typography_font_family": "Playfair Display",
+                "title_typography_font_size": { "unit": "px", "size": 24, "sizes": [] },
+                "description_typography_typography": "custom",
+                "description_typography_font_family": "Jost",
+                "description_typography_font_size": { "unit": "px", "size": 16, "sizes": [] }
+              },
+              "elements": [],
+              "isInner": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "has0005",
+      "elType": "section",
+      "isInner": false,
+      "settings": {
+        "layout": "boxed",
+        "gap": "default",
+        "structure": "10",
+        "background_background": "classic",
+        "background_color": "#FFFFFF",
+        "padding": { "unit": "px", "top": "100", "right": "20", "bottom": "30", "left": "20", "isLinked": false }
+      },
+      "elements": [
+        {
+          "id": "hac0008",
+          "elType": "column",
+          "isInner": false,
+          "settings": { "_column_size": 100, "_inline_size": null, "align": "center" },
+          "elements": [
+            {
+              "id": "haw0011",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "The People",
+                "header_size": "h2",
+                "align": "center",
+                "title_color": "#080909",
+                "typography_typography": "custom",
+                "typography_font_family": "Playfair Display",
+                "typography_font_size": { "unit": "px", "size": 40, "sizes": [] },
+                "typography_font_weight": "500"
+              },
+              "elements": [],
+              "isInner": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "has0006",
+      "elType": "section",
+      "isInner": false,
+      "settings": {
+        "layout": "boxed",
+        "gap": "extended",
+        "structure": "30",
+        "background_background": "classic",
+        "background_color": "#FFFFFF",
+        "padding": { "unit": "px", "top": "0", "right": "20", "bottom": "110", "left": "20", "isLinked": false }
+      },
+      "elements": [
+        {
+          "id": "hac0009",
+          "elType": "column",
+          "isInner": false,
+          "settings": { "_column_size": 33, "_inline_size": null, "align": "center" },
+          "elements": [
+            {
+              "id": "haw0012",
+              "elType": "widget",
+              "widgetType": "image-box",
+              "settings": {
+                "image": { "url": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=700&q=80", "id": "" },
+                "title_text": "Sofia Marchetti",
+                "description_text": "Head of Private Sales",
+                "position": "top",
+                "title_color": "#080909",
+                "description_color": "#E7A45E",
+                "title_typography_typography": "custom",
+                "title_typography_font_family": "Playfair Display",
+                "title_typography_font_size": { "unit": "px", "size": 24, "sizes": [] },
+                "description_typography_typography": "custom",
+                "description_typography_font_family": "Jost",
+                "description_typography_font_size": { "unit": "px", "size": 14, "sizes": [] },
+                "description_typography_text_transform": "uppercase",
+                "description_typography_letter_spacing": { "unit": "px", "size": 2, "sizes": [] }
+              },
+              "elements": [],
+              "isInner": false
+            }
+          ]
+        },
+        {
+          "id": "hac0010",
+          "elType": "column",
+          "isInner": false,
+          "settings": { "_column_size": 33, "_inline_size": null, "align": "center" },
+          "elements": [
+            {
+              "id": "haw0013",
+              "elType": "widget",
+              "widgetType": "image-box",
+              "settings": {
+                "image": { "url": "https://images.unsplash.com/photo-1507003211169-0a2dd7228f2d?auto=format&fit=crop&w=700&q=80", "id": "" },
+                "title_text": "James Okafor",
+                "description_text": "Director of Valuation",
+                "position": "top",
+                "title_color": "#080909",
+                "description_color": "#E7A45E",
+                "title_typography_typography": "custom",
+                "title_typography_font_family": "Playfair Display",
+                "title_typography_font_size": { "unit": "px", "size": 24, "sizes": [] },
+                "description_typography_typography": "custom",
+                "description_typography_font_family": "Jost",
+                "description_typography_font_size": { "unit": "px", "size": 14, "sizes": [] },
+                "description_typography_text_transform": "uppercase",
+                "description_typography_letter_spacing": { "unit": "px", "size": 2, "sizes": [] }
+              },
+              "elements": [],
+              "isInner": false
+            }
+          ]
+        },
+        {
+          "id": "hac0011",
+          "elType": "column",
+          "isInner": false,
+          "settings": { "_column_size": 33, "_inline_size": null, "align": "center" },
+          "elements": [
+            {
+              "id": "haw0014",
+              "elType": "widget",
+              "widgetType": "image-box",
+              "settings": {
+                "image": { "url": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=700&q=80", "id": "" },
+                "title_text": "Layla Rahimi",
+                "description_text": "Client Advisory",
+                "position": "top",
+                "title_color": "#080909",
+                "description_color": "#E7A45E",
+                "title_typography_typography": "custom",
+                "title_typography_font_family": "Playfair Display",
+                "title_typography_font_size": { "unit": "px", "size": 24, "sizes": [] },
+                "description_typography_typography": "custom",
+                "description_typography_font_family": "Jost",
+                "description_typography_font_size": { "unit": "px", "size": 14, "sizes": [] },
+                "description_typography_text_transform": "uppercase",
+                "description_typography_letter_spacing": { "unit": "px", "size": 2, "sizes": [] }
+              },
+              "elements": [],
+              "isInner": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "has0007",
+      "elType": "section",
+      "isInner": false,
+      "settings": {
+        "layout": "boxed",
+        "gap": "default",
+        "structure": "10",
+        "background_background": "classic",
+        "background_color": "#080909",
+        "padding": { "unit": "px", "top": "100", "right": "20", "bottom": "100", "left": "20", "isLinked": false }
+      },
+      "elements": [
+        {
+          "id": "hac0012",
+          "elType": "column",
+          "isInner": false,
+          "settings": { "_column_size": 100, "_inline_size": null, "align": "center" },
+          "elements": [
+            {
+              "id": "haw0015",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "Let's find your next chapter.",
+                "header_size": "h2",
+                "align": "center",
+                "title_color": "#FFFFFF",
+                "typography_typography": "custom",
+                "typography_font_family": "Playfair Display",
+                "typography_font_size": { "unit": "px", "size": 40, "sizes": [] },
+                "typography_font_weight": "500"
+              },
+              "elements": [],
+              "isInner": false
+            },
+            {
+              "id": "haw0016",
+              "elType": "widget",
+              "widgetType": "button",
+              "settings": {
+                "text": "Start a Conversation",
+                "link": { "url": "/contact", "is_external": "", "nofollow": "", "custom_attributes": "" },
+                "align": "center",
+                "button_text_color": "#080909",
+                "background_color": "#E7A45E",
+                "hover_color": "#080909",
+                "button_background_hover_color": "#FFFFFF",
+                "text_padding": { "unit": "px", "top": "18", "right": "42", "bottom": "18", "left": "42", "isLinked": false },
+                "typography_typography": "custom",
+                "typography_font_family": "Jost",
+                "typography_font_size": { "unit": "px", "size": 13, "sizes": [] },
+                "typography_font_weight": "500",
+                "typography_text_transform": "uppercase",
+                "typography_letter_spacing": { "unit": "px", "size": 2, "sizes": [] }
+              },
+              "elements": [],
+              "isInner": false
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

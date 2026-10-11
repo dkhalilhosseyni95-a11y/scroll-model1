@@ -1,0 +1,339 @@
+{
+  "version": "0.4",
+  "title": "HOUSEN — Properties",
+  "type": "page",
+  "page_settings": {
+    "template": "elementor_header_footer",
+    "hide_title": "yes"
+  },
+  "content": [
+    {
+      "id": "hps0001",
+      "elType": "section",
+      "isInner": false,
+      "settings": {
+        "layout": "full_width",
+        "gap": "no",
+        "structure": "10",
+        "background_background": "classic",
+        "background_color": "#080909",
+        "padding": { "unit": "px", "top": "150", "right": "40", "bottom": "90", "left": "40", "isLinked": false }
+      },
+      "elements": [
+        {
+          "id": "hpc0001",
+          "elType": "column",
+          "isInner": false,
+          "settings": { "_column_size": 100, "_inline_size": null, "align": "center" },
+          "elements": [
+            {
+              "id": "hpw0001",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "The Collection",
+                "header_size": "h1",
+                "align": "center",
+                "title_color": "#FFFFFF",
+                "typography_typography": "custom",
+                "typography_font_family": "Playfair Display",
+                "typography_font_size": { "unit": "px", "size": 56, "sizes": [] },
+                "typography_font_weight": "500"
+              },
+              "elements": [],
+              "isInner": false
+            },
+            {
+              "id": "hpw0002",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p>A deliberately small portfolio of exceptional residences — each vetted, photographed and narrated by our team.</p>",
+                "align": "center",
+                "text_color": "#F7F6F2",
+                "typography_typography": "custom",
+                "typography_font_family": "Jost",
+                "typography_font_size": { "unit": "px", "size": 17, "sizes": [] }
+              },
+              "elements": [],
+              "isInner": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hps0002",
+      "elType": "section",
+      "isInner": false,
+      "settings": {
+        "layout": "boxed",
+        "gap": "extended",
+        "structure": "30",
+        "background_background": "classic",
+        "background_color": "#F7F6F2",
+        "padding": { "unit": "px", "top": "100", "right": "20", "bottom": "30", "left": "20", "isLinked": false }
+      },
+      "elements": [
+        {
+          "id": "hpc0002",
+          "elType": "column",
+          "isInner": false,
+          "settings": { "_column_size": 33, "_inline_size": null },
+          "elements": [
+            {
+              "id": "hpw0003",
+              "elType": "widget",
+              "widgetType": "image-box",
+              "settings": {
+                "image": { "url": "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=900&q=80", "id": "" },
+                "title_text": "Hillside Modern Villa — Los Angeles",
+                "description_text": "6 bed · 8 bath · 12,400 sq ft · $12,500,000",
+                "position": "top",
+                "title_color": "#080909",
+                "description_color": "#343635",
+                "title_typography_typography": "custom",
+                "title_typography_font_family": "Playfair Display",
+                "title_typography_font_size": { "unit": "px", "size": 23, "sizes": [] },
+                "description_typography_typography": "custom",
+                "description_typography_font_family": "Jost",
+                "description_typography_font_size": { "unit": "px", "size": 14, "sizes": [] },
+                "link": { "url": "/properties/hillside-modern-villa", "is_external": "", "nofollow": "" }
+              },
+              "elements": [],
+              "isInner": false
+            }
+          ]
+        },
+        {
+          "id": "hpc0003",
+          "elType": "column",
+          "isInner": false,
+          "settings": { "_column_size": 33, "_inline_size": null },
+          "elements": [
+            {
+              "id": "hpw0004",
+              "elType": "widget",
+              "widgetType": "image-box",
+              "settings": {
+                "image": { "url": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=900&q=80", "id": "" },
+                "title_text": "Mayfair Penthouse — London",
+                "description_text": "4 bed · 5 bath · 4,800 sq ft · £8,200,000",
+                "position": "top",
+                "title_color": "#080909",
+                "description_color": "#343635",
+                "title_typography_typography": "custom",
+                "title_typography_font_family": "Playfair Display",
+                "title_typography_font_size": { "unit": "px", "size": 23, "sizes": [] },
+                "description_typography_typography": "custom",
+                "description_typography_font_family": "Jost",
+                "description_typography_font_size": { "unit": "px", "size": 14, "sizes": [] },
+                "link": { "url": "/properties/mayfair-penthouse", "is_external": "", "nofollow": "" }
+              },
+              "elements": [],
+              "isInner": false
+            }
+          ]
+        },
+        {
+          "id": "hpc0004",
+          "elType": "column",
+          "isInner": false,
+          "settings": { "_column_size": 33, "_inline_size": null },
+          "elements": [
+            {
+              "id": "hpw0005",
+              "elType": "widget",
+              "widgetType": "image-box",
+              "settings": {
+                "image": { "url": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=900&q=80", "id": "" },
+                "title_text": "Sea Front Estate — Dubai",
+                "description_text": "7 bed · 9 bath · 16,000 sq ft · $21,000,000",
+                "position": "top",
+                "title_color": "#080909",
+                "description_color": "#343635",
+                "title_typography_typography": "custom",
+                "title_typography_font_family": "Playfair Display",
+                "title_typography_font_size": { "unit": "px", "size": 23, "sizes": [] },
+                "description_typography_typography": "custom",
+                "description_typography_font_family": "Jost",
+                "description_typography_font_size": { "unit": "px", "size": 14, "sizes": [] },
+                "link": { "url": "/properties/sea-front-estate", "is_external": "", "nofollow": "" }
+              },
+              "elements": [],
+              "isInner": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hps0003",
+      "elType": "section",
+      "isInner": false,
+      "settings": {
+        "layout": "boxed",
+        "gap": "extended",
+        "structure": "30",
+        "background_background": "classic",
+        "background_color": "#F7F6F2",
+        "padding": { "unit": "px", "top": "30", "right": "20", "bottom": "100", "left": "20", "isLinked": false }
+      },
+      "elements": [
+        {
+          "id": "hpc0005",
+          "elType": "column",
+          "isInner": false,
+          "settings": { "_column_size": 33, "_inline_size": null },
+          "elements": [
+            {
+              "id": "hpw0006",
+              "elType": "widget",
+              "widgetType": "image-box",
+              "settings": {
+                "image": { "url": "https://images.unsplash.com/photo-1613490443576-7f14bdd1f5cd?auto=format&fit=crop&w=900&q=80", "id": "" },
+                "title_text": "Riviera Manor — Nice",
+                "description_text": "5 bed · 6 bath · 7,300 sq ft · €6,900,000",
+                "position": "top",
+                "title_color": "#080909",
+                "description_color": "#343635",
+                "title_typography_typography": "custom",
+                "title_typography_font_family": "Playfair Display",
+                "title_typography_font_size": { "unit": "px", "size": 23, "sizes": [] },
+                "description_typography_typography": "custom",
+                "description_typography_font_family": "Jost",
+                "description_typography_font_size": { "unit": "px", "size": 14, "sizes": [] },
+                "link": { "url": "/properties/riviera-manor", "is_external": "", "nofollow": "" }
+              },
+              "elements": [],
+              "isInner": false
+            }
+          ]
+        },
+        {
+          "id": "hpc0006",
+          "elType": "column",
+          "isInner": false,
+          "settings": { "_column_size": 33, "_inline_size": null },
+          "elements": [
+            {
+              "id": "hpw0007",
+              "elType": "widget",
+              "widgetType": "image-box",
+              "settings": {
+                "image": { "url": "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=900&q=80", "id": "" },
+                "title_text": "Cedar Court Residence — Vancouver",
+                "description_text": "5 bed · 5 bath · 6,100 sq ft · C$5,400,000",
+                "position": "top",
+                "title_color": "#080909",
+                "description_color": "#343635",
+                "title_typography_typography": "custom",
+                "title_typography_font_family": "Playfair Display",
+                "title_typography_font_size": { "unit": "px", "size": 23, "sizes": [] },
+                "description_typography_typography": "custom",
+                "description_typography_font_family": "Jost",
+                "description_typography_font_size": { "unit": "px", "size": 14, "sizes": [] },
+                "link": { "url": "/properties/cedar-court-residence", "is_external": "", "nofollow": "" }
+              },
+              "elements": [],
+              "isInner": false
+            }
+          ]
+        },
+        {
+          "id": "hpc0007",
+          "elType": "column",
+          "isInner": false,
+          "settings": { "_column_size": 33, "_inline_size": null },
+          "elements": [
+            {
+              "id": "hpw0008",
+              "elType": "widget",
+              "widgetType": "image-box",
+              "settings": {
+                "image": { "url": "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=900&q=80", "id": "" },
+                "title_text": "Vineyard Estate — Tuscany",
+                "description_text": "8 bed · 7 bath · 11,200 sq ft · €4,800,000",
+                "position": "top",
+                "title_color": "#080909",
+                "description_color": "#343635",
+                "title_typography_typography": "custom",
+                "title_typography_font_family": "Playfair Display",
+                "title_typography_font_size": { "unit": "px", "size": 23, "sizes": [] },
+                "description_typography_typography": "custom",
+                "description_typography_font_family": "Jost",
+                "description_typography_font_size": { "unit": "px", "size": 14, "sizes": [] },
+                "link": { "url": "/properties/vineyard-estate", "is_external": "", "nofollow": "" }
+              },
+              "elements": [],
+              "isInner": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hps0004",
+      "elType": "section",
+      "isInner": false,
+      "settings": {
+        "layout": "boxed",
+        "gap": "default",
+        "structure": "10",
+        "background_background": "classic",
+        "background_color": "#080909",
+        "padding": { "unit": "px", "top": "100", "right": "20", "bottom": "100", "left": "20", "isLinked": false }
+      },
+      "elements": [
+        {
+          "id": "hpc0008",
+          "elType": "column",
+          "isInner": false,
+          "settings": { "_column_size": 100, "_inline_size": null, "align": "center" },
+          "elements": [
+            {
+              "id": "hpw0009",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "Can't find what you're looking for?",
+                "header_size": "h2",
+                "align": "center",
+                "title_color": "#FFFFFF",
+                "typography_typography": "custom",
+                "typography_font_family": "Playfair Display",
+                "typography_font_size": { "unit": "px", "size": 40, "sizes": [] },
+                "typography_font_weight": "500"
+              },
+              "elements": [],
+              "isInner": false
+            },
+            {
+              "id": "hpw0010",
+              "elType": "widget",
+              "widgetType": "button",
+              "settings": {
+                "text": "Request a Private Search",
+                "link": { "url": "/contact", "is_external": "", "nofollow": "", "custom_attributes": "" },
+                "align": "center",
+                "button_text_color": "#080909",
+                "background_color": "#E7A45E",
+                "hover_color": "#080909",
+                "button_background_hover_color": "#FFFFFF",
+                "text_padding": { "unit": "px", "top": "18", "right": "42", "bottom": "18", "left": "42", "isLinked": false },
+                "typography_typography": "custom",
+                "typography_font_family": "Jost",
+                "typography_font_size": { "unit": "px", "size": 13, "sizes": [] },
+                "typography_font_weight": "500",
+                "typography_text_transform": "uppercase",
+                "typography_letter_spacing": { "unit": "px", "size": 2, "sizes": [] }
+              },
+              "elements": [],
+              "isInner": false
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

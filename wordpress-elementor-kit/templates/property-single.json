@@ -1,0 +1,467 @@
+{
+  "version": "0.4",
+  "title": "HOUSEN — Property Single",
+  "type": "page",
+  "page_settings": {
+    "template": "elementor_header_footer",
+    "hide_title": "yes"
+  },
+  "content": [
+    {
+      "id": "hss0001",
+      "elType": "section",
+      "isInner": false,
+      "settings": {
+        "layout": "full_width",
+        "gap": "no",
+        "height": "min-height",
+        "custom_height": { "unit": "px", "size": 560, "sizes": [] },
+        "content_position": "bottom",
+        "structure": "10",
+        "background_background": "classic",
+        "background_image": { "url": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1920&q=80", "id": "" },
+        "background_size": "cover",
+        "background_position": "center center",
+        "background_overlay_background": "gradient",
+        "background_overlay_color": "#080909",
+        "background_overlay_opacity": { "unit": "px", "size": 0.55, "sizes": [] },
+        "padding": { "unit": "px", "top": "140", "right": "40", "bottom": "70", "left": "40", "isLinked": false }
+      },
+      "elements": [
+        {
+          "id": "hsc0001",
+          "elType": "column",
+          "isInner": false,
+          "settings": { "_column_size": 100, "_inline_size": null },
+          "elements": [
+            {
+              "id": "hsw0001",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "Hillside Modern Villa — Los Angeles",
+                "header_size": "h1",
+                "title_color": "#FFFFFF",
+                "typography_typography": "custom",
+                "typography_font_family": "Playfair Display",
+                "typography_font_size": { "unit": "px", "size": 52, "sizes": [] },
+                "typography_font_weight": "500"
+              },
+              "elements": [],
+              "isInner": false
+            },
+            {
+              "id": "hsw0002",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p>Bel Air, Los Angeles · For Sale</p>",
+                "text_color": "#E7A45E",
+                "typography_typography": "custom",
+                "typography_font_family": "Jost",
+                "typography_font_size": { "unit": "px", "size": 14, "sizes": [] },
+                "typography_text_transform": "uppercase",
+                "typography_letter_spacing": { "unit": "px", "size": 3, "sizes": [] }
+              },
+              "elements": [],
+              "isInner": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hss0002",
+      "elType": "section",
+      "isInner": false,
+      "settings": {
+        "layout": "boxed",
+        "gap": "extended",
+        "structure": "20",
+        "background_background": "classic",
+        "background_color": "#FFFFFF",
+        "padding": { "unit": "px", "top": "100", "right": "20", "bottom": "100", "left": "20", "isLinked": false }
+      },
+      "elements": [
+        {
+          "id": "hsc0002",
+          "elType": "column",
+          "isInner": false,
+          "settings": { "_column_size": 60, "_inline_size": null },
+          "elements": [
+            {
+              "id": "hsw0003",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "The Residence",
+                "header_size": "h2",
+                "title_color": "#080909",
+                "typography_typography": "custom",
+                "typography_font_family": "Playfair Display",
+                "typography_font_size": { "unit": "px", "size": 38, "sizes": [] },
+                "typography_font_weight": "500"
+              },
+              "elements": [],
+              "isInner": false
+            },
+            {
+              "id": "hsw0004",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p>Tucked above the canyon, this glass-and-limestone residence frames uninterrupted views from downtown to the Pacific. Interiors pair white oak and book-matched stone under 3.4-metre ceilings, with walls that slide away to a 24-metre infinity pool.</p><p>A private cinema, wellness suite, wine gallery and four-car motor court complete a home designed for both grand entertaining and absolute retreat.</p>",
+                "text_color": "#343635",
+                "typography_typography": "custom",
+                "typography_font_family": "Jost",
+                "typography_font_size": { "unit": "px", "size": 17, "sizes": [] }
+              },
+              "elements": [],
+              "isInner": false
+            },
+            {
+              "id": "hsw0005",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "Key Details",
+                "header_size": "h3",
+                "title_color": "#080909",
+                "typography_typography": "custom",
+                "typography_font_family": "Playfair Display",
+                "typography_font_size": { "unit": "px", "size": 26, "sizes": [] },
+                "typography_font_weight": "500"
+              },
+              "elements": [],
+              "isInner": false
+            },
+            {
+              "id": "hsw0006",
+              "elType": "widget",
+              "widgetType": "icon-list",
+              "settings": {
+                "icon_list": [
+                  { "text": "6 bedrooms, all en-suite", "selected_icon": { "value": "fas fa-check", "library": "fa-solid" }, "_id": "hl01" },
+                  { "text": "8 bathrooms", "selected_icon": { "value": "fas fa-check", "library": "fa-solid" }, "_id": "hl02" },
+                  { "text": "12,400 sq ft interior · 0.9 acre lot", "selected_icon": { "value": "fas fa-check", "library": "fa-solid" }, "_id": "hl03" },
+                  { "text": "24 m infinity pool & spa terrace", "selected_icon": { "value": "fas fa-check", "library": "fa-solid" }, "_id": "hl04" },
+                  { "text": "Private cinema & wellness suite", "selected_icon": { "value": "fas fa-check", "library": "fa-solid" }, "_id": "hl05" },
+                  { "text": "4-car gallery motor court", "selected_icon": { "value": "fas fa-check", "library": "fa-solid" }, "_id": "hl06" }
+                ],
+                "space_between": { "unit": "px", "size": 14, "sizes": [] },
+                "icon_color": "#E7A45E",
+                "text_color": "#343635",
+                "icon_typography_typography": "custom",
+                "icon_typography_font_family": "Jost",
+                "icon_typography_font_size": { "unit": "px", "size": 16, "sizes": [] }
+              },
+              "elements": [],
+              "isInner": false
+            },
+            {
+              "id": "hsw0007",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "Gallery",
+                "header_size": "h3",
+                "title_color": "#080909",
+                "typography_typography": "custom",
+                "typography_font_family": "Playfair Display",
+                "typography_font_size": { "unit": "px", "size": 26, "sizes": [] },
+                "typography_font_weight": "500"
+              },
+              "elements": [],
+              "isInner": false
+            },
+            {
+              "id": "hsw0008",
+              "elType": "widget",
+              "widgetType": "image-gallery",
+              "settings": {
+                "wp_gallery": [
+                  { "url": "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=900&q=80", "id": "" },
+                  { "url": "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=900&q=80", "id": "" },
+                  { "url": "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=900&q=80", "id": "" }
+                ],
+                "gallery_columns": 3,
+                "gap": { "unit": "px", "size": 14, "sizes": [] },
+                "image_border_radius": { "unit": "px", "top": "16", "right": "16", "bottom": "16", "left": "16", "isLinked": true }
+              },
+              "elements": [],
+              "isInner": false
+            }
+          ]
+        },
+        {
+          "id": "hsc0003",
+          "elType": "column",
+          "isInner": false,
+          "settings": {
+            "_column_size": 40,
+            "_inline_size": null,
+            "background_background": "classic",
+            "background_color": "#F7F6F2",
+            "border_radius": { "unit": "px", "top": "24", "right": "24", "bottom": "24", "left": "24", "isLinked": true },
+            "padding": { "unit": "px", "top": "44", "right": "40", "bottom": "44", "left": "40", "isLinked": false }
+          },
+          "elements": [
+            {
+              "id": "hsw0009",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "$12,500,000",
+                "header_size": "h2",
+                "title_color": "#080909",
+                "typography_typography": "custom",
+                "typography_font_family": "Playfair Display",
+                "typography_font_size": { "unit": "px", "size": 40, "sizes": [] },
+                "typography_font_weight": "500"
+              },
+              "elements": [],
+              "isInner": false
+            },
+            {
+              "id": "hsw0010",
+              "elType": "widget",
+              "widgetType": "divider",
+              "settings": {
+                "color": "#D9D5CE",
+                "weight": { "unit": "px", "size": 1, "sizes": [] },
+                "gap": { "unit": "px", "size": 24, "sizes": [] }
+              },
+              "elements": [],
+              "isInner": false
+            },
+            {
+              "id": "hsw0011",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p><strong>Reference</strong><br>HS-2401</p><p><strong>Status</strong><br>Available for sale</p><p><strong>Year built</strong><br>2019</p><p><strong>Development</strong><br>Architect-designed, single owner</p>",
+                "text_color": "#343635",
+                "typography_typography": "custom",
+                "typography_font_family": "Jost",
+                "typography_font_size": { "unit": "px", "size": 15, "sizes": [] },
+                "typography_line_height": { "unit": "em", "size": 1.6, "sizes": [] }
+              },
+              "elements": [],
+              "isInner": false
+            },
+            {
+              "id": "hsw0012",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "Private Agent",
+                "header_size": "h3",
+                "title_color": "#080909",
+                "typography_typography": "custom",
+                "typography_font_family": "Playfair Display",
+                "typography_font_size": { "unit": "px", "size": 24, "sizes": [] },
+                "typography_font_weight": "500"
+              },
+              "elements": [],
+              "isInner": false
+            },
+            {
+              "id": "hsw0013",
+              "elType": "widget",
+              "widgetType": "image",
+              "settings": {
+                "image": { "url": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80", "id": "" },
+                "image_size": "full",
+                "width": { "unit": "px", "size": 140, "sizes": [] },
+                "image_border_radius": { "unit": "px", "top": "100", "right": "100", "bottom": "100", "left": "100", "isLinked": true }
+              },
+              "elements": [],
+              "isInner": false
+            },
+            {
+              "id": "hsw0014",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p><strong>Sofia Marchetti</strong><br>Head of Private Sales</p>",
+                "text_color": "#343635",
+                "typography_typography": "custom",
+                "typography_font_family": "Jost",
+                "typography_font_size": { "unit": "px", "size": 15, "sizes": [] }
+              },
+              "elements": [],
+              "isInner": false
+            },
+            {
+              "id": "hsw0015",
+              "elType": "widget",
+              "widgetType": "button",
+              "settings": {
+                "text": "Request a Viewing",
+                "link": { "url": "/contact", "is_external": "", "nofollow": "", "custom_attributes": "" },
+                "button_text_color": "#080909",
+                "background_color": "#E7A45E",
+                "hover_color": "#F7F6F2",
+                "button_background_hover_color": "#080909",
+                "text_padding": { "unit": "px", "top": "18", "right": "42", "bottom": "18", "left": "42", "isLinked": false },
+                "typography_typography": "custom",
+                "typography_font_family": "Jost",
+                "typography_font_size": { "unit": "px", "size": 13, "sizes": [] },
+                "typography_font_weight": "500",
+                "typography_text_transform": "uppercase",
+                "typography_letter_spacing": { "unit": "px", "size": 2, "sizes": [] }
+              },
+              "elements": [],
+              "isInner": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hss0003",
+      "elType": "section",
+      "isInner": false,
+      "settings": {
+        "layout": "boxed",
+        "gap": "default",
+        "structure": "10",
+        "background_background": "classic",
+        "background_color": "#F7F6F2",
+        "padding": { "unit": "px", "top": "100", "right": "20", "bottom": "30", "left": "20", "isLinked": false }
+      },
+      "elements": [
+        {
+          "id": "hsc0004",
+          "elType": "column",
+          "isInner": false,
+          "settings": { "_column_size": 100, "_inline_size": null, "align": "center" },
+          "elements": [
+            {
+              "id": "hsw0016",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "Also in the Collection",
+                "header_size": "h2",
+                "align": "center",
+                "title_color": "#080909",
+                "typography_typography": "custom",
+                "typography_font_family": "Playfair Display",
+                "typography_font_size": { "unit": "px", "size": 38, "sizes": [] },
+                "typography_font_weight": "500"
+              },
+              "elements": [],
+              "isInner": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hss0004",
+      "elType": "section",
+      "isInner": false,
+      "settings": {
+        "layout": "boxed",
+        "gap": "extended",
+        "structure": "30",
+        "background_background": "classic",
+        "background_color": "#F7F6F2",
+        "padding": { "unit": "px", "top": "0", "right": "20", "bottom": "110", "left": "20", "isLinked": false }
+      },
+      "elements": [
+        {
+          "id": "hsc0005",
+          "elType": "column",
+          "isInner": false,
+          "settings": { "_column_size": 33, "_inline_size": null },
+          "elements": [
+            {
+              "id": "hsw0017",
+              "elType": "widget",
+              "widgetType": "image-box",
+              "settings": {
+                "image": { "url": "https://images.unsplash.com/photo-1613490443576-7f14bdd1f5cd?auto=format&fit=crop&w=900&q=80", "id": "" },
+                "title_text": "Mayfair Penthouse — London",
+                "description_text": "4 bed · 5 bath · £8,200,000",
+                "position": "top",
+                "title_color": "#080909",
+                "description_color": "#343635",
+                "title_typography_typography": "custom",
+                "title_typography_font_family": "Playfair Display",
+                "title_typography_font_size": { "unit": "px", "size": 23, "sizes": [] },
+                "description_typography_typography": "custom",
+                "description_typography_font_family": "Jost",
+                "description_typography_font_size": { "unit": "px", "size": 14, "sizes": [] },
+                "link": { "url": "/properties/mayfair-penthouse", "is_external": "", "nofollow": "" }
+              },
+              "elements": [],
+              "isInner": false
+            }
+          ]
+        },
+        {
+          "id": "hsc0006",
+          "elType": "column",
+          "isInner": false,
+          "settings": { "_column_size": 33, "_inline_size": null },
+          "elements": [
+            {
+              "id": "hsw0018",
+              "elType": "widget",
+              "widgetType": "image-box",
+              "settings": {
+                "image": { "url": "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=900&q=80", "id": "" },
+                "title_text": "Vineyard Estate — Tuscany",
+                "description_text": "8 bed · 7 bath · €4,800,000",
+                "position": "top",
+                "title_color": "#080909",
+                "description_color": "#343635",
+                "title_typography_typography": "custom",
+                "title_typography_font_family": "Playfair Display",
+                "title_typography_font_size": { "unit": "px", "size": 23, "sizes": [] },
+                "description_typography_typography": "custom",
+                "description_typography_font_family": "Jost",
+                "description_typography_font_size": { "unit": "px", "size": 14, "sizes": [] },
+                "link": { "url": "/properties/vineyard-estate", "is_external": "", "nofollow": "" }
+              },
+              "elements": [],
+              "isInner": false
+            }
+          ]
+        },
+        {
+          "id": "hsc0007",
+          "elType": "column",
+          "isInner": false,
+          "settings": { "_column_size": 33, "_inline_size": null },
+          "elements": [
+            {
+              "id": "hsw0019",
+              "elType": "widget",
+              "widgetType": "image-box",
+              "settings": {
+                "image": { "url": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=900&q=80", "id": "" },
+                "title_text": "Riviera Manor — Nice",
+                "description_text": "5 bed · 6 bath · €6,900,000",
+                "position": "top",
+                "title_color": "#080909",
+                "description_color": "#343635",
+                "title_typography_typography": "custom",
+                "title_typography_font_family": "Playfair Display",
+                "title_typography_font_size": { "unit": "px", "size": 23, "sizes": [] },
+                "description_typography_typography": "custom",
+                "description_typography_font_family": "Jost",
+                "description_typography_font_size": { "unit": "px", "size": 14, "sizes": [] },
+                "link": { "url": "/properties/riviera-manor", "is_external": "", "nofollow": "" }
+              },
+              "elements": [],
+              "isInner": false
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
