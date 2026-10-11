@@ -81,6 +81,12 @@ The app boots at http://localhost:3000. First boot runs `npm install`, Prisma mi
 - This is a general resilience fix (not gated on `BASE44_PREVIEW_MODE`).
 - Database schema is applied with `prisma db push` (there is no `prisma/migrations`); a fresh DB volume needs the compose startup flow (push + seed) before any page renders.
 
+## Static HTML/CSS/JS conversion (`public/html/`)
+- `public/html/index.html` + `style.css` + `script.js` is a plain HTML/CSS/vanilla-JS conversion of the homepage (no React/Tailwind), served at `/html/index.html` for WordPress/Elementor integration.
+- It reproduces the Next.js homepage 1:1: hero carousel + parallax, featured cards, discovery filters (search/transaction/sort/advanced), brand story, categories, testimonials, CTA, footer, newsletter, toasts, scroll reveals.
+- Property/testimonial data is embedded in `script.js` (mirrors `prisma/seed.ts`); the newsletter form still POSTs to `/api/newsletter` (works while served by the Next app; replace the endpoint when in WordPress).
+- Fonts stay on Google Fonts (Montserrat/Playfair); icons are inline Lucide SVGs; links point at the app's real routes, to be remapped in WordPress.
+
 ## Notes
 - All property listings and testimonials are clearly labeled as demonstration content.
 - No real business addresses, phone numbers, or verified reviews are used.

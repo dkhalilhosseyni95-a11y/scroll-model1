@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HOUSEN — Luxury Real Estate</title>
+  <meta name="description" content="HOUSEN curates exceptional architecture, considered design, and remarkable places to call home. Discover luxury villas, penthouses, and waterfront estates.">
+  <meta name="keywords" content="luxury real estate, villas, penthouse, waterfront homes, architecture">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="HOUSEN — Luxury Real Estate">
+  <meta property="og:description" content="Exceptional architecture, considered design, and remarkable places to call home.">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="HOUSEN">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ==================== NAVBAR ==================== -->
+  <header class="site-header" id="site-header">
+    <nav class="container-wide nav-inner">
+      <a href="/" class="logo" aria-label="HOUSEN home">
+        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M3 19V9L11 3L19 9V19H14V13H8V19H3Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+          <path d="M11 3V7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+        <span class="logo-word">Housen</span>
+      </a>
+
+      <div class="nav-pill">
+        <a href="/" class="nav-link active">Home</a>
+        <a href="/properties" class="nav-link">Properties</a>
+        <a href="/about" class="nav-link">About</a>
+        <a href="/services" class="nav-link">Services</a>
+        <a href="/agents" class="nav-link">Agents</a>
+      </div>
+
+      <div class="nav-cta">
+        <a href="/book-viewing" class="btn-amber btn-sm">Book a Viewing</a>
+      </div>
+
+      <button class="menu-btn" id="menu-open" aria-label="Open menu">
+        <svg class="ic-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+      </button>
+    </nav>
+  </header>
+
+  <!-- Mobile menu overlay -->
+  <div class="mobile-overlay" id="mobile-menu" aria-hidden="true">
+    <div class="container-wide nav-inner">
+      <a href="/" class="logo">
+        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M3 19V9L11 3L19 9V19H14V13H8V19H3Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+          <path d="M11 3V7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+        <span class="logo-word">Housen</span>
+      </a>
+      <button class="menu-btn" id="menu-close" aria-label="Close menu">
+        <svg class="ic-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+      </button>
+    </div>
+    <nav class="mobile-nav">
+      <a href="/" class="mobile-link">Home</a>
+      <a href="/properties" class="mobile-link">Properties</a>
+      <a href="/about" class="mobile-link">About</a>
+      <a href="/services" class="mobile-link">Services</a>
+      <a href="/agents" class="mobile-link">Agents</a>
+      <div class="mobile-cta">
+        <a href="/book-viewing" class="btn-amber">Book a Viewing</a>
+      </div>
+    </nav>
+  </div>
+
+  <main class="flex-1">
+
+    <!-- ==================== HERO ==================== -->
+    <section class="hero" id="hero">
+      <div class="hero-bg" id="hero-bg">
+        <div class="hero-slide active"><img class="hero-img" src="https://images.unsplash.com/photo-1505843513577-22bb7d21e455?auto=format&amp;fit=crop&amp;w=2000&amp;q=80" alt="Futuristic luxury villa with organic concrete forms and warm interior lighting at dusk"></div>
+        <div class="hero-slide"><img class="hero-img" src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&amp;fit=crop&amp;w=2000&amp;q=80" alt="Modern architectural villa with cantilevered roof and expansive glass walls"></div>
+        <div class="hero-slide"><img class="hero-img" src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&amp;fit=crop&amp;w=2000&amp;q=80" alt="Luxury home with infinity pool reflecting the evening sky"></div>
+        <div class="hero-shade hero-shade-b"></div>
+        <div class="hero-shade hero-shade-r"></div>
+      </div>
+
+      <div class="hero-wordmark" id="hero-wordmark">
+        <h1 class="hero-title">Housen</h1>
+        <div class="hero-explore">
+          <a href="/properties" class="explore-link">
+            Explore Properties
+            <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Editorial annotations -->
+      <div class="annotation ann-1">
+        <div class="ann-dotwrap"><span class="ann-dot"></span><span class="ann-ping"></span></div>
+        <div class="ann-label ann-ml">
+          <div class="ann-line"></div>
+          <div class="ann-box"><p>Triple-glazed solar glass</p></div>
+        </div>
+      </div>
+      <div class="annotation ann-2">
+        <div class="ann-dotwrap"><span class="ann-dot"></span><span class="ann-ping"></span></div>
+        <div class="ann-label ann-mr">
+          <div class="ann-line"></div>
+          <div class="ann-box"><p>Cantilevered concrete forms</p></div>
+        </div>
+      </div>
+      <div class="annotation ann-3">
+        <div class="ann-dotwrap"><span class="ann-dot"></span><span class="ann-ping"></span></div>
+        <div class="ann-label ann-ml">
+          <div class="ann-line"></div>
+          <div class="ann-box"><p>Natural stone &amp; warm oak interiors</p></div>
+        </div>
+      </div>
+
+      <!-- Bottom bar -->
+      <div class="hero-bottom">
+        <div class="container-wide hero-bottom-inner">
+          <div class="brand-note hero-late">
+            <p>Using stone, sand-finished concrete and natural wood, the design echoes the shoreline's natural textures.</p>
+          </div>
+
+          <div class="hero-controls hero-late">
+            <button class="ctrl-btn" id="hero-prev" aria-label="Previous image">
+              <svg class="ic rotate--90" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 7-7 7 7"/><path d="M12 19V5"/></svg>
+            </button>
+            <div class="hero-dots" id="hero-dots">
+              <button class="hero-dot active" data-index="0" aria-label="Go to image 1"></button>
+              <button class="hero-dot" data-index="1" aria-label="Go to image 2"></button>
+              <button class="hero-dot" data-index="2" aria-label="Go to image 3"></button>
+            </div>
+            <button class="ctrl-btn" id="hero-next" aria-label="Next image">
+              <svg class="ic rotate-90" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 7-7 7 7"/><path d="M12 19V5"/></svg>
+            </button>
+          </div>
+
+          <div class="hero-socials hero-late">
+            <a href="#" aria-label="Facebook" class="social-btn"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+            <a href="#" aria-label="Instagram" class="social-btn"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg></a>
+            <a href="#" aria-label="Twitter" class="social-btn"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg></a>
+            <a href="#" aria-label="LinkedIn" class="social-btn"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Scroll indicator -->
+      <div class="scroll-ind" id="scroll-ind">
+        <div class="scroll-ind-inner">
+          <span>Scroll</span>
+          <div class="scroll-line"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== FEATURED PROPERTIES ==================== -->
+    <section class="section" id="featured">
+      <div class="container-wide">
+        <div class="reveal sec-head">
+          <div>
+            <p class="section-label mb-4">Curated Selection</p>
+            <h2 class="sec-title">
+              <span class="heading-sans">Featured</span>
+              <span class="heading-serif">Properties</span>
+            </h2>
+          </div>
+          <div class="sec-desc-col">
+            <p class="sec-desc">We bring together exceptional architecture, considered design, and remarkable places to call home.</p>
+            <a href="/properties" class="view-all">
+              View All
+              <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="cards-grid" id="featured-grid"></div>
+      </div>
+    </section>
+
+    <!-- ==================== PROPERTY DISCOVERY ==================== -->
+    <section class="discovery" id="discovery">
+      <div class="container-wide">
+        <div class="reveal mb-10">
+          <p class="section-label mb-4">Discover</p>
+          <h2 class="sec-title mb-6">
+            <span class="heading-sans">Find Your</span>
+            <span class="heading-serif">Next Home</span>
+          </h2>
+        </div>
+
+        <!-- Filter bar -->
+        <div class="filter-panel">
+          <div class="filter-top">
+            <div class="search-wrap">
+              <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+              <input type="text" id="filter-search" placeholder="Search by name, location, or city..." class="search-input">
+            </div>
+
+            <div class="tx-toggle" id="tx-toggle">
+              <button class="tx-btn active" data-tx="ALL">All</button>
+              <button class="tx-btn" data-tx="BUY">Buy</button>
+              <button class="tx-btn" data-tx="RENT">Rent</button>
+            </div>
+
+            <div class="sort-wrap">
+              <svg class="sort-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21 16-4 4-4-4"/><path d="M17 20V4"/><path d="m3 8 4-4 4 4"/><path d="M7 4v16"/></svg>
+              <select id="filter-sort" class="sort-select" aria-label="Sort properties">
+                <option value="newest">Newest</option>
+                <option value="price-asc">Price: Low to High</option>
+                <option value="price-desc">Price: High to Low</option>
+              </select>
+            </div>
+
+            <button class="filters-btn" id="filters-toggle">
+              <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="21" x2="14" y1="4" y2="4"/><line x1="10" x2="3" y1="4" y2="4"/><line x1="21" x2="12" y1="12" y2="12"/><line x1="8" x2="3" y1="12" y2="12"/><line x1="21" x2="16" y1="20" y2="20"/><line x1="12" x2="3" y1="20" y2="20"/><line x1="14" x2="14" y1="2" y2="6"/><line x1="8" x2="8" y1="10" y2="14"/><line x1="16" x2="16" y1="18" y2="22"/></svg>
+              Filters
+            </button>
+          </div>
+
+          <!-- Advanced filters -->
+          <div class="filter-advanced" id="advanced-filters" hidden>
+            <div>
+              <label class="adv-label" for="f-property-type">Property Type</label>
+              <select id="f-property-type" class="input-field">
+                <option value="ALL">All Types</option>
+                <option value="Villa">Villa</option>
+                <option value="Apartment">Apartment</option>
+                <option value="Penthouse">Penthouse</option>
+                <option value="Loft">Loft</option>
+              </select>
+            </div>
+            <div>
+              <label class="adv-label" for="f-bedrooms">Bedrooms</label>
+              <select id="f-bedrooms" class="input-field">
+                <option value="0">Any</option>
+                <option value="1">1+</option>
+                <option value="2">2+</option>
+                <option value="3">3+</option>
+                <option value="4">4+</option>
+                <option value="5">5+</option>
+              </select>
+            </div>
+            <div>
+              <label class="adv-label" for="f-min-price">Min Price ($)</label>
+              <input type="number" id="f-min-price" placeholder="0" class="input-field">
+            </div>
+            <div>
+              <label class="adv-label" for="f-max-price">Max Price ($)</label>
+              <input type="number" id="f-max-price" placeholder="Any" class="input-field">
+            </div>
+            <div>
+              <label class="adv-label" for="f-min-area">Min Area (sqft)</label>
+              <input type="number" id="f-min-area" placeholder="0" class="input-field">
+            </div>
+            <div>
+              <label class="adv-label" for="f-max-area">Max Area (sqft)</label>
+              <input type="number" id="f-max-area" placeholder="Any" class="input-field">
+            </div>
+          </div>
+
+          <div class="filter-footer">
+            <p class="filter-count"><strong id="filter-count">0</strong> <span id="filter-count-word">properties</span> found</p>
+            <button class="clear-btn" id="clear-filters" hidden>
+              <svg class="ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+              Clear filters
+            </button>
+          </div>
+        </div>
+
+        <div class="cards-grid" id="discovery-grid"></div>
+
+        <div class="empty-state" id="discovery-empty" hidden>
+          <svg class="empty-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+          <h3>No properties found</h3>
+          <p>Try adjusting your filters to see more results.</p>
+          <button class="btn-outline" id="clear-all-filters">Clear all filters</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== BRAND STORY ==================== -->
+    <section class="brand" id="brand">
+      <div class="container-wide">
+        <div class="brand-grid">
+          <div class="reveal brand-img">
+            <img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Architectural detail of a modern villa with organic concrete forms" loading="lazy">
+            <div class="brand-img-shade"></div>
+          </div>
+          <div class="reveal brand-copy" data-reveal-delay="150">
+            <p class="section-label mb-6">Our Philosophy</p>
+            <h2 class="sec-title brand-title">
+              <span class="heading-sans">Spaces</span>
+              <span class="heading-serif">That Move You.</span>
+            </h2>
+            <div class="brand-text">
+              <p>At HOUSEN, we believe a home is more than an address — it is a work of architecture that shapes daily life. We partner with visionary architects and discerning owners to curate properties of genuine distinction.</p>
+              <p>Our approach is rooted in long-term relationships, thoughtful service, and a deep respect for the craft of building. Every property in our portfolio is selected for its architectural integrity, its sense of place, and its capacity to inspire.</p>
+            </div>
+            <div class="brand-stats">
+              <div>
+                <p class="stat-num">200+</p>
+                <p class="stat-label">Properties Curated</p>
+              </div>
+              <div>
+                <p class="stat-num">15</p>
+                <p class="stat-label">Years of Service</p>
+              </div>
+              <div>
+                <p class="stat-num">98%</p>
+                <p class="stat-label">Client Satisfaction</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== PROPERTY CATEGORIES ==================== -->
+    <section class="section" id="categories">
+      <div class="container-wide">
+        <div class="reveal mb-12">
+          <p class="section-label mb-4">Browse by Type</p>
+          <h2 class="sec-title">
+            <span class="heading-sans">Property</span>
+            <span class="heading-serif">Categories</span>
+          </h2>
+        </div>
+
+        <div class="cat-grid">
+          <div class="reveal cat-cell cat-wide">
+            <a href="/properties?type=Villa" class="cat-card">
+              <img src="https://images.unsplash.com/photo-1505843513577-22bb7d21e455?auto=format&amp;fit=crop&amp;w=800&amp;q=80" alt="Contemporary Villas" loading="lazy">
+              <div class="cat-shade"></div>
+              <div class="cat-content">
+                <div>
+                  <h3>Contemporary Villas</h3>
+                  <p>Sculptural homes with organic geometry and seamless indoor-outdoor living.</p>
+                </div>
+                <span class="cat-arrow"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></span>
+              </div>
+            </a>
+          </div>
+          <div class="reveal cat-cell" data-reveal-delay="100">
+            <a href="/properties?type=Apartment" class="cat-card">
+              <img src="https://images.unsplash.com/photo-1706808849780-7a04fbac83ef?auto=format&amp;fit=crop&amp;w=800&amp;q=80" alt="Luxury Apartments" loading="lazy">
+              <div class="cat-shade"></div>
+              <div class="cat-content">
+                <div>
+                  <h3>Luxury Apartments</h3>
+                  <p>Refined city residences with premium amenities.</p>
+                </div>
+                <span class="cat-arrow"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></span>
+              </div>
+            </a>
+          </div>
+          <div class="reveal cat-cell" data-reveal-delay="200">
+            <a href="/properties?type=Penthouse" class="cat-card">
+              <img src="https://images.unsplash.com/photo-1706808849780-7a04fbac83ef?auto=format&amp;fit=crop&amp;w=800&amp;q=80&amp;sat=-100" alt="Penthouses" loading="lazy">
+              <div class="cat-shade"></div>
+              <div class="cat-content">
+                <div>
+                  <h3>Penthouses</h3>
+                  <p>Sky-high living with panoramic views.</p>
+                </div>
+                <span class="cat-arrow"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></span>
+              </div>
+            </a>
+          </div>
+          <div class="reveal cat-cell cat-wide" data-reveal-delay="300">
+            <a href="/properties?type=Villa&amp;location=water" class="cat-card">
+              <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&amp;fit=crop&amp;w=800&amp;q=80" alt="Waterfront Homes" loading="lazy">
+              <div class="cat-shade"></div>
+              <div class="cat-content">
+                <div>
+                  <h3>Waterfront Homes</h3>
+                  <p>Coastal estates where architecture meets the water.</p>
+                </div>
+                <span class="cat-arrow"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></span>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== TESTIMONIALS ==================== -->
+    <section class="section" id="testimonials">
+      <div class="container-wide">
+        <div class="reveal t-head">
+          <p class="section-label mb-4">Testimonials</p>
+          <h2 class="sec-title">
+            <span class="heading-sans">Our Clients</span>
+            <span class="heading-serif">Speak Boldly.</span>
+          </h2>
+        </div>
+
+        <div class="reveal" data-reveal-delay="150">
+          <div class="t-grid">
+            <div class="t-media">
+              <img id="t-image" src="https://images.unsplash.com/photo-1505843513577-22bb7d21e455?auto=format&amp;fit=crop&amp;w=800&amp;q=80" alt="Architectural setting">
+              <div class="t-shade"></div>
+            </div>
+            <div class="t-body">
+              <span class="t-quote-icon" aria-hidden="true">&ldquo;</span>
+              <blockquote class="t-quote" id="t-quote">HOUSEN didn't just find us a house — they found us a piece of architecture that has transformed how we live. Their attention to every detail, from the structural integrity to the way light moves through the space, was extraordinary.</blockquote>
+              <div class="t-person">
+                <div class="t-portrait"><img id="t-portrait" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&amp;fit=crop&amp;w=400&amp;q=80" alt="Adrian Voss"></div>
+                <div>
+                  <p class="t-name" id="t-name">Adrian Voss</p>
+                  <p class="t-role" id="t-role">Property Owner, Malibu</p>
+                </div>
+                <p class="t-demo-note">— Demonstration testimonial</p>
+              </div>
+              <div class="t-controls">
+                <button class="t-btn" id="t-prev" aria-label="Previous testimonial">
+                  <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+                </button>
+                <div class="t-dots" id="t-dots">
+                  <button class="t-dot active" data-index="0" aria-label="Testimonial 1"></button>
+                  <button class="t-dot" data-index="1" aria-label="Testimonial 2"></button>
+                  <button class="t-dot" data-index="2" aria-label="Testimonial 3"></button>
+                </div>
+                <button class="t-btn" id="t-next" aria-label="Next testimonial">
+                  <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== CTA ==================== -->
+    <section class="section cta" id="cta">
+      <div class="container-wide">
+        <div class="reveal cta-card">
+          <div class="cta-media">
+            <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&amp;fit=crop&amp;w=2000&amp;q=80" alt="Luxury villa at dusk with warm interior lighting" loading="lazy">
+            <div class="cta-shade-r"></div>
+            <div class="cta-shade-b"></div>
+            <div class="cta-content">
+              <p class="section-label mb-4">Begin Your Search</p>
+              <h2 class="sec-title cta-title">
+                <span class="heading-sans">Find Your Place</span>
+                <span class="heading-serif">in the Extraordinary.</span>
+              </h2>
+              <p class="cta-text">Discover remarkable homes chosen for the way you want to live.</p>
+              <div>
+                <a href="/properties" class="btn-amber">
+                  Explore Homes
+                  <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="site-footer">
+    <div class="container-wide footer-inner">
+      <div class="footer-grid">
+        <!-- Brand -->
+        <div>
+          <div class="footer-logo">
+            <a href="/" class="logo">
+              <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M3 19V9L11 3L19 9V19H14V13H8V19H3Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+                <path d="M11 3V7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+              <span class="logo-word">Housen</span>
+            </a>
+          </div>
+          <p class="footer-blurb">HOUSEN curates exceptional architecture and remarkable places to call home — a digital gallery of living art.</p>
+          <div class="footer-socials">
+            <a href="#" aria-label="Twitter" class="social-square"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg></a>
+            <a href="#" aria-label="LinkedIn" class="social-square"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg></a>
+            <a href="#" aria-label="Instagram" class="social-square"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg></a>
+            <a href="#" aria-label="Facebook" class="social-square"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+          </div>
+        </div>
+
+        <!-- Navigation -->
+        <div>
+          <h3 class="footer-heading">Navigation</h3>
+          <ul class="link-list">
+            <li><a href="/">Home</a></li>
+            <li><a href="/properties">Properties</a></li>
+            <li><a href="/about">About Us</a></li>
+            <li><a href="/contact">Contact</a></li>
+            <li><a href="/services">Services</a></li>
+            <li><a href="/agents">Agents</a></li>
+          </ul>
+        </div>
+
+        <!-- Categories -->
+        <div>
+          <h3 class="footer-heading">Categories</h3>
+          <ul class="link-list">
+            <li><a href="/properties?type=Villa">Contemporary Villas</a></li>
+            <li><a href="/properties?type=Apartment">Luxury Apartments</a></li>
+            <li><a href="/properties?type=Penthouse">Penthouses</a></li>
+            <li><a href="/properties?type=Villa&amp;location=water">Waterfront Homes</a></li>
+          </ul>
+        </div>
+
+        <!-- Newsletter -->
+        <div>
+          <h3 class="footer-heading">Newsletter</h3>
+          <p class="footer-news-text">Subscribe for new listings and architectural insights.</p>
+          <form id="newsletter-form" class="news-form" novalidate>
+            <input type="email" id="newsletter-email" placeholder="Enter your email" aria-label="Email for newsletter" autocomplete="email">
+            <button type="submit" id="newsletter-submit" aria-label="Subscribe">
+              <svg class="ic" id="newsletter-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </button>
+          </form>
+          <div class="footer-contact">
+            <p><span class="dim">Email:</span> <a href="mailto:contact@housen.com">contact@housen.com</a></p>
+            <p><span class="dim">Phone:</span> <span class="dim">Available upon request</span></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom bar -->
+      <div class="footer-bottom">
+        <p>© <span id="footer-year">2026</span> HOUSEN. All rights reserved. — Demonstration website.</p>
+        <div class="footer-legal">
+          <a href="/privacy">Privacy Policy</a>
+          <a href="/terms">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Oversized wordmark -->
+    <div class="footer-wordmark-wrap">
+      <p class="footer-wordmark">HOUSEN</p>
+    </div>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
