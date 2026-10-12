@@ -87,6 +87,13 @@ The app boots at http://localhost:3000. First boot runs `npm install`, Prisma mi
 - Property/testimonial data is embedded in `script.js` (mirrors `prisma/seed.ts`); the newsletter form still POSTs to `/api/newsletter` (works while served by the Next app; replace the endpoint when in WordPress).
 - Fonts stay on Google Fonts (Montserrat/Playfair); icons are inline Lucide SVGs; links point at the app's real routes, to be remapped in WordPress.
 
+## Persian RTL static kit (`public/html/fa/`)
+- `public/html/fa/` is a complete Persian (RTL, Vazirmatn) static site: `style.css` + `script.js` shared by all pages, built from the user's self-contained Persian homepage (`fa/index.html` is that file split into the shared CSS/JS).
+- Pages: `index`, `properties`, `property-single` (?slug=), `about`, `services`, `agents`, `contact`, `book-viewing`, `privacy`, `terms` — all link to each other RELATIVELY (e.g. `properties.html`) so the static kit works standalone; remap to WP permalinks on import.
+- Property `propertyType` values are Persian (`ویلا`, `آپارتمان`, `پنت‌هاوس`, `لافـت`); filter selects and `?type=` links must use those exact values.
+- `script.js` additions vs. the user's homepage original: `AGENTS` + `FEATURES` data, `initPropertySingle`/`initAgentsPage`/`initContactForm`/`initViewingForm`, global `updateHeaderTheme`, `body.hero-revealed` fallback for pages without a hero, URL-param prefill in `initDiscovery` (`type`/`tx`/`location`/`q`), and relative card links (`property-single.html?slug=`). Contact/viewing forms POST to `/api/contact` and `/api/viewings` with a static demo-success fallback like the newsletter form.
+- Served at `/html/fa/<page>.html`. NOTE: files added to `public/` after the Next dev server starts return 404 until the `web` service restarts — restart it once after creating new static files.
+
 ## Notes
 - All property listings and testimonials are clearly labeled as demonstration content.
 - No real business addresses, phone numbers, or verified reviews are used.

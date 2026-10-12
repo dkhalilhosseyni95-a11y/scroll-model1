@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>هوسن — املاک لوکس</title>
+<meta name="description" content="هوسن معماری استثنایی و مکان‌های برجسته‌ای برای زندگی را گرد هم می‌آورد.">
+<link rel="icon" href="/icon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ==================== NAVBAR ==================== -->
+<header class="site-header" id="site-header">
+  <nav class="container-wide nav-inner">
+    <a href="index.html" class="logo" aria-label="هوسن - خانه">
+      <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M3 19V9L11 3L19 9V19H14V13H8V19H3Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+        <path d="M11 3V7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+      <span class="logo-word">Housen</span>
+    </a>
+
+    <div class="nav-pill">
+      <a href="index.html" class="nav-link active">خانه</a>
+      <a href="properties.html" class="nav-link">املاک</a>
+      <a href="about.html" class="nav-link">درباره ما</a>
+      <a href="services.html" class="nav-link">خدمات</a>
+      <a href="agents.html" class="nav-link">مشاوران</a>
+    </div>
+
+    <div class="nav-cta">
+      <a href="book-viewing.html" class="btn-amber btn-sm">رزرو بازدید</a>
+    </div>
+
+    <button class="menu-btn" id="menu-open" aria-label="باز کردن منو">
+      <svg class="ic-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+    </button>
+  </nav>
+</header>
+
+<!-- Mobile menu overlay -->
+<div class="mobile-overlay" id="mobile-menu" aria-hidden="true">
+  <div class="container-wide nav-inner">
+    <a href="index.html" class="logo">
+      <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M3 19V9L11 3L19 9V19H14V13H8V19H3Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+        <path d="M11 3V7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+      <span class="logo-word">Housen</span>
+    </a>
+    <button class="menu-btn" id="menu-close" aria-label="بستن منو">
+      <svg class="ic-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+    </button>
+  </div>
+  <nav class="mobile-nav">
+    <a href="index.html" class="mobile-link">خانه</a>
+    <a href="properties.html" class="mobile-link">املاک</a>
+    <a href="about.html" class="mobile-link">درباره ما</a>
+    <a href="services.html" class="mobile-link">خدمات</a>
+    <a href="agents.html" class="mobile-link">مشاوران</a>
+    <div class="mobile-cta">
+      <a href="book-viewing.html" class="btn-amber">رزرو بازدید</a>
+    </div>
+  </nav>
+</div>
+
+<main class="flex-1">
+
+  <!-- ==================== HERO ==================== -->
+  <section class="hero-track" id="hero-track">
+    <div class="hero" id="hero">
+      <div class="hero-bg" id="hero-bg">
+        <video id="hero-video"
+               class="hero-video"
+               src="https://danisite.ir/wp-content/uploads/2026/10/Realstate-Web-Design1.mp4"
+               poster="https://danisite.ir/wp-content/uploads/2026/10/نمونه-کار-دنی-سایت-املاک.webp"
+               muted playsinline webkit-playsinline preload="auto"
+               disablepictureinpicture aria-hidden="true" tabindex="-1"></video>
+        <div class="hero-shade hero-shade-b"></div>
+        <div class="hero-shade hero-shade-r"></div>
+      </div>
+
+      <!-- نشانگر ۰۱ — شیشه‌های سرتاسری خورشیدی -->
+      <div class="annotation ann-1">
+        <div class="ann-card">
+          <span class="ann-num">۰۱</span>
+          <div class="ann-info">
+            <p class="ann-title">شیشه‌های سرتاسری خورشیدی</p>
+            <p class="ann-sub">نمایی بی‌واسطه و بهره‌وری انرژی</p>
+          </div>
+        </div>
+        <span class="ann-line"></span>
+        <span class="ann-dotwrap"><span class="ann-dot"></span><span class="ann-ping"></span></span>
+      </div>
+
+      <!-- نشانگر ۰۲ — فرم‌های بتنی منحنی -->
+      <div class="annotation ann-2">
+        <div class="ann-card">
+          <span class="ann-num">۰۲</span>
+          <div class="ann-info">
+            <p class="ann-title">فرم‌های بتنی منحنی</p>
+            <p class="ann-sub">هندسه‌ی سیال و ارگانیک</p>
+          </div>
+        </div>
+        <span class="ann-line"></span>
+        <span class="ann-dotwrap"><span class="ann-dot"></span><span class="ann-ping"></span></span>
+      </div>
+
+      <!-- نشانگر ۰۳ — سنگ و بلوط طبیعی -->
+      <div class="annotation ann-3">
+        <div class="ann-card">
+          <span class="ann-num">۰۳</span>
+          <div class="ann-info">
+            <p class="ann-title">سنگ و بلوط طبیعی</p>
+            <p class="ann-sub">بافت گرم در قلب خانه</p>
+          </div>
+        </div>
+        <span class="ann-line"></span>
+        <span class="ann-dotwrap"><span class="ann-dot"></span><span class="ann-ping"></span></span>
+      </div>
+
+      <div class="hero-bottom">
+        <div class="container-wide hero-bottom-inner">
+          <div class="brand-note">
+            <p>با استفاده از سنگ، بتن با پرداخت شنی و چوب طبیعی، طراحی، بافت‌های طبیعی خط ساحلی را منعکس می‌کند.</p>
+          </div>
+          <div class="hero-socials">
+            <a href="#" aria-label="فیسبوک" class="social-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+            <a href="#" aria-label="اینستاگرام" class="social-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg></a>
+            <a href="#" aria-label="توییتر" class="social-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg></a>
+            <a href="#" aria-label="لینکدین" class="social-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="scroll-ind" id="scroll-ind">
+        <div class="scroll-ind-inner">
+          <span>اسکرول کنید</span>
+          <div class="scroll-line"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== لایه محتوای روشن ==================== -->
+  <div class="page-layer">
+
+    <!-- FEATURED PROPERTIES -->
+    <section class="section" id="featured">
+      <div class="container-wide">
+        <div class="reveal sec-head">
+          <div>
+            <p class="section-label mb-4">مجموعه منتخب</p>
+            <h2 class="sec-title">
+              <span class="heading-sans">املاک</span>
+              <span class="heading-serif">ویژه</span>
+            </h2>
+          </div>
+          <div class="sec-desc-col">
+            <p class="sec-desc">ما معماری استثنایی، طراحی اندیشیده‌شده و مکان‌های برجسته‌ای برای زندگی را گرد هم می‌آوریم.</p>
+            <a href="properties.html" class="view-all">
+              مشاهده همه
+              <svg class="ic flip-rtl" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="cards-grid" id="featured-grid"></div>
+      </div>
+    </section>
+
+    <!-- PROPERTY DISCOVERY -->
+    <section class="discovery" id="discovery">
+      <div class="container-wide">
+        <div class="reveal mb-10">
+          <p class="section-label mb-4">کشف کنید</p>
+          <h2 class="sec-title mb-6">
+            <span class="heading-sans">خانه بعدی خود را</span>
+            <span class="heading-serif">پیدا کنید</span>
+          </h2>
+        </div>
+
+        <div class="filter-panel">
+          <div class="filter-top">
+            <div class="search-wrap">
+              <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+              <input type="text" id="filter-search" placeholder="جستجو بر اساس نام، مکان یا شهر..." class="search-input">
+            </div>
+            <div class="tx-toggle" id="tx-toggle">
+              <button class="tx-btn active" data-tx="ALL">همه</button>
+              <button class="tx-btn" data-tx="BUY">خرید</button>
+              <button class="tx-btn" data-tx="RENT">اجاره</button>
+            </div>
+            <div class="sort-wrap">
+              <svg class="sort-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21 16-4 4-4-4"/><path d="M17 20V4"/><path d="m3 8 4-4 4 4"/><path d="M7 4v16"/></svg>
+              <select id="filter-sort" class="sort-select" aria-label="ترتیب املاک">
+                <option value="newest">جدیدترین</option>
+                <option value="price-asc">قیمت: کم به زیاد</option>
+                <option value="price-desc">قیمت: زیاد به کم</option>
+              </select>
+            </div>
+            <button class="filters-btn" id="filters-toggle">
+              <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="21" x2="14" y1="4" y2="4"/><line x1="10" x2="3" y1="4" y2="4"/><line x1="21" x2="12" y1="12" y2="12"/><line x1="8" x2="3" y1="12" y2="12"/><line x1="21" x2="16" y1="20" y2="20"/><line x1="12" x2="3" y1="20" y2="20"/><line x1="14" x2="14" y1="2" y2="6"/><line x1="8" x2="8" y1="10" y2="14"/><line x1="16" x2="16" y1="18" y2="22"/></svg>
+              فیلترها
+            </button>
+          </div>
+
+          <div class="filter-advanced" id="advanced-filters" hidden>
+            <div>
+              <label class="adv-label" for="f-property-type">نوع ملک</label>
+              <select id="f-property-type" class="input-field">
+                <option value="ALL">همه انواع</option>
+                <option value="ویلا">ویلا</option>
+                <option value="آپارتمان">آپارتمان</option>
+                <option value="پنت‌هاوس">پنت‌هاوس</option>
+                <option value="لافـت">لافـت</option>
+              </select>
+            </div>
+            <div>
+              <label class="adv-label" for="f-bedrooms">اتاق خواب</label>
+              <select id="f-bedrooms" class="input-field">
+                <option value="0">هر تعداد</option>
+                <option value="1">۱+</option>
+                <option value="2">۲+</option>
+                <option value="3">۳+</option>
+                <option value="4">۴+</option>
+                <option value="5">۵+</option>
+              </select>
+            </div>
+            <div>
+              <label class="adv-label" for="f-min-price">حداقل قیمت (دلار)</label>
+              <input type="number" id="f-min-price" placeholder="۰" class="input-field">
+            </div>
+            <div>
+              <label class="adv-label" for="f-max-price">حداکثر قیمت (دلار)</label>
+              <input type="number" id="f-max-price" placeholder="هر مقدار" class="input-field">
+            </div>
+            <div>
+              <label class="adv-label" for="f-min-area">حداقل متراژ (فوت مربع)</label>
+              <input type="number" id="f-min-area" placeholder="۰" class="input-field">
+            </div>
+            <div>
+              <label class="adv-label" for="f-max-area">حداکثر متراژ (فوت مربع)</label>
+              <input type="number" id="f-max-area" placeholder="هر مقدار" class="input-field">
+            </div>
+          </div>
+
+          <div class="filter-footer">
+            <p class="filter-count"><strong id="filter-count">۰</strong> <span id="filter-count-word">ملک</span> یافت شد</p>
+            <button class="clear-btn" id="clear-filters" hidden>
+              <svg class="ic-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+              پاک کردن فیلترها
+            </button>
+          </div>
+        </div>
+
+        <div class="cards-grid" id="discovery-grid"></div>
+
+        <div class="empty-state" id="discovery-empty" hidden>
+          <svg class="empty-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+          <h3>ملکی یافت نشد</h3>
+          <p>فیلترهای خود را تنظیم کنید تا نتایج بیشتری ببینید.</p>
+          <button class="btn-outline" id="clear-all-filters">پاک کردن همه فیلترها</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- BRAND STORY -->
+    <section class="brand" id="brand">
+      <div class="container-wide">
+        <div class="brand-grid">
+          <div class="reveal brand-img">
+            <img src="https://danisite.ir/wp-content/uploads/2026/10/طراحی-سایت-املاک-12.webp" alt="جزئیات معماری" loading="lazy">
+            <div class="brand-img-shade"></div>
+          </div>
+          <div class="reveal brand-copy" data-reveal-delay="150">
+            <p class="section-label mb-6">فلسفه ما</p>
+            <h2 class="sec-title brand-title">
+              <span class="heading-sans">فضاهایی که</span>
+              <span class="heading-serif">شما را تحت تأثیر قرار می‌دهند.</span>
+            </h2>
+            <div class="brand-text">
+              <p>در هوسن، ما باور داریم که خانه چیزی فراتر از یک نشانی است — اثری از معماری است که زندگی روزمره را شکل می‌دهد. ما با معماران صاحب‌بین و مالکان آگاه همکاری می‌کنیم تا املاکی با تمایز واقعی را گرد هم آوریم.</p>
+              <p>رویکرد ما ریشه در روابط بلندمدت، خدمات اندیشیده‌شده و احترام عمیق به هنر ساختن دارد. هر ملک در مجموعه ما بر اساس یکپارچگی معماری، حس مکان و ظرفیت الهام‌بخشی آن انتخاب می‌شود.</p>
+            </div>
+            <div class="brand-stats">
+              <div><p class="stat-num">+۲۰۰</p><p class="stat-label">ملک گردآوری شده</p></div>
+              <div><p class="stat-num">۱۵</p><p class="stat-label">سال تجربه</p></div>
+              <div><p class="stat-num">۹۸٪</p><p class="stat-label">رضایت مشتریان</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROPERTY CATEGORIES -->
+    <section class="section" id="categories">
+      <div class="container-wide">
+        <div class="reveal mb-12">
+          <p class="section-label mb-4">مرور بر اساس نوع</p>
+          <h2 class="sec-title">
+            <span class="heading-sans">دسته‌بندی</span>
+            <span class="heading-serif">املاک</span>
+          </h2>
+        </div>
+
+        <div class="cat-grid">
+          <div class="reveal cat-cell cat-wide">
+            <a href="properties.html?type=ویلا" class="cat-card">
+              <img src="https://danisite.ir/wp-content/uploads/2026/10/طراحی-سایت-املاک-2.webp" alt="ویلاهای معاصر" loading="lazy">
+              <div class="cat-shade"></div>
+              <div class="cat-content">
+                <div>
+                  <h3>ویلاهای معاصر</h3>
+                  <p>خانه‌هایی مجسمه‌وار با هندسه ارگانیک و زندگی یکپارچه درون و بیرون.</p>
+                </div>
+                <span class="cat-arrow"><svg class="ic flip-rtl" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></span>
+              </div>
+            </a>
+          </div>
+          <div class="reveal cat-cell" data-reveal-delay="100">
+            <a href="properties.html?type=آپارتمان" class="cat-card">
+              <img src="https://danisite.ir/wp-content/uploads/2026/10/طراحی-سایت-املاک-1.webp" alt="آپارتمان‌های لوکس" loading="lazy">
+              <div class="cat-shade"></div>
+              <div class="cat-content">
+                <div>
+                  <h3>آپارتمان‌های لوکس</h3>
+                  <p>اقامتگاه‌های شهری با امکانات ممتاز.</p>
+                </div>
+                <span class="cat-arrow"><svg class="ic flip-rtl" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></span>
+              </div>
+            </a>
+          </div>
+          <div class="reveal cat-cell" data-reveal-delay="200">
+            <a href="properties.html?type=پنت‌هاوس" class="cat-card">
+              <img src="https://danisite.ir/wp-content/uploads/2026/10/طراحی-سایت-املاک-3.webp" alt="پنت‌هاوس‌ها" loading="lazy">
+              <div class="cat-shade"></div>
+              <div class="cat-content">
+                <div>
+                  <h3>پنت‌هاوس‌ها</h3>
+                  <p>زندگی در بلندی با چشم‌اندازهای پانورامیک.</p>
+                </div>
+                <span class="cat-arrow"><svg class="ic flip-rtl" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></span>
+              </div>
+            </a>
+          </div>
+          <div class="reveal cat-cell cat-wide" data-reveal-delay="300">
+            <a href="properties.html?location=ساحلی" class="cat-card">
+              <img src="https://danisite.ir/wp-content/uploads/2026/10/طراحی-سایت-املاک-13.webp" alt="خانه‌های ساحلی" loading="lazy">
+              <div class="cat-shade"></div>
+              <div class="cat-content">
+                <div>
+                  <h3>خانه‌های ساحلی</h3>
+                  <p>اقامتگاه‌های ساحلی که معماری در آن‌ها با آب دیدار می‌کند.</p>
+                </div>
+                <span class="cat-arrow"><svg class="ic flip-rtl" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></span>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="section" id="testimonials">
+      <div class="container-wide">
+        <div class="reveal t-head">
+          <p class="section-label mb-4">نظرات مشتریان</p>
+          <h2 class="sec-title">
+            <span class="heading-sans">مشتریان ما</span>
+            <span class="heading-serif">با اطمینان سخن می‌گویند.</span>
+          </h2>
+        </div>
+
+        <div class="reveal" data-reveal-delay="150">
+          <div class="t-grid">
+            <div class="t-media">
+              <img id="t-image" src="https://danisite.ir/wp-content/uploads/2026/10/طراحی-سایت-املاک-5.webp" alt="فضای معماری">
+              <div class="t-shade"></div>
+            </div>
+            <div class="t-body">
+              <span class="t-quote-icon" aria-hidden="true">&rdquo;</span>
+              <blockquote class="t-quote" id="t-quote">هوسن تنها یک خانه برای ما پیدا نکرد — قطعه‌ای از معماری را یافت که شیوه زندگی ما را دگرگون کرد.</blockquote>
+              <div class="t-person">
+                <div class="t-portrait"><img id="t-portrait" src="https://danisite.ir/wp-content/uploads/2026/10/طراحی-سایت-املاک-10.webp" alt="آدریان ووس"></div>
+                <div>
+                  <p class="t-name" id="t-name">آدریان ووس</p>
+                  <p class="t-role" id="t-role">مالک ملک، مالیبو</p>
+                </div>
+                <p class="t-demo-note">— نظر نمایشی</p>
+              </div>
+              <div class="t-controls">
+                <button class="t-btn" id="t-prev" aria-label="نظر قبلی">
+                  <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+                </button>
+                <div class="t-dots" id="t-dots">
+                  <button class="t-dot active" data-index="0" aria-label="نظر ۱"></button>
+                  <button class="t-dot" data-index="1" aria-label="نظر ۲"></button>
+                  <button class="t-dot" data-index="2" aria-label="نظر ۳"></button>
+                </div>
+                <button class="t-btn" id="t-next" aria-label="نظر بعدی">
+                  <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section cta" id="cta">
+      <div class="container-wide">
+        <div class="reveal cta-card">
+          <div class="cta-media">
+            <img src="https://danisite.ir/wp-content/uploads/2026/10/طراحی-سایت-املاک-15.webp" alt="ویلای لوکس در غروب" loading="lazy">
+            <div class="cta-shade-r"></div>
+            <div class="cta-shade-b"></div>
+            <div class="cta-content">
+              <p class="section-label mb-4">جستجوی خود را آغاز کنید</p>
+              <h2 class="sec-title cta-title">
+                <span class="heading-sans">جای خود را</span>
+                <span class="heading-serif">در میان استثنایی‌ها بیابید.</span>
+              </h2>
+              <p class="cta-text">خانه‌های برجسته‌ای را کشف کنید که برای شیوه زندگی دلخواه شما انتخاب شده‌اند.</p>
+              <div>
+                <a href="properties.html" class="btn-amber">
+                  مشاهده خانه‌ها
+                  <svg class="ic flip-rtl" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div><!-- /.page-layer -->
+
+</main>
+
+<!-- ==================== FOOTER ==================== -->
+<footer class="site-footer">
+  <div class="container-wide footer-inner">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">
+          <a href="index.html" class="logo">
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M3 19V9L11 3L19 9V19H14V13H8V19H3Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+              <path d="M11 3V7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+            <span class="logo-word">Housen</span>
+          </a>
+        </div>
+        <p class="footer-blurb">هوسن معماری استثنایی و مکان‌های برجسته‌ای برای زندگی را گرد هم می‌آورد.</p>
+        <div class="footer-socials">
+          <a href="#" aria-label="توییتر" class="social-square"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg></a>
+          <a href="#" aria-label="لینکدین" class="social-square"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg></a>
+          <a href="#" aria-label="اینستاگرام" class="social-square"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg></a>
+          <a href="#" aria-label="فیسبوک" class="social-square"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+        </div>
+      </div>
+
+      <div>
+        <h3 class="footer-heading">ناوبری</h3>
+        <ul class="link-list">
+          <li><a href="index.html">خانه</a></li>
+          <li><a href="properties.html">املاک</a></li>
+          <li><a href="about.html">درباره ما</a></li>
+          <li><a href="contact.html">تماس با ما</a></li>
+          <li><a href="services.html">خدمات</a></li>
+          <li><a href="agents.html">مشاوران</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="footer-heading">دسته‌بندی‌ها</h3>
+        <ul class="link-list">
+          <li><a href="properties.html?type=ویلا">ویلاهای معاصر</a></li>
+          <li><a href="properties.html?type=آپارتمان">آپارتمان‌های لوکس</a></li>
+          <li><a href="properties.html?type=پنت‌هاوس">پنت‌هاوس‌ها</a></li>
+          <li><a href="properties.html?location=ساحلی">خانه‌های ساحلی</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="footer-heading">خبرنامه</h3>
+        <p class="footer-news-text">برای دریافت املاک جدید و بینش‌های معماری مشترک شوید.</p>
+        <form id="newsletter-form" class="news-form" novalidate>
+          <input type="email" id="newsletter-email" placeholder="ایمیل خود را وارد کنید" aria-label="ایمیل برای خبرنامه" autocomplete="email">
+          <button type="submit" id="newsletter-submit" class="news-submit" aria-label="اشتراک">
+            <svg class="ic flip-rtl" id="newsletter-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </button>
+        </form>
+        <div class="footer-contact">
+          <p><span class="dim">ایمیل:</span> <a href="mailto:contact@housen.com">contact@housen.com</a></p>
+          <p><span class="dim">تلفن:</span> <span class="dim">بر اساس درخواست</span></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© <span id="footer-year">۲۰۲۶</span> هوسن. تمامی حقوق محفوظ است.</p>
+      <div class="footer-legal">
+        <a href="privacy.html">سیاست حفظ حریم خصوصی</a>
+        <a href="terms.html">شرایط استفاده از خدمات</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-wordmark-wrap">
+    <p class="footer-wordmark">HOUSEN</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
