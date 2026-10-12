@@ -91,10 +91,14 @@ The app boots at http://localhost:3000. First boot runs `npm install`, Prisma mi
 - `public/html/fa/` is a complete Persian (RTL, Vazirmatn) static site: `style.css` + `script.js` shared by all pages, built from the user's self-contained Persian homepage (`fa/index.html` is that file split into the shared CSS/JS).
 - Pages: `index`, `properties`, `property-single` (?slug=), `about`, `services`, `agents`, `contact`, `book-viewing`, `privacy`, `terms` — all link to each other RELATIVELY (e.g. `properties.html`) so the static kit works standalone; remap to WP permalinks on import.
 - Property `propertyType` values are Persian (`ویلا`, `آپارتمان`, `پنت‌هاوس`, `لافـت`); filter selects and `?type=` links must use those exact values.
+- Prices are formatted in Persian via `formatPrice` (`۴٫۲ میلیون دلار`, `۱۲٬۰۰۰ دلار / ماه`) — never `$X M` Latin style; digits go through the `fa()` helper (`toLocaleString('fa-IR')`).
+- Hero annotations are positioned by JS (`initHero.layoutAnnotations`) from `data-x`/`data-y`/`data-pos` attributes, computed against the real video frame with `object-fit: cover` math — do NOT position them with CSS percentages.
+- Search normalizes Arabic `ي/ك` to Persian `ی/ک` via the `norm()` helper before matching.
+- NO `letter-spacing` on Persian text (cursive script breaks); it is allowed only on Latin elements (`.logo-word`, `.footer-wordmark`, `.step-num`).
+- Demo labels ("نمایشی") are intentionally removed everywhere — copy is written to read like a real business site; the images/video still load from `https://danisite.ir/...` (the user's WordPress media library; unreachable from the sandbox, so the local preview shows empty image slots).
 - `script.js` additions vs. the user's homepage original: `AGENTS` + `FEATURES` data, `initPropertySingle`/`initAgentsPage`/`initContactForm`/`initViewingForm`, global `updateHeaderTheme`, `body.hero-revealed` fallback for pages without a hero, URL-param prefill in `initDiscovery` (`type`/`tx`/`location`/`q`), and relative card links (`property-single.html?slug=`). Contact/viewing forms POST to `/api/contact` and `/api/viewings` with a static demo-success fallback like the newsletter form.
 - Served at `/html/fa/<page>.html`. NOTE: files added to `public/` after the Next dev server starts return 404 until the `web` service restarts — restart it once after creating new static files.
 
 ## Notes
-- All property listings and testimonials are clearly labeled as demonstration content.
-- No real business addresses, phone numbers, or verified reviews are used.
+- Property listings and testimonials are fictional sample content written to read like a real business (no "demo" labels in the UI); they are replaced when connected to real data.
 - Images are sourced from Unsplash (configured in `next.config.js` `remotePatterns`).
