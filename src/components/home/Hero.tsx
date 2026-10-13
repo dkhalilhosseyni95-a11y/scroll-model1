@@ -1,48 +1,19 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
-import { ArrowRight, ArrowUp, Facebook, Instagram, Twitter, Linkedin } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { ArrowUpRight, Facebook, Instagram, Twitter, Linkedin } from 'lucide-react';
 
-const heroImages = [
-  {
-    src: 'https://images.unsplash.com/photo-1505843513577-22bb7d21e455?auto=format&fit=crop&w=2000&q=80',
-    alt: 'Futuristic luxury villa with organic concrete forms and warm interior lighting at dusk',
-  },
-  {
-    src: 'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=2000&q=80',
-    alt: 'Modern architectural villa with cantilevered roof and expansive glass walls',
-  },
-  {
-    src: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=2000&q=80',
-    alt: 'Luxury home with infinity pool reflecting the evening sky',
-  },
-];
+const heroImage = {
+  src: 'https://images.unsplash.com/photo-1505843513577-22bb7d21e455?auto=format&fit=crop&w=2000&q=80',
+  alt: 'Futuristic luxury villa with organic concrete forms and warm interior lighting at dusk',
+};
 
 const annotations = [
-  {
-    text: 'Triple-glazed solar glass',
-    position: 'top-[22%] right-[8%]',
-    dotPosition: 'left-0 top-1/2',
-    labelPosition: 'ml-8',
-    delay: 1.2,
-  },
-  {
-    text: 'Cantilevered concrete forms',
-    position: 'top-[48%] left-[6%]',
-    dotPosition: 'right-0 top-1/2',
-    labelPosition: 'mr-8',
-    delay: 1.5,
-  },
-  {
-    text: 'Natural stone & warm oak interiors',
-    position: 'bottom-[28%] right-[12%]',
-    dotPosition: 'left-0 top-1/2',
-    labelPosition: 'ml-8',
-    delay: 1.8,
-  },
+  { text: 'Using stone, sand-finished concrete and natural wood, the design echoes the shoreline\u2019s natural textures.', position: 'top-[30%] right-[4%] max-w-[230px]', dot: 'bottom-0 left-6', delay: 1.6 },
+  { text: 'Using stone, sand-finished concrete and natural wood, the design echoes the shoreline\u2019s natural textures.', position: 'top-[48%] left-1/2 -translate-x-1/2 max-w-[220px]', dot: 'top-0 right-6', delay: 1.9 },
+  { text: 'Using stone, sand-finished concrete and natural wood, the design echoes the shoreline\u2019s natural textures.', position: 'top-[62%] left-[3%] max-w-[230px]', dot: 'bottom-0 left-6', delay: 2.2 },
 ];
 
 const socials = [
@@ -53,178 +24,107 @@ const socials = [
 ];
 
 export default function Hero() {
-  const [current, setCurrent] = useState(0);
-  const containerRef = useRef<HTMLElement>(null);
-  const { scrollY } = useScroll();
-  const y = useTransform(scrollY, [0, 800], [0, 150]);
-  const opacity = useTransform(scrollY, [0, 500], [1, 0]);
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrent((prev) => (prev + 1) % heroImages.length);
-    }, 6000);
-    return () => clearInterval(timer);
-  }, []);
-
   return (
-    <section
-      ref={containerRef}
-      className="relative h-screen min-h-[700px] w-full overflow-hidden"
-    >
-      {/* Background images with crossfade */}
-      <motion.div style={{ y }} className="absolute inset-0">
-        <AnimatePresence mode="sync">
-          <motion.div
-            key={current}
-            data-ssr-failsafe
-            initial={{ opacity: 0, scale: 1.05 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
-            className="absolute inset-0"
-          >
-            <Image
-              src={heroImages[current].src}
-              alt={heroImages[current].alt}
-              fill
-              priority
-              sizes="100vw"
-              className="object-cover"
-            />
-          </motion.div>
-        </AnimatePresence>
-        {/* Dark overlay for text contrast */}
-        <div className="absolute inset-0 bg-gradient-to-b from-void/50 via-void/20 to-void/70" />
-        <div className="absolute inset-0 bg-gradient-to-r from-void/40 via-transparent to-void/30" />
-      </motion.div>
-
-      {/* HOUSEN wordmark */}
-      <motion.div
-        style={{ opacity }}
-        className="absolute inset-0 flex flex-col items-center justify-center px-6"
-      >
+    <section className="relative h-screen min-h-[720px] w-full overflow-hidden bg-void">
+      {/* Giant wordmark — sits behind the building image */}
+      <div className="absolute inset-x-0 top-[9%] z-0 px-4 text-center">
         <motion.h1
           data-ssr-failsafe
-          initial={{ opacity: 0, y: 60, letterSpacing: '0.1em' }}
-          animate={{ opacity: 1, y: 0, letterSpacing: '-0.05em' }}
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.4, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
-          className="font-sans font-bold uppercase text-hero text-parchment text-center leading-none"
+          className="font-sans font-bold uppercase text-hero text-parchment leading-none select-none"
         >
           Housen
         </motion.h1>
+      </div>
 
-        {/* Explore Properties link */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 1 }}
-          data-ssr-failsafe
-          className="mt-8"
-        >
-          <Link
-            href="/properties"
-            className="group inline-flex items-center gap-2 text-sm font-medium uppercase tracking-[0.2em] text-parchment/80 hover:text-amber transition-colors"
-          >
-            Explore Properties
-            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-          </Link>
-        </motion.div>
+      {/* Building image — overlaps the bottom of the wordmark */}
+      <motion.div
+        data-ssr-failsafe
+        initial={{ opacity: 0, scale: 1.03 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 1.6, ease: [0.16, 1, 0.3, 1], delay: 0.4 }}
+        className="absolute inset-x-0 top-[16%] bottom-0 z-10"
+      >
+        <Image
+          src={heroImage.src}
+          alt={heroImage.alt}
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-center"
+        />
+        {/* Blend the image top into the void background */}
+        <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-void to-transparent" />
       </motion.div>
 
-      {/* Editorial annotations */}
+      {/* Explore Properties link */}
+      <motion.div
+        data-ssr-failsafe
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 1.2 }}
+        className="absolute left-6 md:left-10 lg:left-16 top-[38%] z-20"
+      >
+        <Link
+          href="/properties"
+          className="group inline-flex items-center gap-2 border-b border-parchment/40 pb-1 text-sm font-medium text-parchment hover:text-amber hover:border-amber transition-colors"
+        >
+          Explore Properties
+          <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+        </Link>
+      </motion.div>
+
+      {/* Editorial annotation callouts */}
       {annotations.map((ann, i) => (
         <motion.div
           key={i}
           data-ssr-failsafe
-          initial={{ opacity: 0, scale: 0.9 }}
+          initial={{ opacity: 0, scale: 0.92 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: ann.delay, ease: [0.16, 1, 0.3, 1] }}
-          className={`absolute ${ann.position} hidden md:flex items-center`}
+          className={`absolute z-20 hidden lg:block ${ann.position}`}
         >
-          {/* Dot */}
-          <div className={`relative ${ann.dotPosition}`}>
-            <div className="h-2 w-2 rounded-full bg-amber" />
-            <div className="absolute inset-0 h-2 w-2 rounded-full bg-amber animate-ping opacity-60" />
+          <div className="glass-pill px-4 py-2.5">
+            <p className="text-[11px] leading-relaxed text-parchment">{ann.text}</p>
           </div>
-          {/* Label */}
-          <div className={`${ann.labelPosition}`}>
-            <div className="h-px w-12 bg-amber/40" />
-            <div className="mt-2 rounded-lg border border-white/10 bg-void/40 backdrop-blur-md px-4 py-2">
-              <p className="text-xs font-medium text-parchment whitespace-nowrap">
-                {ann.text}
-              </p>
-            </div>
+          {/* Connector line + dot */}
+          <div className={`absolute h-px w-16 bg-gradient-to-r from-white/40 to-amber/60 ${i === 1 ? 'top-0 right-6 rotate-[35deg] origin-top-right' : 'bottom-0 left-6 -rotate-[25deg] origin-bottom-left'}`} />
+          <div className={`absolute h-2 w-2 rounded-full bg-amber ${ann.dot}`}>
+            <div className="absolute inset-0 rounded-full bg-amber animate-ping opacity-60" />
           </div>
         </motion.div>
       ))}
 
       {/* Bottom bar */}
-      <div className="absolute bottom-0 left-0 right-0 z-10">
-        <div className="container-wide pb-8 flex items-end justify-between">
+      <div className="absolute bottom-0 left-0 right-0 z-20">
+        <div className="container-wide pb-8 flex items-end justify-between gap-6">
           {/* Brand statement */}
-          <motion.div
+          <motion.p
+            data-ssr-failsafe
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 2 }}
-            data-ssr-failsafe
-            className="max-w-xs hidden md:block"
+            transition={{ duration: 0.8, delay: 2.4 }}
+            className="text-xs md:text-sm font-medium uppercase leading-relaxed tracking-wide text-parchment"
           >
-            <p className="text-xs leading-relaxed text-stone">
-              Using stone, sand-finished concrete and natural wood, the design
-              echoes the shoreline&apos;s natural textures.
-            </p>
-          </motion.div>
+            We build<br />modern<br />houses<br />in USA
+          </motion.p>
 
-          {/* Carousel controls */}
+          {/* Social icons in a glass pill */}
           <motion.div
+            data-ssr-failsafe
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 2 }}
-            data-ssr-failsafe
-            className="flex items-center gap-3"
-          >
-            <button
-              onClick={() => setCurrent((prev) => (prev - 1 + heroImages.length) % heroImages.length)}
-              className="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 text-parchment hover:border-amber hover:text-amber transition-all"
-              aria-label="Previous image"
-            >
-              <ArrowUp className="h-4 w-4 rotate-[-90deg]" />
-            </button>
-            <div className="flex gap-1.5">
-              {heroImages.map((_, i) => (
-                <button
-                  key={i}
-                  onClick={() => setCurrent(i)}
-                  className={`h-1 rounded-full transition-all ${
-                    i === current ? 'w-8 bg-amber' : 'w-4 bg-white/30'
-                  }`}
-                  aria-label={`Go to image ${i + 1}`}
-                />
-              ))}
-            </div>
-            <button
-              onClick={() => setCurrent((prev) => (prev + 1) % heroImages.length)}
-              className="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 text-parchment hover:border-amber hover:text-amber transition-all"
-              aria-label="Next image"
-            >
-              <ArrowUp className="h-4 w-4 rotate-90" />
-            </button>
-          </motion.div>
-
-          {/* Social icons */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 2 }}
-            data-ssr-failsafe
-            className="hidden md:flex gap-3"
+            transition={{ duration: 0.8, delay: 2.4 }}
+            className="glass-pill flex items-center gap-2 px-2.5 py-2"
           >
             {socials.map(({ Icon, label }) => (
               <a
                 key={label}
                 href="#"
                 aria-label={label}
-                className="flex h-9 w-9 items-center justify-center rounded-full border border-white/15 text-parchment/70 hover:border-amber hover:text-amber transition-all"
+                className="flex h-9 w-9 items-center justify-center rounded-full bg-white/10 text-parchment/80 hover:bg-amber hover:text-void transition-all"
               >
                 <Icon className="h-4 w-4" />
               </a>
@@ -232,20 +132,6 @@ export default function Hero() {
           </motion.div>
         </div>
       </div>
-
-      {/* Scroll indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 2.5, duration: 1 }}
-        style={{ opacity }}
-        className="absolute bottom-4 left-1/2 -translate-x-1/2 hidden lg:block"
-      >
-        <div className="flex flex-col items-center gap-2">
-          <span className="text-[10px] uppercase tracking-[0.3em] text-stone-dark">Scroll</span>
-          <div className="h-12 w-px bg-gradient-to-b from-amber/50 to-transparent" />
-        </div>
-      </motion.div>
     </section>
   );
 }

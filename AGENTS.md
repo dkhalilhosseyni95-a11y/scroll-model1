@@ -40,7 +40,7 @@ The app boots at http://localhost:3000. First boot runs `npm install`, Prisma mi
 | `BASE44_PUBLIC_HOST_SUFFIX` | Platform env | Preview origin for Next.js `allowedDevOrigins` |
 
 ## Routes
-- `/` — Homepage (hero, featured properties, search, brand story, categories, testimonials, CTA)
+- `/` — Homepage (hero, featured properties, property carousel, testimonials, CTA). Layout mirrors the reference design: dark hero + featured section, light (parchment) carousel + testimonials, full-bleed CTA. `PropertyDiscovery`, `BrandStory` and `PropertyCategories` are no longer on the homepage (files kept, unused).
 - `/properties` — All properties with filters
 - `/properties/[slug]` — Property detail (gallery, specs, inquiry, booking)
 - `/buy`, `/rent` — Filtered property listings

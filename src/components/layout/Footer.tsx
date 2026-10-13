@@ -1,152 +1,116 @@
 import Link from 'next/link';
-import { Facebook, Instagram, Twitter, Linkedin } from 'lucide-react';
 import Logo from '@/components/ui/Logo';
 import NewsletterForm from './NewsletterForm';
 
 const footerNav = [
   { label: 'Home', href: '/' },
-  { label: 'Properties', href: '/properties' },
-  { label: 'About Us', href: '/about' },
+  { label: 'Listings', href: '/properties' },
+  { label: 'About', href: '/about' },
   { label: 'Contact', href: '/contact' },
 ];
 
-const footerCategories = [
-  { label: 'Contemporary Villas', href: '/properties?type=Villa' },
-  { label: 'Luxury Apartments', href: '/properties?type=Apartment' },
-  { label: 'Penthouses', href: '/properties?type=Penthouse' },
-  { label: 'Waterfront Homes', href: '/properties?type=Villa&location=water' },
+const footerSocials = [
+  { label: 'Twitter', href: '#' },
+  { label: 'LinkedIn', href: '#' },
+  { label: 'Instagram', href: '#' },
+  { label: 'Facebook', href: '#' },
 ];
 
-const socialLinks = [
-  { Icon: Twitter, href: '#', label: 'Twitter' },
-  { Icon: Linkedin, href: '#', label: 'LinkedIn' },
-  { Icon: Instagram, href: '#', label: 'Instagram' },
-  { Icon: Facebook, href: '#', label: 'Facebook' },
-];
+function FooterLabel({ children }: { children: string }) {
+  return (
+    <p className="mb-4 text-[11px] font-medium uppercase tracking-[0.25em] text-stone-dark">
+      &bull; {children}
+    </p>
+  );
+}
 
 export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="bg-void border-t border-charcoal/40">
-      <div className="container-wide py-16 md:py-20">
-        <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-4 lg:gap-8">
-          {/* Brand */}
-          <div className="lg:col-span-1">
-            <div className="text-parchment mb-5">
+    <footer className="bg-void pt-16 md:pt-20">
+      <div className="container-wide">
+        {/* Top: brand + contact, navigation, socials */}
+        <div className="grid grid-cols-1 gap-10 md:grid-cols-12 md:gap-8">
+          <div className="md:col-span-5">
+            <div className="text-parchment">
               <Logo />
             </div>
-            <p className="text-sm leading-relaxed text-stone max-w-xs">
-              HOUSEN curates exceptional architecture and remarkable places to call
-              home — a digital gallery of living art.
-            </p>
-            <div className="flex gap-3 mt-6">
-              {socialLinks.map(({ Icon, href, label }) => (
-                <a
-                  key={label}
-                  href={href}
-                  aria-label={label}
-                  className="flex h-10 w-10 items-center justify-center rounded-full border border-charcoal text-stone hover:border-amber hover:text-amber transition-all"
-                >
-                  <Icon className="h-4 w-4" />
-                </a>
-              ))}
+            <div className="mt-8">
+              <FooterLabel>Contact us</FooterLabel>
+              <a
+                href="mailto:info@housen.com"
+                className="text-xl text-parchment transition-colors hover:text-amber md:text-2xl"
+              >
+                info@housen.com
+              </a>
             </div>
           </div>
 
-          {/* Navigation */}
-          <div>
-            <h3 className="text-xs font-medium uppercase tracking-[0.2em] text-amber mb-5">
-              Navigation
-            </h3>
-            <ul className="space-y-3">
+          <div className="md:col-span-3">
+            <FooterLabel>Navigation</FooterLabel>
+            <ul className="space-y-2.5">
               {footerNav.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm text-stone hover:text-parchment transition-colors"
+                    className="text-sm text-stone transition-colors hover:text-parchment"
                   >
                     {link.label}
                   </Link>
                 </li>
               ))}
-              <li>
-                <Link href="/services" className="text-sm text-stone hover:text-parchment transition-colors">
-                  Services
-                </Link>
-              </li>
-              <li>
-                <Link href="/agents" className="text-sm text-stone hover:text-parchment transition-colors">
-                  Agents
-                </Link>
-              </li>
             </ul>
           </div>
 
-          {/* Categories */}
-          <div>
-            <h3 className="text-xs font-medium uppercase tracking-[0.2em] text-amber mb-5">
-              Categories
-            </h3>
-            <ul className="space-y-3">
-              {footerCategories.map((cat) => (
-                <li key={cat.label}>
-                  <Link
-                    href={cat.href}
-                    className="text-sm text-stone hover:text-parchment transition-colors"
+          <div className="md:col-span-4">
+            <FooterLabel>Socials</FooterLabel>
+            <ul className="space-y-2.5">
+              {footerSocials.map((social) => (
+                <li key={social.label}>
+                  <a
+                    href={social.href}
+                    className="text-sm text-stone transition-colors hover:text-parchment"
                   >
-                    {cat.label}
-                  </Link>
+                    {social.label}
+                  </a>
                 </li>
               ))}
             </ul>
           </div>
+        </div>
 
-          {/* Newsletter */}
-          <div>
-            <h3 className="text-xs font-medium uppercase tracking-[0.2em] text-amber mb-5">
-              Newsletter
-            </h3>
-            <p className="text-sm text-stone mb-4">
-              Subscribe for new listings and architectural insights.
-            </p>
+        {/* Newsletter row */}
+        <div className="mt-14 flex flex-col gap-5 border-t border-charcoal/40 pt-8 md:flex-row md:items-center">
+          <p className="shrink-0 text-[11px] font-medium uppercase tracking-[0.25em] text-stone-dark md:w-48">
+            &bull; Newsletter
+          </p>
+          <div className="max-w-xl flex-1">
             <NewsletterForm />
-            <div className="mt-6 space-y-2">
-              <p className="text-sm text-stone">
-                <span className="text-stone-dark">Email:</span>{' '}
-                <a href="mailto:contact@housen.com" className="hover:text-amber transition-colors">
-                  contact@housen.com
-                </a>
-              </p>
-              <p className="text-sm text-stone">
-                <span className="text-stone-dark">Phone:</span>{' '}
-                <span className="text-stone-dark">Available upon request</span>
-              </p>
-            </div>
           </div>
         </div>
 
-        {/* Bottom bar */}
-        <div className="mt-16 pt-8 border-t border-charcoal/40 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-stone-dark">
-            © {year} HOUSEN. All rights reserved. — Demonstration website.
+        {/* Giant wordmark */}
+        <div className="mt-8 overflow-hidden">
+          <p className="select-none text-center font-sans text-[clamp(4rem,17.5vw,17rem)] font-bold uppercase leading-[0.85] tracking-tight text-parchment">
+            Housen
           </p>
+        </div>
+      </div>
+
+      {/* Bottom bar */}
+      <div className="border-t border-charcoal/40">
+        <div className="container-wide flex flex-col items-center justify-between gap-3 py-5 text-[11px] uppercase tracking-wider text-stone-dark md:flex-row">
+          <p>&copy; {year} Housen, All Rights Reserved</p>
           <div className="flex gap-6">
-            <Link href="/privacy" className="text-xs text-stone-dark hover:text-amber transition-colors">
+            <Link href="/privacy" className="transition-colors hover:text-amber">
               Privacy Policy
             </Link>
-            <Link href="/terms" className="text-xs text-stone-dark hover:text-amber transition-colors">
+            <Link href="/terms" className="transition-colors hover:text-amber">
               Terms of Service
             </Link>
           </div>
         </div>
-      </div>
-
-      {/* Oversized wordmark */}
-      <div className="overflow-hidden border-t border-charcoal/20">
-        <p className="font-sans font-bold uppercase tracking-tight text-center text-[clamp(4rem,18vw,18rem)] leading-none text-charcoal/30 select-none pb-4">
-          HOUSEN
-        </p>
       </div>
     </footer>
   );

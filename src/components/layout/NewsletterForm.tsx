@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { toast } from '@/components/ui/Toaster';
-import { ArrowRight, Loader2 } from 'lucide-react';
+import { ArrowUpRight, Loader2 } from 'lucide-react';
 
 export default function NewsletterForm() {
   const [email, setEmail] = useState('');
@@ -40,26 +40,29 @@ export default function NewsletterForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="relative w-full">
+    <form onSubmit={handleSubmit} className="flex items-center gap-3">
       <input
         type="email"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
-        placeholder="Enter your email"
+        placeholder="Enter your email address"
         aria-label="Email for newsletter"
         disabled={loading}
-        className="w-full rounded-full border border-charcoal bg-void/60 py-3 pl-5 pr-14 text-sm text-parchment placeholder-stone-dark focus:border-amber focus:outline-none transition-colors"
+        className="min-w-0 flex-1 rounded-full border border-charcoal bg-void/60 px-5 py-3 text-sm text-parchment placeholder-stone-dark transition-colors focus:border-amber focus:outline-none"
       />
       <button
         type="submit"
         disabled={loading}
-        aria-label="Subscribe"
-        className="absolute right-1.5 top-1/2 -translate-y-1/2 rounded-full bg-amber p-2.5 text-void hover:bg-amber-light transition-colors disabled:opacity-50"
+        className="btn-amber shrink-0 text-sm disabled:opacity-50"
+        aria-label="Submit newsletter subscription"
       >
         {loading ? (
           <Loader2 className="h-4 w-4 animate-spin" />
         ) : (
-          <ArrowRight className="h-4 w-4" />
+          <>
+            Submit
+            <ArrowUpRight className="h-4 w-4" />
+          </>
         )}
       </button>
     </form>

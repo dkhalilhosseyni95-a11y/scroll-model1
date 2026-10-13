@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X } from 'lucide-react';
+import { ArrowUpRight, Menu, X } from 'lucide-react';
 import Logo from '@/components/ui/Logo';
 
 const navLinks = [
@@ -67,6 +67,7 @@ export default function Navbar() {
                       : 'text-stone hover:text-parchment'
                   }`}
                 >
+                  {active && <span className="mr-1.5">&bull;</span>}
                   {link.label}
                 </Link>
               );
@@ -76,7 +77,8 @@ export default function Navbar() {
           {/* Desktop CTA */}
           <div className="hidden lg:block">
             <Link href="/book-viewing" className="btn-amber text-sm">
-              Book a Viewing
+              Book Now
+              <ArrowUpRight className="h-4 w-4" />
             </Link>
           </div>
 
@@ -136,7 +138,8 @@ export default function Navbar() {
                 className="mt-8"
               >
                 <Link href="/book-viewing" className="btn-amber">
-                  Book a Viewing
+                  Book Now
+                  <ArrowUpRight className="h-4 w-4" />
                 </Link>
               </motion.div>
             </nav>
