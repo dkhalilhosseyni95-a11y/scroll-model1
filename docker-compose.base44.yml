@@ -1,0 +1,155 @@
+# Base44 dev stack for the DaniSite WordPress theme, child theme and core plugin.
+#
+# Everything runs from the cloned source (bind mounts, no baked images), so edits
+# are visible immediately. WordPress is served on host port 3000, which is the
+# preview entry point.
+name: danisite
+
+services:
+  db:
+    image: mariadb:11.4
+    restart: on-failure
+    environment:
+      MARIADB_DATABASE: danisite
+      MARIADB_USER: danisite
+      MARIADB_PASSWORD: danisite_local_db
+      MARIADB_ROOT_PASSWORD: danisite_local_root
+      MARIADB_AUTO_UPGRADE: "1"
+    volumes:
+      - db_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      interval: 10s
+      timeout: 5s
+      retries: 20
+      start_period: 30s
+
+  wordpress:
+    image: wordpress:7.1.4-php8.2-apache
+    restart: on-failure
+    ports:
+      - "3000:80"
+    depends_on:
+      db:
+        condition: service_healthy
+    env_file:
+      - ./sandbox/.env.defaults
+      - /run/base44/app.env
+    environment:
+      WORDPRESS_DB_HOST: db:3306
+      WORDPRESS_DB_NAME: danisite
+      WORDPRESS_DB_USER: danisite
+      WORDPRESS_DB_PASSWORD: danisite_local_db
+      WORDPRESS_TABLE_PREFIX: wp_
+      WORDPRESS_DEBUG: "1"
+      WORDPRESS_CONFIG_EXTRA: |
+        define('WP_DEBUG_LOG', '/tmp/wp-debug.log');
+        define('WP_DEBUG_DISPLAY', false);
+        define('DISALLOW_FILE_EDIT', true);
+        define('WP_MEMORY_LIMIT', '256M');
+      # Passed through for the sandbox URL helper (see sandbox/mu-plugins).
+      BASE44_PREVIEW_MODE:
+      DANI_PREVIEW_ORIGIN: https://3000-${BASE44_PUBLIC_HOST_SUFFIX}
+      DANI_SANDBOX_HOST_DOMAIN: ${BASE44_SANDBOX_HOST_DOMAIN}
+    volumes:
+      - wp_core:/var/www/html
+      - wp_uploads:/var/www/html/wp-content/uploads
+      - ./themes/danisite-parent:/var/www/html/wp-content/themes/danisite-parent
+      - ./themes/danisite-child:/var/www/html/wp-content/themes/danisite-child
+      - ./plugins/danisite-core:/var/www/html/wp-content/plugins/danisite-core
+      - ./sandbox/mu-plugins:/var/www/html/wp-content/mu-plugins
+      - ./sandbox/healthcheck.php:/opt/dani/healthcheck.php:ro
+    healthcheck:
+      test: ["CMD", "php", "/opt/dani/healthcheck.php"]
+      interval: 15s
+      timeout: 8s
+      retries: 12
+      start_period: 40s
+
+  # The uploads volume starts out owned by root while Apache and WP-CLI run as
+  # www-data (33). Initialise it once so media uploads and image sizes work.
+  perms:
+    image: wordpress:7.1.4-php8.2-apache
+    restart: "no"
+    user: "0:0"
+    entrypoint: ["/bin/sh", "-c"]
+    command:
+      - |
+        mkdir -p /var/www/html/wp-content/uploads
+        chown -R 33:33 /var/www/html/wp-content/uploads
+        echo "uploads ready"
+    volumes:
+      - wp_core:/var/www/html
+      - wp_uploads:/var/www/html/wp-content/uploads
+
+  # One-shot installer: WordPress core install, Persian locale, Elementor and the
+  # idempotent demo import. Re-running it never duplicates content.
+  setup:
+    image: wordpress:cli-php8.3
+    restart: "no"
+    user: "33:33"
+    depends_on:
+      wordpress:
+        condition: service_healthy
+      perms:
+        condition: service_completed_successfully
+    env_file:
+      - ./sandbox/.env.defaults
+      - /run/base44/app.env
+    environment:
+      BASE44_PREVIEW_MODE:
+      DANI_PREVIEW_ORIGIN: https://3000-${BASE44_PUBLIC_HOST_SUFFIX}
+      # wp-config.php resolves these at runtime (getenv_docker), so the WP-CLI
+      # containers need them too, not just the wordpress service.
+      WORDPRESS_DB_HOST: db:3306
+      WORDPRESS_DB_NAME: danisite
+      WORDPRESS_DB_USER: danisite
+      WORDPRESS_DB_PASSWORD: danisite_local_db
+      WORDPRESS_TABLE_PREFIX: wp_
+    volumes:
+      - wp_core:/var/www/html
+      - wp_uploads:/var/www/html/wp-content/uploads
+      - ./themes/danisite-parent:/var/www/html/wp-content/themes/danisite-parent
+      - ./themes/danisite-child:/var/www/html/wp-content/themes/danisite-child
+      - ./plugins/danisite-core:/var/www/html/wp-content/plugins/danisite-core
+      - ./sandbox/mu-plugins:/var/www/html/wp-content/mu-plugins
+      - ./sandbox:/opt/dani:ro
+    # Invoke through sh: the script is mounted read-only from the checkout and
+    # does not carry the executable bit.
+    entrypoint: ["/bin/sh", "-c"]
+    command: ["sh /opt/dani/setup.sh"]
+
+  # Interactive WP-CLI: docker compose -f docker-compose.base44.yml run --rm cli <args>
+  cli:
+    image: wordpress:cli-php8.3
+    profiles: ["tools"]
+    user: "33:33"
+    depends_on:
+      wordpress:
+        condition: service_healthy
+    env_file:
+      - ./sandbox/.env.defaults
+      - /run/base44/app.env
+    environment:
+      BASE44_PREVIEW_MODE:
+      DANI_PREVIEW_ORIGIN: https://3000-${BASE44_PUBLIC_HOST_SUFFIX}
+      # wp-config.php resolves these at runtime (getenv_docker), so the WP-CLI
+      # containers need them too, not just the wordpress service.
+      WORDPRESS_DB_HOST: db:3306
+      WORDPRESS_DB_NAME: danisite
+      WORDPRESS_DB_USER: danisite
+      WORDPRESS_DB_PASSWORD: danisite_local_db
+      WORDPRESS_TABLE_PREFIX: wp_
+    volumes:
+      - wp_core:/var/www/html
+      - wp_uploads:/var/www/html/wp-content/uploads
+      - ./themes/danisite-parent:/var/www/html/wp-content/themes/danisite-parent
+      - ./themes/danisite-child:/var/www/html/wp-content/themes/danisite-child
+      - ./plugins/danisite-core:/var/www/html/wp-content/plugins/danisite-core
+      - ./sandbox/mu-plugins:/var/www/html/wp-content/mu-plugins
+    entrypoint: ["wp"]
+
+volumes:
+  db_data:
+  wp_core:
+  wp_uploads:
