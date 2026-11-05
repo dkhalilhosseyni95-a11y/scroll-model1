@@ -393,15 +393,72 @@ function dani_post_meta() {
 /**
  * Persian-friendly post date.
  *
- * The site date format puts the month first, which reads as `نوامبر 5, 2026` and
- * re-orders itself inside RTL text. Day-month-year with Persian digits stays
- * readable and matches the rest of the interface.
+ * Iranian visitors read dates in the Jalali calendar, so the publish date is
+ * converted from Gregorian and printed with Persian month names and digits.
  *
  * @param int|WP_Post|null $post Optional. Post to read the date from.
  * @return string
  */
 function dani_date( $post = null ) {
-	return dani_fa_number( get_the_date( 'j F Y', $post ) );
+	$date = get_the_date( 'Y-m-d', $post );
+
+	if ( ! $date ) {
+		return '';
+	}
+
+	list( $year, $month, $day ) = array_map( 'intval', explode( '-', $date ) );
+	list( $jy, $jm, $jd )       = dani_jalali_date( $year, $month, $day );
+
+	$months = array(
+		'فروردین',
+		'اردیبهشت',
+		'خرداد',
+		'تیر',
+		'مرداد',
+		'شهریور',
+		'مهر',
+		'آبان',
+		'آذر',
+		'دی',
+		'بهمن',
+		'اسفند',
+	);
+
+	return dani_fa_number( $jd . ' ' . $months[ $jm - 1 ] . ' ' . $jy );
+}
+
+/**
+ * Convert a Gregorian date to the Jalali (Solar Hijri) calendar.
+ *
+ * @param int $gy Gregorian year.
+ * @param int $gm Gregorian month.
+ * @param int $gd Gregorian day.
+ * @return array Year, month and day in the Jalali calendar.
+ */
+function dani_jalali_date( $gy, $gm, $gd ) {
+	$g_days_in_month = array( 0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334 );
+	$gy2             = ( $gm > 2 ) ? $gy + 1 : $gy;
+	$days            = 355666 + ( 365 * $gy ) + (int) ( ( $gy2 + 3 ) / 4 ) - (int) ( ( $gy2 + 99 ) / 100 ) + (int) ( ( $gy2 + 399 ) / 400 ) + $gd + $g_days_in_month[ $gm - 1 ];
+	$jy              = -1595 + ( 33 * (int) ( $days / 12053 ) );
+
+	$days %= 12053;
+	$jy   += 4 * (int) ( $days / 1461 );
+	$days %= 1461;
+
+	if ( $days > 365 ) {
+		$jy  += (int) ( ( $days - 1 ) / 365 );
+		$days = ( $days - 1 ) % 365;
+	}
+
+	if ( $days < 186 ) {
+		$jm = 1 + (int) ( $days / 31 );
+		$jd = 1 + ( $days % 31 );
+	} else {
+		$jm = 7 + (int) ( ( $days - 186 ) / 30 );
+		$jd = 1 + ( ( $days - 186 ) % 30 );
+	}
+
+	return array( $jy, $jm, $jd );
 }
 
 /**
@@ -483,6 +540,12 @@ function dani_archive_title() {
 	if ( is_category() || is_tag() || is_tax() ) {
 		return single_term_title( '', false );
 	}
+	if ( is_post_type_archive() ) {
+		$archive = post_type_archive_title( '', false );
+		if ( $archive ) {
+			return $archive;
+		}
+	}
 	if ( is_author() ) {
 		return get_the_author();
 	}
@@ -506,6 +569,20 @@ function dani_archive_description() {
 	$desc = get_the_archive_description();
 	if ( $desc ) {
 		return wp_strip_all_tags( $desc );
+	}
+
+	if ( is_post_type_archive() ) {
+		$type = get_post_type();
+		$map  = array(
+			'dani_project' => 'گزیده‌ای از پروژه‌های طراحی و توسعه دنی سایت؛ از هویت دیجیتال برند تا فروشگاه اینترنتی و اپلیکیشن.',
+			'dani_service' => 'خدماتی که برای ساختن یک حضور دیجیتال متمایز ارائه می‌دهیم؛ از طراحی تا اجرا و رشد.',
+			'dani_team'    => 'تیمی که ایده‌ها را به تجربه‌های دیجیتال قابل استفاده تبدیل می‌کند.',
+			'dani_faq'     => 'پاسخ پرتکرارترین پرسش‌های مشتریان درباره فرایند همکاری با دنی سایت.',
+		);
+
+		if ( isset( $map[ $type ] ) ) {
+			return $map[ $type ];
+		}
 	}
 
 	return 'یادداشت‌ها، تحلیل‌ها و تجربه‌های تیم دنی سایت در طراحی، توسعه و رشد دیجیتال.';

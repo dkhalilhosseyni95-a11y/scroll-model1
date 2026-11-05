@@ -1,0 +1,28 @@
+/*
+Theme Name: DaniSite Child
+Theme URI: https://danisite.ir
+Template: danisite-parent
+Author: DaniSite Studio
+Author URI: https://danisite.ir
+Description: قالب فرزند دنی سایت — برای شخصی‌سازی امن بدون دست‌کاری قالب اصلی. هر قالبی از قالب اصلی را می‌توانید در این پوشه بازنویسی کنید.
+Version: 1.0.2
+Requires at least: 6.0
+Requires PHP: 7.4
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: danisite-child
+Tags: rtl-language-support, custom-colors, custom-menu, translation-ready
+*/
+
+/* =========================================================================
+   Stylesheet شخصی‌سازی
+   این فایل بعد از استایل‌های قالب اصلی بارگذاری می‌شود؛ هر تغییری که می‌خواهید
+   به‌صورت پایدار باقی بماند را همین‌جا بنویسید.
+   ========================================================================= */
+
+/* نمونه: تغییر شعاع گوشه کارت‌ها */
+/*
+:root {
+  --radius-2xl: calc(var(--radius) + 12px);
+}
+*/

@@ -55,6 +55,24 @@ WP-CLI needs a writable cache dir in these images; `setup.sh` exports
 `WP_CLI_CACHE_DIR=/tmp/wp-cli-cache`. Add the same when running CLI by hand that
 installs packages.
 
+## Packaging
+
+`dist/*.zip` are the installable parent theme, child theme and plugin. Rebuild them
+after any change to `themes/` or `plugins/`:
+
+```sh
+docker compose -f docker-compose.base44.yml run --rm -T --user 0:0 --entrypoint php \
+  -v "$PWD:/opt/repo" setup /opt/repo/tools/build-packages.php
+```
+
+`--user 0:0` is required: the checkout is root-owned, and the `setup` service runs as
+uid 33, so the bind mount is otherwise unreadable ("Permission denied" on /opt/repo).
+The script needs PHP's `zip` extension, which the WordPress image provides.
+
+`docs/installation.md`, `docs/content-guide.md` and `docs/test-report.md` are the
+delivered (Persian) documentation; keep them in sync when behaviour changes
+(importer steps, settings tabs, shortcodes, widgets).
+
 ## Checks
 
 There is no automated test suite. Verify by loading the routes (`/`, `/about/`,

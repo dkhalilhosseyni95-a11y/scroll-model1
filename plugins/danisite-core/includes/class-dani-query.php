@@ -460,7 +460,7 @@ class Dani_Query {
 					'title'   => get_the_title( $post ),
 					'excerpt' => wp_strip_all_tags( get_the_excerpt( $post ) ),
 					'url'     => get_permalink( $post ),
-					'date'    => dani_fa_number( get_the_date( 'j F Y', $post ) ),
+					'date'    => function_exists( 'dani_date' ) ? dani_date( $post ) : dani_fa_number( get_the_date( 'j F Y', $post ) ),
 					'thumb'   => get_the_post_thumbnail_url( $post, 'dani-card' ),
 					'cat'     => ! empty( $cats ) ? $cats[0]->name : '',
 					'cat_url' => ! empty( $cats ) ? get_category_link( $cats[0] ) : '',
