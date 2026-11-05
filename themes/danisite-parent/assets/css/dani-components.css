@@ -1,0 +1,699 @@
+/* =========================================================================
+   DaniSite — components layer
+   Sections, cards, forms and archive styles that share the Lovable identity.
+   ========================================================================= */
+
+/* ---------- Services (numbered list) ---------- */
+.dani-services__grid { display: grid; gap: 3.5rem; }
+.dani-services__aside { position: static; }
+.dani-services__list { border-top: 1px solid var(--border); }
+.dani-service-row { border-bottom: 1px solid var(--border); }
+.dani-service-row__link {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding-block: 1.75rem;
+}
+.dani-service-row__num {
+  width: 2.5rem;
+  flex: none;
+  font-size: .875rem;
+  font-weight: 600;
+  color: var(--muted-foreground);
+  transition: color .3s ease;
+}
+.dani-service-row__body { flex: 1; }
+.dani-service-row__title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  transition: transform .5s ease;
+}
+.dani-service-row__desc { margin-top: .5rem; font-size: .875rem; line-height: 1.9; color: var(--muted-foreground); }
+.dani-service-row__arrow {
+  width: 1.25rem; height: 1.25rem; flex: none;
+  color: var(--muted-foreground);
+  opacity: 0;
+  transition: all .5s ease;
+}
+.dani-service-row__link:hover .dani-service-row__num,
+.dani-service-row__link:hover .dani-service-row__arrow { color: var(--primary); }
+.dani-service-row__link:hover .dani-service-row__arrow { opacity: 1; transform: translateX(-4px); }
+@media (min-width: 768px) {
+  .dani-service-row__link { padding-block: 2.25rem; gap: 1.75rem; }
+  .dani-service-row__title { font-size: 1.875rem; }
+  .dani-service-row__link:hover .dani-service-row__title { transform: translateX(-8px); }
+}
+@media (min-width: 1024px) {
+  .dani-services__grid { grid-template-columns: repeat(12, 1fr); gap: 3.5rem; }
+  .dani-services__aside { grid-column: span 5; }
+  .dani-services__aside-inner { position: sticky; top: 8rem; }
+  .dani-services__list { grid-column: span 7; }
+}
+
+/* ---------- Service cards ---------- */
+.dani-cards { display: grid; gap: 1.25rem; }
+@media (min-width: 640px) { .dani-cards { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1024px) { .dani-cards--3 { grid-template-columns: repeat(3, 1fr); } }
+.dani-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: .75rem;
+  padding: 1.75rem;
+  border-radius: var(--radius-2xl);
+  border: 1px solid var(--border);
+  background: var(--card);
+  transition: transform .4s ease, box-shadow .4s ease, border-color .4s ease;
+}
+.dani-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-soft); border-color: color-mix(in oklab, var(--primary) 25%, var(--border)); }
+.dani-card__icon {
+  display: grid;
+  place-items: center;
+  width: 3rem; height: 3rem;
+  border-radius: var(--radius-lg);
+  background: var(--accent);
+  color: var(--primary);
+}
+.dani-card__icon svg { width: 1.4rem; height: 1.4rem; }
+.dani-card__icon img { width: 1.6rem; height: 1.6rem; object-fit: contain; }
+.dani-card__title { font-size: 1.125rem; font-weight: 700; }
+.dani-card__text { font-size: .875rem; line-height: 1.95; color: var(--muted-foreground); }
+.dani-card__link { margin-top: auto; padding-top: .75rem; font-size: .8125rem; font-weight: 600; color: var(--primary); display: inline-flex; align-items: center; gap: .35rem; }
+.dani-card__link svg { width: .9rem; height: .9rem; transition: transform .3s ease; }
+.dani-card:hover .dani-card__link svg { transform: translateX(-3px); }
+.dani-card__media { overflow: hidden; border-radius: var(--radius-xl); aspect-ratio: 16 / 10; }
+.dani-card__media img { width: 100%; height: 100%; object-fit: cover; }
+.dani-card__price { font-size: .8125rem; color: var(--muted-foreground); }
+
+/* ---------- Experience ---------- */
+.dani-experience__frame-wrap { perspective: 1600px; margin-top: 4rem; position: relative; }
+.dani-experience__glow {
+  position: absolute;
+  inset-inline: 2.5rem;
+  bottom: -2.5rem;
+  height: 10rem;
+  border-radius: 999px;
+  background: color-mix(in oklab, var(--cyan) 30%, transparent);
+  filter: blur(48px);
+}
+.dani-experience__frame {
+  position: relative;
+  overflow: hidden;
+  border-radius: 2rem;
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--shadow-soft);
+  transition: transform 1s ease;
+}
+.dani-experience__frame:hover { transform: rotateX(2deg); }
+.dani-experience__frame img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+.dani-experience__caption {
+  position: absolute;
+  bottom: 1rem;
+  inset-inline: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem;
+  border-radius: var(--radius-xl);
+}
+.dani-experience__caption p { font-size: .875rem; line-height: 1.9; }
+@media (min-width: 768px) {
+  .dani-experience__frame img { aspect-ratio: 16 / 9; }
+  .dani-experience__caption { bottom: 2rem; inset-inline-start: 2rem; inset-inline-end: auto; max-width: 24rem; padding: 1.5rem; }
+}
+.dani-traits { margin-top: 3.5rem; display: grid; gap: 2rem; text-align: center; }
+.dani-traits__item-title { font-size: 1.5rem; font-weight: 800; }
+.dani-traits__item-text { margin-top: .5rem; font-size: .875rem; color: var(--muted-foreground); }
+@media (min-width: 640px) { .dani-traits { grid-template-columns: repeat(3, 1fr); } }
+
+/* ---------- About ---------- */
+.dani-about__grid { display: grid; gap: 3.5rem; align-items: center; }
+.dani-about__media { position: relative; order: 2; }
+.dani-about__media img { width: 100%; aspect-ratio: 5 / 6; object-fit: cover; border-radius: var(--radius-3xl); box-shadow: var(--shadow-soft); }
+.dani-about__badge {
+  position: absolute;
+  bottom: -1.5rem;
+  inset-inline-end: 1.5rem;
+  border-radius: var(--radius-xl);
+  padding: 1rem 1.25rem;
+  box-shadow: var(--shadow-soft);
+}
+.dani-about__badge-label { font-size: .75rem; color: var(--muted-foreground); }
+.dani-about__badge-name { margin-top: .25rem; font-weight: 700; }
+.dani-about__body { order: 1; }
+.dani-about__quote { margin-top: 2rem; border-inline-start: 2px solid var(--primary); padding-inline-start: 1.25rem; }
+.dani-about__quote p { line-height: 2; color: var(--muted-foreground); }
+.dani-about__quote strong { color: var(--foreground); }
+.dani-tags { margin-top: 2rem; display: flex; flex-wrap: wrap; gap: .5rem; }
+.dani-tag { border: 1px solid var(--border); border-radius: 999px; padding: .5rem 1rem; font-size: .875rem; }
+.dani-about__cta { margin-top: 2.5rem; }
+@media (min-width: 1024px) {
+  .dani-about__grid { grid-template-columns: repeat(2, 1fr); gap: 3.5rem; }
+  .dani-about__media { order: 1; }
+  .dani-about__body { order: 2; }
+}
+
+/* ---------- Workflow ---------- */
+.dani-steps {
+  position: relative;
+  margin-top: 4rem;
+  display: grid;
+  gap: 2.5rem;
+  border-inline-start: 1px solid var(--border);
+  padding-inline-start: 2rem;
+}
+.dani-step { position: relative; }
+.dani-step__dot {
+  position: absolute;
+  inset-inline-start: -2.3rem;
+  top: .4rem;
+  width: .75rem; height: .75rem;
+  border-radius: 999px;
+  background: var(--gradient-brand);
+  box-shadow: 0 0 0 4px var(--background);
+}
+.dani-step__num { font-size: .875rem; font-weight: 600; color: var(--primary); }
+.dani-step__title { margin-top: .5rem; font-size: 1.125rem; font-weight: 700; }
+.dani-step__text { margin-top: .5rem; font-size: .875rem; line-height: 1.9; color: var(--muted-foreground); }
+@media (min-width: 1024px) {
+  .dani-steps {
+    grid-template-columns: repeat(6, 1fr);
+    gap: 1.5rem;
+    border-inline-start: 0;
+    border-top: 1px solid var(--border);
+    padding: 2.5rem 0 0;
+  }
+  .dani-step__dot { inset-inline-start: 0; top: -2.95rem; }
+}
+
+/* ---------- Testimonials ---------- */
+.dani-quotes { max-width: 64rem; margin-inline: auto; text-align: center; }
+.dani-quotes__figure { margin-top: 3.5rem; }
+.dani-quotes__mark { font-size: 4.5rem; font-weight: 900; line-height: 1; display: block; }
+.dani-quotes__text {
+  margin: 0 auto;
+  max-width: 42rem;
+  font-size: 1.25rem;
+  font-weight: 500;
+  line-height: 2;
+  transition: opacity .3s ease;
+}
+.dani-quotes__meta { margin-top: 1.5rem; font-size: .875rem; color: var(--muted-foreground); }
+.dani-quotes__nav { margin-top: 2.5rem; display: flex; align-items: center; justify-content: center; gap: 1rem; }
+.dani-quotes__count { font-size: .875rem; color: var(--muted-foreground); font-variant-numeric: tabular-nums; direction: ltr; unicode-bidi: isolate; }
+@media (min-width: 768px) { .dani-quotes__text { font-size: 1.5rem; } }
+
+/* ---------- Portfolio ---------- */
+.dani-work__head { display: flex; flex-direction: column; justify-content: space-between; gap: 2rem; }
+.dani-work__grid {
+  margin-top: 4rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3.5rem 2rem;
+}
+.dani-project__media {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-3xl);
+  background: var(--muted);
+  box-shadow: var(--shadow-soft);
+}
+.dani-project__link { display: block; }
+.dani-project__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1.2s cubic-bezier(.2,.7,.2,1);
+}
+.dani-project:hover .dani-project__media img { transform: scale(1.04); }
+.dani-project__aspect-16-10 { aspect-ratio: 16 / 10; }
+.dani-project__aspect-4-5 { aspect-ratio: 4 / 5; }
+.dani-project__aspect-4-3 { aspect-ratio: 4 / 3; }
+.dani-project__aspect-16-9 { aspect-ratio: 16 / 9; }
+.dani-project__badge {
+  position: absolute;
+  top: 1rem;
+  inset-inline-start: 1rem;
+  border-radius: 999px;
+  padding: .25rem .75rem;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--foreground);
+}
+.dani-project__go {
+  position: absolute;
+  bottom: 1rem;
+  inset-inline-end: 1rem;
+  display: grid;
+  place-items: center;
+  width: 3rem; height: 3rem;
+  border-radius: 999px;
+  background: var(--primary);
+  color: var(--primary-foreground);
+  opacity: 0;
+  transform: translateY(12px);
+  transition: all .5s ease;
+}
+.dani-project__go svg { width: 1.25rem; height: 1.25rem; }
+.dani-project:hover .dani-project__go { opacity: 1; transform: translateY(0); }
+/* Touch devices never hover: keep the affordances visible. */
+@media (hover: none) {
+  .dani-project__go { opacity: 1; transform: none; }
+  .dani-service-row__arrow { opacity: 1; }
+}
+.dani-project__foot { margin-top: 1.25rem; display: flex; align-items: flex-start; justify-content: space-between; gap: 1.5rem; }
+.dani-project__title { font-size: 1.25rem; font-weight: 700; }
+.dani-project__desc { margin-top: .375rem; font-size: .875rem; line-height: 1.9; color: var(--muted-foreground); }
+.dani-project__cat { flex: none; padding-top: .375rem; font-size: .75rem; font-weight: 500; color: var(--primary); }
+@media (min-width: 768px) {
+  .dani-work__grid { gap: 4rem 2rem; }
+}
+/* The editorial 12-column composition only fits from laptop width up;
+   tablets keep the readable, single-column stack. */
+@media (min-width: 1024px) {
+  .dani-work__head { flex-direction: row; align-items: flex-end; }
+  .dani-work__grid { grid-template-columns: repeat(12, 1fr); gap: 5rem 2rem; }
+  .dani-work__grid .dani-project { grid-column: span 12; }
+  .dani-work__grid .dani-project--span-8 { grid-column: span 8; }
+  .dani-work__grid .dani-project--span-7 { grid-column: span 7; }
+  .dani-work__grid .dani-project--span-6 { grid-column: span 6; }
+  .dani-work__grid .dani-project--span-5 { grid-column: span 5; }
+  .dani-work__grid .dani-project--span-4 { grid-column: span 4; }
+  .dani-work__grid .dani-project--span-10 { grid-column: span 10; }
+  /* `grid-column: span N` sets the start edge to a span, so a separate
+     grid-column-start would collapse the card to one track. Center the wide
+     cards with an explicit placement instead. */
+  .dani-work__grid .dani-project--start-2 { grid-column: 2 / span 10; }
+  .dani-work__grid .dani-project--offset-24 { margin-top: 6rem; }
+  .dani-work__grid .dani-project--offset-32 { margin-top: 8rem; }
+  .dani-project__title { font-size: 1.5rem; }
+}
+/* Portfolio archive grid */
+.dani-work__grid--archive .dani-project { grid-column: span 12; }
+@media (min-width: 640px) {
+  .dani-work__grid--archive { grid-template-columns: repeat(2, 1fr); display: grid; }
+  .dani-work__grid--archive .dani-project { grid-column: auto; margin-top: 0; }
+}
+@media (min-width: 1024px) {
+  .dani-work__grid--archive { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* ---------- Chips / filters ---------- */
+.dani-chips { margin-top: 2.5rem; display: flex; flex-wrap: wrap; gap: .5rem; }
+.dani-chip {
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  padding: .5rem 1rem;
+  font-size: .8125rem;
+  font-weight: 500;
+  color: var(--muted-foreground);
+  transition: all .25s ease;
+}
+.dani-chip:hover { color: var(--primary); border-color: color-mix(in oklab, var(--primary) 40%, transparent); }
+.dani-chip.is-active { background: var(--primary); border-color: var(--primary); color: var(--primary-foreground); }
+
+/* ---------- Portfolio carousel ---------- */
+.dani-carousel { position: relative; margin-top: 3rem; }
+.dani-carousel__viewport { overflow: hidden; }
+.dani-carousel__track {
+  display: flex;
+  gap: 1.5rem;
+  transition: transform .6s cubic-bezier(.2,.7,.2,1);
+  will-change: transform;
+}
+.dani-carousel__item { flex: 0 0 86%; min-width: 0; }
+@media (min-width: 768px) { .dani-carousel__item { flex-basis: 46%; } }
+@media (min-width: 1024px) { .dani-carousel__item { flex-basis: 32%; } }
+.dani-carousel__nav { margin-top: 2rem; display: flex; align-items: center; justify-content: center; gap: 1rem; }
+.dani-carousel__count { font-size: .875rem; color: var(--muted-foreground); font-variant-numeric: tabular-nums; direction: ltr; unicode-bidi: isolate; }
+
+/* ---------- Team ---------- */
+.dani-team { display: grid; gap: 1.5rem; }
+@media (min-width: 640px) { .dani-team { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1024px) { .dani-team { grid-template-columns: repeat(3, 1fr); } }
+.dani-member {
+  overflow: hidden;
+  border-radius: var(--radius-2xl);
+  border: 1px solid var(--border);
+  background: var(--card);
+  transition: transform .4s ease, box-shadow .4s ease;
+}
+.dani-member:hover { transform: translateY(-4px); box-shadow: var(--shadow-soft); }
+.dani-member__photo { aspect-ratio: 4 / 5; overflow: hidden; background: var(--muted); }
+.dani-member__photo img { width: 100%; height: 100%; object-fit: cover; transition: transform .8s ease; }
+.dani-member:hover .dani-member__photo img { transform: scale(1.04); }
+.dani-member__body { padding: 1.25rem; }
+.dani-member__name { font-size: 1.0625rem; font-weight: 700; }
+.dani-member__role { margin-top: .25rem; font-size: .8125rem; color: var(--primary); }
+.dani-member__bio { margin-top: .75rem; font-size: .875rem; line-height: 1.9; color: var(--muted-foreground); }
+.dani-member__socials { margin-top: 1rem; display: flex; gap: .5rem; }
+.dani-member__socials a {
+  display: grid; place-items: center;
+  width: 2rem; height: 2rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  color: var(--muted-foreground);
+}
+.dani-member__socials a:hover { color: var(--primary); border-color: var(--primary); }
+.dani-member__socials svg { width: .9rem; height: .9rem; }
+
+/* ---------- Statistics ---------- */
+.dani-stats { display: grid; gap: 1.5rem; }
+@media (min-width: 640px) { .dani-stats { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1024px) { .dani-stats { grid-template-columns: repeat(4, 1fr); } }
+.dani-stat {
+  border-radius: var(--radius-2xl);
+  border: 1px solid var(--border);
+  background: var(--card);
+  padding: 1.75rem;
+  text-align: center;
+}
+.dani-stat__num { font-size: 2.25rem; font-weight: 900; line-height: 1.2; }
+.dani-stat__label { margin-top: .5rem; font-size: .8125rem; color: var(--muted-foreground); }
+
+/* ---------- FAQ ---------- */
+.dani-faq { margin-top: 3rem; display: grid; gap: .75rem; max-width: 52rem; margin-inline: auto; }
+.dani-faq__item {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  background: var(--card);
+  overflow: hidden;
+  transition: border-color .25s ease, box-shadow .25s ease;
+}
+.dani-faq__item.is-open { border-color: color-mix(in oklab, var(--primary) 30%, var(--border)); box-shadow: var(--shadow-soft); }
+.dani-faq__q {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  width: 100%;
+  padding: 1.15rem 1.35rem;
+  text-align: start;
+  font-size: .95rem;
+  font-weight: 700;
+}
+.dani-faq__icon {
+  flex: none;
+  display: grid; place-items: center;
+  width: 1.75rem; height: 1.75rem;
+  border-radius: 999px;
+  background: var(--accent);
+  color: var(--primary);
+  transition: transform .3s ease;
+}
+.dani-faq__icon svg { width: .95rem; height: .95rem; }
+.dani-faq__item.is-open .dani-faq__icon { transform: rotate(45deg); }
+.dani-faq__a { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .35s cubic-bezier(.2,.7,.2,1); }
+.dani-faq__item.is-open .dani-faq__a { grid-template-rows: 1fr; }
+.dani-faq__a-inner { overflow: hidden; }
+.dani-faq__a p { padding: 0 1.35rem 1.35rem; font-size: .875rem; line-height: 1.95; color: var(--muted-foreground); }
+
+/* ---------- CTA ---------- */
+/* The section, gradient panel and glass card each carry padding — keep the
+   three layers modest so the block does not turn into a wall of whitespace. */
+.dani-cta-wrap { padding-inline: .75rem; padding-block: 4rem; }
+@media (min-width: 768px) { .dani-cta-wrap { padding-inline: 1.5rem; padding-block: 4.5rem; } }
+.dani-cta {
+  position: relative;
+  overflow: hidden;
+  max-width: var(--container);
+  margin-inline: auto;
+  border-radius: 2.5rem;
+  padding: 2rem 1.5rem;
+  text-align: center;
+  background: var(--gradient-hero);
+}
+.dani-cta__blob { position: absolute; width: 18rem; height: 18rem; border-radius: 999px; filter: blur(48px); }
+.dani-cta__blob--1 { top: -6rem; inset-inline-start: 25%; background: color-mix(in oklab, var(--cyan) 30%, transparent); }
+.dani-cta__blob--2 { bottom: -6rem; inset-inline-end: 25%; background: color-mix(in oklab, var(--primary) 25%, transparent); }
+.dani-cta__inner {
+  position: relative;
+  max-width: 48rem;
+  margin-inline: auto;
+  border-radius: var(--radius-3xl);
+  padding: 3.5rem 1.5rem;
+}
+.dani-cta__title { font-size: 1.875rem; font-weight: 900; line-height: 1.4; }
+.dani-cta__text { margin: 1.25rem auto 0; max-width: 32rem; line-height: 2; color: var(--muted-foreground); }
+.dani-cta__actions { margin-top: 2.25rem; display: flex; flex-wrap: wrap; justify-content: center; gap: .75rem; }
+@media (min-width: 768px) {
+  .dani-cta { padding-block: 2.5rem; }
+  .dani-cta__inner { padding: 3.5rem; }
+  .dani-cta__title { font-size: 3rem; line-height: 1.35; }
+}
+
+/* ---------- Blog ---------- */
+.dani-posts { display: grid; gap: 2rem; }
+@media (min-width: 640px) { .dani-posts { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1024px) { .dani-posts--3 { grid-template-columns: repeat(3, 1fr); } }
+.dani-post {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: var(--radius-2xl);
+  border: 1px solid var(--border);
+  background: var(--card);
+  transition: transform .4s ease, box-shadow .4s ease;
+}
+.dani-post:hover { transform: translateY(-4px); box-shadow: var(--shadow-soft); }
+.dani-post__media { aspect-ratio: 16 / 10; overflow: hidden; background: var(--muted); }
+.dani-post__media img { width: 100%; height: 100%; object-fit: cover; transition: transform .8s ease; }
+.dani-post:hover .dani-post__media img { transform: scale(1.04); }
+.dani-post__media--empty { display: grid; place-items: center; background: var(--gradient-hero); }
+.dani-post__media--empty svg { width: 2.5rem; height: 2.5rem; color: var(--primary); opacity: .5; }
+.dani-post__body { display: flex; flex-direction: column; gap: .75rem; padding: 1.5rem; flex: 1; }
+.dani-post__meta { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem; font-size: .75rem; color: var(--muted-foreground); }
+.dani-post__cat { color: var(--primary); font-weight: 600; }
+.dani-post__title { font-size: 1.125rem; font-weight: 700; line-height: 1.6; }
+.dani-post__title a:hover { color: var(--primary); }
+.dani-post__excerpt { font-size: .875rem; line-height: 1.9; color: var(--muted-foreground); }
+.dani-post__more { margin-top: auto; padding-top: .75rem; font-size: .8125rem; font-weight: 600; color: var(--primary); display: inline-flex; align-items: center; gap: .35rem; }
+.dani-post__more svg { width: .9rem; height: .9rem; }
+
+/* Single post */
+.dani-article { max-width: 46rem; margin-inline: auto; }
+.dani-article__thumb { border-radius: var(--radius-3xl); overflow: hidden; box-shadow: var(--shadow-soft); }
+.dani-article__thumb img { width: 100%; height: auto; }
+.dani-article__meta { margin-top: 1.5rem; display: flex; flex-wrap: wrap; gap: .75rem; font-size: .8125rem; color: var(--muted-foreground); }
+.dani-prose { font-size: 1rem; line-height: 2.05; color: var(--foreground); }
+.dani-prose > * + * { margin-top: 1.35rem; }
+.dani-prose h2 { font-size: 1.5rem; margin-top: 2.5rem; }
+.dani-prose h3 { font-size: 1.25rem; margin-top: 2rem; }
+.dani-prose p, .dani-prose li { color: color-mix(in oklab, var(--foreground) 88%, var(--muted-foreground)); }
+.dani-prose a { color: var(--primary); text-decoration: underline; text-underline-offset: 4px; }
+.dani-prose ul { list-style: disc; padding-inline-start: 1.5rem; }
+.dani-prose ol { list-style: decimal; padding-inline-start: 1.5rem; }
+.dani-prose li + li { margin-top: .5rem; }
+.dani-prose blockquote {
+  border-inline-start: 3px solid var(--primary);
+  padding: .35rem 1.25rem;
+  color: var(--muted-foreground);
+  font-style: normal;
+}
+.dani-prose img { border-radius: var(--radius-xl); }
+.dani-prose figure figcaption { margin-top: .5rem; font-size: .75rem; color: var(--muted-foreground); text-align: center; }
+.dani-prose code { background: var(--muted); padding: .1rem .35rem; border-radius: .35rem; font-size: .9em; }
+.dani-prose table { width: 100%; border-collapse: collapse; font-size: .875rem; }
+.dani-prose th, .dani-prose td { border: 1px solid var(--border); padding: .6rem .75rem; text-align: start; }
+
+/* ---------- Gallery ---------- */
+.dani-gallery { display: grid; gap: .75rem; grid-template-columns: repeat(2, 1fr); }
+@media (min-width: 768px) { .dani-gallery { grid-template-columns: repeat(3, 1fr); } }
+.dani-gallery__item { position: relative; overflow: hidden; border-radius: var(--radius-xl); aspect-ratio: 4 / 3; background: var(--muted); }
+.dani-gallery__item img { width: 100%; height: 100%; object-fit: cover; transition: transform .8s ease; }
+.dani-gallery__item:hover img { transform: scale(1.05); }
+.dani-gallery__item--wide { grid-column: span 2; aspect-ratio: 8 / 3; }
+
+/* ---------- Before / after ---------- */
+.dani-ba { position: relative; overflow: hidden; border-radius: var(--radius-3xl); box-shadow: var(--shadow-soft); user-select: none; touch-action: pan-y; }
+.dani-ba img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.dani-ba__after { position: absolute; inset: 0; overflow: hidden; clip-path: inset(0 0 0 50%); }
+.dani-ba__handle {
+  position: absolute;
+  top: 0; bottom: 0;
+  inset-inline-start: 50%;
+  width: 2px;
+  background: var(--primary-foreground);
+  box-shadow: 0 0 0 1px color-mix(in oklab, var(--primary) 40%, transparent);
+  cursor: ew-resize;
+}
+.dani-ba__knob {
+  position: absolute;
+  top: 50%;
+  inset-inline-start: 50%;
+  transform: translate(50%, -50%);
+  display: grid; place-items: center;
+  width: 2.75rem; height: 2.75rem;
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--primary);
+  box-shadow: var(--shadow-soft);
+}
+.dani-ba__knob svg { width: 1.1rem; height: 1.1rem; }
+.dani-ba__label { position: absolute; top: 1rem; border-radius: 999px; padding: .25rem .7rem; font-size: .7rem; font-weight: 600; }
+.dani-ba__label--before { inset-inline-start: 1rem; }
+.dani-ba__label--after { inset-inline-end: 1rem; }
+
+/* ---------- Contact ---------- */
+.dani-contact__grid { display: grid; gap: 3rem; }
+@media (min-width: 1024px) {
+  .dani-contact__grid { grid-template-columns: 1fr 1.15fr; gap: 4rem; }
+}
+.dani-contact__info { display: grid; gap: 1rem; margin-top: 2.5rem; }
+.dani-contact__item {
+  display: flex;
+  align-items: flex-start;
+  gap: .85rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  background: var(--card);
+  padding: 1rem 1.15rem;
+}
+.dani-contact__item svg { width: 1.15rem; height: 1.15rem; color: var(--primary); flex: none; margin-top: .3rem; }
+.dani-contact__label { font-size: .72rem; letter-spacing: .04em; color: var(--muted-foreground); }
+.dani-contact__value { font-weight: 600; font-size: .9375rem; }
+.dani-contact__value a:hover { color: var(--primary); }
+
+.dani-form {
+  display: grid;
+  gap: 1.15rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-3xl);
+  background: var(--card);
+  padding: 1.75rem;
+  box-shadow: var(--shadow-soft);
+}
+@media (min-width: 768px) { .dani-form { padding: 2.5rem; } }
+.dani-form__row { display: grid; gap: 1.15rem; }
+@media (min-width: 640px) { .dani-form__row--2 { grid-template-columns: 1fr 1fr; } }
+.dani-field { display: grid; gap: .45rem; }
+.dani-field__label { font-size: .8125rem; font-weight: 600; }
+.dani-field__label span { color: var(--primary); }
+.dani-input, .dani-textarea, .dani-select {
+  width: 100%;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--input);
+  background: color-mix(in oklab, var(--surface) 70%, var(--background));
+  padding: .8rem 1rem;
+  font-size: .9375rem;
+  transition: border-color .2s ease, box-shadow .2s ease;
+}
+.dani-input:focus, .dani-textarea:focus, .dani-select:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px color-mix(in oklab, var(--primary) 18%, transparent);
+}
+.dani-textarea { min-height: 8rem; resize: vertical; }
+.dani-form__hint { font-size: .75rem; color: var(--muted-foreground); }
+.dani-form__submit { justify-self: start; }
+.dani-notice {
+  border-radius: var(--radius-lg);
+  padding: .85rem 1rem;
+  font-size: .875rem;
+  border: 1px solid var(--border);
+  background: var(--accent);
+}
+.dani-notice--success { border-color: color-mix(in oklab, #16a34a 35%, transparent); background: color-mix(in oklab, #16a34a 10%, var(--surface)); }
+.dani-notice--error { border-color: color-mix(in oklab, #dc2626 35%, transparent); background: color-mix(in oklab, #dc2626 8%, var(--surface)); }
+.dani-hp { position: absolute !important; inset-inline-start: -9999px; }
+
+/* ---------- Social links (widget) ---------- */
+.dani-socials { display: flex; flex-wrap: wrap; gap: .5rem; }
+.dani-socials--center { justify-content: center; }
+
+/* ---------- Logos ---------- */
+.dani-logos { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 2.5rem 3.5rem; }
+.dani-logos img { max-height: 2.25rem; width: auto; opacity: .6; filter: grayscale(1); transition: opacity .3s ease, filter .3s ease; }
+.dani-logos img:hover { opacity: 1; filter: none; }
+
+/* ---------- Search page ---------- */
+.dani-search { max-width: 40rem; margin-inline: auto; }
+.dani-search__form { display: flex; gap: .5rem; }
+.dani-search__form .dani-input { flex: 1; }
+.dani-search__info { margin-top: 1.5rem; font-size: .875rem; color: var(--muted-foreground); }
+.dani-search__results { margin-top: 2.5rem; display: grid; gap: 1rem; }
+.dani-search__result {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  background: var(--card);
+  padding: 1.25rem;
+  transition: border-color .25s ease;
+}
+.dani-search__result:hover { border-color: color-mix(in oklab, var(--primary) 35%, var(--border)); }
+.dani-search__result-type { font-size: .7rem; letter-spacing: .06em; color: var(--primary); font-weight: 600; }
+.dani-search__result-title { margin-top: .35rem; font-size: 1.0625rem; font-weight: 700; }
+.dani-search__result-excerpt { margin-top: .5rem; font-size: .875rem; line-height: 1.9; color: var(--muted-foreground); }
+
+/* ---------- Pagination ---------- */
+.dani-pagination { margin-top: 3rem; display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: .5rem; }
+.dani-pagination .page-numbers {
+  display: grid; place-items: center;
+  min-width: 2.5rem; height: 2.5rem;
+  padding-inline: .75rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  font-size: .875rem;
+  color: var(--muted-foreground);
+  transition: all .2s ease;
+}
+.dani-pagination .page-numbers:hover { color: var(--primary); border-color: var(--primary); }
+.dani-pagination .page-numbers.current { background: var(--primary); border-color: var(--primary); color: var(--primary-foreground); }
+
+/* ---------- 404 ---------- */
+.dani-404 {
+  min-height: 100svh;
+  display: grid;
+  place-items: center;
+  padding: 9rem var(--gutter) 5rem;
+  text-align: center;
+  background: var(--gradient-hero);
+}
+.dani-404__code { font-size: 6rem; font-weight: 900; line-height: 1; letter-spacing: -0.04em; }
+.dani-404__title { margin-top: 1rem; font-size: 1.5rem; font-weight: 800; }
+.dani-404__text { margin: 1rem auto 0; max-width: 30rem; color: var(--muted-foreground); line-height: 2; }
+.dani-404__actions { margin-top: 2rem; display: flex; flex-wrap: wrap; justify-content: center; gap: .75rem; }
+@media (min-width: 768px) { .dani-404__code { font-size: 9rem; } .dani-404__title { font-size: 2rem; } }
+
+/* ---------- Sidebar / archive header ---------- */
+.dani-archive-head { margin-bottom: 3rem; }
+.dani-sidebar { display: grid; gap: 2rem; }
+.dani-widget {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-2xl);
+  background: var(--card);
+  padding: 1.5rem;
+}
+.dani-widget__title { font-size: 1rem; font-weight: 700; margin-bottom: 1rem; }
+.dani-widget ul { display: grid; gap: .6rem; font-size: .875rem; color: var(--muted-foreground); }
+.dani-widget a:hover { color: var(--primary); }
+
+/* ---------- Blog list layout ---------- */
+.dani-blog-layout { display: grid; gap: 3rem; }
+@media (min-width: 1024px) {
+  .dani-blog-layout--sidebar { grid-template-columns: 1fr 20rem; }
+}
+
+/* ---------- Scroll animation helper (widget) ---------- */
+.dani-scroll-fx { transition: opacity .9s cubic-bezier(.2,.7,.2,1), transform .9s cubic-bezier(.2,.7,.2,1); }
+html.dani-js .dani-scroll-fx { opacity: 0; }
+html.dani-js .dani-scroll-fx--up { transform: translateY(28px); }
+html.dani-js .dani-scroll-fx--down { transform: translateY(-28px); }
+html.dani-js .dani-scroll-fx--start { transform: translateX(28px); }
+html.dani-js .dani-scroll-fx--end { transform: translateX(-28px); }
+html.dani-js .dani-scroll-fx--zoom { transform: scale(.94); }
+html.dani-js .dani-scroll-fx.is-visible { opacity: 1; transform: none; }
+
+/* ---------- Elementor compatibility ---------- */
+.dani-widget-wrap .elementor-widget-container { width: 100%; }
+.dani-section .elementor-widget-container { width: 100%; }
+body.dani-elementor-canvas .dani-header { position: sticky; }
+.dani-editor-placeholder {
+  border: 1px dashed var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  text-align: center;
+  font-size: .875rem;
+  color: var(--muted-foreground);
+}
