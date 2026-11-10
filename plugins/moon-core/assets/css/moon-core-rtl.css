@@ -1,0 +1,47 @@
+/* MOON Core — RTL refinements (loaded automatically for right-to-left locales). */
+
+.moon-core,
+body.moon-core {
+	direction: rtl;
+}
+
+.moon-menu__sub {
+	text-align: right;
+}
+
+.moon-link-arrow::after {
+	transform: scaleX(-1);
+}
+
+.moon-core blockquote,
+.moon-campaign__text,
+.moon-story__body-text {
+	text-align: right;
+}
+
+.moon-hero__eyebrow,
+.moon-eyebrow,
+.moon-header__wordmark,
+.moon-footer__logo,
+.moon-story__signature {
+	direction: ltr;
+	unicode-bidi: isolate;
+}
+
+html[dir="rtl"] .moon-count {
+	inset-inline-end: 0;
+	inset-inline-start: auto;
+}
+
+html[dir="rtl"] .moon-hero__scroll {
+	inset-inline-start: 50%;
+}
+
+html[dir="rtl"] .moon-wishlist-btn svg {
+	transform: none;
+}
+
+.moon-mobile-nav__sub a,
+.moon-menu__sub a {
+	text-align: right;
+}

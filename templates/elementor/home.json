@@ -1,0 +1,371 @@
+{
+    "version": "0.4",
+    "title": "MOON — صفحه اصلی",
+    "type": "page",
+    "content": [
+        {
+            "id": "2e9e821",
+            "elType": "container",
+            "isInner": false,
+            "settings": {
+                "content_width": "full",
+                "flex_direction": "column",
+                "padding": {
+                    "unit": "px",
+                    "top": "0",
+                    "right": "0",
+                    "bottom": "0",
+                    "left": "0",
+                    "isLinked": true
+                }
+            },
+            "elements": [
+                {
+                    "id": "c44a43d",
+                    "elType": "widget",
+                    "widgetType": "moon-cinematic-hero",
+                    "settings": {
+                        "eyebrow": "کالکشن پاییز / زمستان ۱۴۰۴",
+                        "title": "شب را با MOON بپوش",
+                        "subtitle": "برش‌های ساده، پارچه‌های سنگین و سکوتی که حرف می‌زند.",
+                        "poster": {
+                            "id": 111,
+                            "url": "https://3000-6ac8d34c4b949c62cc1803e8--b-eafdc5a-e08fa290e5e2aa3a.imported.base44-preview.app/wp-content/uploads/2026/11/hero-poster.jpg"
+                        },
+                        "video_url": {
+                            "id": 0,
+                            "url": "https://3000-6ac8d34c4b949c62cc1803e8--b-eafdc5a-e08fa290e5e2aa3a.imported.base44-preview.app/wp-content/plugins/moon-core/assets/videos/hero.mp4"
+                        },
+                        "cta_one_text": "کالکشن زنانه",
+                        "cta_one_url": {
+                            "url": "https://3000-6ac8d34c4b949c62cc1803e8--b-eafdc5a-e08fa290e5e2aa3a.imported.base44-preview.app/product-category/women/"
+                        },
+                        "cta_two_text": "کالکشن مردانه",
+                        "cta_two_url": {
+                            "url": "https://3000-6ac8d34c4b949c62cc1803e8--b-eafdc5a-e08fa290e5e2aa3a.imported.base44-preview.app/product-category/men/"
+                        }
+                    },
+                    "elements": []
+                }
+            ]
+        },
+        {
+            "id": "4ccb379",
+            "elType": "container",
+            "isInner": false,
+            "settings": {
+                "content_width": "full",
+                "flex_direction": "column",
+                "padding": {
+                    "unit": "px",
+                    "top": "96",
+                    "right": "24",
+                    "bottom": "24",
+                    "left": "24",
+                    "isLinked": false
+                }
+            },
+            "elements": [
+                {
+                    "id": "f52c0db",
+                    "elType": "widget",
+                    "widgetType": "moon-category-cards",
+                    "settings": {
+                        "cards": [
+                            {
+                                "kicker": "کالکشن",
+                                "title": "زنانه",
+                                "subtitle": "خط‌های نرم، پارچه‌های سنگین",
+                                "image": {
+                                    "id": 12,
+                                    "url": "https://3000-6ac8d34c4b949c62cc1803e8--b-eafdc5a-e08fa290e5e2aa3a.imported.base44-preview.app/wp-content/uploads/2026/11/category-women.jpg"
+                                },
+                                "link": {
+                                    "url": "https://3000-6ac8d34c4b949c62cc1803e8--b-eafdc5a-e08fa290e5e2aa3a.imported.base44-preview.app/product-category/women/"
+                                },
+                                "cta_text": "مشاهده کالکشن"
+                            },
+                            {
+                                "kicker": "کالکشن",
+                                "title": "مردانه",
+                                "subtitle": "ساختار، سکوت، دوخت دقیق",
+                                "image": {
+                                    "id": 13,
+                                    "url": "https://3000-6ac8d34c4b949c62cc1803e8--b-eafdc5a-e08fa290e5e2aa3a.imported.base44-preview.app/wp-content/uploads/2026/11/category-men.jpg"
+                                },
+                                "link": {
+                                    "url": "https://3000-6ac8d34c4b949c62cc1803e8--b-eafdc5a-e08fa290e5e2aa3a.imported.base44-preview.app/product-category/men/"
+                                },
+                                "cta_text": "مشاهده کالکشن"
+                            }
+                        ]
+                    },
+                    "elements": []
+                }
+            ]
+        },
+        {
+            "id": "6e9dd19",
+            "elType": "container",
+            "isInner": false,
+            "settings": {
+                "content_width": "full",
+                "flex_direction": "column",
+                "padding": {
+                    "unit": "px",
+                    "top": "24",
+                    "right": "24",
+                    "bottom": "72",
+                    "left": "24",
+                    "isLinked": false
+                }
+            },
+            "elements": [
+                {
+                    "id": "a165424",
+                    "elType": "widget",
+                    "widgetType": "moon-product-grid",
+                    "settings": {
+                        "heading": "جدیدترین محصولات",
+                        "subheading": "تازه از آتلیه MOON",
+                        "source": "recent",
+                        "limit": 8,
+                        "columns": "4",
+                        "view_all": {
+                            "url": "https://3000-6ac8d34c4b949c62cc1803e8--b-eafdc5a-e08fa290e5e2aa3a.imported.base44-preview.app/shop/"
+                        }
+                    },
+                    "elements": []
+                }
+            ]
+        },
+        {
+            "id": "100a695",
+            "elType": "container",
+            "isInner": false,
+            "settings": {
+                "content_width": "full",
+                "flex_direction": "column",
+                "padding": {
+                    "unit": "px",
+                    "top": "0",
+                    "right": "0",
+                    "bottom": "0",
+                    "left": "0",
+                    "isLinked": true
+                }
+            },
+            "elements": [
+                {
+                    "id": "8b65a6e",
+                    "elType": "widget",
+                    "widgetType": "moon-campaign-banner",
+                    "settings": {
+                        "kicker": "کمپین شب‌های ماه",
+                        "title": "تا ۳۰٪ تخفیف روی کالکشن شب",
+                        "text": "انتخاب محدود از پارچه‌های پشمی و ابریشم مات، فقط تا پایان فصل.",
+                        "cta_text": "خرید کالکشن",
+                        "cta_url": {
+                            "url": "https://3000-6ac8d34c4b949c62cc1803e8--b-eafdc5a-e08fa290e5e2aa3a.imported.base44-preview.app/shop/"
+                        },
+                        "image": {
+                            "id": 112,
+                            "url": "https://3000-6ac8d34c4b949c62cc1803e8--b-eafdc5a-e08fa290e5e2aa3a.imported.base44-preview.app/wp-content/uploads/2026/11/campaign.jpg"
+                        },
+                        "show_countdown": "yes",
+                        "countdown_end": "2026-12-01 12:30",
+                        "layout": "overlay"
+                    },
+                    "elements": []
+                }
+            ]
+        },
+        {
+            "id": "1eb66e3",
+            "elType": "container",
+            "isInner": false,
+            "settings": {
+                "content_width": "full",
+                "flex_direction": "column",
+                "padding": {
+                    "unit": "px",
+                    "top": "88",
+                    "right": "24",
+                    "bottom": "32",
+                    "left": "24",
+                    "isLinked": false
+                }
+            },
+            "elements": [
+                {
+                    "id": "f1c83fa",
+                    "elType": "widget",
+                    "widgetType": "moon-product-grid",
+                    "settings": {
+                        "heading": "کالکشن منتخب فصل",
+                        "subheading": "انتخاب استودیو",
+                        "source": "featured",
+                        "limit": 4,
+                        "columns": "4"
+                    },
+                    "elements": []
+                }
+            ]
+        },
+        {
+            "id": "313b812",
+            "elType": "container",
+            "isInner": false,
+            "settings": {
+                "content_width": "full",
+                "flex_direction": "column",
+                "padding": {
+                    "unit": "px",
+                    "top": "32",
+                    "right": "24",
+                    "bottom": "88",
+                    "left": "24",
+                    "isLinked": false
+                }
+            },
+            "elements": [
+                {
+                    "id": "fc7cac1",
+                    "elType": "widget",
+                    "widgetType": "moon-product-grid",
+                    "settings": {
+                        "heading": "پرفروش‌ترین‌ها",
+                        "subheading": "بیشترین انتخاب مشتریان MOON",
+                        "source": "best",
+                        "limit": 4,
+                        "columns": "4",
+                        "view_all": {
+                            "url": "https://3000-6ac8d34c4b949c62cc1803e8--b-eafdc5a-e08fa290e5e2aa3a.imported.base44-preview.app/shop/"
+                        }
+                    },
+                    "elements": []
+                }
+            ]
+        },
+        {
+            "id": "f26146c",
+            "elType": "container",
+            "isInner": false,
+            "settings": {
+                "content_width": "full",
+                "flex_direction": "column",
+                "padding": {
+                    "unit": "px",
+                    "top": "0",
+                    "right": "24",
+                    "bottom": "88",
+                    "left": "24",
+                    "isLinked": false
+                }
+            },
+            "elements": [
+                {
+                    "id": "f6ac5f1",
+                    "elType": "widget",
+                    "widgetType": "moon-brand-story",
+                    "settings": {
+                        "label": "درباره MOON",
+                        "title": "سکوت، بهترین جنس لباس است",
+                        "body": "<p>MOON از یک کارگاه کوچک شروع شد؛ با این باور که لباس لوکس نباید پرصدا باشد. خط‌های ساده، پارچه‌های دست‌چین و دوخت آرام، امضای ما هستند.</p>",
+                        "signature": "MOON ATELIER — EST. 2019",
+                        "image": {
+                            "id": 113,
+                            "url": "https://3000-6ac8d34c4b949c62cc1803e8--b-eafdc5a-e08fa290e5e2aa3a.imported.base44-preview.app/wp-content/uploads/2026/11/story.jpg"
+                        },
+                        "cta_text": "درباره ما",
+                        "cta_url": {
+                            "url": "https://3000-6ac8d34c4b949c62cc1803e8--b-eafdc5a-e08fa290e5e2aa3a.imported.base44-preview.app/about/"
+                        }
+                    },
+                    "elements": []
+                }
+            ]
+        },
+        {
+            "id": "20ef819",
+            "elType": "container",
+            "isInner": false,
+            "settings": {
+                "content_width": "full",
+                "flex_direction": "column",
+                "padding": {
+                    "unit": "px",
+                    "top": "64",
+                    "right": "24",
+                    "bottom": "64",
+                    "left": "24",
+                    "isLinked": false
+                }
+            },
+            "elements": [
+                {
+                    "id": "41821b8",
+                    "elType": "widget",
+                    "widgetType": "moon-benefits",
+                    "settings": {
+                        "items": [
+                            {
+                                "icon": "truck",
+                                "title": "ارسال سریع",
+                                "text": "تهران ۲۴ ساعت، سایر شهرها ۴۸ ساعت"
+                            },
+                            {
+                                "icon": "refresh",
+                                "title": "۷ روز مرجوعی",
+                                "text": "بدون پرسش، بدون هزینه"
+                            },
+                            {
+                                "icon": "shield",
+                                "title": "اصالت پارچه",
+                                "text": "تضمین کیفیت دوخت و جنس"
+                            },
+                            {
+                                "icon": "chat",
+                                "title": "مشاوره استایل",
+                                "text": "راهنمایی سایز توسط تیم MOON"
+                            }
+                        ]
+                    },
+                    "elements": []
+                }
+            ]
+        },
+        {
+            "id": "4151cef",
+            "elType": "container",
+            "isInner": false,
+            "settings": {
+                "content_width": "full",
+                "flex_direction": "column",
+                "padding": {
+                    "unit": "px",
+                    "top": "0",
+                    "right": "24",
+                    "bottom": "96",
+                    "left": "24",
+                    "isLinked": false
+                }
+            },
+            "elements": [
+                {
+                    "id": "f9e8b24",
+                    "elType": "widget",
+                    "widgetType": "shortcode",
+                    "settings": {
+                        "shortcode": "[moon_newsletter heading=\"عضویت در خبرنامه MOON\" text=\"کالکشن‌های محدود، پیش از انتشار.\"]"
+                    },
+                    "elements": []
+                }
+            ]
+        }
+    ],
+    "page_settings": [],
+    "metadata": {
+        "template_type": "page"
+    }
+}

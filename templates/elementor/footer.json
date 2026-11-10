@@ -1,0 +1,50 @@
+{
+    "version": "0.4",
+    "title": "MOON — Footer",
+    "type": "footer",
+    "content": [
+        {
+            "id": "106080a",
+            "elType": "container",
+            "isInner": false,
+            "settings": {
+                "content_width": "boxed",
+                "flex_direction": "column",
+                "padding": {
+                    "unit": "px",
+                    "top": "76",
+                    "right": "24",
+                    "bottom": "76",
+                    "left": "24",
+                    "isLinked": false
+                },
+                "background_background": "classic",
+                "background_color": "#11110F"
+            },
+            "elements": [
+                {
+                    "id": "79847b8",
+                    "elType": "widget",
+                    "widgetType": "shortcode",
+                    "settings": {
+                        "shortcode": "[moon_newsletter heading=\"عضویت در خبرنامه MOON\" text=\"کالکشن بعدی را اول ببینید.\"]"
+                    },
+                    "elements": []
+                },
+                {
+                    "id": "2303e52",
+                    "elType": "widget",
+                    "widgetType": "text-editor",
+                    "settings": {
+                        "editor": "<p>MOON — پوشاک لوکس و مدرن. تهران، خیابان ولیعصر.</p>"
+                    },
+                    "elements": []
+                }
+            ]
+        }
+    ],
+    "page_settings": [],
+    "metadata": {
+        "template_type": "footer"
+    }
+}

@@ -1,0 +1,1637 @@
+# Copyright (C) 2026 MOON Studio
+# This file is distributed under the GPL-2.0-or-later.
+msgid ""
+msgstr ""
+"Project-Id-Version: Moon Core 1.0.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/moon-core\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-11-10T12:30:14+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.12.0\n"
+"X-Domain: moon-core\n"
+
+#. Plugin Name of the plugin
+#: moon-core.php
+msgid "Moon Core"
+msgstr ""
+
+#. Plugin URI of the plugin
+#. Author URI of the plugin
+#: moon-core.php
+msgid "https://example.com/moon"
+msgstr ""
+
+#. Description of the plugin
+#: moon-core.php
+msgid "هستهٔ فروشگاه MOON: هدر شیشه‌ای شناور، هیرو سینمایی، ویجت‌های واقعی المنتور، حالت شب، فیلترهای ووکامرس و پنل تنظیمات."
+msgstr ""
+
+#. Author of the plugin
+#: moon-core.php
+msgid "MOON Studio"
+msgstr ""
+
+#: includes/class-assets.php:83
+msgid "افزودن به سبد خرید"
+msgstr ""
+
+#: includes/class-assets.php:84
+msgid "افزوده شد"
+msgstr ""
+
+#: includes/class-assets.php:85
+msgid "نمایش محصولات بیشتر"
+msgstr ""
+
+#: includes/class-assets.php:86
+msgid "در حال بارگذاری…"
+msgstr ""
+
+#: includes/class-assets.php:87
+#: includes/class-woocommerce.php:497
+msgid "محصولی با این فیلترها پیدا نشد."
+msgstr ""
+
+#: includes/class-assets.php:88
+#: includes/class-woocommerce.php:668
+#: includes/class-woocommerce.php:705
+msgid "افزودن به علاقه‌مندی‌ها"
+msgstr ""
+
+#: includes/class-assets.php:89
+#: includes/class-woocommerce.php:668
+#: includes/class-woocommerce.php:705
+msgid "حذف از علاقه‌مندی‌ها"
+msgstr ""
+
+#: includes/class-assets.php:90
+msgid "خطایی رخ داد. دوباره تلاش کنید."
+msgstr ""
+
+#: includes/class-contact.php:35
+msgid "نام"
+msgstr ""
+
+#: includes/class-contact.php:39
+#: includes/class-newsletter.php:60
+msgid "ایمیل"
+msgstr ""
+
+#: includes/class-contact.php:43
+msgid "پیام"
+msgstr ""
+
+#: includes/class-contact.php:47
+msgid "ارسال پیام"
+msgstr ""
+
+#: includes/class-contact.php:67
+msgid "پیام شما ارسال شد."
+msgstr ""
+
+#: includes/class-contact.php:71
+msgid "همه فیلدها را کامل و صحیح وارد کنید."
+msgstr ""
+
+#. translators: 1: sender name, 2: sender email, 3: message.
+#: includes/class-contact.php:76
+#, php-format
+msgid ""
+"نام: %1$s\n"
+"ایمیل: %2$s\n"
+"\n"
+"%3$s"
+msgstr ""
+
+#. translators: %s: sender name.
+#: includes/class-contact.php:86
+#, php-format
+msgid "پیام جدید از فرم تماس MOON — %s"
+msgstr ""
+
+#: includes/class-contact.php:94
+msgid "ارسال ایمیل ممکن نشد. لطفاً تلفنی تماس بگیرید."
+msgstr ""
+
+#: includes/class-contact.php:97
+msgid "پیام شما ارسال شد. به‌زودی پاسخ می‌دهیم."
+msgstr ""
+
+#: includes/class-dark-mode.php:98
+msgid "حالت نامعتبر است."
+msgstr ""
+
+#: includes/class-demo.php:36
+msgid "راه‌اندازی و درون‌ریزی"
+msgstr ""
+
+#: includes/class-demo.php:37
+msgid "راه‌اندازی"
+msgstr ""
+
+#: includes/class-demo.php:57
+msgid "راه‌اندازی MOON"
+msgstr ""
+
+#: includes/class-demo.php:60
+msgid "محتوای نمایشی با موفقیت ساخته شد."
+msgstr ""
+
+#: includes/class-demo.php:62
+msgid "درون‌ریزی کامل نشد. گزارش زیر را بررسی کنید."
+msgstr ""
+
+#: includes/class-demo.php:65
+msgid "این ابزار دسته‌بندی‌ها، ویژگی‌ها (سایز، رنگ، جنس)، ۱۲ محصول متغیر با Variations، صفحات فروشگاه و صفحه اصلی المنتور را می‌سازد. اجرای دوباره آن محتوای تکراری ایجاد نمی‌کند."
+msgstr ""
+
+#: includes/class-demo.php:72
+msgid "به‌روزرسانی محتوای نمایشی"
+msgstr ""
+
+#: includes/class-demo.php:72
+msgid "ساخت محتوای نمایشی"
+msgstr ""
+
+#: includes/class-demo.php:85
+msgid "دسترسی مجاز نیست."
+msgstr ""
+
+#: includes/class-demo.php:111
+msgid "ووکامرس فعال نیست."
+msgstr ""
+
+#: includes/class-demo.php:173
+msgid "کالکشن زنانه MOON"
+msgstr ""
+
+#: includes/class-demo.php:174
+msgid "کالکشن مردانه MOON"
+msgstr ""
+
+#: includes/class-demo.php:176
+#: includes/class-demo.php:796
+#: includes/class-demo.php:834
+#: includes/class-demo.php:1336
+#: includes/class-header.php:47
+#: widgets/class-category-cards.php:77
+#: widgets/class-category-cards.php:117
+msgid "زنانه"
+msgstr ""
+
+#: includes/class-demo.php:177
+#: includes/class-demo.php:797
+#: includes/class-demo.php:842
+#: includes/class-demo.php:1337
+#: includes/class-header.php:48
+#: widgets/class-category-cards.php:121
+msgid "مردانه"
+msgstr ""
+
+#: includes/class-demo.php:180
+msgid "پالتو و کت"
+msgstr ""
+
+#: includes/class-demo.php:181
+msgid "پیراهن و بلوز"
+msgstr ""
+
+#: includes/class-demo.php:182
+msgid "شلوار و دامن"
+msgstr ""
+
+#: includes/class-demo.php:183
+msgid "شال و اکسسوری"
+msgstr ""
+
+#: includes/class-demo.php:184
+msgid "کت و جلیقه"
+msgstr ""
+
+#: includes/class-demo.php:185
+msgid "پیراهن"
+msgstr ""
+
+#: includes/class-demo.php:186
+msgid "شلوار"
+msgstr ""
+
+#: includes/class-demo.php:204
+#: includes/class-woocommerce.php:349
+#: includes/class-woocommerce.php:800
+msgid "سایز"
+msgstr ""
+
+#: includes/class-demo.php:214
+#: includes/class-woocommerce.php:364
+msgid "رنگ"
+msgstr ""
+
+#: includes/class-demo.php:216
+msgid "مشکی"
+msgstr ""
+
+#: includes/class-demo.php:217
+msgid "کرم"
+msgstr ""
+
+#: includes/class-demo.php:218
+msgid "خاکستری"
+msgstr ""
+
+#: includes/class-demo.php:219
+#: includes/class-settings.php:275
+msgid "طلایی مات"
+msgstr ""
+
+#: includes/class-demo.php:220
+#: includes/class-settings.php:263
+msgid "زغالی"
+msgstr ""
+
+#: includes/class-demo.php:221
+msgid "سفید"
+msgstr ""
+
+#: includes/class-demo.php:225
+#: includes/class-woocommerce.php:381
+msgid "جنس پارچه"
+msgstr ""
+
+#: includes/class-demo.php:227
+msgid "پشم"
+msgstr ""
+
+#: includes/class-demo.php:228
+msgid "کشمیر"
+msgstr ""
+
+#: includes/class-demo.php:229
+msgid "ابریشم"
+msgstr ""
+
+#: includes/class-demo.php:230
+msgid "پنبه"
+msgstr ""
+
+#: includes/class-demo.php:231
+msgid "کتان"
+msgstr ""
+
+#: includes/class-demo.php:318
+msgid "پوشاک لوکس و مدرن"
+msgstr ""
+
+#: includes/class-demo.php:333
+msgid "پالتو کشمیر نویر"
+msgstr ""
+
+#: includes/class-demo.php:342
+msgid "پالتوی بلند با یقه انگلیسی و دوخت دستی؛ کشمیر خالص با آستر ابریشمی."
+msgstr ""
+
+#: includes/class-demo.php:345
+msgid "کت تک دکمه فلزی"
+msgstr ""
+
+#: includes/class-demo.php:352
+msgid "کت ساختارمند با شانه‌های نرم و دکمه برنجی مات."
+msgstr ""
+
+#: includes/class-demo.php:355
+msgid "پیراهن ابریشم ساتن"
+msgstr ""
+
+#: includes/class-demo.php:363
+msgid "پیراهن ماکسی با درپینگ ملایم و درخشش مات ابریشم."
+msgstr ""
+
+#: includes/class-demo.php:366
+msgid "بلوز آستین حجم‌دار"
+msgstr ""
+
+#: includes/class-demo.php:373
+msgid "بلوز پنبه پیما با آستین بالونی و مچ کشباف."
+msgstr ""
+
+#: includes/class-demo.php:376
+msgid "دامن میدی پلیسه"
+msgstr ""
+
+#: includes/class-demo.php:383
+msgid "دامن پلیسه با حرکت روان و کمر بلند."
+msgstr ""
+
+#: includes/class-demo.php:386
+msgid "شلوار پارچه پشمی"
+msgstr ""
+
+#: includes/class-demo.php:394
+msgid "شلوار دم‌پا گشاد با پارچه فاستونی سبک."
+msgstr ""
+
+#: includes/class-demo.php:397
+msgid "کت بلند اورسایز"
+msgstr ""
+
+#: includes/class-demo.php:405
+msgid "کت اوورسایز با آستر کتان و جیب‌های مخفی."
+msgstr ""
+
+#: includes/class-demo.php:408
+msgid "جلیقه کتان"
+msgstr ""
+
+#: includes/class-demo.php:415
+msgid "جلیقه چهار دکمه با پارچه کتان شسته."
+msgstr ""
+
+#: includes/class-demo.php:418
+msgid "پیراهن پنبه مصری"
+msgstr ""
+
+#: includes/class-demo.php:425
+msgid "پیراهن کلاسیک با یقه ایتالیایی و دوخت ۱۸ استیچ."
+msgstr ""
+
+#: includes/class-demo.php:428
+msgid "پیراهن ابریشم مات"
+msgstr ""
+
+#: includes/class-demo.php:437
+msgid "پیراهن ابریشم با درخشش خفیف برای شب‌های خاص."
+msgstr ""
+
+#: includes/class-demo.php:440
+msgid "شلوار پارچه فاستونی"
+msgstr ""
+
+#: includes/class-demo.php:447
+msgid "شلوار راسته با کمر تنظیم‌شونده."
+msgstr ""
+
+#: includes/class-demo.php:450
+msgid "شال کشمیر"
+msgstr ""
+
+#: includes/class-demo.php:457
+msgid "شال پهن کشمیر با ریشه‌های دست‌بافت."
+msgstr ""
+
+#: includes/class-demo.php:795
+msgid "هیرو MOON"
+msgstr ""
+
+#: includes/class-demo.php:798
+msgid "کمپین MOON"
+msgstr ""
+
+#: includes/class-demo.php:799
+#: includes/class-demo.php:1128
+#: includes/class-demo.php:1132
+msgid "آتلیه MOON"
+msgstr ""
+
+#: includes/class-demo.php:809
+msgid "کالکشن پاییز / زمستان ۱۴۰۴"
+msgstr ""
+
+#: includes/class-demo.php:810
+#: widgets/class-cinematic-hero.php:157
+msgid "شب را با MOON بپوش"
+msgstr ""
+
+#: includes/class-demo.php:811
+#: widgets/class-cinematic-hero.php:166
+msgid "برش‌های ساده، پارچه‌های سنگین و سکوتی که حرف می‌زند."
+msgstr ""
+
+#: includes/class-demo.php:817
+#: widgets/class-cinematic-hero.php:175
+msgid "کالکشن زنانه"
+msgstr ""
+
+#: includes/class-demo.php:819
+#: widgets/class-cinematic-hero.php:186
+msgid "کالکشن مردانه"
+msgstr ""
+
+#: includes/class-demo.php:833
+#: includes/class-demo.php:841
+#: widgets/class-category-cards.php:68
+#: widgets/class-category-cards.php:116
+#: widgets/class-category-cards.php:120
+msgid "کالکشن"
+msgstr ""
+
+#: includes/class-demo.php:835
+msgid "خط‌های نرم، پارچه‌های سنگین"
+msgstr ""
+
+#: includes/class-demo.php:838
+#: includes/class-demo.php:846
+#: widgets/class-category-cards.php:104
+msgid "مشاهده کالکشن"
+msgstr ""
+
+#: includes/class-demo.php:843
+msgid "ساختار، سکوت، دوخت دقیق"
+msgstr ""
+
+#: includes/class-demo.php:859
+msgid "جدیدترین محصولات"
+msgstr ""
+
+#: includes/class-demo.php:860
+msgid "تازه از آتلیه MOON"
+msgstr ""
+
+#: includes/class-demo.php:875
+#: widgets/class-campaign-banner.php:66
+msgid "کمپین شب‌های ماه"
+msgstr ""
+
+#: includes/class-demo.php:876
+#: widgets/class-campaign-banner.php:75
+msgid "تا ۳۰٪ تخفیف روی کالکشن شب"
+msgstr ""
+
+#: includes/class-demo.php:877
+#: widgets/class-campaign-banner.php:84
+msgid "انتخاب محدود از پارچه‌های پشمی و ابریشم مات، فقط تا پایان فصل."
+msgstr ""
+
+#: includes/class-demo.php:878
+#: widgets/class-campaign-banner.php:93
+msgid "خرید کالکشن"
+msgstr ""
+
+#: includes/class-demo.php:894
+msgid "کالکشن منتخب فصل"
+msgstr ""
+
+#: includes/class-demo.php:895
+msgid "انتخاب استودیو"
+msgstr ""
+
+#: includes/class-demo.php:909
+msgid "پرفروش‌ترین‌ها"
+msgstr ""
+
+#: includes/class-demo.php:910
+msgid "بیشترین انتخاب مشتریان MOON"
+msgstr ""
+
+#: includes/class-demo.php:925
+#: includes/class-demo.php:1110
+#: widgets/class-brand-story.php:66
+msgid "درباره MOON"
+msgstr ""
+
+#: includes/class-demo.php:926
+#: widgets/class-brand-story.php:75
+msgid "سکوت، بهترین جنس لباس است"
+msgstr ""
+
+#: includes/class-demo.php:927
+#: widgets/class-brand-story.php:84
+msgid "<p>MOON از یک کارگاه کوچک شروع شد؛ با این باور که لباس لوکس نباید پرصدا باشد. خط‌های ساده، پارچه‌های دست‌چین و دوخت آرام، امضای ما هستند.</p>"
+msgstr ""
+
+#: includes/class-demo.php:928
+#: widgets/class-brand-story.php:93
+msgid "MOON ATELIER — EST. 2019"
+msgstr ""
+
+#: includes/class-demo.php:930
+#: includes/class-demo.php:1102
+#: includes/class-demo.php:1338
+#: widgets/class-brand-story.php:102
+msgid "درباره ما"
+msgstr ""
+
+#: includes/class-demo.php:945
+#: widgets/class-benefits.php:107
+msgid "ارسال سریع"
+msgstr ""
+
+#: includes/class-demo.php:946
+msgid "تهران ۲۴ ساعت، سایر شهرها ۴۸ ساعت"
+msgstr ""
+
+#: includes/class-demo.php:950
+#: widgets/class-benefits.php:112
+msgid "۷ روز مرجوعی"
+msgstr ""
+
+#: includes/class-demo.php:951
+msgid "بدون پرسش، بدون هزینه"
+msgstr ""
+
+#: includes/class-demo.php:955
+#: widgets/class-benefits.php:117
+msgid "اصالت پارچه"
+msgstr ""
+
+#: includes/class-demo.php:956
+msgid "تضمین کیفیت دوخت و جنس"
+msgstr ""
+
+#: includes/class-demo.php:960
+#: widgets/class-benefits.php:122
+msgid "مشاوره استایل"
+msgstr ""
+
+#: includes/class-demo.php:961
+msgid "راهنمایی سایز توسط تیم MOON"
+msgstr ""
+
+#: includes/class-demo.php:1025
+msgid "MOON — پوشاک لوکس و مدرن. تهران، خیابان ولیعصر."
+msgstr ""
+
+#: includes/class-demo.php:1097
+msgid "صفحه اصلی"
+msgstr ""
+
+#: includes/class-demo.php:1117
+msgid "MOON یک برند پوشاک لوکس ایرانی است که از سال ۱۳۹۸ در تهران فعالیت می‌کند. تمرکز ما بر پارچه‌های طبیعی، برش‌های ساده و دوخت ماندگار است."
+msgstr ""
+
+#: includes/class-demo.php:1129
+msgid "هر دوخت، یک تصمیم آرام"
+msgstr ""
+
+#: includes/class-demo.php:1130
+msgid "تیم ما از ۱۲ نفر تشکیل شده است: طراح، الگوساز، خیاط و کنترل کیفیت. هر قطعه پیش از ارسال، سه بار بازرسی می‌شود."
+msgstr ""
+
+#: includes/class-demo.php:1131
+msgid "MOON ATELIER"
+msgstr ""
+
+#: includes/class-demo.php:1141
+#: includes/class-demo.php:1339
+#: includes/class-header.php:55
+msgid "تماس با ما"
+msgstr ""
+
+#: includes/class-demo.php:1149
+msgid "تماس با MOON"
+msgstr ""
+
+#: includes/class-demo.php:1156
+msgid "تهران، خیابان ولیعصر، برج نگین، طبقه ۷ — شنبه تا پنجشنبه ۱۰ تا ۱۹"
+msgstr ""
+
+#: includes/class-demo.php:1157
+msgid "تلفن: ۰۲۱-۹۱۰۰۲۲۰۰ — ایمیل: hello@moon.example"
+msgstr ""
+
+#: includes/class-demo.php:1170
+#: includes/class-demo.php:1178
+#: includes/class-header.php:53
+msgid "سوالات متداول"
+msgstr ""
+
+#: includes/class-demo.php:1187
+msgid "سایز مناسب را چطور انتخاب کنم؟"
+msgstr ""
+
+#: includes/class-demo.php:1188
+msgid "در هر صفحه محصول، تب «راهنمای سایز» اندازه‌های دقیق را نشان می‌دهد. در صورت تردید یک سایز بزرگ‌تر انتخاب کنید."
+msgstr ""
+
+#: includes/class-demo.php:1191
+msgid "ارسال چند روز طول می‌کشد؟"
+msgstr ""
+
+#: includes/class-demo.php:1192
+msgid "تهران ۲۴ ساعت کاری و سایر شهرها ۴۸ ساعت کاری."
+msgstr ""
+
+#: includes/class-demo.php:1195
+msgid "شرایط مرجوعی چیست؟"
+msgstr ""
+
+#: includes/class-demo.php:1196
+msgid "تا ۷ روز پس از دریافت، در صورت نداشتن اثر استفاده، مرجوعی رایگان است."
+msgstr ""
+
+#: includes/class-demo.php:1207
+#: includes/class-demo.php:1215
+#: includes/class-header.php:54
+msgid "قوانین و مقررات"
+msgstr ""
+
+#: includes/class-demo.php:1222
+msgid "سفارش‌ها پس از پرداخت وارد مرحله آماده‌سازی می‌شوند. قیمت‌ها به تومان و شامل مالیات بر ارزش افزوده است."
+msgstr ""
+
+#: includes/class-demo.php:1223
+msgid "در صورت انصراف پیش از ارسال، مبلغ کامل بازگردانده می‌شود. اطلاعات مشتریان تنها برای پردازش سفارش استفاده می‌شود."
+msgstr ""
+
+#: includes/class-demo.php:1232
+#: includes/class-demo.php:1240
+#: includes/class-header.php:52
+msgid "پیگیری سفارش"
+msgstr ""
+
+#: includes/class-demo.php:1254
+#: includes/class-header.php:49
+#: includes/class-header.php:384
+#: includes/class-header.php:455
+#: includes/class-settings.php:383
+#: widgets/class-glass-header.php:113
+msgid "علاقه‌مندی‌ها"
+msgstr ""
+
+#: includes/class-demo.php:1321
+msgid "منوی اصلی MOON"
+msgstr ""
+
+#: includes/class-demo.php:1335
+#: includes/class-header.php:45
+msgid "فروشگاه"
+msgstr ""
+
+#: includes/class-elementor.php:34
+#: includes/class-settings.php:66
+#: includes/class-settings.php:67
+msgid "MOON"
+msgstr ""
+
+#: includes/class-header.php:46
+msgid "همه محصولات"
+msgstr ""
+
+#: includes/class-header.php:51
+msgid "خدمات مشتریان"
+msgstr ""
+
+#: includes/class-header.php:74
+msgid "کالکشن بعدی را اول ببینید."
+msgstr ""
+
+#: includes/class-header.php:91
+msgid "طراحی و توسعه: MOON Studio · وردپرس + المنتور"
+msgstr ""
+
+#: includes/class-header.php:310
+#: widgets/class-glass-header.php:86
+#: widgets/class-glass-header.php:275
+msgid "منو"
+msgstr ""
+
+#: includes/class-header.php:345
+msgid "دسته‌بندی‌ها"
+msgstr ""
+
+#: includes/class-header.php:370
+#: includes/class-header.php:419
+msgid "جست‌وجوی محصولات"
+msgstr ""
+
+#: includes/class-header.php:377
+#: includes/class-header.php:454
+#: includes/class-settings.php:379
+#: widgets/class-glass-header.php:104
+msgid "حساب کاربری"
+msgstr ""
+
+#: includes/class-header.php:392
+#: includes/class-header.php:456
+#: includes/class-settings.php:387
+#: widgets/class-glass-header.php:122
+msgid "سبد خرید"
+msgstr ""
+
+#: includes/class-header.php:400
+msgid "تغییر حالت روشن و تاریک"
+msgstr ""
+
+#: includes/class-header.php:404
+#: includes/class-settings.php:161
+#: includes/class-settings.php:285
+msgid "حالت شب"
+msgstr ""
+
+#: includes/class-header.php:421
+msgid "نام محصول، دسته‌بندی…"
+msgstr ""
+
+#: includes/class-header.php:426
+#: widgets/class-glass-header.php:95
+msgid "جست‌وجو"
+msgstr ""
+
+#: includes/class-header.php:435
+msgid "بستن منو"
+msgstr ""
+
+#: includes/class-header.php:437
+msgid "منوی موبایل"
+msgstr ""
+
+#: includes/class-newsletter.php:39
+msgid "عضویت در خبرنامه MOON"
+msgstr ""
+
+#: includes/class-newsletter.php:40
+msgid "کالکشن‌های محدود، پیش از انتشار."
+msgstr ""
+
+#: includes/class-newsletter.php:41
+msgid "عضویت"
+msgstr ""
+
+#: includes/class-newsletter.php:62
+msgid "ایمیل شما"
+msgstr ""
+
+#: includes/class-newsletter.php:83
+msgid "عضویت شما ثبت شد."
+msgstr ""
+
+#: includes/class-newsletter.php:87
+msgid "ایمیل معتبر نیست."
+msgstr ""
+
+#: includes/class-newsletter.php:94
+msgid "این ایمیل قبلاً ثبت شده است."
+msgstr ""
+
+#: includes/class-newsletter.php:100
+msgid "عضویت شما ثبت شد. خوش آمدید."
+msgstr ""
+
+#: includes/class-settings.php:121
+msgid "پوشاک لوکس، ساخته‌شده برای شب‌های ماندگار"
+msgstr ""
+
+#: includes/class-settings.php:156
+msgid "کالکشن جدید"
+msgstr ""
+
+#: includes/class-settings.php:162
+msgid "حالت روز"
+msgstr ""
+
+#: includes/class-settings.php:185
+msgid "© MOON — تمام حقوق محفوظ است."
+msgstr ""
+
+#: includes/class-settings.php:235
+msgid "برند"
+msgstr ""
+
+#: includes/class-settings.php:238
+#: widgets/class-glass-header.php:56
+#: widgets/class-glass-header.php:274
+msgid "نام برند"
+msgstr ""
+
+#: includes/class-settings.php:242
+msgid "شعار برند"
+msgstr ""
+
+#: includes/class-settings.php:246
+#: widgets/class-glass-header.php:65
+msgid "لوگو (حالت روز)"
+msgstr ""
+
+#: includes/class-settings.php:250
+#: widgets/class-glass-header.php:73
+msgid "لوگو (حالت شب)"
+msgstr ""
+
+#: includes/class-settings.php:256
+msgid "رنگ‌ها"
+msgstr ""
+
+#: includes/class-settings.php:259
+msgid "مشکی عمیق"
+msgstr ""
+
+#: includes/class-settings.php:267
+msgid "کرم روشن"
+msgstr ""
+
+#: includes/class-settings.php:271
+msgid "سفید گرم"
+msgstr ""
+
+#: includes/class-settings.php:279
+msgid "خاکستری خنثی"
+msgstr ""
+
+#: includes/class-settings.php:288
+msgid "پس‌زمینه"
+msgstr ""
+
+#: includes/class-settings.php:292
+msgid "سطح کارت‌ها"
+msgstr ""
+
+#: includes/class-settings.php:296
+#: widgets/class-brand-story.php:82
+#: widgets/class-brand-story.php:153
+msgid "متن"
+msgstr ""
+
+#: includes/class-settings.php:300
+msgid "متن کم‌رنگ"
+msgstr ""
+
+#: includes/class-settings.php:304
+msgid "طلایی حالت شب"
+msgstr ""
+
+#: includes/class-settings.php:308
+msgid "تم پیش‌فرض بازدیدکننده"
+msgstr ""
+
+#: includes/class-settings.php:311
+msgid "روشن"
+msgstr ""
+
+#: includes/class-settings.php:312
+msgid "تاریک"
+msgstr ""
+
+#: includes/class-settings.php:313
+msgid "هماهنگ با سیستم"
+msgstr ""
+
+#: includes/class-settings.php:317
+msgid "متن دکمه در حالت روز"
+msgstr ""
+
+#: includes/class-settings.php:321
+msgid "متن دکمه در حالت شب"
+msgstr ""
+
+#: includes/class-settings.php:327
+#: widgets/class-glass-header.php:269
+msgid "تایپوگرافی"
+msgstr ""
+
+#: includes/class-settings.php:330
+msgid "فونت فارسی"
+msgstr ""
+
+#: includes/class-settings.php:334
+msgid "فونت نمایشی انگلیسی"
+msgstr ""
+
+#: includes/class-settings.php:338
+msgid "فونت متنی انگلیسی"
+msgstr ""
+
+#: includes/class-settings.php:342
+msgid "اندازه پایه (px)"
+msgstr ""
+
+#: includes/class-settings.php:350
+msgid "هدر"
+msgstr ""
+
+#: includes/class-settings.php:353
+msgid "منبع هدر"
+msgstr ""
+
+#: includes/class-settings.php:356
+#: widgets/class-glass-header.php:30
+msgid "هدر شیشه‌ای MOON"
+msgstr ""
+
+#: includes/class-settings.php:357
+msgid "هدر قالب / المنتور پرو"
+msgstr ""
+
+#: includes/class-settings.php:359
+msgid "اگر قالب هدر را در Theme Builder المنتور پرو می‌سازید، «هدر قالب» را انتخاب کنید."
+msgstr ""
+
+#: includes/class-settings.php:362
+#: widgets/class-glass-header.php:159
+msgid "چسبیدن هنگام اسکرول"
+msgstr ""
+
+#: includes/class-settings.php:366
+#: widgets/class-glass-header.php:168
+msgid "جمع‌شدن هنگام اسکرول"
+msgstr ""
+
+#: includes/class-settings.php:370
+msgid "شناسه منوی وردپرس"
+msgstr ""
+
+#: includes/class-settings.php:372
+msgid "خالی بگذارید تا منوی «دسته‌بندی‌های محصول» ساخته شود."
+msgstr ""
+
+#: includes/class-settings.php:375
+msgid "آیکون جست‌وجو"
+msgstr ""
+
+#: includes/class-settings.php:391
+#: widgets/class-glass-header.php:131
+msgid "دکمه روشن/تاریک"
+msgstr ""
+
+#: includes/class-settings.php:395
+msgid "متن دکمه هدر"
+msgstr ""
+
+#: includes/class-settings.php:399
+msgid "لینک دکمه هدر"
+msgstr ""
+
+#: includes/class-settings.php:405
+msgid "انیمیشن"
+msgstr ""
+
+#: includes/class-settings.php:408
+msgid "فعال‌سازی انیمیشن‌ها"
+msgstr ""
+
+#: includes/class-settings.php:412
+msgid "مدت انیمیشن (میلی‌ثانیه)"
+msgstr ""
+
+#: includes/class-settings.php:420
+msgid "هیرو"
+msgstr ""
+
+#: includes/class-settings.php:423
+msgid "فعال‌سازی هیرو پیش‌فرض"
+msgstr ""
+
+#: includes/class-settings.php:427
+msgid "آدرس ویدئو MP4"
+msgstr ""
+
+#: includes/class-settings.php:429
+msgid "مثال: آدرس فایل در کتابخانه رسانه یا CDN."
+msgstr ""
+
+#: includes/class-settings.php:432
+#: widgets/class-cinematic-hero.php:66
+msgid "تصویر Poster"
+msgstr ""
+
+#: includes/class-settings.php:436
+#: widgets/class-cinematic-hero.php:83
+msgid "غیرفعال کردن ویدئو در موبایل"
+msgstr ""
+
+#: includes/class-settings.php:442
+msgid "قابلیت‌ها"
+msgstr ""
+
+#: includes/class-settings.php:445
+msgid "فیلترهای فروشگاه"
+msgstr ""
+
+#: includes/class-settings.php:449
+msgid "علاقه‌مندی‌ها (در صورت نبود YITH)"
+msgstr ""
+
+#: includes/class-settings.php:453
+msgid "بارگذاری بیشتر به‌جای صفحه‌بندی"
+msgstr ""
+
+#: includes/class-settings.php:457
+msgid "تب راهنمای سایز"
+msgstr ""
+
+#: includes/class-settings.php:461
+msgid "نشان تخفیف و «جدید»"
+msgstr ""
+
+#: includes/class-settings.php:465
+msgid "دکمه بازگشت به بالا"
+msgstr ""
+
+#: includes/class-settings.php:469
+msgid "متن راهنمای سایز (HTML مجاز)"
+msgstr ""
+
+#: includes/class-settings.php:473
+msgid "متن پایین فوتر"
+msgstr ""
+
+#: includes/class-settings.php:559
+msgid "تنظیمات MOON"
+msgstr ""
+
+#: includes/class-settings.php:560
+msgid "این مقادیر به‌صورت CSS Variables و تنظیمات پیش‌فرض ویجت‌های المنتور اعمال می‌شوند."
+msgstr ""
+
+#: includes/class-settings.php:635
+msgid "انتخاب تصویر"
+msgstr ""
+
+#: includes/class-settings.php:636
+msgid "حذف"
+msgstr ""
+
+#: includes/class-widget-base.php:91
+msgid "فاصله بیرونی"
+msgstr ""
+
+#: includes/class-widget-base.php:109
+#: widgets/class-glass-header.php:230
+msgid "حاشیه"
+msgstr ""
+
+#: includes/class-widget-base.php:116
+#: widgets/class-glass-header.php:238
+msgid "گردی گوشه‌ها"
+msgstr ""
+
+#: includes/class-widget-base.php:126
+#: widgets/class-glass-header.php:259
+msgid "سایه"
+msgstr ""
+
+#: includes/class-widget-base.php:141
+msgid "انیمیشن ورود"
+msgstr ""
+
+#: includes/class-widget-base.php:145
+msgid "بدون انیمیشن"
+msgstr ""
+
+#: includes/class-widget-base.php:146
+msgid "محو"
+msgstr ""
+
+#: includes/class-widget-base.php:147
+msgid "محو از پایین"
+msgstr ""
+
+#: includes/class-widget-base.php:148
+msgid "ظهور نرم"
+msgstr ""
+
+#: includes/class-widget-base.php:149
+msgid "بزرگ‌نمایی ملایم"
+msgstr ""
+
+#: includes/class-widget-base.php:158
+msgid "تأخیر انیمیشن (ms)"
+msgstr ""
+
+#: includes/class-woocommerce.php:322
+msgid "فیلترها"
+msgstr ""
+
+#: includes/class-woocommerce.php:324
+msgid "حذف همه"
+msgstr ""
+
+#: includes/class-woocommerce.php:330
+msgid "محدوده قیمت"
+msgstr ""
+
+#: includes/class-woocommerce.php:333
+msgid "از"
+msgstr ""
+
+#: includes/class-woocommerce.php:339
+msgid "تا"
+msgstr ""
+
+#: includes/class-woocommerce.php:395
+msgid "موجودی"
+msgstr ""
+
+#: includes/class-woocommerce.php:398
+msgid "فقط محصولات موجود"
+msgstr ""
+
+#: includes/class-woocommerce.php:404
+msgid "اعمال فیلتر"
+msgstr ""
+
+#: includes/class-woocommerce.php:550
+msgid "تخفیف"
+msgstr ""
+
+#. translators: %d: discount percentage.
+#: includes/class-woocommerce.php:555
+#, php-format
+msgid "%d٪ تخفیف"
+msgstr ""
+
+#: includes/class-woocommerce.php:576
+msgid "جدید"
+msgstr ""
+
+#: includes/class-woocommerce.php:650
+msgid "محصول نامعتبر است."
+msgstr ""
+
+#: includes/class-woocommerce.php:725
+msgid "لیست علاقه‌مندی‌های شما خالی است."
+msgstr ""
+
+#: includes/class-woocommerce.php:727
+msgid "مشاهده فروشگاه"
+msgstr ""
+
+#: includes/class-woocommerce.php:769
+msgid "راهنمای سایز"
+msgstr ""
+
+#: includes/class-woocommerce.php:797
+msgid "جدول راهنمای سایز (سانتی‌متر)"
+msgstr ""
+
+#: includes/class-woocommerce.php:801
+msgid "دور سینه"
+msgstr ""
+
+#: includes/class-woocommerce.php:802
+msgid "دور کمر"
+msgstr ""
+
+#: includes/class-woocommerce.php:803
+msgid "دور باسن"
+msgstr ""
+
+#: includes/class-woocommerce.php:816
+msgid "اندازه‌ها به سانتی‌متر است؛ در صورت تردید یک سایز بزرگ‌تر انتخاب کنید."
+msgstr ""
+
+#: widgets/class-benefits.php:30
+msgid "مزایای خرید MOON"
+msgstr ""
+
+#: widgets/class-benefits.php:49
+msgid "ارسال"
+msgstr ""
+
+#: widgets/class-benefits.php:50
+msgid "گارانتی"
+msgstr ""
+
+#: widgets/class-benefits.php:51
+msgid "مرجوعی"
+msgstr ""
+
+#: widgets/class-benefits.php:52
+msgid "هدیه"
+msgstr ""
+
+#: widgets/class-benefits.php:53
+msgid "پشتیبانی"
+msgstr ""
+
+#: widgets/class-benefits.php:54
+msgid "ویژه"
+msgstr ""
+
+#: widgets/class-benefits.php:65
+msgid "موارد"
+msgstr ""
+
+#: widgets/class-benefits.php:74
+msgid "آیکون"
+msgstr ""
+
+#: widgets/class-benefits.php:84
+#: widgets/class-benefits.php:176
+#: widgets/class-brand-story.php:73
+#: widgets/class-brand-story.php:152
+#: widgets/class-campaign-banner.php:73
+#: widgets/class-campaign-banner.php:161
+#: widgets/class-category-cards.php:75
+#: widgets/class-category-cards.php:215
+#: widgets/class-cinematic-hero.php:293
+#: widgets/class-product-grid.php:86
+#: widgets/class-product-grid.php:183
+msgid "عنوان"
+msgstr ""
+
+#: widgets/class-benefits.php:86
+msgid "ارسال رایگان"
+msgstr ""
+
+#: widgets/class-benefits.php:93
+#: widgets/class-campaign-banner.php:82
+#: widgets/class-cinematic-hero.php:294
+#: widgets/class-product-grid.php:95
+msgid "توضیح"
+msgstr ""
+
+#: widgets/class-benefits.php:101
+msgid "مزایا"
+msgstr ""
+
+#: widgets/class-benefits.php:133
+#: widgets/class-category-cards.php:131
+#: widgets/class-product-grid.php:150
+msgid "تعداد ستون"
+msgstr ""
+
+#: widgets/class-benefits.php:152
+#: widgets/class-brand-story.php:129
+#: widgets/class-campaign-banner.php:136
+#: widgets/class-category-cards.php:184
+#: widgets/class-cinematic-hero.php:258
+#: widgets/class-product-grid.php:169
+msgid "استایل"
+msgstr ""
+
+#: widgets/class-benefits.php:160
+msgid "رنگ آیکون"
+msgstr ""
+
+#: widgets/class-benefits.php:170
+#: widgets/class-brand-story.php:146
+#: widgets/class-campaign-banner.php:154
+#: widgets/class-category-cards.php:192
+#: widgets/class-cinematic-hero.php:286
+msgid "رنگ متن"
+msgstr ""
+
+#: widgets/class-benefits.php:181
+msgid "فاصله"
+msgstr ""
+
+#: widgets/class-brand-story.php:30
+msgid "داستان برند MOON"
+msgstr ""
+
+#: widgets/class-brand-story.php:49
+#: widgets/class-campaign-banner.php:49
+#: widgets/class-cinematic-hero.php:139
+#: widgets/class-glass-header.php:49
+msgid "محتوا"
+msgstr ""
+
+#: widgets/class-brand-story.php:56
+#: widgets/class-category-cards.php:58
+msgid "تصویر"
+msgstr ""
+
+#: widgets/class-brand-story.php:64
+#: widgets/class-category-cards.php:66
+msgid "برچسب کوچک"
+msgstr ""
+
+#: widgets/class-brand-story.php:91
+msgid "امضا / نقل‌قول"
+msgstr ""
+
+#: widgets/class-brand-story.php:100
+#: widgets/class-campaign-banner.php:91
+#: widgets/class-category-cards.php:102
+msgid "متن دکمه"
+msgstr ""
+
+#: widgets/class-brand-story.php:106
+#: widgets/class-campaign-banner.php:97
+msgid "لینک دکمه"
+msgstr ""
+
+#: widgets/class-brand-story.php:111
+msgid "سمت تصویر"
+msgstr ""
+
+#: widgets/class-brand-story.php:115
+msgid "شروع (راست در فارسی)"
+msgstr ""
+
+#: widgets/class-brand-story.php:116
+msgid "پایان (چپ در فارسی)"
+msgstr ""
+
+#: widgets/class-brand-story.php:137
+#: widgets/class-cinematic-hero.php:276
+#: widgets/class-product-grid.php:177
+msgid "رنگ عنوان"
+msgstr ""
+
+#: widgets/class-brand-story.php:158
+msgid "ارتفاع تصویر"
+msgstr ""
+
+#: widgets/class-brand-story.php:176
+msgid "فاصله متن"
+msgstr ""
+
+#: widgets/class-campaign-banner.php:30
+msgid "بنر کمپین MOON"
+msgstr ""
+
+#: widgets/class-campaign-banner.php:56
+msgid "تصویر پس‌زمینه"
+msgstr ""
+
+#: widgets/class-campaign-banner.php:64
+msgid "برچسب"
+msgstr ""
+
+#: widgets/class-campaign-banner.php:102
+msgid "شمارش معکوس"
+msgstr ""
+
+#: widgets/class-campaign-banner.php:111
+msgid "پایان کمپین"
+msgstr ""
+
+#: widgets/class-campaign-banner.php:114
+msgid "تاریخ و ساعت پایان تخفیف."
+msgstr ""
+
+#: widgets/class-campaign-banner.php:121
+msgid "چیدمان"
+msgstr ""
+
+#: widgets/class-campaign-banner.php:125
+msgid "تصویر + متن"
+msgstr ""
+
+#: widgets/class-campaign-banner.php:126
+msgid "متن روی تصویر"
+msgstr ""
+
+#: widgets/class-campaign-banner.php:144
+msgid "رنگ پس‌زمینه"
+msgstr ""
+
+#: widgets/class-campaign-banner.php:165
+msgid "حداقل ارتفاع"
+msgstr ""
+
+#: widgets/class-campaign-banner.php:223
+msgid "زمان باقی‌مانده تا پایان کمپین"
+msgstr ""
+
+#: widgets/class-campaign-banner.php:224
+msgid "روز"
+msgstr ""
+
+#: widgets/class-campaign-banner.php:225
+msgid "ساعت"
+msgstr ""
+
+#: widgets/class-campaign-banner.php:226
+msgid "دقیقه"
+msgstr ""
+
+#: widgets/class-campaign-banner.php:227
+msgid "ثانیه"
+msgstr ""
+
+#: widgets/class-category-cards.php:30
+msgid "کارت‌های دسته‌بندی MOON"
+msgstr ""
+
+#: widgets/class-category-cards.php:49
+msgid "کارت‌ها"
+msgstr ""
+
+#: widgets/class-category-cards.php:84
+#: widgets/class-cinematic-hero.php:164
+msgid "توضیح کوتاه"
+msgstr ""
+
+#: widgets/class-category-cards.php:92
+msgid "لینک"
+msgstr ""
+
+#: widgets/class-category-cards.php:111
+msgid "کارت‌های دسته‌بندی"
+msgstr ""
+
+#: widgets/class-category-cards.php:149
+msgid "فاصله بین کارت‌ها"
+msgstr ""
+
+#: widgets/class-category-cards.php:166
+msgid "نسبت تصویر"
+msgstr ""
+
+#: widgets/class-category-cards.php:202
+msgid "شدت Overlay"
+msgstr ""
+
+#: widgets/class-cinematic-hero.php:30
+msgid "هیرو سینمایی MOON"
+msgstr ""
+
+#: widgets/class-cinematic-hero.php:49
+msgid "رسانه"
+msgstr ""
+
+#: widgets/class-cinematic-hero.php:56
+msgid "ویدئو MP4"
+msgstr ""
+
+#: widgets/class-cinematic-hero.php:59
+msgid "اگر خالی بماند فقط تصویر Poster نمایش داده می‌شود."
+msgstr ""
+
+#: widgets/class-cinematic-hero.php:74
+msgid "پخش خودکار (بی‌صدا)"
+msgstr ""
+
+#: widgets/class-cinematic-hero.php:92
+msgid "شفافیت Overlay"
+msgstr ""
+
+#: widgets/class-cinematic-hero.php:111
+msgid "ارتفاع هیرو"
+msgstr ""
+
+#: widgets/class-cinematic-hero.php:146
+msgid "متن بالای عنوان"
+msgstr ""
+
+#: widgets/class-cinematic-hero.php:148
+msgid "کالکشن پاییز / زمستان"
+msgstr ""
+
+#: widgets/class-cinematic-hero.php:155
+msgid "عنوان اصلی"
+msgstr ""
+
+#: widgets/class-cinematic-hero.php:173
+msgid "متن CTA اول"
+msgstr ""
+
+#: widgets/class-cinematic-hero.php:179
+msgid "لینک CTA اول"
+msgstr ""
+
+#: widgets/class-cinematic-hero.php:184
+msgid "متن CTA دوم"
+msgstr ""
+
+#: widgets/class-cinematic-hero.php:190
+msgid "لینک CTA دوم"
+msgstr ""
+
+#: widgets/class-cinematic-hero.php:195
+msgid "موقعیت افقی محتوا"
+msgstr ""
+
+#: widgets/class-cinematic-hero.php:199
+msgid "شروع"
+msgstr ""
+
+#: widgets/class-cinematic-hero.php:203
+#: widgets/class-cinematic-hero.php:229
+msgid "وسط"
+msgstr ""
+
+#: widgets/class-cinematic-hero.php:207
+msgid "پایان"
+msgstr ""
+
+#: widgets/class-cinematic-hero.php:221
+msgid "موقعیت عمودی محتوا"
+msgstr ""
+
+#: widgets/class-cinematic-hero.php:225
+msgid "بالا"
+msgstr ""
+
+#: widgets/class-cinematic-hero.php:233
+msgid "پایین"
+msgstr ""
+
+#: widgets/class-cinematic-hero.php:247
+msgid "نمایش نشانگر اسکرول"
+msgstr ""
+
+#: widgets/class-cinematic-hero.php:266
+msgid "رنگ Overlay"
+msgstr ""
+
+#: widgets/class-cinematic-hero.php:299
+msgid "عرض محتوا"
+msgstr ""
+
+#: widgets/class-cinematic-hero.php:316
+msgid "فاصله محتوا"
+msgstr ""
+
+#: widgets/class-glass-header.php:78
+msgid "دسته‌بندی‌های محصول"
+msgstr ""
+
+#: widgets/class-glass-header.php:140
+msgid "دکمه CTA"
+msgstr ""
+
+#: widgets/class-glass-header.php:148
+msgid "متن CTA"
+msgstr ""
+
+#: widgets/class-glass-header.php:154
+msgid "لینک CTA"
+msgstr ""
+
+#: widgets/class-glass-header.php:179
+msgid "شیشه و شکل"
+msgstr ""
+
+#: widgets/class-glass-header.php:187
+msgid "شدت Blur (px)"
+msgstr ""
+
+#: widgets/class-glass-header.php:205
+msgid "رنگ شیشه — روز"
+msgstr ""
+
+#: widgets/class-glass-header.php:217
+msgid "رنگ شیشه — شب"
+msgstr ""
+
+#: widgets/class-glass-header.php:280
+msgid "رنگ منو"
+msgstr ""
+
+#: widgets/class-product-grid.php:30
+msgid "گرید محصولات MOON"
+msgstr ""
+
+#: widgets/class-product-grid.php:48
+msgid "همه دسته‌ها"
+msgstr ""
+
+#: widgets/class-product-grid.php:79
+msgid "عنوان بخش"
+msgstr ""
+
+#: widgets/class-product-grid.php:88
+msgid "جدیدترین‌ها"
+msgstr ""
+
+#: widgets/class-product-grid.php:100
+msgid "لینک «مشاهده همه»"
+msgstr ""
+
+#: widgets/class-product-grid.php:107
+msgid "انتخاب محصولات"
+msgstr ""
+
+#: widgets/class-product-grid.php:114
+msgid "منبع"
+msgstr ""
+
+#: widgets/class-product-grid.php:118
+msgid "جدیدترین"
+msgstr ""
+
+#: widgets/class-product-grid.php:119
+msgid "منتخب"
+msgstr ""
+
+#: widgets/class-product-grid.php:120
+msgid "تخفیف‌دار"
+msgstr ""
+
+#: widgets/class-product-grid.php:121
+msgid "پرفروش‌ترین"
+msgstr ""
+
+#: widgets/class-product-grid.php:122
+msgid "بیشترین امتیاز"
+msgstr ""
+
+#: widgets/class-product-grid.php:130
+msgid "دسته‌بندی"
+msgstr ""
+
+#: widgets/class-product-grid.php:139
+msgid "تعداد محصول"
+msgstr ""
+
+#: widgets/class-product-grid.php:184
+msgid "قیمت"
+msgstr ""
+
+#: widgets/class-product-grid.php:189
+msgid "فاصله داخلی کارت"
+msgstr ""
+
+#: widgets/class-product-grid.php:266
+msgid "مشاهده همه"
+msgstr ""
+
+#: widgets/class-product-grid.php:274
+msgid "برای نمایش محصولات، ووکامرس را فعال کنید."
+msgstr ""

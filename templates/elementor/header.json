@@ -1,0 +1,46 @@
+{
+    "version": "0.4",
+    "title": "MOON — Header",
+    "type": "header",
+    "content": [
+        {
+            "id": "5a9170c",
+            "elType": "container",
+            "isInner": false,
+            "settings": {
+                "content_width": "full",
+                "flex_direction": "column",
+                "padding": {
+                    "unit": "px",
+                    "top": "0",
+                    "right": "0",
+                    "bottom": "0",
+                    "left": "0",
+                    "isLinked": true
+                }
+            },
+            "elements": [
+                {
+                    "id": "f0006e9",
+                    "elType": "widget",
+                    "widgetType": "moon-glass-header",
+                    "settings": {
+                        "brand": "MOON",
+                        "show_search": "yes",
+                        "show_account": "yes",
+                        "show_wishlist": "yes",
+                        "show_cart": "yes",
+                        "show_toggle": "yes",
+                        "sticky": "yes",
+                        "shrink": "yes"
+                    },
+                    "elements": []
+                }
+            ]
+        }
+    ],
+    "page_settings": [],
+    "metadata": {
+        "template_type": "header"
+    }
+}

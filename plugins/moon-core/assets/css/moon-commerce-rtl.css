@@ -1,0 +1,25 @@
+/* MOON Core commerce — RTL refinements. */
+
+html[dir="rtl"] .moon-core .woocommerce-breadcrumb {
+	direction: rtl;
+}
+
+html[dir="rtl"] .moon-core ul.products li.product .price {
+	flex-direction: row-reverse;
+	justify-content: flex-start;
+}
+
+html[dir="rtl"] .moon-core table.shop_table th,
+html[dir="rtl"] .moon-core table.shop_table td {
+	text-align: right;
+}
+
+html[dir="rtl"] .moon-core table.variations th.label {
+	text-align: right;
+}
+
+html[dir="rtl"] .moon-core .woocommerce-message,
+html[dir="rtl"] .moon-core .woocommerce-info,
+html[dir="rtl"] .moon-core .woocommerce-error {
+	padding-inline-start: 48px;
+}
