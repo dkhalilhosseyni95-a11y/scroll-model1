@@ -1,0 +1,88 @@
+# Base44 sandbox environment for the MOON WordPress theme.
+#
+# The WordPress core lives in a named volume; the theme and plugin are bind
+# mounted from this repository so edits are picked up immediately (no rebuild).
+# A one-shot wp-cli service installs WordPress, WooCommerce and the demo content.
+
+name: moon
+
+services:
+  db:
+    image: mariadb:11.4
+    restart: on-failure
+    environment:
+      MARIADB_DATABASE: wordpress
+      MARIADB_USER: wordpress
+      MARIADB_PASSWORD: moon_dev_password
+      MARIADB_ROOT_PASSWORD: moon_root_password
+    volumes:
+      - db_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      interval: 5s
+      timeout: 5s
+      retries: 30
+      start_period: 20s
+
+  wordpress:
+    image: wordpress:php8.3-apache
+    restart: on-failure
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - "3000:80"
+    environment:
+      WORDPRESS_DB_HOST: db:3306
+      WORDPRESS_DB_USER: wordpress
+      WORDPRESS_DB_PASSWORD: moon_dev_password
+      WORDPRESS_DB_NAME: wordpress
+      WORDPRESS_DEBUG: "1"
+      WORDPRESS_CONFIG_EXTRA: |
+        define( 'WP_DEBUG_LOG', true );
+        define( 'WP_DEBUG_DISPLAY', false );
+        define( 'DISALLOW_FILE_EDIT', true );
+        define( 'WP_ENVIRONMENT_TYPE', 'local' );
+      BASE44_PREVIEW_MODE:
+      BASE44_PUBLIC_HOST_SUFFIX:
+    volumes:
+      - wp_data:/var/www/html
+      - ./wp-content/themes/moon-theme:/var/www/html/wp-content/themes/moon-theme
+      - ./wp-content/plugins/moon-core:/var/www/html/wp-content/plugins/moon-core
+      - ./docker/mu-plugins:/var/www/html/wp-content/mu-plugins:ro
+    healthcheck:
+      test: ["CMD-SHELL", "php -r \"exit(@file_get_contents('http://127.0.0.1/wp-login.php') ? 0 : 1);\""]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+      start_period: 90s
+
+  setup:
+    image: wordpress:cli-php8.3
+    depends_on:
+      db:
+        condition: service_healthy
+      wordpress:
+        condition: service_started
+    restart: "no"
+    user: "33:33"
+    environment:
+      WORDPRESS_DB_HOST: db:3306
+      WORDPRESS_DB_USER: wordpress
+      WORDPRESS_DB_PASSWORD: moon_dev_password
+      WORDPRESS_DB_NAME: wordpress
+      MOON_ADMIN_USER: admin
+      MOON_ADMIN_PASSWORD: moon-dev-admin
+      MOON_ADMIN_EMAIL: admin@example.com
+      BASE44_PREVIEW_MODE:
+      BASE44_PUBLIC_HOST_SUFFIX:
+    volumes:
+      - wp_data:/var/www/html
+      - ./wp-content/themes/moon-theme:/var/www/html/wp-content/themes/moon-theme
+      - ./wp-content/plugins/moon-core:/var/www/html/wp-content/plugins/moon-core
+      - ./docker:/scripts:ro
+    command: ["sh", "/scripts/setup.sh"]
+
+volumes:
+  db_data:
+  wp_data:

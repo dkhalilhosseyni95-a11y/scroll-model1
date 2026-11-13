@@ -1,0 +1,314 @@
+/*!
+ * MOON — shared product card and quick view (used on the homepage carousel and the shop).
+ */
+
+.moon-card {
+  position: relative;
+}
+
+.moon-card__media {
+  position: relative;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  background: var(--stage);
+}
+
+.moon-card__media a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.moon-card__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1s ease;
+}
+
+.moon-card:hover .moon-card__media img {
+  transform: scale(1.05);
+}
+
+.moon-card__media--contain img {
+  object-fit: contain;
+  padding: 1.5rem;
+}
+
+.moon-card__tag {
+  position: absolute;
+  top: 1rem;
+  inset-inline-end: 1rem;
+  z-index: 2;
+  padding: 0.25rem 0.625rem;
+  background: var(--background);
+  font-size: 0.75rem;
+}
+
+.moon-card__like {
+  position: absolute;
+  top: 1rem;
+  inset-inline-start: 1rem;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  padding: 0;
+  border: 1px solid var(--glass-border);
+  border-radius: 999px;
+  background: var(--glass);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+  backdrop-filter: blur(18px) saturate(140%);
+  transition: background-color 0.3s ease;
+}
+
+.moon-card__like.is-liked .moon-icon {
+  fill: var(--accent);
+  color: var(--accent);
+}
+
+.moon-card__quick {
+  position: absolute;
+  inset-inline: 1rem;
+  bottom: 1rem;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: calc(100% - 2rem);
+  padding: 0.625rem;
+  border: 1px solid var(--glass-border);
+  border-radius: 999px;
+  background: var(--glass);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+  backdrop-filter: blur(18px) saturate(140%);
+  font-size: 0.875rem;
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.moon-card:hover .moon-card__quick,
+.moon-card__quick:focus-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (max-width: 1023px) {
+  .moon-card__quick {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.moon-card__meta {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.moon-card__meta > div {
+  min-width: 0;
+}
+
+.moon-card__name {
+  margin: 0;
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.7;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.moon-card__name a {
+  display: inline-block;
+}
+
+.moon-card__en {
+  margin: 0.25rem 0 0;
+  font-size: 0.6rem;
+  color: var(--muted-foreground);
+  text-align: start;
+  unicode-bidi: isolate;
+}
+
+.moon-card__price {
+  flex-shrink: 0;
+  font-size: 0.875rem;
+  color: var(--muted-foreground);
+  white-space: nowrap;
+  text-align: end;
+  font-variant-numeric: tabular-nums;
+}
+
+.moon-card__price .woocommerce-Price-currencySymbol {
+  font-size: 0.8em;
+  margin-inline-start: 0.15em;
+}
+
+.moon-card__price del {
+  opacity: 0.6;
+  text-decoration: line-through;
+}
+
+.moon-card__price ins {
+  margin-inline-start: 0.35rem;
+  text-decoration: none;
+  color: var(--foreground);
+}
+
+/* --------------------------------------------------------------------------
+ * Quick view dialog
+ * ------------------------------------------------------------------------ */
+.moon-qv {
+  position: fixed;
+  inset: 0;
+  z-index: 70;
+  display: grid;
+  place-items: center;
+  padding: 1.5rem;
+  background: var(--overlay-60);
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.35s ease, visibility 0.35s;
+}
+
+.moon-qv.is-open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.moon-qv__panel {
+  position: relative;
+  display: grid;
+  width: 100%;
+  max-width: 48rem;
+  max-height: 92vh;
+  overflow: auto;
+  background: var(--background);
+  transform: translateY(40px) scale(0.96);
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.moon-qv.is-open .moon-qv__panel {
+  transform: none;
+}
+
+@media (min-width: 768px) {
+  .moon-qv__panel {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.moon-qv__media {
+  aspect-ratio: 3 / 4;
+  background: var(--stage);
+}
+
+.moon-qv__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.moon-qv__body {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+}
+
+.moon-qv__eyebrow {
+  color: var(--accent);
+}
+
+.moon-qv__title {
+  margin: 0.75rem 0 0;
+  font-size: 1.5rem;
+  font-weight: 300;
+}
+
+.moon-qv__price {
+  margin: 0.75rem 0 0;
+}
+
+.moon-qv__desc {
+  margin: 1.5rem 0 0;
+  font-size: 0.875rem;
+  line-height: 1.9;
+  color: var(--muted-foreground);
+}
+
+.moon-qv__sizes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+}
+
+.moon-qv__size {
+  display: grid;
+  place-items: center;
+  min-width: 2.5rem;
+  height: 2.5rem;
+  padding: 0 0.5rem;
+  border: 1px solid var(--border);
+  background: transparent;
+  font-size: 0.875rem;
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.moon-qv__size:hover,
+.moon-qv__size.is-active {
+  border-color: var(--accent);
+  background: var(--fg-5);
+}
+
+.moon-qv__cta {
+  margin-top: auto;
+  padding-top: 1.5rem;
+}
+
+.moon-qv__add {
+  display: block;
+  width: 100%;
+  padding: 0.875rem;
+  border: 0;
+  background: var(--foreground);
+  color: var(--background);
+  font-family: inherit;
+  font-size: 0.875rem;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.moon-qv__add:disabled {
+  opacity: 0.6;
+  cursor: progress;
+}
+
+.moon-qv__add:hover {
+  background: var(--accent);
+  color: var(--accent-foreground);
+}
+
+.moon-qv__close {
+  display: block;
+  margin: 0.75rem auto 0;
+  border: 0;
+  background: transparent;
+  font-size: 0.75rem;
+  color: var(--muted-foreground);
+}
+
+.moon-qv__close:hover {
+  color: var(--foreground);
+}
