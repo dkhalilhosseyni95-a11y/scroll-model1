@@ -1,0 +1,98 @@
+/* MOON design tokens — the single source of truth for colour, type and motion.
+ * Widgets must only use these variables, never raw values. Dark mode is driven
+ * by html[data-moon-scheme]; "auto" follows the operating system. */
+
+:root {
+	/* Brand palette (editorial reference) */
+	--moon-black: #101010;
+	--moon-charcoal: #191919;
+	--moon-ivory: #f5f1e9;
+	--moon-white: #ffffff;
+	--moon-champagne: #c6a875;
+	--moon-muted: #99958f;
+
+	/* Semantic tokens — light */
+	--moon-bg: var(--moon-ivory);
+	--moon-surface: var(--moon-white);
+	--moon-surface-alt: #ece5d9;
+	--moon-ink: var(--moon-black);
+	--moon-ink-soft: #46443f;
+	--moon-ink-muted: var(--moon-muted);
+	--moon-accent: var(--moon-champagne);
+	--moon-accent-ink: var(--moon-charcoal);
+	--moon-line: rgb(16 16 16 / 12%);
+	--moon-line-strong: rgb(16 16 16 / 28%);
+	--moon-glass: rgb(255 255 255 / 62%);
+	--moon-glass-line: rgb(16 16 16 / 8%);
+	--moon-stage: #e8e1d4;
+	--moon-overlay: rgb(16 16 16 / 58%);
+	--moon-on-image: #f7f3ea;
+	--moon-danger: #a8322a;
+	--moon-success: #3f6b4b;
+	--moon-shadow-soft: 0 18px 40px -28px rgb(16 16 16 / 45%);
+	--moon-shadow-lift: 0 40px 80px -48px rgb(16 16 16 / 55%);
+
+	/* Typography */
+	--moon-font-sans: "Vazirmatn", system-ui, -apple-system, "Segoe UI", sans-serif;
+	--moon-font-display: "Cormorant Garamond", "Vazirmatn", "Times New Roman", serif;
+
+	/* Geometry */
+	--moon-radius: 4px;
+	--moon-radius-lg: 12px;
+	--moon-radius-pill: 999px;
+	--moon-container: 1320px;
+	--moon-gutter: clamp(1rem, 4vw, 3rem);
+	--moon-header-h: 76px;
+	--moon-section-space: clamp(4rem, 9vw, 8.5rem);
+
+	/* Motion */
+	--moon-ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+	--moon-ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+	--moon-dur: 0.6s;
+
+	color-scheme: light;
+}
+
+html[data-moon-scheme="dark"] {
+	--moon-bg: var(--moon-black);
+	--moon-surface: var(--moon-charcoal);
+	--moon-surface-alt: #202020;
+	--moon-ink: var(--moon-ivory);
+	--moon-ink-soft: #cfc9be;
+	--moon-ink-muted: #8d8983;
+	--moon-accent: var(--moon-champagne);
+	--moon-accent-ink: var(--moon-black);
+	--moon-line: rgb(255 255 255 / 14%);
+	--moon-line-strong: rgb(255 255 255 / 30%);
+	--moon-glass: rgb(25 25 25 / 62%);
+	--moon-glass-line: rgb(255 255 255 / 10%);
+	--moon-stage: #1d1d1d;
+	--moon-overlay: rgb(0 0 0 / 62%);
+	--moon-on-image: #f7f3ea;
+	--moon-shadow-soft: 0 18px 40px -24px rgb(0 0 0 / 70%);
+	--moon-shadow-lift: 0 40px 80px -40px rgb(0 0 0 / 80%);
+
+	color-scheme: dark;
+}
+
+@media (prefers-color-scheme: dark) {
+	html[data-moon-scheme="auto"] {
+		--moon-bg: var(--moon-black);
+		--moon-surface: var(--moon-charcoal);
+		--moon-surface-alt: #202020;
+		--moon-ink: var(--moon-ivory);
+		--moon-ink-soft: #cfc9be;
+		--moon-ink-muted: #8d8983;
+		--moon-accent-ink: var(--moon-black);
+		--moon-line: rgb(255 255 255 / 14%);
+		--moon-line-strong: rgb(255 255 255 / 30%);
+		--moon-glass: rgb(25 25 25 / 62%);
+		--moon-glass-line: rgb(255 255 255 / 10%);
+		--moon-stage: #1d1d1d;
+		--moon-overlay: rgb(0 0 0 / 62%);
+		--moon-shadow-soft: 0 18px 40px -24px rgb(0 0 0 / 70%);
+		--moon-shadow-lift: 0 40px 80px -40px rgb(0 0 0 / 80%);
+
+		color-scheme: dark;
+	}
+}

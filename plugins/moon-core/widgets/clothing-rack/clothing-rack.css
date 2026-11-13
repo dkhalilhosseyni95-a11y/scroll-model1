@@ -1,0 +1,371 @@
+/* MOON Interactive Clothing Rack — CSS transforms only. */
+
+.moon-rack__grid {
+	display: grid;
+	grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+	gap: clamp(1.25rem, 3vw, 2.5rem);
+	align-items: stretch;
+}
+
+.moon-rack--below .moon-rack__grid {
+	grid-template-columns: minmax(0, 1fr);
+}
+
+/* Stage / rail ---------------------------------------------------------- */
+
+.moon-rack__rail {
+	position: relative;
+	display: flex;
+	align-items: flex-start;
+	justify-content: center;
+	min-height: 430px;
+	padding: 2.6rem clamp(0.5rem, 2vw, 1.5rem) 1.5rem;
+	border-radius: var(--moon-radius-lg);
+	background: linear-gradient(180deg, var(--moon-surface-alt), var(--moon-bg));
+	border: 1px solid var(--moon-line);
+	overflow: hidden;
+	isolation: isolate;
+}
+
+.moon-rack__rail::after {
+	content: "";
+	position: absolute;
+	inset-inline: 0;
+	inset-block-end: 0;
+	height: 32%;
+	background: linear-gradient(180deg, transparent, color-mix(in srgb, var(--moon-ink) 8%, transparent));
+	pointer-events: none;
+	z-index: 0;
+}
+
+.moon-rack__bar {
+	position: absolute;
+	inset-inline: clamp(1rem, 5%, 3rem);
+	inset-block-start: 2.35rem;
+	height: 5px;
+	border-radius: 5px;
+	background: linear-gradient(90deg, #8b8b8b, #d8d8d8 40%, #9a9a9a 70%, #cfcfcf);
+	box-shadow: 0 2px 6px -2px rgb(0 0 0 / 35%);
+	z-index: 0;
+}
+
+.moon-rack__items {
+	position: relative;
+	z-index: 1;
+	display: flex;
+	align-items: flex-start;
+	justify-content: safe center;
+	gap: clamp(0.1rem, 1vw, 0.75rem);
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	overflow-x: auto;
+	overflow-y: hidden;
+	scrollbar-width: thin;
+	padding-block-end: 0.5rem;
+}
+
+.moon-rack__item {
+	flex: 0 0 auto;
+	transform-origin: top center;
+	animation: moon-rack-sway 7s var(--moon-ease) infinite alternate;
+	animation-delay: var(--moon-sway-delay, 0s);
+}
+
+.moon-rack:not(.has-swing) .moon-rack__item {
+	animation: none;
+}
+
+.moon-rack__item:nth-child(even) {
+	animation-duration: 8.5s;
+	animation-direction: alternate-reverse;
+}
+
+@keyframes moon-rack-sway {
+	from {
+		transform: rotate(-1.1deg);
+	}
+	to {
+		transform: rotate(1.1deg);
+	}
+}
+
+/* Garment --------------------------------------------------------------- */
+
+.moon-rack__garment {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 150px;
+	padding: 0;
+	border: 0;
+	background: none;
+	cursor: pointer;
+	color: var(--moon-ink);
+	font-family: var(--moon-font-sans);
+	transition: transform 0.5s var(--moon-ease-out), filter 0.4s var(--moon-ease), opacity 0.4s var(--moon-ease);
+	transform-origin: top center;
+	-webkit-tap-highlight-color: transparent;
+}
+
+.moon-rack__hanger {
+	display: block;
+	width: 58px;
+	height: 34px;
+	margin-block-end: -6px;
+	color: #8f8f8f;
+	filter: drop-shadow(0 3px 3px rgb(0 0 0 / 18%));
+}
+
+.moon-rack__hanger svg {
+	width: 100%;
+	height: 100%;
+}
+
+.moon-rack__cloth {
+	position: relative;
+	display: block;
+	width: 100%;
+	aspect-ratio: 5 / 8;
+}
+
+.moon-rack__cloth img {
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
+	filter: drop-shadow(0 18px 18px rgb(0 0 0 / 22%));
+	transition: filter 0.4s var(--moon-ease);
+}
+
+.moon-rack__garment:hover {
+	transform: translateY(-6px) rotate(0.6deg);
+}
+
+.moon-rack__garment:hover .moon-rack__cloth img {
+	filter: drop-shadow(0 24px 22px rgb(0 0 0 / 28%));
+}
+
+.moon-rack__garment:focus-visible {
+	outline: 2px solid var(--moon-accent);
+	outline-offset: 6px;
+	border-radius: var(--moon-radius);
+}
+
+.moon-rack__label {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 0.15rem;
+	margin-block-start: 0.65rem;
+	text-align: center;
+}
+
+.moon-rack__name {
+	font-size: 0.7rem;
+	letter-spacing: 0.16em;
+	text-transform: uppercase;
+	color: var(--moon-ink);
+}
+
+.moon-rack__meta {
+	font-size: 0.66rem;
+	color: var(--moon-ink-muted);
+}
+
+/* Selected / lifted states --------------------------------------------- */
+
+.moon-rack__item.is-selected .moon-rack__garment {
+	transform: translateY(-14px) rotate(-2.4deg) scale(0.96);
+}
+
+.moon-rack__item.is-selected .moon-rack__cloth img {
+	opacity: 0.35;
+	filter: grayscale(0.3) drop-shadow(0 10px 10px rgb(0 0 0 / 14%));
+}
+
+.moon-rack__item.is-dimmed .moon-rack__garment {
+	opacity: 0.45;
+	transform: scale(0.97);
+}
+
+.moon-rack__item.is-returning .moon-rack__garment {
+	animation: moon-rack-return 0.6s var(--moon-ease-out);
+}
+
+@keyframes moon-rack-return {
+	0% {
+		transform: translateY(-14px) rotate(-2.4deg) scale(0.96);
+	}
+	55% {
+		transform: translateY(4px) rotate(1.4deg) scale(1.01);
+	}
+	100% {
+		transform: none;
+	}
+}
+
+/* Detail panel ---------------------------------------------------------- */
+
+.moon-rack__detail-wrap {
+	position: relative;
+	min-height: 320px;
+}
+
+.moon-rack__detail {
+	position: absolute;
+	inset: 0;
+	display: grid;
+	grid-template-rows: minmax(0, 1fr) auto;
+	gap: 1rem;
+	opacity: 0;
+	visibility: hidden;
+	transform: translateY(10px);
+	transition: opacity 0.5s var(--moon-ease), transform 0.5s var(--moon-ease-out), visibility 0.5s;
+}
+
+.moon-rack__detail.is-active {
+	opacity: 1;
+	visibility: visible;
+	transform: none;
+}
+
+.moon-rack__detail-media {
+	border-radius: var(--moon-radius-lg);
+	overflow: hidden;
+	background: var(--moon-stage);
+	aspect-ratio: 4 / 5;
+	max-height: 360px;
+}
+
+.moon-rack__detail-media img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.moon-rack__detail-copy {
+	display: flex;
+	flex-direction: column;
+	gap: 0.35rem;
+}
+
+.moon-rack__detail-title {
+	font-family: var(--moon-font-display);
+	font-size: clamp(1.5rem, 2.2vw, 2rem);
+	margin: 0;
+	color: var(--moon-ink);
+}
+
+.moon-rack__detail-meta {
+	margin: 0;
+	font-size: 0.8rem;
+	letter-spacing: 0.08em;
+	color: var(--moon-ink-muted);
+}
+
+.moon-rack__detail-desc {
+	margin: 0.25rem 0 0;
+	font-size: 0.9rem;
+	line-height: 1.65;
+	color: var(--moon-ink-soft);
+}
+
+.moon-rack__detail-actions {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 1rem;
+	margin-block-start: 0.65rem;
+}
+
+.moon-rack__return {
+	border: 0;
+	background: none;
+	padding: 0;
+	cursor: pointer;
+	color: var(--moon-ink-muted);
+}
+
+.moon-rack__return:hover {
+	color: var(--moon-ink);
+}
+
+/* Below layout ---------------------------------------------------------- */
+
+.moon-rack--below .moon-rack__detail {
+	position: relative;
+	grid-template-rows: auto auto;
+	grid-template-columns: minmax(0, 0.6fr) minmax(0, 1fr);
+	gap: clamp(1rem, 3vw, 2rem);
+	align-items: center;
+	display: none;
+}
+
+.moon-rack--below .moon-rack__detail.is-active {
+	display: grid;
+}
+
+.moon-rack--below .moon-rack__detail-media {
+	max-height: 320px;
+	aspect-ratio: 1;
+}
+
+/* Responsive ------------------------------------------------------------ */
+
+@media (max-width: 960px) {
+	.moon-rack__grid {
+		grid-template-columns: minmax(0, 1fr);
+	}
+
+	.moon-rack__rail {
+		min-height: 360px;
+	}
+
+	.moon-rack__detail-wrap {
+		min-height: 0;
+	}
+
+	.moon-rack__detail {
+		position: relative;
+		display: none;
+		grid-template-columns: minmax(0, 0.8fr) minmax(0, 1fr);
+		gap: 1rem;
+		align-items: center;
+	}
+
+	.moon-rack__detail.is-active {
+		display: grid;
+	}
+
+	.moon-rack__detail-media {
+		max-height: 260px;
+	}
+
+	.moon-rack__items {
+		justify-content: flex-start;
+	}
+}
+
+@media (max-width: 560px) {
+	.moon-rack__rail {
+		padding-inline: 0.75rem;
+	}
+
+	.moon-rack__detail,
+	.moon-rack--below .moon-rack__detail {
+		grid-template-columns: minmax(0, 1fr);
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.moon-rack__item {
+		animation: none;
+	}
+
+	.moon-rack__garment,
+	.moon-rack__detail {
+		transition-duration: 0.01ms;
+	}
+}

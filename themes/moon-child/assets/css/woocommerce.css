@@ -1,0 +1,436 @@
+/* MOON WooCommerce layer.
+ * WooCommerce keeps its templates; these rules restyle the standard markup so
+ * the store matches the editorial design. Scoped to .moon-theme + store wrappers. */
+
+.moon-store {
+	padding-block: clamp(2rem, 5vw, 4rem);
+}
+
+.moon-theme .woocommerce-breadcrumb {
+	font-size: 0.72rem;
+	letter-spacing: 0.16em;
+	text-transform: uppercase;
+	color: var(--moon-ink-muted);
+	margin-block-end: 1.5rem;
+}
+
+.moon-theme .woocommerce-breadcrumb a {
+	color: var(--moon-ink-muted);
+}
+
+.moon-theme .woocommerce-products-header__title {
+	font-size: clamp(2.25rem, 5vw, 4rem);
+	margin-block-end: 0.5rem;
+}
+
+/* Archive toolbar (result count + ordering) ------------------------------- */
+
+.moon-theme .woocommerce-result-count,
+.moon-theme .woocommerce-ordering {
+	margin: 0 0 1.5rem;
+	font-size: 0.72rem;
+	letter-spacing: 0.14em;
+	text-transform: uppercase;
+	color: var(--moon-ink-muted);
+}
+
+.moon-theme .woocommerce-ordering select {
+	min-width: 12rem;
+	padding: 0.55rem 0.8rem;
+	border: 1px solid var(--moon-line);
+	border-radius: var(--moon-radius);
+	background: var(--moon-surface);
+	color: var(--moon-ink);
+	font-size: 0.72rem;
+	letter-spacing: 0.1em;
+	text-transform: uppercase;
+}
+
+/* Product grid ----------------------------------------------------------- */
+
+.moon-theme ul.products {
+	display: grid;
+	grid-template-columns: repeat(var(--moon-loop-columns, 4), minmax(0, 1fr));
+	gap: clamp(1.25rem, 2.5vw, 2.25rem);
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.moon-theme ul.products::before,
+.moon-theme ul.products::after {
+	content: none;
+}
+
+.moon-theme ul.products li.product {
+	width: 100%;
+	margin: 0;
+	float: none;
+	position: relative;
+}
+
+.moon-theme ul.products li.product .woocommerce-loop-product__link {
+	display: block;
+}
+
+.moon-theme ul.products li.product img {
+	border-radius: var(--moon-radius-lg);
+	aspect-ratio: 4 / 5;
+	object-fit: cover;
+	width: 100%;
+	transition: transform 0.8s var(--moon-ease);
+	background: var(--moon-stage);
+}
+
+.moon-theme ul.products li.product:hover img {
+	transform: scale(1.03);
+}
+
+.moon-theme ul.products li.product .woocommerce-loop-product__title {
+	font-family: var(--moon-font-display);
+	font-size: 1.25rem;
+	padding: 0.85rem 0 0.15rem;
+	color: var(--moon-ink);
+}
+
+.moon-theme ul.products li.product .price {
+	color: var(--moon-ink);
+	font-size: 0.95rem;
+	font-family: var(--moon-font-sans);
+}
+
+.moon-theme ul.products li.product .price del {
+	color: var(--moon-ink-muted);
+	opacity: 1;
+	margin-inline-end: 0.35rem;
+}
+
+.moon-theme ul.products li.product .price ins {
+	text-decoration: none;
+	color: var(--moon-accent);
+}
+
+.moon-theme ul.products li.product .button {
+	margin-block-start: 0.65rem;
+	display: inline-flex;
+	align-items: center;
+	padding: 0.55rem 1.15rem;
+	border: 1px solid var(--moon-line-strong);
+	border-radius: var(--moon-radius-pill);
+	background: transparent;
+	color: var(--moon-ink);
+	font-size: 0.68rem;
+	letter-spacing: 0.16em;
+	text-transform: uppercase;
+	transition: background-color 0.3s var(--moon-ease), color 0.3s var(--moon-ease);
+}
+
+.moon-theme ul.products li.product .button:hover {
+	background: var(--moon-ink);
+	color: var(--moon-bg);
+	border-color: var(--moon-ink);
+}
+
+.moon-product__badges {
+	position: absolute;
+	inset-block-start: 0.85rem;
+	inset-inline-start: 0.85rem;
+	z-index: 2;
+	display: flex;
+	gap: 0.4rem;
+}
+
+/* Notices ---------------------------------------------------------------- */
+
+.moon-theme .woocommerce-message,
+.moon-theme .woocommerce-info,
+.moon-theme .woocommerce-error {
+	border: 1px solid var(--moon-line);
+	border-block-start: 2px solid var(--moon-accent);
+	border-radius: var(--moon-radius);
+	background: var(--moon-surface);
+	color: var(--moon-ink);
+	padding: 1rem 1.25rem 1rem 1.25rem;
+	list-style: none;
+}
+
+.moon-theme .woocommerce-message::before,
+.moon-theme .woocommerce-info::before,
+.moon-theme .woocommerce-error::before {
+	color: var(--moon-accent);
+}
+
+.moon-theme .woocommerce-message .button,
+.moon-theme .woocommerce-info .button {
+	background: var(--moon-ink);
+	color: var(--moon-bg);
+	border-radius: var(--moon-radius-pill);
+	padding: 0.45rem 1rem;
+}
+
+/* Single product --------------------------------------------------------- */
+
+.moon-theme div.product .woocommerce-product-gallery {
+	border-radius: var(--moon-radius-lg);
+	overflow: hidden;
+	background: var(--moon-stage);
+}
+
+.moon-theme div.product div.summary .product_title {
+	font-size: clamp(2rem, 4vw, 3.25rem);
+	margin-block-end: 0.5rem;
+}
+
+.moon-theme div.product div.summary .price {
+	font-size: 1.25rem;
+	color: var(--moon-ink);
+	font-family: var(--moon-font-sans);
+}
+
+.moon-theme div.product div.summary .price del {
+	color: var(--moon-ink-muted);
+	opacity: 1;
+}
+
+.moon-theme div.product div.summary .price ins {
+	text-decoration: none;
+	color: var(--moon-accent);
+}
+
+.moon-theme div.product .woocommerce-product-details__short-description {
+	color: var(--moon-ink-soft);
+}
+
+.moon-theme div.product form.cart {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: flex-end;
+	gap: 0.75rem;
+	margin-block: 1.5rem;
+}
+
+.moon-theme div.product form.cart .quantity {
+	display: inline-flex;
+}
+
+.moon-theme .quantity input.qty {
+	width: 5rem;
+	text-align: center;
+	border-radius: var(--moon-radius-pill);
+	border: 1px solid var(--moon-line);
+	background: var(--moon-surface);
+	color: var(--moon-ink);
+	padding: 0.8rem 0.5rem;
+}
+
+.moon-theme div.product form.cart button.single_add_to_cart_button,
+.moon-theme .woocommerce #respond input#submit,
+.moon-theme .woocommerce a.button.alt,
+.moon-theme .woocommerce button.button.alt,
+.moon-theme .woocommerce input.button.alt,
+.moon-theme .wc-block-components-button {
+	background: var(--moon-ink);
+	color: var(--moon-bg);
+	border: 1px solid var(--moon-ink);
+	border-radius: var(--moon-radius-pill);
+	padding: 0.9rem 1.75rem;
+	font-size: 0.75rem;
+	letter-spacing: 0.16em;
+	text-transform: uppercase;
+	font-weight: 500;
+	transition: background-color 0.3s var(--moon-ease), color 0.3s var(--moon-ease);
+}
+
+.moon-theme div.product form.cart button.single_add_to_cart_button:hover,
+.moon-theme .woocommerce a.button.alt:hover,
+.moon-theme .woocommerce button.button.alt:hover,
+.moon-theme .woocommerce input.button.alt:hover {
+	background: var(--moon-accent);
+	border-color: var(--moon-accent);
+	color: var(--moon-accent-ink);
+}
+
+/* Variations ------------------------------------------------------------- */
+
+.moon-theme .variations {
+	width: auto;
+	border: 0;
+	margin-block-end: 1rem;
+}
+
+.moon-theme .variations th,
+.moon-theme .variations td {
+	border: 0;
+	padding: 0.35rem 0;
+	text-align: start;
+	vertical-align: middle;
+}
+
+.moon-theme .variations th.label label {
+	font-size: 0.7rem;
+	letter-spacing: 0.18em;
+	text-transform: uppercase;
+	color: var(--moon-ink-muted);
+}
+
+.moon-theme .variations select {
+	min-width: 12rem;
+	border-radius: var(--moon-radius);
+	background: var(--moon-surface);
+	color: var(--moon-ink);
+	border: 1px solid var(--moon-line);
+	padding: 0.6rem 0.85rem;
+}
+
+.moon-theme .woocommerce-variation-price .price {
+	font-size: 1.1rem;
+}
+
+.moon-theme .reset_variations {
+	font-size: 0.75rem;
+	color: var(--moon-ink-muted);
+}
+
+/* Tabs ------------------------------------------------------------------- */
+
+.moon-theme .woocommerce-tabs ul.tabs {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 1.5rem;
+	padding: 0;
+	margin: 0 0 2rem;
+	border-block-end: 1px solid var(--moon-line);
+}
+
+.moon-theme .woocommerce-tabs ul.tabs::before,
+.moon-theme .woocommerce-tabs ul.tabs li::before,
+.moon-theme .woocommerce-tabs ul.tabs li::after {
+	content: none;
+	border: 0;
+}
+
+.moon-theme .woocommerce-tabs ul.tabs li {
+	background: transparent;
+	border: 0;
+	border-radius: 0;
+	margin: 0;
+	padding: 0;
+}
+
+.moon-theme .woocommerce-tabs ul.tabs li a {
+	padding: 0 0 0.85rem;
+	font-size: 0.75rem;
+	letter-spacing: 0.18em;
+	text-transform: uppercase;
+	color: var(--moon-ink-muted);
+}
+
+.moon-theme .woocommerce-tabs ul.tabs li.active a {
+	color: var(--moon-ink);
+	box-shadow: inset 0 -1px 0 var(--moon-accent);
+}
+
+.moon-theme .woocommerce-tabs .panel {
+	color: var(--moon-ink-soft);
+}
+
+/* Cart + checkout -------------------------------------------------------- */
+
+.moon-theme .woocommerce table.shop_table {
+	border: 1px solid var(--moon-line);
+	border-radius: var(--moon-radius-lg);
+	border-collapse: separate;
+	overflow: hidden;
+	background: var(--moon-surface);
+}
+
+.moon-theme .woocommerce table.shop_table th {
+	background: var(--moon-surface-alt);
+	color: var(--moon-ink);
+	font-size: 0.72rem;
+	letter-spacing: 0.14em;
+	text-transform: uppercase;
+	font-weight: 500;
+}
+
+.moon-theme .woocommerce table.shop_table td,
+.moon-theme .woocommerce table.shop_table th {
+	border-color: var(--moon-line);
+	padding: 0.9rem 1rem;
+	color: var(--moon-ink);
+}
+
+.moon-theme .woocommerce a.remove {
+	color: var(--moon-danger) !important;
+}
+
+.moon-theme .cart-collaterals .cart_totals,
+.moon-theme .woocommerce-checkout #customer_details,
+.moon-theme #order_review,
+.moon-theme .woocommerce-checkout-review-order {
+	background: var(--moon-surface);
+	border: 1px solid var(--moon-line);
+	border-radius: var(--moon-radius-lg);
+	padding: 1.25rem 1.35rem;
+}
+
+.moon-theme .woocommerce-checkout .form-row label,
+.moon-theme .woocommerce-account .form-row label {
+	font-size: 0.75rem;
+	letter-spacing: 0.1em;
+	text-transform: uppercase;
+	color: var(--moon-ink-muted);
+}
+
+.moon-theme .woocommerce .select2-container .select2-selection--single {
+	height: 46px;
+	border: 1px solid var(--moon-line);
+	border-radius: var(--moon-radius);
+	background: var(--moon-surface);
+}
+
+/* Account --------------------------------------------------------------- */
+
+.moon-theme .woocommerce-MyAccount-navigation ul {
+	list-style: none;
+	padding: 0;
+	margin: 0 0 2rem;
+	display: grid;
+	gap: 0.35rem;
+}
+
+.moon-theme .woocommerce-MyAccount-navigation a {
+	display: block;
+	padding: 0.65rem 0.9rem;
+	border-radius: var(--moon-radius);
+	border: 1px solid transparent;
+	font-size: 0.8rem;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+}
+
+.moon-theme .woocommerce-MyAccount-navigation li.is-active a,
+.moon-theme .woocommerce-MyAccount-navigation a:hover {
+	border-color: var(--moon-line);
+	background: var(--moon-surface);
+}
+
+/* Responsive store grid -------------------------------------------------- */
+
+@media (max-width: 1100px) {
+	.moon-theme ul.products {
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+	}
+}
+
+@media (max-width: 800px) {
+	.moon-theme ul.products {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+}
+
+@media (max-width: 480px) {
+	.moon-theme ul.products {
+		grid-template-columns: minmax(0, 1fr);
+	}
+}

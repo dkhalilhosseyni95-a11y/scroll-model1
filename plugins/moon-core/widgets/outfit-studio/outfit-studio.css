@@ -1,0 +1,222 @@
+/* MOON Outfit Studio */
+
+.moon-studio__grid {
+	display: grid;
+	grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+	gap: clamp(1.5rem, 4vw, 3.5rem);
+	align-items: center;
+}
+
+.moon-studio__stage {
+	position: relative;
+	aspect-ratio: 0.75;
+	border-radius: var(--moon-radius-lg);
+	overflow: hidden;
+	background: var(--moon-stage);
+	isolation: isolate;
+}
+
+.moon-studio__frame {
+	position: absolute;
+	inset: 0;
+	margin: 0;
+	opacity: 0;
+	transition: opacity 0.8s var(--moon-ease);
+}
+
+.moon-studio__frame img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	display: block;
+}
+
+.moon-studio__frame.is-active {
+	opacity: 1;
+	z-index: 1;
+}
+
+/* Masked wipe: the incoming frame is revealed from the bottom. */
+.moon-studio[data-transition="mask"] .moon-studio__frame {
+	opacity: 1;
+	clip-path: inset(100% 0 0 0);
+	transition: clip-path 0.85s var(--moon-ease-out);
+	z-index: 2;
+}
+
+.moon-studio[data-transition="mask"] .moon-studio__frame.is-active {
+	clip-path: inset(0 0 0 0);
+	z-index: 3;
+}
+
+.moon-studio[data-transition="mask"] .moon-studio__frame.is-leaving {
+	clip-path: inset(0 0 0 0);
+	z-index: 2;
+}
+
+.moon-studio__arrow {
+	position: absolute;
+	inset-block-end: 1rem;
+	z-index: 5;
+	background: color-mix(in srgb, var(--moon-surface) 82%, transparent);
+	-webkit-backdrop-filter: blur(8px);
+	backdrop-filter: blur(8px);
+	border: 1px solid var(--moon-line);
+}
+
+.moon-studio__arrow--prev {
+	inset-inline-start: 1rem;
+}
+
+.moon-studio__arrow--next {
+	inset-inline-end: 1rem;
+}
+
+.moon-studio__arrow:hover {
+	background: var(--moon-ink);
+	color: var(--moon-bg);
+}
+
+.moon-studio__counter {
+	position: absolute;
+	inset-block-start: 1rem;
+	inset-inline-start: 1rem;
+	z-index: 5;
+	display: inline-flex;
+	gap: 0.35rem;
+	padding: 0.35rem 0.7rem;
+	border-radius: var(--moon-radius-pill);
+	background: color-mix(in srgb, var(--moon-surface) 82%, transparent);
+	-webkit-backdrop-filter: blur(8px);
+	backdrop-filter: blur(8px);
+	font-size: 0.66rem;
+	letter-spacing: 0.16em;
+	color: var(--moon-ink);
+}
+
+.moon-studio__counter-sep {
+	opacity: 0.45;
+}
+
+.moon-studio__panel {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 0.55rem;
+}
+
+.moon-studio__title {
+	font-family: var(--moon-font-display);
+	font-size: clamp(1.7rem, 2.8vw, 2.6rem);
+	line-height: 1.08;
+	margin: 0.15rem 0 0;
+	color: var(--moon-ink);
+}
+
+.moon-studio__meta {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+	margin: 0;
+	font-size: 0.85rem;
+	letter-spacing: 0.1em;
+	text-transform: uppercase;
+	color: var(--moon-ink-muted);
+}
+
+.moon-studio__note {
+	margin: 0.15rem 0 0.85rem;
+	font-size: 0.95rem;
+	line-height: 1.7;
+	color: var(--moon-ink-soft);
+	max-width: 38ch;
+}
+
+.moon-studio__btn {
+	margin-block-end: 0.75rem;
+}
+
+.moon-studio__thumbs {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.5rem;
+	margin-block-start: 0.25rem;
+}
+
+.moon-studio--thumbs-below .moon-studio__thumbs {
+	margin-block-start: 0.9rem;
+}
+
+.moon-studio__thumb {
+	width: 62px;
+	aspect-ratio: 3 / 4;
+	padding: 0;
+	border: 1px solid var(--moon-line);
+	border-radius: var(--moon-radius);
+	overflow: hidden;
+	background: var(--moon-stage);
+	cursor: pointer;
+	opacity: 0.55;
+	transition: opacity 0.3s var(--moon-ease), border-color 0.3s var(--moon-ease), transform 0.3s var(--moon-ease);
+}
+
+.moon-studio__thumb img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	display: block;
+}
+
+.moon-studio__thumb:hover {
+	opacity: 0.85;
+	transform: translateY(-2px);
+}
+
+.moon-studio__thumb.is-active {
+	opacity: 1;
+	border-color: var(--moon-accent);
+}
+
+.moon-studio__dots {
+	display: flex;
+	justify-content: center;
+	gap: 0.4rem;
+	margin-block-start: 0.9rem;
+}
+
+.moon-studio__dots button {
+	width: 26px;
+	height: 3px;
+	padding: 0;
+	border: 0;
+	border-radius: 4px;
+	background: var(--moon-line-strong);
+	cursor: pointer;
+}
+
+.moon-studio__dots button[aria-selected="true"] {
+	background: var(--moon-accent);
+	width: 40px;
+}
+
+@media (max-width: 960px) {
+	.moon-studio__grid {
+		grid-template-columns: minmax(0, 1fr);
+	}
+
+	.moon-studio__stage {
+		aspect-ratio: 0.8;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.moon-studio__frame,
+	.moon-studio[data-transition="mask"] .moon-studio__frame {
+		transition: opacity 0.01ms;
+		clip-path: none !important;
+	}
+
+	.moon-studio__frame.is-active {
+		opacity: 1;
+	}
+}

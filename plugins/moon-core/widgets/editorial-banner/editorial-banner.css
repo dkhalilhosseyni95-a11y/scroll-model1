@@ -1,0 +1,103 @@
+/* MOON Editorial Banner */
+
+.moon-editorial {
+	position: relative;
+	padding-block: clamp(2rem, 5vw, 4rem);
+}
+
+.moon-editorial__inner {
+	position: relative;
+	display: grid;
+}
+
+.moon-editorial__media {
+	position: relative;
+	margin: 0;
+	overflow: hidden;
+	border-radius: var(--moon-radius-lg);
+	background: var(--moon-stage);
+}
+
+.moon-editorial__media img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	display: block;
+	transition: transform 1.2s var(--moon-ease-out);
+}
+
+.moon-editorial:hover .moon-editorial__media img {
+	transform: scale(1.03);
+}
+
+.moon-editorial__card {
+	position: relative;
+	background: var(--moon-surface);
+	color: var(--moon-ink);
+	border-radius: var(--moon-radius-lg);
+	padding: clamp(1.5rem, 3vw, 2.4rem);
+	box-shadow: 0 40px 80px -60px rgb(0 0 0 / 55%);
+}
+
+.moon-editorial__card .moon-section__head {
+	margin-block-end: 1.1rem;
+	max-width: 42ch;
+}
+
+.moon-editorial__btn {
+	margin-block-start: 0.35rem;
+}
+
+/* Overlapping card placement -------------------------------------------- */
+
+.moon-editorial--start .moon-editorial__card {
+	justify-self: start;
+	margin-block-start: clamp(-4rem, -5vw, -2rem);
+	margin-inline-start: clamp(1rem, 4vw, 3.5rem);
+}
+
+.moon-editorial--end .moon-editorial__card {
+	justify-self: end;
+	margin-block-start: clamp(-4rem, -5vw, -2rem);
+	margin-inline-end: clamp(1rem, 4vw, 3.5rem);
+}
+
+.moon-editorial--over .moon-editorial__inner {
+	grid-template-areas: "stack";
+}
+
+.moon-editorial--over .moon-editorial__media,
+.moon-editorial--over .moon-editorial__card {
+	grid-area: stack;
+}
+
+.moon-editorial--over .moon-editorial__card {
+	place-self: center;
+	max-width: min(520px, 88%);
+	background: color-mix(in srgb, var(--moon-surface) 88%, transparent);
+	-webkit-backdrop-filter: blur(16px);
+	backdrop-filter: blur(16px);
+	text-align: center;
+}
+
+.moon-editorial--over .moon-editorial__card .moon-section__head {
+	align-items: center;
+	text-align: center;
+}
+
+.moon-editorial--below .moon-editorial__card {
+	margin-block-start: clamp(1rem, 3vw, 2rem);
+	box-shadow: none;
+	border: 1px solid var(--moon-line);
+}
+
+@media (max-width: 720px) {
+	.moon-editorial__card,
+	.moon-editorial--start .moon-editorial__card,
+	.moon-editorial--end .moon-editorial__card {
+		max-width: none;
+		margin-inline: 0;
+		margin-block-start: -2.5rem;
+		margin-inline-end: 0;
+	}
+}

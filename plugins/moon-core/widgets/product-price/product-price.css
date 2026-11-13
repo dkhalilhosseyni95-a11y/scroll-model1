@@ -1,0 +1,39 @@
+/* MOON Product Price */
+
+.moon-price-wrap {
+	display: flex;
+	flex-direction: column;
+	gap: 0.3rem;
+}
+
+.moon-price {
+	display: flex;
+	align-items: center;
+	gap: 0.6rem;
+	margin: 0;
+	font-family: var(--moon-font-sans);
+	font-size: 1.35rem;
+	color: var(--moon-ink);
+	flex-wrap: wrap;
+}
+
+.moon-price del {
+	color: var(--moon-ink-muted);
+	opacity: 1;
+	font-size: 0.82em;
+}
+
+.moon-price ins {
+	text-decoration: none;
+	color: var(--moon-accent);
+}
+
+.moon-price__badge {
+	font-size: 0.6rem;
+}
+
+.moon-price__note {
+	margin: 0;
+	font-size: 0.72rem;
+	color: var(--moon-ink-muted);
+}

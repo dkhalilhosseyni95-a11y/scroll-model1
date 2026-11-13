@@ -1,0 +1,27 @@
+/*
+Theme Name:   MOON Child
+Theme URI:    https://example.com/moon
+Description:  MOON — luxury fashion child theme for Hello Elementor. Editorial typography, dark/light design tokens, RTL support and WooCommerce integration. All MOON Elementor widgets live in the Moon Core plugin.
+Author:       MOON
+Author URI:   https://example.com
+Template:     hello-elementor
+Version:      1.0.1
+Requires at least: 6.4
+Tested up to: 6.9
+Requires PHP: 8.1
+License:      GNU General Public License v2 or later
+License URI:  https://www.gnu.org/licenses/gpl-2.0.html
+Text Domain:  moon-child
+Domain Path:  /languages
+Tags:         e-commerce, blog, custom-colors, custom-logo, custom-menu, editor-style, featured-images, flexible-header, full-width-template, rtl-language-support, theme-options, threaded-comments, translation-ready, wide-blocks
+*/
+
+/*
+ * All styles are enqueued from inc/enqueue.php:
+ *   assets/css/tokens.css     design tokens (light + dark)
+ *   assets/css/fonts.css      self-hosted Vazirmatn + Cormorant Garamond
+ *   assets/css/base.css       typography, forms, buttons
+ *   assets/css/layout.css     header/footer chrome, page shell
+ *   assets/css/woocommerce.css  store styling layered on WooCommerce markup
+ *   assets/css/rtl.css        right-to-left corrections (loaded when is_rtl())
+ */

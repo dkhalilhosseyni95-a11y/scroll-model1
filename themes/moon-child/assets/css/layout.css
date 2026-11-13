@@ -1,0 +1,138 @@
+/* MOON layout — page shell, fallback chrome, pagination and shared surfaces.
+ * The editable header/footer widgets ship their own CSS in Moon Core; this file
+ * only styles the theme's fallback chrome and global page structure. */
+
+.moon-main {
+	min-height: 40vh;
+}
+
+/* Elementor canvas pages: remove the default top gap under the floating header */
+.moon-theme .elementor-section.elementor-section-boxed > .elementor-container {
+	max-width: var(--moon-container);
+}
+
+.moon-theme .elementor-page .moon-main {
+	padding-block-start: 0;
+}
+
+/* Fallback header (only when Moon Core is inactive) ----------------------- */
+
+.moon-header--fallback {
+	position: sticky;
+	top: 0;
+	z-index: 900;
+	background: var(--moon-glass);
+	backdrop-filter: blur(18px) saturate(140%);
+	border-block-end: 1px solid var(--moon-glass-line);
+}
+
+.moon-header__inner {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 1.5rem;
+	min-height: var(--moon-header-h);
+}
+
+.moon-brand__name {
+	font-family: var(--moon-font-display);
+	font-size: 1.6rem;
+	letter-spacing: 0.34em;
+	text-transform: uppercase;
+}
+
+.moon-nav__list,
+.moon-footer__list {
+	display: flex;
+	gap: 1.75rem;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.moon-nav__list a,
+.moon-footer__list a {
+	font-size: 0.78rem;
+	letter-spacing: 0.18em;
+	text-transform: uppercase;
+}
+
+/* Fallback footer -------------------------------------------------------- */
+
+.moon-footer--fallback {
+	border-block-start: 1px solid var(--moon-line);
+	padding-block: clamp(2rem, 4vw, 3rem);
+	margin-block-start: clamp(3rem, 8vw, 6rem);
+}
+
+.moon-footer--fallback .moon-container {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 1rem;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.moon-footer__note {
+	margin: 0;
+	font-size: 0.78rem;
+	letter-spacing: 0.1em;
+	color: var(--moon-ink-muted);
+}
+
+/* Pagination ------------------------------------------------------------- */
+
+.moon-theme .pagination,
+.moon-theme .woocommerce-pagination {
+	margin-block-start: clamp(2rem, 4vw, 3rem);
+}
+
+.moon-theme .page-numbers {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-width: 2.5rem;
+	height: 2.5rem;
+	margin-inline-end: 0.4rem;
+	border: 1px solid var(--moon-line);
+	border-radius: var(--moon-radius-pill);
+	font-size: 0.85rem;
+	transition: background-color 0.3s var(--moon-ease), color 0.3s var(--moon-ease);
+}
+
+.moon-theme .page-numbers.current,
+.moon-theme .page-numbers:hover {
+	background: var(--moon-ink);
+	color: var(--moon-bg);
+	border-color: var(--moon-ink);
+}
+
+/* Comments --------------------------------------------------------------- */
+
+.moon-theme .comment-list {
+	list-style: none;
+	padding: 0;
+	display: grid;
+	gap: 1.5rem;
+}
+
+.moon-theme .comment-body {
+	border-block-end: 1px solid var(--moon-line);
+	padding-block-end: 1.25rem;
+}
+
+/* Responsive ------------------------------------------------------------- */
+
+@media (max-width: 782px) {
+	:root {
+		--moon-header-h: 64px;
+	}
+
+	.moon-header__inner {
+		gap: 1rem;
+	}
+
+	.moon-nav {
+		display: none;
+	}
+}

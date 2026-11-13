@@ -1,0 +1,274 @@
+/* MOON Hero — full-bleed editorial opening. */
+
+.moon-hero {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+	overflow: hidden;
+	background: var(--moon-stage);
+	color: var(--moon-on-image, #f7f3ea);
+	isolation: isolate;
+}
+
+.moon-hero__media {
+	position: absolute;
+	inset: 0;
+	z-index: -2;
+	overflow: hidden;
+}
+
+.moon-hero__bg {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	display: block;
+	animation: moon-hero-drift 24s var(--moon-ease) infinite alternate;
+}
+
+.moon-hero__bg--mobile {
+	display: none;
+}
+
+@keyframes moon-hero-drift {
+	from {
+		transform: scale(1.02);
+	}
+	to {
+		transform: scale(1.08);
+	}
+}
+
+.moon-hero__scrim {
+	position: absolute;
+	inset: 0;
+	z-index: -1;
+	background: linear-gradient(180deg, #10101000 0%, #10101099 60%, #101010e6 100%);
+	pointer-events: none;
+}
+
+.moon-hero__inner {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	gap: 1.1rem;
+	padding-block: clamp(4rem, 12vh, 8rem) clamp(3rem, 8vh, 6rem);
+	max-width: 62rem;
+}
+
+.moon-hero--split .moon-hero__inner {
+	color: var(--moon-ink);
+	max-width: none;
+}
+
+.moon-hero__inner--center {
+	align-items: center;
+	text-align: center;
+	margin-inline: auto;
+	padding-block: clamp(2.5rem, 6vw, 4rem);
+	max-width: 60rem;
+}
+
+.moon-hero .moon-hero__title,
+.moon-hero .moon-hero__desc,
+.moon-hero .moon-hero__eyebrow {
+	color: inherit;
+}
+
+.moon-hero__title {
+	font-family: var(--moon-font-display);
+	font-weight: 300;
+	font-size: clamp(2.9rem, 8vw, 6.5rem);
+	line-height: 0.98;
+	letter-spacing: -0.02em;
+	margin: 0;
+	color: inherit;
+	max-width: 20ch;
+}
+
+.moon-hero__accent {
+	display: block;
+	font-style: italic;
+	font-weight: 300;
+	color: var(--moon-accent);
+	padding-inline-start: 0.05em;
+}
+
+.moon-hero__desc {
+	margin: 0;
+	font-size: clamp(0.95rem, 1.15vw, 1.1rem);
+	line-height: 1.7;
+	max-width: 44ch;
+	color: color-mix(in srgb, currentColor 78%, transparent);
+}
+
+.moon-hero__btn {
+	backdrop-filter: blur(6px);
+}
+
+.moon-hero__btn--primary {
+	background: #f5f1e9;
+	border-color: #f5f1e9;
+	color: #101010;
+}
+
+.moon-hero__btn--primary:hover {
+	background: var(--moon-accent);
+	border-color: var(--moon-accent);
+	color: #101010;
+}
+
+.moon-hero__btn--secondary {
+	border-color: color-mix(in srgb, currentColor 35%, transparent);
+	color: inherit;
+}
+
+.moon-hero__btn--secondary:hover {
+	background: #f5f1e9;
+	border-color: #f5f1e9;
+	color: #101010;
+}
+
+.moon-hero__actions {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.75rem;
+	margin-block-start: 0.6rem;
+}
+
+.moon-hero__side {
+	position: absolute;
+	inset-block-end: clamp(2rem, 6vh, 4rem);
+	inset-inline-end: clamp(1.25rem, 4vw, 3rem);
+	writing-mode: vertical-rl;
+	transform: rotate(180deg);
+	font-size: 0.65rem;
+	letter-spacing: 0.3em;
+	text-transform: uppercase;
+	color: color-mix(in srgb, currentColor 60%, transparent);
+}
+
+/* Split layout ---------------------------------------------------------- */
+
+.moon-hero--split {
+	background: var(--moon-bg);
+	color: var(--moon-ink);
+	justify-content: center;
+}
+
+.moon-hero--split .moon-hero__grid {
+	display: grid;
+	grid-template-columns: 1.1fr 1fr;
+	gap: clamp(1.5rem, 5vw, 4.5rem);
+	align-items: center;
+	width: 100%;
+}
+
+.moon-hero--split .moon-hero__media {
+	position: relative;
+	inset: auto;
+	aspect-ratio: 4 / 5;
+	border-radius: var(--moon-radius-lg);
+	background: var(--moon-stage);
+}
+
+.moon-hero--split .moon-hero__media .moon-hero__bg {
+	position: absolute;
+	inset: 0;
+}
+
+.moon-hero--split .moon-hero__title {
+	font-size: clamp(2.5rem, 5.2vw, 4.6rem);
+}
+
+.moon-hero--split .moon-hero__btn--primary {
+	background: var(--moon-ink);
+	border-color: var(--moon-ink);
+	color: var(--moon-bg);
+}
+
+.moon-hero--split .moon-hero__btn--primary:hover {
+	background: var(--moon-accent);
+	border-color: var(--moon-accent);
+	color: var(--moon-accent-ink);
+}
+
+.moon-hero--split .moon-hero__btn--secondary {
+	border-color: var(--moon-line-strong);
+	color: var(--moon-ink);
+}
+
+.moon-hero--split .moon-hero__btn--secondary:hover {
+	background: var(--moon-ink);
+	color: var(--moon-bg);
+}
+
+/* Centred layout -------------------------------------------------------- */
+
+.moon-hero--centered {
+	background: var(--moon-bg);
+	color: var(--moon-ink);
+	justify-content: flex-start;
+}
+
+.moon-hero--centered .moon-hero__media--wide {
+	position: relative;
+	inset: auto;
+	z-index: 0;
+	aspect-ratio: 16 / 9;
+	border-radius: var(--moon-radius-lg);
+	overflow: hidden;
+	margin-block-start: clamp(1rem, 3vw, 2rem);
+}
+
+.moon-hero--centered .moon-hero__media .moon-hero__bg {
+	animation: none;
+}
+
+.moon-hero--centered .moon-hero__title {
+	font-size: clamp(2.4rem, 5vw, 4.4rem);
+	color: var(--moon-ink);
+}
+
+.moon-hero--centered .moon-hero__btn--primary {
+	background: var(--moon-ink);
+	border-color: var(--moon-ink);
+	color: var(--moon-bg);
+}
+
+/* Responsive ------------------------------------------------------------ */
+
+@media (max-width: 960px) {
+	.moon-hero--split .moon-hero__grid {
+		grid-template-columns: minmax(0, 1fr);
+	}
+
+	.moon-hero--split .moon-hero__media {
+		order: -1;
+		aspect-ratio: 3 / 4;
+	}
+}
+
+@media (max-width: 640px) {
+	.moon-hero__media--has-mobile .moon-hero__bg--mobile {
+		display: block;
+	}
+
+	.moon-hero__media--has-mobile .moon-hero__bg:not(.moon-hero__bg--mobile) {
+		display: none;
+	}
+
+	.moon-hero__title {
+		font-size: clamp(2.35rem, 11vw, 3.4rem);
+	}
+
+	.moon-hero__side {
+		display: none;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.moon-hero__bg {
+		animation: none;
+	}
+}

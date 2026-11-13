@@ -1,0 +1,82 @@
+/* MOON Product Categories */
+
+.moon-cats-woo {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: clamp(0.75rem, 2vw, 1.5rem);
+}
+
+.moon-cat-woo {
+	position: relative;
+	display: block;
+	aspect-ratio: 1.25;
+	overflow: hidden;
+	border-radius: 10px;
+	background: var(--moon-stage);
+	color: var(--moon-on-image, #f7f3ea);
+	text-decoration: none;
+	isolation: isolate;
+}
+
+.moon-cat-woo > img {
+	position: absolute;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	transition: transform 1.2s var(--moon-ease-out);
+}
+
+.moon-cat-woo:hover > img,
+.moon-cat-woo:focus-visible > img {
+	transform: scale(1.05);
+}
+
+.moon-cat-woo__overlay {
+	position: absolute;
+	inset: 0;
+	background: linear-gradient(180deg, rgb(16 16 16 / 8%), rgb(16 16 16 / 78%));
+	opacity: 0.58;
+	transition: opacity 0.45s var(--moon-ease);
+	z-index: 1;
+}
+
+.moon-cat-woo:hover .moon-cat-woo__overlay {
+	opacity: 0.72;
+}
+
+.moon-cat-woo__body {
+	position: absolute;
+	inset-block-end: 0;
+	inset-inline: 0;
+	z-index: 2;
+	display: flex;
+	flex-direction: column;
+	gap: 0.2rem;
+	padding: clamp(0.9rem, 2vw, 1.5rem);
+}
+
+.moon-cat-woo__name {
+	font-family: var(--moon-font-display);
+	font-size: clamp(1.3rem, 2vw, 1.8rem);
+	line-height: 1.1;
+}
+
+.moon-cat-woo__count {
+	font-size: 0.65rem;
+	letter-spacing: 0.2em;
+	text-transform: uppercase;
+	color: color-mix(in srgb, currentColor 70%, transparent);
+}
+
+@media (max-width: 800px) {
+	.moon-cats-woo {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+}
+
+@media (max-width: 480px) {
+	.moon-cats-woo {
+		grid-template-columns: minmax(0, 1fr);
+	}
+}

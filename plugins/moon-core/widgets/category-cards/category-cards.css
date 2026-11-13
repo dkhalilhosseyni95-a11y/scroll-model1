@@ -1,0 +1,110 @@
+/* MOON Category Cards */
+
+.moon-cats__grid {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 20px;
+}
+
+.moon-cat {
+	position: relative;
+	display: block;
+	aspect-ratio: 1.18;
+	overflow: hidden;
+	border-radius: var(--moon-radius-lg);
+	background: var(--moon-stage);
+	color: var(--moon-on-image, #f7f3ea);
+	text-decoration: none;
+	isolation: isolate;
+}
+
+.moon-cat--wide {
+	grid-column: span 2;
+	aspect-ratio: auto;
+	min-height: clamp(320px, 36vw, 520px);
+}
+
+.moon-cat__media,
+.moon-cat__overlay,
+.moon-cat__body {
+	position: absolute;
+	inset: 0;
+}
+
+.moon-cat__media img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	display: block;
+	transition: transform 1.4s var(--moon-ease-out);
+}
+
+.moon-cat:hover .moon-cat__media img,
+.moon-cat:focus-visible .moon-cat__media img {
+	transform: scale(1.045);
+}
+
+.moon-cat__overlay {
+	background: linear-gradient(180deg, transparent 35%, #101010e6 100%);
+	opacity: 0.62;
+	transition: opacity 0.5s var(--moon-ease);
+	z-index: 1;
+}
+
+.moon-cat:hover .moon-cat__overlay {
+	opacity: 0.78;
+}
+
+.moon-cat__body {
+	z-index: 2;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+	gap: 0.4rem;
+	padding: clamp(1.1rem, 2.4vw, 2rem);
+}
+
+.moon-cat__sub {
+	font-size: 0.64rem;
+	letter-spacing: 0.26em;
+	text-transform: uppercase;
+	color: color-mix(in srgb, currentColor 70%, transparent);
+}
+
+.moon-cat__title {
+	font-family: var(--moon-font-display);
+	font-size: clamp(1.6rem, 3vw, 2.6rem);
+	line-height: 1.05;
+	font-weight: 400;
+	letter-spacing: -0.01em;
+}
+
+.moon-cat__cta {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.4rem;
+	margin-block-start: 0.35rem;
+	font-size: 0.66rem;
+	letter-spacing: 0.2em;
+	text-transform: uppercase;
+	color: color-mix(in srgb, currentColor 85%, transparent);
+	opacity: 0;
+	transform: translateY(6px);
+	transition: opacity 0.4s var(--moon-ease), transform 0.4s var(--moon-ease);
+}
+
+.moon-cat:hover .moon-cat__cta,
+.moon-cat:focus-visible .moon-cat__cta {
+	opacity: 1;
+	transform: none;
+}
+
+@media (max-width: 640px) {
+	.moon-cats__grid {
+		grid-template-columns: minmax(0, 1fr);
+	}
+
+	.moon-cat--wide {
+		grid-column: span 1;
+	}
+}

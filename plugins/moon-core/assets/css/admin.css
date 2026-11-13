@@ -1,0 +1,82 @@
+/* Moon Core admin screen */
+
+.moon-admin {
+	max-width: 1100px;
+}
+
+.moon-admin__version {
+	display: inline-block;
+	margin-inline-start: 0.5rem;
+	padding: 0.15rem 0.55rem;
+	border-radius: 999px;
+	background: #1d2327;
+	color: #f5f1e9;
+	font-size: 0.7rem;
+	letter-spacing: 0.08em;
+	vertical-align: middle;
+}
+
+.moon-admin__intro {
+	max-width: 70ch;
+	font-size: 0.95rem;
+}
+
+.moon-admin__status th {
+	width: 230px;
+	font-weight: 600;
+}
+
+.moon-dot {
+	display: inline-block;
+	width: 8px;
+	height: 8px;
+	margin-inline-end: 6px;
+	border-radius: 50%;
+	background: #d63638;
+}
+
+.moon-dot.is-ok {
+	background: #00a32a;
+}
+
+.moon-dot.is-warn {
+	background: #dba617;
+}
+
+.moon-admin__widgets {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+	gap: 0.35rem 1rem;
+	max-width: 1100px;
+	margin-block: 0.75rem 1.5rem;
+}
+
+.moon-admin__widget {
+	display: flex;
+	align-items: center;
+	gap: 0.45rem;
+	padding: 0.4rem 0.55rem;
+	border: 1px solid #dcdcde;
+	border-radius: 4px;
+	background: #fff;
+	font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+	font-size: 0.78rem;
+}
+
+.moon-admin__widget.is-unavailable {
+	opacity: 0.55;
+}
+
+.moon-admin__widget em {
+	margin-inline-start: auto;
+	font-style: normal;
+	font-size: 0.66rem;
+	letter-spacing: 0.06em;
+	text-transform: uppercase;
+	color: #646970;
+}
+
+.moon-admin__docs {
+	list-style: disc;
+	padding-inline-start: 1.2rem;
+}

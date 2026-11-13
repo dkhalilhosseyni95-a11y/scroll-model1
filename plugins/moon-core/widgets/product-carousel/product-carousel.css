@@ -1,0 +1,89 @@
+/* MOON Product Carousel */
+
+.moon-carousel__head {
+	display: flex;
+	align-items: flex-end;
+	justify-content: space-between;
+	gap: 1.5rem;
+	margin-block-end: 1.75rem;
+}
+
+.moon-carousel__head .moon-section__head {
+	margin: 0;
+}
+
+.moon-carousel__arrows {
+	display: flex;
+	gap: 0.35rem;
+	flex: none;
+}
+
+.moon-carousel__arrows .moon-icon-btn {
+	border: 1px solid var(--moon-line);
+	width: 44px;
+	height: 44px;
+}
+
+.moon-carousel__arrows .moon-icon-btn:hover {
+	background: var(--moon-ink);
+	color: var(--moon-bg);
+	border-color: var(--moon-ink);
+}
+
+.moon-carousel__viewport {
+	overflow: hidden;
+}
+
+.moon-carousel__track {
+	display: flex;
+	gap: 22px;
+	overflow-x: auto;
+	scroll-snap-type: x mandatory;
+	scroll-behavior: smooth;
+	scrollbar-width: none;
+	padding-block-end: 0.5rem;
+}
+
+.moon-carousel__track::-webkit-scrollbar {
+	display: none;
+}
+
+.moon-carousel__slide {
+	flex: 0 0 calc((100% - (var(--moon-slides, 3) - 1) * 22px) / var(--moon-slides, 3));
+	min-width: 0;
+	scroll-snap-align: start;
+}
+
+.moon-carousel__progress {
+	position: relative;
+	width: 100%;
+	height: 2px;
+	margin-block-start: 1.5rem;
+	background: var(--moon-line);
+	overflow: hidden;
+}
+
+.moon-carousel__progress span {
+	display: block;
+	height: 100%;
+	width: 30%;
+	background: var(--moon-accent);
+	transform: translateX(0);
+	transition: transform 0.25s var(--moon-ease), width 0.25s var(--moon-ease);
+}
+
+@media (max-width: 960px) {
+	.moon-carousel__slide {
+		flex-basis: calc((100% - 22px) / 2);
+	}
+}
+
+@media (max-width: 600px) {
+	.moon-carousel__slide {
+		flex-basis: 84%;
+	}
+
+	.moon-carousel__head {
+		align-items: flex-start;
+	}
+}

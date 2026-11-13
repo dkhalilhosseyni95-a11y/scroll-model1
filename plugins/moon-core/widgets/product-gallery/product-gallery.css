@@ -1,0 +1,137 @@
+/* MOON Product Gallery */
+
+.moon-pg {
+	display: grid;
+	gap: 0.75rem;
+}
+
+.moon-pg--thumbs-start,
+.moon-pg--thumbs-end {
+	grid-template-columns: 84px minmax(0, 1fr);
+	align-items: start;
+}
+
+.moon-pg--thumbs-end .moon-pg__stage {
+	order: 1;
+}
+
+.moon-pg--thumbs-end .moon-pg__thumbs {
+	order: 2;
+	grid-column: 1;
+	grid-row: 1;
+}
+
+.moon-pg__stage {
+	position: relative;
+	aspect-ratio: 0.8;
+	border-radius: 12px;
+	overflow: hidden;
+	background: var(--moon-stage);
+}
+
+.moon-pg__image,
+.moon-pg__slide {
+	position: absolute;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	display: block;
+}
+
+.moon-pg__image {
+	position: relative;
+	opacity: 1;
+	transition: opacity 0.45s var(--moon-ease);
+}
+
+.moon-pg__slide {
+	opacity: 0;
+	visibility: hidden;
+	transition: opacity 0.45s var(--moon-ease), visibility 0.45s;
+}
+
+.moon-pg__slide.is-active {
+	opacity: 1;
+	visibility: visible;
+}
+
+.moon-pg__image.is-hidden {
+	opacity: 0;
+}
+
+.moon-pg__slide img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.moon-pg__badges {
+	position: absolute;
+	inset-block-start: 0.85rem;
+	inset-inline-start: 0.85rem;
+	z-index: 2;
+	display: flex;
+	gap: 0.35rem;
+}
+
+.moon-pg__thumbs {
+	display: flex;
+	gap: 0.5rem;
+	flex-wrap: wrap;
+}
+
+.moon-pg--thumbs-start .moon-pg__thumbs,
+.moon-pg--thumbs-end .moon-pg__thumbs {
+	flex-direction: column;
+	flex-wrap: nowrap;
+}
+
+.moon-pg__thumb {
+	width: 74px;
+	aspect-ratio: 3 / 4;
+	padding: 0;
+	border: 1px solid var(--moon-line);
+	border-radius: 12px;
+	overflow: hidden;
+	background: var(--moon-stage);
+	cursor: pointer;
+	opacity: 0.6;
+	transition: opacity 0.3s var(--moon-ease), border-color 0.3s var(--moon-ease);
+}
+
+.moon-pg__thumb img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	display: block;
+}
+
+.moon-pg__thumb:hover {
+	opacity: 0.9;
+}
+
+.moon-pg__thumb.is-active {
+	opacity: 1;
+	border-color: var(--moon-accent);
+}
+
+@media (max-width: 700px) {
+	.moon-pg--thumbs-start,
+	.moon-pg--thumbs-end {
+		grid-template-columns: minmax(0, 1fr);
+	}
+
+	.moon-pg--thumbs-start .moon-pg__thumbs,
+	.moon-pg--thumbs-end .moon-pg__thumbs {
+		flex-direction: row;
+		flex-wrap: wrap;
+	}
+
+	.moon-pg--thumbs-end .moon-pg__stage,
+	.moon-pg--thumbs-end .moon-pg__thumbs {
+		order: 0;
+		grid-column: auto;
+		grid-row: auto;
+	}
+}

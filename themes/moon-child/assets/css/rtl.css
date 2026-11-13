@@ -1,0 +1,48 @@
+/* MOON RTL corrections. Loaded only when WordPress reports an RTL locale.
+ * All layout uses logical properties; these rules cover the few physical values
+ * inherited from WordPress/WooCommerce core markup. */
+
+html[dir="rtl"] .moon-theme {
+	letter-spacing: 0;
+}
+
+html[dir="rtl"] .moon-eyebrow,
+html[dir="rtl"] .moon-btn,
+html[dir="rtl"] .moon-link-underline,
+html[dir="rtl"] .moon-nav__list a,
+html[dir="rtl"] .moon-footer__list a {
+	letter-spacing: 0.06em;
+}
+
+html[dir="rtl"] .moon-theme ul.products li.product .button,
+html[dir="rtl"] .woocommerce a.button,
+html[dir="rtl"] .woocommerce button.button {
+	letter-spacing: 0.02em;
+}
+
+html[dir="rtl"] .woocommerce .woocommerce-message,
+html[dir="rtl"] .woocommerce .woocommerce-info,
+html[dir="rtl"] .woocommerce .woocommerce-error {
+	padding-inline-start: 2.5rem;
+}
+
+html[dir="rtl"] .woocommerce .woocommerce-message::before,
+html[dir="rtl"] .woocommerce .woocommerce-info::before,
+html[dir="rtl"] .woocommerce .woocommerce-error::before {
+	inset-inline-start: 1rem;
+	inset-inline-end: auto;
+}
+
+html[dir="rtl"] .moon-theme .variations th,
+html[dir="rtl"] .moon-theme .variations td {
+	text-align: start;
+}
+
+/* WooCommerce core floats its cart quantity and coupon blocks physically. */
+html[dir="rtl"] .woocommerce .cart .actions .coupon {
+	float: right;
+}
+
+html[dir="rtl"] .woocommerce .cart .actions > .button {
+	float: left;
+}

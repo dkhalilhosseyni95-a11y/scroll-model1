@@ -1,0 +1,860 @@
+/* Moon Core — shared widget primitives.
+ * Tokens come from the MOON child theme; the :root block below keeps the plugin
+ * usable (and readable) if another theme is active. */
+
+:root {
+	--moon-black: #101010;
+	--moon-charcoal: #191919;
+	--moon-ivory: #f5f1e9;
+	--moon-white: #ffffff;
+	--moon-champagne: #c6a875;
+	--moon-muted: #99958f;
+	--moon-bg: var(--moon-ivory);
+	--moon-surface: var(--moon-white);
+	--moon-surface-alt: #ece5d9;
+	--moon-ink: var(--moon-black);
+	--moon-ink-soft: #46443f;
+	--moon-ink-muted: var(--moon-muted);
+	--moon-accent: var(--moon-champagne);
+	--moon-accent-ink: var(--moon-charcoal);
+	--moon-line: rgb(16 16 16 / 12%);
+	--moon-line-strong: rgb(16 16 16 / 28%);
+	--moon-glass: rgb(255 255 255 / 62%);
+	--moon-glass-line: rgb(16 16 16 / 8%);
+	--moon-stage: #e8e1d4;
+	--moon-overlay: rgb(16 16 16 / 58%);
+	--moon-font-sans: "Vazirmatn", system-ui, -apple-system, "Segoe UI", sans-serif;
+	--moon-font-display: "Cormorant Garamond", "Vazirmatn", "Times New Roman", serif;
+	--moon-radius: 4px;
+	--moon-radius-lg: 12px;
+	--moon-radius-pill: 999px;
+	--moon-container: 1320px;
+	--moon-gutter: clamp(1rem, 4vw, 3rem);
+	--moon-ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+	--moon-ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+html[data-moon-scheme="dark"] {
+	--moon-bg: var(--moon-black);
+	--moon-surface: var(--moon-charcoal);
+	--moon-surface-alt: #202020;
+	--moon-ink: var(--moon-ivory);
+	--moon-ink-soft: #cfc9be;
+	--moon-ink-muted: #8d8983;
+	--moon-accent-ink: var(--moon-black);
+	--moon-line: rgb(255 255 255 / 14%);
+	--moon-line-strong: rgb(255 255 255 / 30%);
+	--moon-glass: rgb(25 25 25 / 62%);
+	--moon-glass-line: rgb(255 255 255 / 10%);
+	--moon-stage: #1d1d1d;
+	--moon-overlay: rgb(0 0 0 / 62%);
+}
+
+@media (prefers-color-scheme: dark) {
+	html[data-moon-scheme="auto"] {
+		--moon-bg: var(--moon-black);
+		--moon-surface: var(--moon-charcoal);
+		--moon-surface-alt: #202020;
+		--moon-ink: var(--moon-ivory);
+		--moon-ink-soft: #cfc9be;
+		--moon-ink-muted: #8d8983;
+		--moon-accent-ink: var(--moon-black);
+		--moon-line: rgb(255 255 255 / 14%);
+		--moon-line-strong: rgb(255 255 255 / 30%);
+		--moon-glass: rgb(25 25 25 / 62%);
+		--moon-glass-line: rgb(255 255 255 / 10%);
+		--moon-stage: #1d1d1d;
+		--moon-overlay: rgb(0 0 0 / 62%);
+	}
+}
+
+/* Widget shells --------------------------------------------------------- */
+
+.moon-widget {
+	position: relative;
+	color: var(--moon-ink);
+}
+
+.moon-widget *,
+.moon-widget *::before,
+.moon-widget *::after {
+	box-sizing: border-box;
+}
+
+.moon-widget img {
+	max-width: 100%;
+	height: auto;
+}
+
+.moon-section {
+	padding-block: clamp(3rem, 7vw, 6.5rem);
+}
+
+.moon-section__head {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 0.8rem;
+	margin: 0 0 clamp(1.75rem, 3.5vw, 3rem);
+	max-width: 64ch;
+}
+
+.moon-section__title {
+	font-family: var(--moon-font-display);
+	font-weight: 400;
+	font-size: clamp(1.9rem, 3.6vw, 3.1rem);
+	line-height: 1.08;
+	letter-spacing: -0.01em;
+	margin: 0;
+	color: var(--moon-ink);
+}
+
+.moon-section__desc {
+	margin: 0;
+	color: var(--moon-ink-soft);
+	font-size: 1rem;
+	max-width: 56ch;
+}
+
+.moon-eyebrow {
+	font-size: 0.7rem;
+	font-weight: 500;
+	letter-spacing: 0.38em;
+	text-transform: uppercase;
+	color: var(--moon-ink-muted);
+	margin: 0;
+	line-height: 1.4;
+}
+
+.moon-lede {
+	font-size: clamp(1rem, 1.1vw, 1.1rem);
+	line-height: 1.7;
+	color: var(--moon-ink-soft);
+}
+
+.moon-widget-notice {
+	padding: 0.75rem 1rem;
+	border: 1px dashed var(--moon-line-strong);
+	border-radius: var(--moon-radius);
+	color: var(--moon-ink-muted);
+	font-size: 0.85rem;
+}
+
+.moon-empty-state {
+	padding: 2rem;
+	border: 1px dashed var(--moon-line);
+	border-radius: var(--moon-radius-lg);
+	text-align: center;
+	color: var(--moon-ink-muted);
+}
+
+/* Buttons --------------------------------------------------------------- */
+
+.moon-btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.55rem;
+	padding: 0.85rem 1.7rem;
+	border: 1px solid var(--moon-line-strong);
+	border-radius: var(--moon-radius-pill);
+	background: transparent;
+	color: var(--moon-ink);
+	font-family: var(--moon-font-sans);
+	font-size: 0.75rem;
+	font-weight: 500;
+	letter-spacing: 0.17em;
+	text-transform: uppercase;
+	cursor: pointer;
+	transition: background-color 0.35s var(--moon-ease), color 0.35s var(--moon-ease), border-color 0.35s var(--moon-ease), transform 0.35s var(--moon-ease);
+}
+
+.moon-btn svg {
+	flex: none;
+}
+
+.moon-btn:hover,
+.moon-btn:focus-visible {
+	background: var(--moon-ink);
+	border-color: var(--moon-ink);
+	color: var(--moon-bg);
+}
+
+.moon-btn--solid {
+	background: var(--moon-ink);
+	border-color: var(--moon-ink);
+	color: var(--moon-bg);
+}
+
+.moon-btn--solid:hover,
+.moon-btn--solid:focus-visible {
+	background: var(--moon-accent);
+	border-color: var(--moon-accent);
+	color: var(--moon-accent-ink);
+}
+
+.moon-btn--accent {
+	background: var(--moon-accent);
+	border-color: var(--moon-accent);
+	color: var(--moon-accent-ink);
+}
+
+.moon-btn--quiet {
+	border-color: transparent;
+	padding-inline: 0.25rem;
+}
+
+.moon-icon-btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 40px;
+	height: 40px;
+	padding: 0;
+	border: 0;
+	border-radius: 50%;
+	background: transparent;
+	color: var(--moon-ink);
+	cursor: pointer;
+	position: relative;
+	transition: background-color 0.3s var(--moon-ease), color 0.3s var(--moon-ease), transform 0.3s var(--moon-ease);
+}
+
+.moon-icon-btn:hover,
+.moon-icon-btn:focus-visible {
+	background: var(--moon-line);
+}
+
+.moon-icon-btn svg {
+	display: block;
+}
+
+.moon-link-underline {
+	position: relative;
+	display: inline-flex;
+	align-items: center;
+	gap: 0.4rem;
+	font-size: 0.74rem;
+	letter-spacing: 0.18em;
+	text-transform: uppercase;
+	color: var(--moon-ink);
+}
+
+.moon-link-underline::after {
+	content: "";
+	position: absolute;
+	inset-inline: 0;
+	bottom: -0.3rem;
+	height: 1px;
+	background: currentColor;
+	transform: scaleX(0);
+	transform-origin: left;
+	transition: transform 0.45s var(--moon-ease);
+}
+
+.moon-link-underline:hover::after {
+	transform: scaleX(1);
+}
+
+html[dir="rtl"] .moon-link-underline::after {
+	transform-origin: right;
+}
+
+/* Badges ---------------------------------------------------------------- */
+
+.moon-badge {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.3rem;
+	padding: 0.28rem 0.6rem;
+	border-radius: var(--moon-radius-pill);
+	background: var(--moon-accent);
+	color: var(--moon-accent-ink);
+	font-size: 0.6rem;
+	font-weight: 600;
+	letter-spacing: 0.14em;
+	text-transform: uppercase;
+}
+
+.moon-badge--muted {
+	background: var(--moon-surface-alt);
+	color: var(--moon-ink-soft);
+}
+
+/* Product cards --------------------------------------------------------- */
+
+.moon-product-card {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	min-width: 0;
+}
+
+.moon-product-card__media {
+	position: relative;
+	aspect-ratio: 4 / 5;
+	border-radius: var(--moon-radius-lg);
+	overflow: hidden;
+	background: var(--moon-stage);
+}
+
+.moon-product-card__link {
+	display: block;
+	height: 100%;
+}
+
+.moon-product-card__link img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	transition: transform 0.9s var(--moon-ease-out), opacity 0.6s var(--moon-ease);
+}
+
+.moon-product-card__secondary {
+	position: absolute;
+	inset: 0;
+	opacity: 0;
+	pointer-events: none;
+	transition: opacity 0.5s var(--moon-ease);
+}
+
+.moon-product-card__secondary img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.moon-product-card:hover .moon-product-card__secondary {
+	opacity: 1;
+}
+
+.moon-product-card:hover .moon-product-card__link img {
+	transform: scale(1.035);
+}
+
+.moon-product-card__badges {
+	position: absolute;
+	inset-block-start: 0.85rem;
+	inset-inline-start: 0.85rem;
+	z-index: 2;
+	display: flex;
+	gap: 0.35rem;
+}
+
+.moon-product-card__actions {
+	position: absolute;
+	inset-inline: 0.75rem;
+	inset-block-end: 0.75rem;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 0.5rem;
+	opacity: 0;
+	transform: translateY(8px);
+	transition: opacity 0.4s var(--moon-ease), transform 0.4s var(--moon-ease);
+}
+
+.moon-product-card:hover .moon-product-card__actions,
+.moon-product-card:focus-within .moon-product-card__actions {
+	opacity: 1;
+	transform: none;
+}
+
+.moon-product-card__action {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.35rem;
+	padding: 0.55rem 0.85rem;
+	border: 0;
+	border-radius: var(--moon-radius-pill);
+	background: var(--moon-surface);
+	color: var(--moon-ink);
+	font-family: var(--moon-font-sans);
+	font-size: 0.65rem;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+	cursor: pointer;
+	box-shadow: 0 10px 25px -18px rgb(0 0 0 / 60%);
+}
+
+.moon-product-card__action:hover {
+	background: var(--moon-ink);
+	color: var(--moon-bg);
+}
+
+.moon-product-card .moon-loop-button,
+.moon-product-card .button {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding: 0.55rem 0.95rem;
+	border: 1px solid var(--moon-line);
+	border-radius: var(--moon-radius-pill);
+	background: var(--moon-surface);
+	color: var(--moon-ink);
+	font-family: var(--moon-font-sans);
+	font-size: 0.65rem;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+	box-shadow: 0 10px 25px -18px rgb(0 0 0 / 60%);
+}
+
+.moon-product-card .button:hover {
+	background: var(--moon-ink);
+	color: var(--moon-bg);
+}
+
+.moon-product-card .button.loading {
+	opacity: 0.7;
+}
+
+.moon-product-card .added_to_cart {
+	display: none;
+}
+
+.moon-product-card__body {
+	padding-block-start: 0.9rem;
+	display: grid;
+	gap: 0.25rem;
+}
+
+.moon-product-card__cat {
+	margin: 0;
+	font-size: 0.65rem;
+	letter-spacing: 0.2em;
+	text-transform: uppercase;
+	color: var(--moon-ink-muted);
+}
+
+.moon-product-card__title {
+	font-family: var(--moon-font-display);
+	font-size: 1.2rem;
+	font-weight: 400;
+	line-height: 1.25;
+	margin: 0;
+}
+
+.moon-product-card__title a {
+	color: var(--moon-ink);
+}
+
+.moon-product-card__title a:hover {
+	color: var(--moon-accent);
+}
+
+.moon-product-card__price {
+	font-size: 0.9rem;
+	color: var(--moon-ink);
+}
+
+.moon-product-card__price del {
+	color: var(--moon-ink-muted);
+	opacity: 1;
+	margin-inline-end: 0.35rem;
+}
+
+.moon-product-card__price ins {
+	text-decoration: none;
+	color: var(--moon-accent);
+}
+
+.moon-product-card__rating {
+	display: flex;
+	align-items: center;
+	gap: 0.4rem;
+	margin: 0;
+	font-size: 0.75rem;
+	color: var(--moon-ink-muted);
+}
+
+.moon-product-card__rating .star-rating {
+	margin: 0;
+	font-size: 0.7rem;
+}
+
+/* Modal shell ----------------------------------------------------------- */
+
+.moon-modal {
+	position: fixed;
+	inset: 0;
+	z-index: 9900;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: clamp(1rem, 4vw, 3rem);
+	background: var(--moon-overlay);
+	backdrop-filter: blur(6px);
+	opacity: 0;
+	visibility: hidden;
+	transition: opacity 0.35s var(--moon-ease), visibility 0.35s var(--moon-ease);
+}
+
+.moon-modal.is-open {
+	opacity: 1;
+	visibility: visible;
+}
+
+.moon-modal__panel {
+	position: relative;
+	width: min(1040px, 100%);
+	max-height: min(88vh, 900px);
+	overflow: auto;
+	background: var(--moon-surface);
+	color: var(--moon-ink);
+	border-radius: var(--moon-radius-lg);
+	border: 1px solid var(--moon-line);
+	box-shadow: 0 50px 100px -60px rgb(0 0 0 / 70%);
+	transform: translateY(12px);
+	transition: transform 0.4s var(--moon-ease-out);
+}
+
+.moon-modal.is-open .moon-modal__panel {
+	transform: none;
+}
+
+.moon-modal__close {
+	position: absolute;
+	inset-block-start: 0.75rem;
+	inset-inline-end: 0.75rem;
+	z-index: 2;
+	background: var(--moon-surface);
+}
+
+.moon-modal__body {
+	padding: clamp(1.25rem, 3vw, 2.5rem);
+}
+
+.moon-quick-view__grid {
+	display: grid;
+	grid-template-columns: minmax(0, 0.95fr) minmax(0, 1fr);
+	gap: clamp(1.25rem, 3vw, 2.5rem);
+}
+
+.moon-quick-view__media {
+	border-radius: var(--moon-radius-lg);
+	overflow: hidden;
+	background: var(--moon-stage);
+}
+
+.moon-quick-view__media img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.moon-quick-view__title {
+	font-family: var(--moon-font-display);
+	font-size: clamp(1.6rem, 2.4vw, 2.4rem);
+	margin: 0.4rem 0 0.6rem;
+}
+
+.moon-quick-view__price {
+	font-size: 1.1rem;
+}
+
+.moon-quick-view__price del {
+	color: var(--moon-ink-muted);
+	opacity: 1;
+}
+
+.moon-quick-view__desc {
+	color: var(--moon-ink-soft);
+	margin-block: 0.85rem;
+}
+
+.moon-quick-view__stock {
+	font-size: 0.75rem;
+	letter-spacing: 0.14em;
+	text-transform: uppercase;
+	color: var(--moon-ink-muted);
+	margin-block: 0.75rem;
+}
+
+.moon-quick-view__stock.is-out {
+	color: var(--moon-danger);
+}
+
+.moon-quick-view__cart form.cart {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.6rem;
+	align-items: flex-end;
+	margin-block: 1rem;
+}
+
+/* Newsletter form ------------------------------------------------------- */
+
+.moon-newsletter-form {
+	display: grid;
+	gap: 0.85rem;
+	position: relative;
+}
+
+.moon-newsletter-form--inline {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 0.6rem;
+	position: relative;
+}
+
+.moon-newsletter-form input[type="email"] {
+	flex: 1 1 220px;
+	min-width: 0;
+	padding: 0.85rem 1.1rem;
+	border: 1px solid var(--moon-line);
+	border-radius: var(--moon-radius-pill);
+	background: var(--moon-surface);
+	color: var(--moon-ink);
+	font-family: var(--moon-font-sans);
+}
+
+.moon-newsletter-form input[type="email"]:focus {
+	outline: none;
+	border-color: var(--moon-accent);
+}
+
+.moon-newsletter-form__consent {
+	display: flex;
+	gap: 0.5rem;
+	align-items: flex-start;
+	font-size: 0.75rem;
+	color: var(--moon-ink-muted);
+	line-height: 1.5;
+}
+
+.moon-newsletter-form__consent input {
+	margin-block-start: 0.2rem;
+}
+
+.moon-newsletter-form__status {
+	margin: 0;
+	font-size: 0.8rem;
+	color: var(--moon-ink-muted);
+	width: 100%;
+}
+
+.moon-newsletter-form__status.is-success {
+	color: var(--moon-success);
+}
+
+.moon-newsletter-form__status.is-error {
+	color: var(--moon-danger);
+}
+
+.moon-hp {
+	position: absolute !important;
+	inset-inline-start: -9999px;
+	width: 1px;
+	height: 1px;
+	opacity: 0;
+	pointer-events: none;
+}
+
+/* Motion ---------------------------------------------------------------- */
+
+.moon-reveal {
+	transition: opacity 0.9s var(--moon-ease), transform 0.9s var(--moon-ease-out), clip-path 0.9s var(--moon-ease-out);
+	transition-delay: var(--moon-reveal-delay, 0ms);
+}
+
+.moon-reveal:not(.is-revealed) {
+	opacity: 0;
+}
+
+.moon-reveal[data-moon-reveal="fade-up"]:not(.is-revealed) {
+	transform: translateY(26px);
+}
+
+.moon-reveal[data-moon-reveal="scale"]:not(.is-revealed) {
+	transform: scale(0.965);
+}
+
+.moon-reveal[data-moon-reveal="mask"],
+.moon-reveal[data-moon-reveal="mask"].is-revealed {
+	clip-path: inset(0 0 0 0);
+}
+
+.moon-reveal[data-moon-reveal="mask"]:not(.is-revealed) {
+	clip-path: inset(0 0 100% 0);
+	opacity: 1;
+}
+
+.moon-reveal [data-moon-reveal-item] {
+	transition: opacity 0.85s var(--moon-ease) var(--moon-item-delay, 0ms), transform 0.85s var(--moon-ease-out) var(--moon-item-delay, 0ms);
+}
+
+.moon-reveal:not(.is-revealed) [data-moon-reveal-item] {
+	opacity: 0;
+	transform: translateY(22px);
+}
+
+.moon-lift-yes .moon-card,
+.moon-lift-yes .moon-product-card,
+.moon-lift-yes .moon-editorial-card {
+	transition: transform 0.5s var(--moon-ease-out), box-shadow 0.5s var(--moon-ease);
+}
+
+.moon-lift-yes .moon-card:hover,
+.moon-lift-yes .moon-product-card:hover,
+.moon-lift-yes .moon-editorial-card:hover {
+	transform: translateY(-6px);
+}
+
+.moon-zoom-no .moon-product-card:hover .moon-product-card__link img,
+.moon-zoom-no .moon-card:hover .moon-card__media img {
+	transform: none;
+}
+
+/* WooCommerce compatibility inside widgets ------------------------------ */
+
+.moon-widget .star-rating {
+	float: none;
+	display: inline-block;
+	margin: 0;
+	font-size: 0.75rem;
+	color: var(--moon-accent);
+}
+
+.moon-widget .quantity input.qty {
+	width: 4.5rem;
+	padding: 0.7rem 0.5rem;
+	text-align: center;
+	border: 1px solid var(--moon-line);
+	border-radius: var(--moon-radius-pill);
+	background: var(--moon-surface);
+	color: var(--moon-ink);
+}
+
+.moon-widget .single_add_to_cart_button,
+.moon-widget button[type="submit"]:not(.moon-btn):not(.moon-search__submit) {
+	border-radius: var(--moon-radius-pill);
+	background: var(--moon-ink);
+	border: 1px solid var(--moon-ink);
+	color: var(--moon-bg);
+	padding: 0.8rem 1.5rem;
+	font-size: 0.72rem;
+	letter-spacing: 0.16em;
+	text-transform: uppercase;
+	cursor: pointer;
+	transition: background-color 0.3s var(--moon-ease), color 0.3s var(--moon-ease);
+}
+
+.moon-widget .single_add_to_cart_button:hover,
+.moon-widget button[type="submit"]:not(.moon-btn):not(.moon-search__submit):hover {
+	background: var(--moon-accent);
+	border-color: var(--moon-accent);
+	color: var(--moon-accent-ink);
+}
+
+.moon-widget .variations {
+	width: 100%;
+	border: 0;
+	margin-block-end: 0.75rem;
+}
+
+.moon-widget .variations th,
+.moon-widget .variations td {
+	padding: 0.3rem 0;
+	border: 0;
+	text-align: start;
+}
+
+.moon-widget .variations th.label label {
+	font-size: 0.68rem;
+	letter-spacing: 0.16em;
+	text-transform: uppercase;
+	color: var(--moon-ink-muted);
+}
+
+.moon-widget .variations select {
+	min-width: 10rem;
+	padding: 0.55rem 0.8rem;
+	border: 1px solid var(--moon-line);
+	border-radius: var(--moon-radius);
+	background: var(--moon-surface);
+	color: var(--moon-ink);
+}
+
+/* Quick view modal: it lives outside the widget wrapper, so the store form
+ * controls need their own MOON styling here. */
+
+.moon-quick-view .moon-modal__body {
+	padding: clamp(1rem, 3vw, 2.25rem);
+}
+
+.moon-quick-view form.cart {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: flex-end;
+	gap: 0.65rem;
+	margin-block: 1rem;
+}
+
+.moon-quick-view .quantity input.qty {
+	width: 4.5rem;
+	padding: 0.7rem 0.5rem;
+	text-align: center;
+	border: 1px solid var(--moon-line);
+	border-radius: var(--moon-radius-pill);
+	background: var(--moon-surface);
+	color: var(--moon-ink);
+}
+
+.moon-quick-view .single_add_to_cart_button,
+.moon-quick-view button[type="submit"]:not(.moon-btn) {
+	border-radius: var(--moon-radius-pill) !important;
+	background: var(--moon-ink) !important;
+	border: 1px solid var(--moon-ink) !important;
+	color: var(--moon-bg) !important;
+	padding: 0.85rem 1.6rem !important;
+	font-family: var(--moon-font-sans);
+	font-size: 0.72rem;
+	letter-spacing: 0.16em;
+	text-transform: uppercase;
+	cursor: pointer;
+}
+
+.moon-quick-view .single_add_to_cart_button:hover,
+.moon-quick-view button[type="submit"]:not(.moon-btn):hover {
+	background: var(--moon-accent) !important;
+	border-color: var(--moon-accent) !important;
+	color: var(--moon-accent-ink) !important;
+}
+
+.moon-quick-view .reset_variations {
+	display: inline-block;
+	margin-block-start: 0.5rem;
+	font-size: 0.72rem;
+	color: var(--moon-ink-muted);
+}
+
+.moon-quick-view__loading {
+	color: var(--moon-ink-muted);
+	margin: 0;
+}
+
+/* Accessibility --------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+	.moon-reveal,
+	.moon-reveal [data-moon-reveal-item] {
+		opacity: 1 !important;
+		transform: none !important;
+		clip-path: none !important;
+		transition: none !important;
+	}
+}
+
+@media (max-width: 900px) {
+	.moon-quick-view__grid {
+		grid-template-columns: minmax(0, 1fr);
+	}
+}
+
+@media (max-width: 640px) {
+	.moon-product-card__actions {
+		opacity: 1;
+		transform: none;
+	}
+}
