@@ -32,7 +32,23 @@ function moon_enqueue_assets() {
 		wp_enqueue_style( 'moon-woo', MOON_THEME_URI . '/assets/css/woocommerce.css', array( 'moon-base' ), $ver );
 	}
 
+	if ( moon_is_woo() && ( is_woocommerce() || is_cart() || is_checkout() || is_account_page() || is_front_page() || is_singular( 'moon_outfit' ) || is_page( 'size-guide' ) ) ) {
+		wp_enqueue_style( 'moon-shop', MOON_THEME_URI . '/assets/css/shop.css', array( 'moon-base' ), $ver );
+	}
+
 	wp_enqueue_script( 'moon-chrome', MOON_THEME_URI . '/assets/js/chrome.js', array(), $ver, true );
+
+	if ( moon_is_woo() && ( is_woocommerce() || is_cart() || is_checkout() || is_account_page() || is_front_page() || is_singular( 'moon_outfit' ) ) ) {
+		wp_enqueue_script( 'moon-shop', MOON_THEME_URI . '/assets/js/shop.js', array( 'moon-chrome' ), $ver, true );
+
+		if ( wp_script_is( 'wc-add-to-cart-variation', 'registered' ) ) {
+			wp_enqueue_script( 'wc-add-to-cart-variation' );
+		}
+
+		if ( wp_script_is( 'wc-single-product', 'registered' ) ) {
+			wp_enqueue_script( 'wc-single-product' );
+		}
+	}
 
 	if ( is_front_page() ) {
 		wp_enqueue_script( 'moon-home', MOON_THEME_URI . '/assets/js/home.js', array( 'moon-chrome' ), $ver, true );
@@ -43,10 +59,16 @@ function moon_enqueue_assets() {
 		'homeUrl'     => home_url( '/' ),
 		'wcAjax'      => home_url( '/' ),
 		'cartUrl'     => moon_cart_url(),
+		'checkoutUrl' => function_exists( 'wc_get_page_permalink' ) ? wc_get_page_permalink( 'checkout' ) : home_url( '/' ),
+		'nonce'       => wp_create_nonce( 'moon_shop' ),
+		'loginNonce'  => wp_create_nonce( 'moon_login' ),
 		'isRtl'       => is_rtl(),
 		'wishlistKey' => 'moon-wishlist',
 		'i18n'        => array(
 			'added'    => 'به سبد خرید اضافه شد.',
+			'adding'   => 'در حال افزودن…',
+			'addError' => 'افزودن به سبد انجام نشد؛ دوباره تلاش کنید.',
+			'qvError'  => 'این محصول در دسترس نیست.',
 			'saved'    => 'در علاقه‌مندی‌های این مرورگر ذخیره شد.',
 			'removed'  => 'از علاقه‌مندی‌ها حذف شد.',
 			'empty'    => 'هنوز محصولی را نشان نکرده‌اید.',

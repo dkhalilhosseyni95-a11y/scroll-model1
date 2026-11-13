@@ -49,15 +49,37 @@ class Moon_Demo_Importer {
 	 * @param array $assoc_args Flags.
 	 */
 	public static function cli( $args, $assoc_args ) {
+		if ( isset( $args[0] ) && 'catalog' === $args[0] ) {
+			$catalog = Moon_Catalog::upgrade();
+
+			foreach ( $catalog['messages'] as $message ) {
+				WP_CLI::log( '✓ ' . $message );
+			}
+
+			foreach ( $catalog['errors'] as $message ) {
+				WP_CLI::warning( $message );
+			}
+
+			return;
+		}
+
 		$options = array(
 			'pages'      => true,
 			'media'      => true,
 			'taxonomies' => true,
 			'rack'       => true,
 			'products'   => isset( $assoc_args['products'] ),
+			'catalog'    => isset( $assoc_args['catalog'] ),
 		);
 
 		$report = self::run( $options );
+
+		if ( $options['catalog'] ) {
+			$catalog = Moon_Catalog::upgrade();
+
+			$report['messages'] = array_merge( $report['messages'], $catalog['messages'] );
+			$report['errors']   = array_merge( $report['errors'], $catalog['errors'] );
+		}
 
 		foreach ( $report['messages'] as $message ) {
 			WP_CLI::log( '✓ ' . $message );

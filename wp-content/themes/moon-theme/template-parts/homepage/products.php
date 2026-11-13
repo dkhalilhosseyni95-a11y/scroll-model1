@@ -52,19 +52,13 @@ if ( moon_is_woo() ) {
 				get_template_part(
 					'template-parts/product/card',
 					null,
-					array(
-						'id'      => $item['id'],
-						'name'    => $item['name'],
-						'en'      => $item['en'],
-						'price'   => $item['price'],
-						'image'   => $item['image'],
-						'url'     => $item['url'],
-						'tag'     => $item['tag'],
-						'contain' => empty( $item['cover'] ),
-						'sizes'   => $item['sizes'],
-						'add_url' => $item['add_url'],
-						'add_id'  => isset( $item['add_id'] ) ? (int) $item['add_id'] : 0,
-						'desc'    => ! empty( $item['excerpt'] ) ? $item['excerpt'] : '',
+					array_merge(
+						$item,
+						array(
+							'contain' => empty( $item['cover'] ),
+							'add_id'  => isset( $item['add_id'] ) ? (int) $item['add_id'] : 0,
+							'desc'    => ! empty( $item['excerpt'] ) ? $item['excerpt'] : '',
+						)
 					)
 				);
 				echo '</div>';

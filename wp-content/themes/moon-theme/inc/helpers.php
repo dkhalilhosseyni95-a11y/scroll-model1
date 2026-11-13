@@ -808,19 +808,23 @@ function moon_outfits_view() {
 
 		$link = '';
 
-		if ( $product ) {
+		if ( ! empty( $item['look'] ) ) {
+			$link = $item['look'];
+		} elseif ( $product ) {
 			$link = get_permalink( $product->get_id() );
 		} elseif ( ! empty( $item['link'] ) ) {
 			$link = $item['link'];
 		}
 
 		$view[] = array(
-			'id'     => isset( $item['id'] ) ? (int) $item['id'] : $index + 1,
-			'name'   => isset( $item['name'] ) ? $item['name'] : '',
-			'en'     => isset( $item['en'] ) ? $item['en'] : '',
-			'image'  => $image,
-			'colors' => array_values( $colors ),
-			'link'   => $link ? $link : moon_shop_url(),
+			'id'       => isset( $item['id'] ) ? (int) $item['id'] : $index + 1,
+			'name'     => isset( $item['name'] ) ? $item['name'] : '',
+			'en'       => isset( $item['en'] ) ? $item['en'] : '',
+			'image'    => $image,
+			'colors'   => array_values( $colors ),
+			'link'     => $link ? $link : moon_shop_url(),
+			'products' => isset( $item['products'] ) ? array_map( 'intval', (array) $item['products'] ) : array(),
+			'desc'     => isset( $item['desc'] ) ? $item['desc'] : '',
 		);
 	}
 

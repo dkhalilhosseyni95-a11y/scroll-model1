@@ -3,7 +3,7 @@
  * Plugin Name: MOON Core
  * Plugin URI: https://example.com/moon
  * Description: قابلیت‌های اختصاصی قالب MOON: پنل مدیریت، بخش‌های صفحه اصلی، رگال تعاملی، استودیو استایل و نصب‌کننده محتوای اولیه.
- * Version: 1.0.1
+ * Version: 1.1.0
  * Author: MOON Studio
  * Requires at least: 6.4
  * Requires PHP: 7.4
@@ -16,7 +16,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'MOON_CORE_VERSION', '1.0.1' );
+define( 'MOON_CORE_VERSION', '1.1.0' );
 define( 'MOON_CORE_FILE', __FILE__ );
 define( 'MOON_CORE_DIR', plugin_dir_path( __FILE__ ) );
 define( 'MOON_CORE_URL', plugin_dir_url( __FILE__ ) );

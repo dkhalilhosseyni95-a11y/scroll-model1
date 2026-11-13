@@ -95,7 +95,7 @@ function moon_woo_shop_header() {
 
 	echo '</header>';
 }
-add_action( 'woocommerce_before_main_content', 'moon_woo_shop_header', 5 );
+add_action( 'woocommerce_before_main_content', 'moon_woo_shop_header', 6 );
 
 /**
  * Hide WooCommerce's own page title output.
@@ -269,7 +269,7 @@ function moon_woo_carousel_item( $product ) {
 		$tag = __( 'ویژه', 'moon-theme' );
 	}
 
-	return array(
+	$item = array(
 		'id'       => $product->get_id(),
 		'name'     => $product->get_name(),
 		'en'       => $product->get_slug(),
@@ -282,7 +282,15 @@ function moon_woo_carousel_item( $product ) {
 		'add_id'   => $product->is_type( 'simple' ) && $product->is_in_stock() ? $product->get_id() : 0,
 		'sizes'    => moon_woo_product_sizes( $product ),
 		'excerpt'  => wp_strip_all_tags( $product->get_short_description() ),
+		'product'  => $product,
 	);
+
+	if ( class_exists( 'Moon_Shop' ) ) {
+		$item = array_merge( $item, Moon_Shop::card_data( $product ) );
+		$item['product'] = $product;
+	}
+
+	return $item;
 }
 
 /**
@@ -356,4 +364,86 @@ function moon_woo_single_trust() {
 
 	echo '</ul>';
 }
-add_action( 'woocommerce_single_product_summary', 'moon_woo_single_trust', 45 );
+add_action( 'woocommerce_single_product_summary', 'moon_woo_single_trust', 55 );
+
+/**
+ * Breadcrumb above the single product.
+ */
+function moon_woo_single_breadcrumb() {
+	if ( ! function_exists( 'woocommerce_breadcrumb' ) ) {
+		return;
+	}
+
+	echo '<div class="moon-shop__header moon-single__head">';
+	woocommerce_breadcrumb( array(
+		'delimiter'   => '<span aria-hidden="true">/</span>',
+		'wrap_before' => '<nav class="moon-breadcrumb" aria-label="' . esc_attr__( 'مسیر صفحه', 'moon-theme' ) . '">',
+		'wrap_after'  => '</nav>',
+	) );
+	echo '</div>';
+}
+add_action( 'woocommerce_before_single_product', 'moon_woo_single_breadcrumb', 2 );
+
+/**
+ * Size guide button next to the variations form.
+ */
+function moon_woo_single_size_guide() {
+	if ( ! class_exists( 'Moon_Shop' ) ) {
+		return;
+	}
+
+	echo '<div class="moon-single__sizeguide">';
+	echo '<button type="button" class="moon-linkbtn" data-moon-sizeguide-open>';
+	moon_the_icon( 'gem', 14 );
+	echo '<span>' . esc_html__( 'راهنمای سایز', 'moon-theme' ) . '</span>';
+	echo '</button>';
+	echo '</div>';
+}
+add_action( 'woocommerce_single_product_summary', 'moon_woo_single_size_guide', 29 );
+
+/**
+ * Delivery / guarantee box in the buy column.
+ */
+function moon_woo_single_buybox() {
+	global $product;
+
+	if ( ! $product instanceof WC_Product ) {
+		return;
+	}
+
+	$stock = $product->is_in_stock() ? __( 'موجود در انبار MOON', 'moon-theme' ) : __( 'فعلاً ناموجود', 'moon-theme' );
+
+	echo '<div class="moon-buybox">';
+	echo '<div class="moon-buybox__row">' . moon_icon( 'truck', 16 ) . '<span>' . esc_html__( 'ارسال ۲۴ تا ۷۲ ساعته — سفارش‌های امروز فردا بسته‌بندی می‌شوند.', 'moon-theme' ) . '</span></div>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+	echo '<div class="moon-buybox__row">' . moon_icon( 'shield-check', 16 ) . '<span>' . esc_html__( 'اصالت پارچه و دوخت تضمین‌شده توسط MOON.', 'moon-theme' ) . '</span></div>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+	echo '<div class="moon-buybox__row">' . moon_icon( 'shopping-bag', 16 ) . '<span>' . esc_html( $stock ) . ' — ' . esc_html__( 'ارسال رایگان برای سفارش‌های بالای ۵ میلیون تومان.', 'moon-theme' ) . '</span></div>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+	echo '</div>';
+}
+add_action( 'woocommerce_single_product_summary', 'moon_woo_single_buybox', 50 );
+
+/**
+ * Category, SKU and colour count under the title.
+ */
+function moon_woo_single_meta() {
+	global $product;
+
+	if ( ! $product instanceof WC_Product ) {
+		return;
+	}
+
+	$cats = wc_get_product_category_list( $product->get_id(), '، ' );
+	$sku  = $product->get_sku();
+
+	echo '<div class="moon-single__meta">';
+
+	if ( $cats ) {
+		echo '<span>' . wp_kses_post( $cats ) . '</span>';
+	}
+
+	if ( $sku ) {
+		echo '<span dir="ltr">SKU: ' . esc_html( $sku ) . '</span>';
+	}
+
+	echo '</div>';
+}
+add_action( 'woocommerce_single_product_summary', 'moon_woo_single_meta', 6 );

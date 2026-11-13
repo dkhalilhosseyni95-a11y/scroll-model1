@@ -2,8 +2,11 @@
 /**
  * Product archive template.
  *
+ * The grid is refreshed by AJAX (assets/js/shop.js) using the theme's own filter
+ * panel, so colour/size/price filters never reload the page while the URL stays
+ * shareable.
+ *
  * @package Moon_Theme
- * @version 9.4.0
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -16,56 +19,87 @@ get_header( 'shop' );
  */
 do_action( 'woocommerce_before_main_content' );
 
-$moon_has_filters = is_active_sidebar( 'shop-sidebar' );
+$moon_sort = isset( $_GET['orderby'] ) ? sanitize_key( wp_unslash( $_GET['orderby'] ) ) : 'menu_order'; // phpcs:ignore WordPress.Security.NonceVerification
+$moon_sorts = array(
+	'menu_order' => __( 'پیشنهاد MOON', 'moon-theme' ),
+	'popularity' => __( 'محبوب‌ترین', 'moon-theme' ),
+	'rating'     => __( 'بیشترین امتیاز', 'moon-theme' ),
+	'date'       => __( 'جدیدترین', 'moon-theme' ),
+	'price'      => __( 'ارزان‌ترین', 'moon-theme' ),
+	'price-desc' => __( 'گران‌ترین', 'moon-theme' ),
+);
+$moon_total = (int) wc_get_loop_prop( 'total' );
 ?>
-<div class="moon-shop__layout <?php echo $moon_has_filters ? 'has-filters' : 'no-filters'; ?>">
-	<?php if ( $moon_has_filters ) : ?>
-		<aside class="moon-shop__sidebar" aria-label="<?php esc_attr_e( 'فیلتر محصولات', 'moon-theme' ); ?>">
-			<?php dynamic_sidebar( 'shop-sidebar' ); ?>
+<div class="moon-shop__layout">
+	<?php if ( class_exists( 'Moon_Shop' ) ) : ?>
+		<aside class="moon-shop__filters" id="moon-shop-filters" aria-label="<?php esc_attr_e( 'فیلتر محصولات', 'moon-theme' ); ?>">
+			<?php Moon_Shop::filters_ui(); ?>
 		</aside>
+		<div class="moon-shop__backdrop" data-moon-filters-close hidden></div>
 	<?php endif; ?>
 
 	<div class="moon-shop__main">
-		<?php if ( woocommerce_product_loop() ) : ?>
+		<div class="moon-shop__toolbar">
+			<?php if ( class_exists( 'Moon_Shop' ) ) : ?>
+				<button type="button" class="moon-shop__filter-btn" data-moon-filters-open aria-controls="moon-shop-filters">
+					<?php moon_the_icon( 'menu', 16 ); ?>
+					<span><?php esc_html_e( 'فیلترها', 'moon-theme' ); ?></span>
+					<?php if ( Moon_Shop::has_active_filters() ) : ?>
+						<span class="moon-shop__filter-dot" aria-hidden="true"></span>
+					<?php endif; ?>
+				</button>
+			<?php endif; ?>
 
-			<div class="moon-shop__toolbar">
+			<span class="moon-shop__count" data-moon-count>
 				<?php
-				/**
-				 * Hook: woocommerce_before_shop_loop.
-				 *
-				 * @hooked woocommerce_result_count - 20
-				 * @hooked woocommerce_catalog_ordering - 30
-				 */
-				do_action( 'woocommerce_before_shop_loop' );
+				echo esc_html( sprintf(
+					/* translators: %s: number of products. */
+					__( 'نمایش %s محصول', 'moon-theme' ),
+					moon_fa_digits( number_format_i18n( $moon_total ) )
+				) );
 				?>
-			</div>
+			</span>
 
-			<?php
-			woocommerce_product_loop_start();
+			<label class="moon-shop__sort">
+				<span class="screen-reader-text"><?php esc_html_e( 'ترتیب نمایش', 'moon-theme' ); ?></span>
+				<select data-moon-sort>
+					<?php foreach ( $moon_sorts as $value => $label ) : ?>
+						<option value="<?php echo esc_attr( $value ); ?>" <?php selected( $moon_sort, $value ); ?>><?php echo esc_html( $label ); ?></option>
+					<?php endforeach; ?>
+				</select>
+			</label>
+		</div>
 
-			if ( wc_get_loop_prop( 'total' ) ) {
+		<div class="moon-shop__grid" data-moon-grid>
+			<?php if ( woocommerce_product_loop() ) : ?>
+				<?php
+				woocommerce_product_loop_start();
+
 				while ( have_posts() ) {
 					the_post();
-					/**
-					 * Hook: woocommerce_shop_loop.
-					 */
 					do_action( 'woocommerce_shop_loop' );
 					wc_get_template_part( 'content', 'product' );
 				}
+
+				woocommerce_product_loop_end();
+				?>
+			<?php else : ?>
+				<div class="moon-shop__empty">
+					<p><?php esc_html_e( 'محصولی با این فیلترها پیدا نشد.', 'moon-theme' ); ?></p>
+					<button type="button" class="moon-btn moon-btn--dark" data-moon-filter-reset><?php esc_html_e( 'پاک کردن فیلترها', 'moon-theme' ); ?></button>
+				</div>
+			<?php endif; ?>
+		</div>
+
+		<div class="moon-shop__pager" data-moon-pager>
+			<?php
+			if ( class_exists( 'Moon_Shop' ) ) {
+				echo Moon_Shop::pagination( (int) $GLOBALS['wp_query']->max_num_pages, max( 1, (int) get_query_var( 'paged' ) ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+			} else {
+				do_action( 'woocommerce_after_shop_loop' );
 			}
-
-			woocommerce_product_loop_end();
-
-			/**
-			 * Hook: woocommerce_after_shop_loop.
-			 *
-			 * @hooked woocommerce_pagination - 10
-			 */
-			do_action( 'woocommerce_after_shop_loop' );
 			?>
-		<?php else : ?>
-			<?php do_action( 'woocommerce_no_products_found' ); ?>
-		<?php endif; ?>
+		</div>
 	</div>
 </div>
 
@@ -74,10 +108,5 @@ $moon_has_filters = is_active_sidebar( 'shop-sidebar' );
  * Hook: woocommerce_after_main_content.
  */
 do_action( 'woocommerce_after_main_content' );
-
-/**
- * Hook: woocommerce_sidebar.
- */
-do_action( 'woocommerce_sidebar' );
 
 get_footer( 'shop' );

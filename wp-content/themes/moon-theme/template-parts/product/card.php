@@ -2,58 +2,94 @@
 /**
  * Product card, shared by the homepage carousel and the shop loop.
  *
- * @param array $args Card data: id, name, en, price, image, url, tag, contain, sizes, add_url, desc.
+ * Pass a WooCommerce product to get the full card (colour swatches, rating,
+ * quick add); the array form stays for the bundled demo content.
+ *
+ * @param array $args Card data: product, id, name, en, price, image, hover, url, tag, colors,
+ *                    sizes, rating, reviews, add_id, desc, category.
  *
  * @package Moon_Theme
  */
 
-$card = wp_parse_args(
-	isset( $args ) && is_array( $args ) ? $args : array(),
+$raw   = isset( $args ) && is_array( $args ) ? $args : array();
+$card  = wp_parse_args(
+	$raw,
 	array(
-		'id'      => 0,
-		'name'    => '',
-		'en'      => '',
-		'price'   => '',
-		'image'   => '',
-		'url'     => '',
-		'tag'     => '',
-		'contain' => false,
-		'sizes'   => array(),
-		'add_url' => '',
-		'add_id'  => 0,
-		'desc'    => __( 'دوخته‌شده با دقت در جزئیات، از پارچه‌های منتخب. سایزبندی استاندارد اروپایی.', 'moon-theme' ),
+		'product'  => null,
+		'id'       => 0,
+		'name'     => '',
+		'en'       => '',
+		'price'    => '',
+		'image'    => '',
+		'hover'    => '',
+		'url'      => '',
+		'category' => '',
+		'tag'      => '',
+		'on_sale'  => false,
+		'in_stock' => true,
+		'colors'   => array(),
+		'sizes'    => array(),
+		'rating'   => 0,
+		'reviews'  => 0,
+		'add_id'   => 0,
+		'add_url'  => '',
+		'is_variable' => false,
+		'desc'     => '',
 	)
 );
 
-$card_url  = $card['url'] ? $card['url'] : moon_shop_url();
-$quickview = array(
-	'name'   => $card['name'],
-	'en'     => $card['en'],
-	'price'  => $card['price'],
-	'image'  => $card['image'],
-	'url'    => $card_url,
-	'addUrl' => $card['add_url'],
-	'addId'  => (int) $card['add_id'],
-	'desc'   => $card['desc'],
-	'sizes'  => array_values( array_map( 'strval', (array) $card['sizes'] ) ),
-);
+if ( $card['product'] instanceof WC_Product && class_exists( 'Moon_Shop' ) ) {
+	$card = wp_parse_args( Moon_Shop::card_data( $card['product'] ), $card );
+	$card['product'] = $raw['product'];
+}
+
+$card_url = $card['url'] ? $card['url'] : moon_shop_url();
+$sold_out = empty( $card['in_stock'] );
+
+if ( ! $card['image'] ) {
+	$card['image'] = function_exists( 'wc_placeholder_img_src' ) ? wc_placeholder_img_src( 'moon-card' ) : moon_asset( 'women.jpg' );
+}
+
+$english = $card['en'] ? $card['en'] : '';
 ?>
-<article class="moon-card" data-moon-card>
-	<div class="moon-card__media<?php echo $card['contain'] ? ' moon-card__media--contain' : ''; ?>">
-		<a href="<?php echo esc_url( $card_url ); ?>" tabindex="-1" aria-hidden="true">
+<article
+	class="moon-card<?php echo $sold_out ? ' is-soldout' : ''; ?>"
+	data-moon-card
+	data-product="<?php echo esc_attr( (string) $card['id'] ); ?>"
+>
+	<div class="moon-card__media">
+		<a class="moon-card__media-link" href="<?php echo esc_url( $card_url ); ?>" tabindex="-1" aria-hidden="true">
 			<img
+				class="moon-card__img"
+				data-moon-card-img
 				src="<?php echo esc_url( $card['image'] ); ?>"
-				alt=""
+				<?php if ( $card['hover'] ) : ?>data-default="<?php echo esc_url( $card['image'] ); ?>"<?php endif; ?>
+				alt="<?php echo esc_attr( $card['name'] ); ?>"
 				width="900"
 				height="1200"
 				loading="lazy"
 				decoding="async"
 			>
+			<?php if ( $card['hover'] ) : ?>
+				<img
+					class="moon-card__hover"
+					src="<?php echo esc_url( $card['hover'] ); ?>"
+					alt=""
+					width="900"
+					height="1200"
+					loading="lazy"
+					decoding="async"
+				>
+			<?php endif; ?>
 		</a>
 
-		<?php if ( $card['tag'] ) : ?>
-			<span class="moon-card__tag"><?php echo esc_html( $card['tag'] ); ?></span>
-		<?php endif; ?>
+		<div class="moon-card__badges">
+			<?php if ( $sold_out ) : ?>
+				<span class="moon-card__badge moon-card__badge--muted"><?php esc_html_e( 'ناموجود', 'moon-theme' ); ?></span>
+			<?php elseif ( $card['tag'] ) : ?>
+				<span class="moon-card__badge"><?php echo esc_html( $card['tag'] ); ?></span>
+			<?php endif; ?>
+		</div>
 
 		<button
 			type="button"
@@ -69,27 +105,77 @@ $quickview = array(
 			<?php moon_the_icon( 'heart', 15 ); ?>
 		</button>
 
-		<button
-			type="button"
-			class="moon-card__quick"
-			data-moon-quick
-			aria-label="<?php echo esc_attr( sprintf( __( 'مشاهده سریع %s', 'moon-theme' ), $card['name'] ) ); ?>"
-		>
-			<?php moon_the_icon( 'eye', 15 ); ?> <?php esc_html_e( 'مشاهده سریع', 'moon-theme' ); ?>
-		</button>
+		<?php if ( $card['id'] ) : ?>
+			<div class="moon-card__actions">
+				<?php if ( $card['add_id'] ) : ?>
+					<button
+						type="button"
+						class="moon-card__act moon-card__act--add"
+						data-moon-add="<?php echo esc_attr( (string) $card['add_id'] ); ?>"
+						aria-label="<?php echo esc_attr( sprintf( __( 'افزودن %s به سبد خرید', 'moon-theme' ), $card['name'] ) ); ?>"
+					>
+						<?php moon_the_icon( 'shopping-bag', 16 ); ?>
+						<span><?php esc_html_e( 'افزودن به سبد', 'moon-theme' ); ?></span>
+					</button>
+				<?php elseif ( $sold_out ) : ?>
+					<span class="moon-card__act moon-card__act--muted"><?php esc_html_e( 'تمام شد', 'moon-theme' ); ?></span>
+				<?php else : ?>
+					<a class="moon-card__act" href="<?php echo esc_url( $card_url ); ?>">
+						<?php moon_the_icon( 'shopping-bag', 16 ); ?>
+						<span><?php esc_html_e( 'انتخاب گزینه‌ها', 'moon-theme' ); ?></span>
+					</a>
+				<?php endif; ?>
 
-		<script type="application/json" data-moon-qv-data><?php echo wp_json_encode( $quickview, JSON_UNESCAPED_UNICODE ); ?></script>
+				<button
+					type="button"
+					class="moon-card__act moon-card__act--icon"
+					data-moon-quick="<?php echo esc_attr( (string) $card['id'] ); ?>"
+					aria-label="<?php echo esc_attr( sprintf( __( 'مشاهده سریع %s', 'moon-theme' ), $card['name'] ) ); ?>"
+				>
+					<?php moon_the_icon( 'eye', 16 ); ?>
+				</button>
+			</div>
+		<?php endif; ?>
 	</div>
 
-	<div class="moon-card__meta">
-		<div>
-			<h3 class="moon-card__name"><a href="<?php echo esc_url( $card_url ); ?>"><?php echo esc_html( $card['name'] ); ?></a></h3>
-			<?php if ( $card['en'] ) : ?>
-				<p class="moon-card__en" dir="ltr"><?php echo esc_html( $card['en'] ); ?></p>
+	<div class="moon-card__body">
+		<?php if ( $card['category'] ) : ?>
+			<p class="moon-card__cat"><?php echo esc_html( $card['category'] ); ?></p>
+		<?php endif; ?>
+
+		<h3 class="moon-card__name"><a href="<?php echo esc_url( $card_url ); ?>"><?php echo esc_html( $card['name'] ); ?></a></h3>
+
+		<?php if ( $english ) : ?>
+			<p class="moon-card__en" dir="ltr"><?php echo esc_html( $english ); ?></p>
+		<?php endif; ?>
+
+		<?php if ( ! empty( $card['colors'] ) ) : ?>
+			<div class="moon-card__colors" aria-label="<?php esc_attr_e( 'رنگ‌بندی', 'moon-theme' ); ?>">
+				<?php foreach ( $card['colors'] as $index => $color ) : ?>
+					<button
+						type="button"
+						class="moon-card__color<?php echo 0 === $index ? ' is-active' : ''; ?>"
+						data-moon-card-color
+						data-image="<?php echo esc_url( isset( $color['image'] ) ? $color['image'] : '' ); ?>"
+						data-name="<?php echo esc_attr( isset( $color['name'] ) ? $color['name'] : '' ); ?>"
+						title="<?php echo esc_attr( isset( $color['name'] ) ? $color['name'] : '' ); ?>"
+						aria-label="<?php echo esc_attr( isset( $color['name'] ) ? $color['name'] : '' ); ?>"
+					>
+						<span class="moon-card__dot" style="--swatch:<?php echo esc_attr( isset( $color['hex'] ) ? $color['hex'] : '#c9c4bb' ); ?>"></span>
+					</button>
+				<?php endforeach; ?>
+			</div>
+		<?php endif; ?>
+
+		<div class="moon-card__foot">
+			<div class="moon-card__price"><?php echo wp_kses_post( $card['price'] ); ?></div>
+
+			<?php if ( ! empty( $card['reviews'] ) ) : ?>
+				<span class="moon-card__rating">
+					<span class="moon-stars" style="--rating:<?php echo esc_attr( (string) ( (float) $card['rating'] / 5 * 100 ) ); ?>%" aria-hidden="true"></span>
+					<span class="moon-card__rating-count"><?php echo esc_html( moon_fa_digits( number_format_i18n( (int) $card['reviews'] ) ) ); ?></span>
+				</span>
 			<?php endif; ?>
 		</div>
-		<?php if ( $card['price'] ) : ?>
-			<div class="moon-card__price"><?php echo wp_kses_post( $card['price'] ); ?></div>
-		<?php endif; ?>
 	</div>
 </article>

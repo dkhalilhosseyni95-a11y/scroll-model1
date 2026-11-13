@@ -185,7 +185,7 @@
         }
 
         applyFragments(result.fragments);
-        closeQuickview();
+        doc.dispatchEvent(new CustomEvent('moon:close-quickview'));
         openPanel('cart');
       })
       .catch(function () {
@@ -361,128 +361,18 @@
 
   syncWishlist();
 
+
   /* ----------------------------------------------------------------------
-   * Quick view
+   * Shared helpers for page scripts
    * -------------------------------------------------------------------- */
-  var quickview = doc.querySelector('[data-moon-quickview]');
-  var quickviewFocus = null;
-
-  function closeQuickview() {
-    if (!quickview) {
-      return;
-    }
-
-    quickview.classList.remove('is-open');
-    quickview.setAttribute('aria-hidden', 'true');
-    doc.body.classList.remove('moon-locked');
-
-    if (quickviewFocus) {
-      quickviewFocus.focus();
-      quickviewFocus = null;
-    }
-  }
-
-  function openQuickview(data, opener) {
-    if (!quickview) {
-      return;
-    }
-
-    quickviewFocus = opener || null;
-
-    var image = quickview.querySelector('[data-moon-qv-image]');
-    var en = quickview.querySelector('[data-moon-qv-en]');
-    var title = quickview.querySelector('[data-moon-qv-title]');
-    var price = quickview.querySelector('[data-moon-qv-price]');
-    var desc = quickview.querySelector('[data-moon-qv-desc]');
-    var sizes = quickview.querySelector('[data-moon-qv-sizes]');
-    var cta = quickview.querySelector('[data-moon-qv-cta]');
-
-    image.src = data.image || '';
-    image.alt = data.name || '';
-    en.textContent = data.en || '';
-    title.textContent = data.name || '';
-    price.innerHTML = data.price || '';
-    desc.textContent = data.desc || '';
-    sizes.innerHTML = '';
-    cta.innerHTML = '';
-
-    (data.sizes || []).forEach(function (size) {
-      var node = doc.createElement(data.url ? 'a' : 'span');
-      node.className = 'moon-qv__size';
-      node.textContent = size;
-
-      if (data.url) {
-        node.href = data.url;
-        node.title = 'انتخاب سایز در صفحه محصول';
-      }
-
-      sizes.appendChild(node);
-    });
-
-    sizes.hidden = sizes.children.length === 0;
-
-    if (data.addId) {
-      var add = doc.createElement('button');
-      add.type = 'button';
-      add.className = 'moon-qv__add';
-      add.setAttribute('data-moon-add', String(data.addId));
-      add.textContent = 'افزودن به سبد';
-      cta.appendChild(add);
-    } else {
-      var addLink = doc.createElement('a');
-      addLink.className = 'moon-qv__add';
-      addLink.href = data.addUrl || data.url || '#';
-      addLink.textContent = data.addUrl ? 'افزودن به سبد' : 'مشاهده و انتخاب گزینه‌ها';
-      cta.appendChild(addLink);
-    }
-
-    quickview.classList.add('is-open');
-    quickview.setAttribute('aria-hidden', 'false');
-    doc.body.classList.add('moon-locked');
-
-    var closeButton = quickview.querySelector('.moon-qv__close');
-
-    if (closeButton) {
-      closeButton.focus();
-    }
-  }
-
-  doc.addEventListener('click', function (event) {
-    var trigger = event.target.closest('[data-moon-quick]');
-
-    if (!trigger) {
-      return;
-    }
-
-    event.preventDefault();
-
-    var card = trigger.closest('[data-moon-card]');
-    var dataNode = card ? card.querySelector('[data-moon-qv-data]') : null;
-
-    if (!dataNode) {
-      return;
-    }
-
-    try {
-      openQuickview(JSON.parse(dataNode.textContent), trigger);
-    } catch (error) {
-      /* malformed data */
-    }
-  });
-
-  if (quickview) {
-    quickview.addEventListener('click', function (event) {
-      if (event.target === quickview || event.target.closest('[data-moon-close]')) {
-        closeQuickview();
-      }
-    });
-  }
-
-  doc.addEventListener('keydown', function (event) {
-    if (event.key === 'Escape') {
-      closeQuickview();
-    }
-  });
+  window.Moon = {
+    openPanel: openPanel,
+    closePanels: closePanels,
+    applyFragments: applyFragments,
+    refreshCart: refreshCart,
+    addToCart: addToCart,
+    endpoint: wcEndpoint
+  };
 
   /* ----------------------------------------------------------------------
    * Scroll reveal

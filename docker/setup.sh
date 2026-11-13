@@ -73,6 +73,8 @@ wp option update woocommerce_currency_pos "right_space" >/dev/null 2>&1 || true
 wp option update woocommerce_enable_ajax_add_to_cart "yes" >/dev/null 2>&1 || true
 wp option update woocommerce_cart_redirect_after_add "no" >/dev/null 2>&1 || true
 wp option update woocommerce_permalinks '{"product_base":"/product","category_base":"product-category"}' --format=json >/dev/null 2>&1 || true
+wp option update woocommerce_enable_myaccount_registration "yes" >/dev/null 2>&1 || true
+wp option update woocommerce_registration_generate_password "no" >/dev/null 2>&1 || true
 
 # A working checkout needs at least one gateway and one shipping method. The
 # sandbox has no real payment provider credentials, so cash on delivery is
@@ -114,6 +116,8 @@ if ( ! $exists ) {
 
 echo "→ demo content"
 wp moon-demo import --products
+echo "→ catalogue colours, looks and size guide"
+wp moon-demo catalog >/dev/null 2>&1 || true
 
 echo "→ rewrite rules"
 wp rewrite flush --hard >/dev/null 2>&1 || wp rewrite flush >/dev/null 2>&1 || true

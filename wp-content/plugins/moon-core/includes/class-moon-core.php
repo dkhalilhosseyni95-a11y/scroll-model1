@@ -43,6 +43,9 @@ final class Moon_Core {
 		Moon_Settings::init();
 		Moon_Admin::init();
 		Moon_Demo_Importer::init();
+		Moon_Colors::init();
+		Moon_Shop::init();
+		Moon_OTP::init();
 
 		add_action( 'admin_notices', array( $this, 'theme_notice' ) );
 	}
@@ -56,6 +59,10 @@ final class Moon_Core {
 		require_once MOON_CORE_DIR . 'includes/settings/class-moon-settings.php';
 		require_once MOON_CORE_DIR . 'includes/admin/class-moon-admin.php';
 		require_once MOON_CORE_DIR . 'includes/modules/class-moon-demo-importer.php';
+		require_once MOON_CORE_DIR . 'includes/modules/class-moon-colors.php';
+		require_once MOON_CORE_DIR . 'includes/modules/class-moon-shop.php';
+		require_once MOON_CORE_DIR . 'includes/modules/class-moon-otp.php';
+		require_once MOON_CORE_DIR . 'includes/modules/class-moon-catalog.php';
 	}
 
 	/**
