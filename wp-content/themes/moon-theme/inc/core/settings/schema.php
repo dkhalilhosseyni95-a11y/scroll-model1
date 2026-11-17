@@ -227,6 +227,15 @@ function moon_settings_schema() {
 					'label'  => __( 'رنگ‌ها', 'moon-theme' ),
 					'desc'   => __( 'همه رنگ‌ها به‌صورت متغیر CSS اعمال می‌شوند؛ نیازی به ویرایش کد نیست.', 'moon-theme' ),
 					'fields' => array(
+						moon_field( 'theme_mode', 'حالت رنگی پیش‌فرض', 'select', array(
+							'options' => array(
+								'dark'   => 'تاریک (پیش‌فرض)',
+								'light'  => 'روشن',
+								'system' => 'هماهنگ با سیستم‌عامل کاربر (تاریک یا روشن)',
+							),
+							'default' => 'dark',
+							'desc'    => 'کاربر همیشه می‌تواند با کلید هدر بین روشن و تاریک جابه‌جا شود؛ این گزینه فقط حالت شروع را تعیین می‌کند.',
+						) ),
 						moon_field( 'accent', 'رنگ برند (تأکیدی)', 'color', array( 'default' => '#c2a15a', 'desc' => 'دکمه‌های اصلی، لینک‌های فعال و جزئیات.' ) ),
 						moon_field( 'accent_fg', 'رنگ متن روی برند', 'color', array( 'default' => '#1a1a1a' ) ),
 						moon_field( 'color_link', 'رنگ لینک‌ها', 'color', array( 'default' => '' ) ),
@@ -537,6 +546,11 @@ function moon_settings_schema() {
 						moon_field( 'otp_login', 'نمایش ورود با کد پیامکی', 'checkbox', array( 'default' => 1 ) ),
 						moon_field( 'otp_register', 'امکان ثبت‌نام با موبایل', 'checkbox', array( 'default' => 1 ) ),
 						moon_field( 'account_notice', 'متن راهنمای بالای صفحه حساب', 'text', array( 'default' => '' ) ),
+						moon_field( 'auth_shortcode', 'شورتکد ورود و ثبت‌نام (افزونه خارجی)', 'text', array(
+							'ltr'     => true,
+							'default' => '',
+							'desc'    => 'اگر پنل پیامکی یا افزونه ورود/ثبت‌نام جداگانه دارید، شورتکد آن را اینجا بگذارید (نمونه: [digits_phone] یا [my-sms-login]). با پر شدن این فیلد، فرم داخلی قالب جای خود را به همان فرم می‌دهد و ورود پیامکی قالب خاموش می‌شود.',
+						) ),
 					),
 				),
 			),

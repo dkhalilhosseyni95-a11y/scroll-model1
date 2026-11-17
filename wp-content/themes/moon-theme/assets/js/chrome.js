@@ -14,31 +14,62 @@
   var hasHover = window.matchMedia('(hover: hover)').matches;
 
   /* ----------------------------------------------------------------------
-   * Theme (dark by default, matching the source design)
+   * Theme: panel default (dark / light / operating system) plus the visitor's
+   * own choice, which is remembered in this browser.
    * -------------------------------------------------------------------- */
   var THEME_KEY = 'moon-theme';
-
-  try {
-    if (window.localStorage.getItem(THEME_KEY) === 'light') {
-      root.classList.remove('moon-dark');
-      root.classList.add('moon-light');
-    }
-  } catch (error) {
-    /* storage unavailable */
-  }
-
+  var themeMode = root.getAttribute('data-moon-theme-mode') || 'dark';
+  var systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)');
   var themeSwitch = doc.querySelector('[data-moon-theme]');
 
+  function savedTheme() {
+    try {
+      return window.localStorage.getItem(THEME_KEY);
+    } catch (error) {
+      return null;
+    }
+  }
+
+  function resolveDark() {
+    var saved = savedTheme();
+
+    if (saved === 'light' || saved === 'dark') {
+      return saved === 'dark';
+    }
+
+    if (themeMode === 'system') {
+      return systemPrefersDark.matches;
+    }
+
+    return themeMode !== 'light';
+  }
+
+  function applyTheme(dark) {
+    root.classList.toggle('moon-dark', dark);
+    root.classList.toggle('moon-light', !dark);
+
+    if (themeSwitch) {
+      themeSwitch.setAttribute('aria-pressed', dark ? 'false' : 'true');
+    }
+  }
+
+  applyTheme(resolveDark());
+
+  if (themeMode === 'system' && systemPrefersDark.addEventListener) {
+    systemPrefersDark.addEventListener('change', function (event) {
+      if (!savedTheme()) {
+        applyTheme(event.matches);
+      }
+    });
+  }
+
   if (themeSwitch) {
-    themeSwitch.setAttribute('aria-pressed', root.classList.contains('moon-light') ? 'true' : 'false');
     themeSwitch.addEventListener('click', function () {
-      var light = !root.classList.contains('moon-light');
-      root.classList.toggle('moon-light', light);
-      root.classList.toggle('moon-dark', !light);
-      themeSwitch.setAttribute('aria-pressed', light ? 'true' : 'false');
+      var dark = !root.classList.contains('moon-dark');
+      applyTheme(dark);
 
       try {
-        window.localStorage.setItem(THEME_KEY, light ? 'light' : 'dark');
+        window.localStorage.setItem(THEME_KEY, dark ? 'dark' : 'light');
       } catch (error) {
         /* ignore */
       }

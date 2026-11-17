@@ -329,6 +329,12 @@ li {
   -ms-overflow-style: none;
 }
 
+/* Dialog shells stay out of the page flow until their stylesheet is loaded. */
+.moon-qv:not(.is-open),
+.moon-sizeguide-modal:not(.is-open) {
+  display: none;
+}
+
 .moon-noscroll::-webkit-scrollbar {
   display: none;
 }

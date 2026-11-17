@@ -265,7 +265,7 @@ class Moon_Header {
 				}
 				?>
 				<a class="moon-iconbtn moon-iconbtn--sm-hide" href="<?php echo esc_url( Moon_Compare::page_url() ); ?>" aria-label="<?php esc_attr_e( 'مقایسه محصولات', 'moon-theme' ); ?>" data-moon-compare-link>
-					<?php moon_the_icon( 'rotate-ccw', 17 ); ?>
+					<?php moon_the_icon( 'compare', 17 ); ?>
 					<span class="moon-compare-count" data-moon-compare-count hidden></span>
 				</a>
 				<?php

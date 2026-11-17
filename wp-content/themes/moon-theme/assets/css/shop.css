@@ -6,7 +6,7 @@
  * Shop layout
  * ------------------------------------------------------------------------ */
 .moon-shop {
-  padding-top: 6.5rem;
+  padding-top: 7rem;
 }
 
 .moon-shop__header {
@@ -464,29 +464,19 @@
   color: var(--background);
 }
 
-.moon-filters__price {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0.5rem;
-}
-
-.moon-filters__price label {
+.moon-filters__range {
   display: flex;
-  flex-direction: column;
-  gap: 0.3rem;
-  font-size: 0.7rem;
-  color: var(--muted-foreground);
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.25rem 0.4rem;
+  margin: 0;
+  font-size: 0.82rem;
+  color: var(--foreground);
 }
 
-.moon-filters__price input {
-  width: 100%;
-  padding: 0.55rem 0.7rem;
-  border: 1px solid var(--border);
-  border-radius: 0.5rem;
-  background: transparent;
-  color: var(--foreground);
-  font-family: inherit;
-  font-size: 0.8rem;
+.moon-filters__range span {
+  color: var(--muted-foreground);
+  font-size: 0.74rem;
 }
 
 .moon-filters__apply {
@@ -814,12 +804,21 @@
   }
 
   .moon-qv__panel {
+    grid-template-rows: auto auto;
     border-radius: 1rem 1rem 0 0;
     max-height: 94vh;
   }
 
+  /* Cap the picture so the title, price and buy form stay on screen: a square
+   * stage filled the whole sheet and pushed the product copy out of view.
+   * A fixed height (not just a max) keeps the image full width — with only a
+   * max-height the box takes its width from the aspect ratio and the picture
+   * ends up as a narrow column. */
   .moon-qv__stage {
-    aspect-ratio: 1 / 1;
+    aspect-ratio: auto;
+    width: 100%;
+    height: 34vh;
+    max-height: 20rem;
   }
 
   .moon-qv__body {
@@ -2485,4 +2484,136 @@
 .moon-subcat__count {
   font-size: 0.68rem;
   color: var(--muted-foreground);
+}
+
+/* --------------------------------------------------------------------------
+ * Quick view: the cart form has to look like the one on the product page
+ * ------------------------------------------------------------------------ */
+.moon-qv form.cart {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.6rem 0.75rem;
+  margin: 0.25rem 0 0;
+}
+
+.moon-qv form.cart .variations {
+  width: 100%;
+  margin: 0;
+  border: 0;
+}
+
+.moon-qv form.cart .variations tbody,
+.moon-qv form.cart .variations tr {
+  display: block;
+  margin-bottom: 0.7rem;
+}
+
+.moon-qv form.cart .variations th,
+.moon-qv form.cart .variations td {
+  display: block;
+  width: 100%;
+  padding: 0 0 0.3rem;
+  border: 0;
+  text-align: start;
+}
+
+.moon-qv .variations th.label label {
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: var(--foreground);
+}
+
+.moon-qv .reset_variations {
+  display: inline-block;
+  margin-top: 0.3rem;
+  font-size: 0.72rem;
+  color: var(--muted-foreground);
+}
+
+.moon-qv .woocommerce-variation-price {
+  margin: 0.2rem 0 0.4rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.moon-qv form.cart .quantity {
+  display: inline-flex;
+  align-items: center;
+  height: 3rem;
+  padding: 0 0.3rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+}
+
+.moon-qv .quantity .qty {
+  width: 4.6rem;
+  padding: 0.6rem 0.4rem;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: var(--foreground);
+  font: inherit;
+  text-align: center;
+}
+
+/* WooCommerce paints `.button.alt` (and its disabled state) in its own purple
+ * with a long selector; these two rules outrank it. */
+.moon-qv .moon-qv__form form.cart button.single_add_to_cart_button,
+.moon-qv .moon-qv__form form.cart button.single_add_to_cart_button.alt,
+.moon-qv .moon-qv__form form.cart button.single_add_to_cart_button.alt:disabled,
+.moon-qv .moon-qv__form form.cart button.single_add_to_cart_button.alt.disabled {
+  flex: 1;
+  min-width: 11rem;
+  height: 3rem;
+  padding: 0 1.5rem;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  background-color: var(--foreground);
+  background-image: none;
+  color: var(--background);
+  font-family: inherit;
+  font-size: 0.88rem;
+  font-weight: 600;
+  line-height: 1;
+  cursor: pointer;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+.moon-qv .moon-qv__form form.cart button.single_add_to_cart_button:hover:not(:disabled) {
+  background-color: var(--accent);
+  color: var(--accent-foreground);
+}
+
+.moon-qv .moon-qv__form form.cart button.single_add_to_cart_button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+/* Latin product names line up with the Persian title they sit under. */
+html[dir="rtl"] .moon-qv__en,
+html[dir="rtl"] .moon-card__en {
+  text-align: right;
+}
+
+html[dir="ltr"] .moon-qv__en,
+html[dir="ltr"] .moon-card__en {
+  text-align: left;
+}
+
+/* --------------------------------------------------------------------------
+ * External login / registration shortcode slot (حساب کاربری → ورود و ثبت‌نام)
+ * ------------------------------------------------------------------------ */
+.moon-auth__digits {
+  width: 100%;
+}
+
+.moon-auth__digits > * {
+  max-width: 100%;
+}
+
+.moon-auth__digits .digits-form_input,
+.moon-auth__digits input[type="text"],
+.moon-auth__digits input[type="tel"] {
+  font-family: inherit;
 }

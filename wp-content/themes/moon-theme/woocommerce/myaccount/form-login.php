@@ -20,6 +20,17 @@ if ( ! $moon_otp_on ) {
 }
 
 $moon_digits    = 'digits' === $moon_mode && class_exists( 'Moon_OTP' ) ? Moon_OTP::digits_form() : '';
+
+/*
+ * An external login/registration plugin (SMS panel, OTP service, social login)
+ * can take over the whole screen: whatever shortcode the store owner saved in
+ * حساب کاربری → ورود و ثبت‌نام is rendered instead of the theme's own form.
+ */
+$moon_shortcode = class_exists( 'Moon_Settings' ) ? trim( (string) Moon_Settings::get( 'auth_shortcode', '' ) ) : '';
+
+if ( '' !== $moon_shortcode ) {
+	$moon_digits = do_shortcode( $moon_shortcode );
+}
 $moon_redirect  = isset( $_GET['redirect'] ) ? esc_url_raw( wp_unslash( $_GET['redirect'] ) ) : ''; // phpcs:ignore WordPress.Security.NonceVerification
 $moon_lost      = wc_lostpassword_url();
 ?>

@@ -132,10 +132,12 @@ class Moon_Tokens {
 		}
 
 		// ---- Light palette --------------------------------------------------
+		// `--on-overlay` stays light in both modes: overlay panels (search,
+		// lightbox, quick view scrim) always paint on a dark layer.
 		foreach ( array(
 			'theme_light_bg'   => array( '--background', '--stage' ),
 			'theme_light_card' => array( '--card', '--muted', '--glass' ),
-			'theme_light_text' => array( '--foreground', '--on-overlay' ),
+			'theme_light_text' => array( '--foreground' ),
 		) as $key => $variables ) {
 			$value = self::opt( $key );
 

@@ -19,7 +19,7 @@ class Moon_Settings {
 	/**
 	 * Stored shape of the settings option.
 	 */
-	const VERSION = 3;
+	const VERSION = 4;
 
 	/**
 	 * Hook registration.
@@ -110,7 +110,11 @@ class Moon_Settings {
 
 		if ( function_exists( 'moon_option_defaults' ) ) {
 			foreach ( moon_option_defaults() as $key => $value ) {
-				if ( ! array_key_exists( $key, $defaults ) ) {
+				// The schema declares an empty default for every text field, but
+				// the theme ships real copy for the homepage, footer and brand.
+				// An empty schema default must not blank that shipped content
+				// (that is what left the hero without a title on a fresh install).
+				if ( ! array_key_exists( $key, $defaults ) || ( '' === $defaults[ $key ] && '' !== $value ) ) {
 					$defaults[ $key ] = $value;
 				}
 			}
@@ -335,6 +339,18 @@ class Moon_Settings {
 		// v1 → v2: the old "accent" option is now a full colour system.
 		if ( ! empty( $stored['accent'] ) && empty( $merged['button_bg'] ) ) {
 			$merged['button_bg'] = $stored['accent'];
+		}
+
+		// v3 → v4: empty text values were written for every key on the first
+		// migration, which blanked the shipped hero, campaign and footer copy.
+		// Restore the theme's own text wherever the stored value is empty and
+		// the theme has copy to show.
+		if ( $version < 4 && function_exists( 'moon_option_defaults' ) ) {
+			foreach ( moon_option_defaults() as $content_key => $content_value ) {
+				if ( '' !== $content_value && isset( $merged[ $content_key ] ) && '' === $merged[ $content_key ] ) {
+					$merged[ $content_key ] = $content_value;
+				}
+			}
 		}
 
 		update_option( 'moon_options', $merged );

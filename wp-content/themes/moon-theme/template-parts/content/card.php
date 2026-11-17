@@ -22,10 +22,10 @@ $moon_read  = max( 1, (int) ceil( count( (array) $moon_words ) / 200 ) );
 	</a>
 
 	<div class="moon-post-card__meta">
-		<?php if ( $moon_cat ) : ?>
+		<?php if ( $moon_cat && 'uncategorized' !== $moon_cat->slug ) : ?>
 			<a class="moon-post-card__cat" href="<?php echo esc_url( get_category_link( $moon_cat ) ); ?>"><?php echo esc_html( $moon_cat->name ); ?></a>
 		<?php endif; ?>
-		<span class="moon-post-card__date"><?php echo esc_html( get_the_date() ); ?></span>
+		<span class="moon-post-card__date"><?php echo esc_html( moon_fa_digits( get_the_date() ) ); ?></span>
 		<span class="moon-post-card__dot" aria-hidden="true">·</span>
 		<span class="moon-post-card__read"><?php echo esc_html( sprintf( /* translators: %s: minutes. */ __( '٪s دقیقه مطالعه', 'moon-theme' ), moon_fa_digits( (string) $moon_read ) ) ); ?></span>
 	</div>

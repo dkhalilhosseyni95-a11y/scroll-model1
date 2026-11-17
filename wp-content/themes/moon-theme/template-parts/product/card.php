@@ -164,7 +164,7 @@ if ( $card_cfg['stock'] && $card['product'] instanceof WC_Product ) {
 					aria-pressed="false"
 					aria-label="<?php echo esc_attr( sprintf( __( 'افزودن %s به مقایسه', 'moon-theme' ), $card['name'] ) ); ?>"
 				>
-					<?php moon_the_icon( 'rotate-ccw', 15 ); ?>
+					<?php moon_the_icon( 'compare', 15 ); ?>
 				</button>
 			<?php endif; ?>
 		</div>

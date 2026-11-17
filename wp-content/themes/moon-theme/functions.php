@@ -12,7 +12,7 @@
 defined( 'ABSPATH' ) || exit;
 
 if ( ! defined( 'MOON_THEME_VERSION' ) ) {
-	define( 'MOON_THEME_VERSION', '2.1.1' );
+	define( 'MOON_THEME_VERSION', '2.1.2' );
 }
 if ( ! defined( 'MOON_THEME_DIR' ) ) {
 	define( 'MOON_THEME_DIR', get_template_directory() );

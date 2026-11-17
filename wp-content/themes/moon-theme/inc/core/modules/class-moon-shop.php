@@ -511,6 +511,71 @@ class Moon_Shop {
 	}
 
 	/**
+	 * Price range of the products on the current archive.
+	 *
+	 * Read from WooCommerce's price lookup table, so it is one indexed query and
+	 * already reflects sale prices.
+	 *
+	 * @return array|null [min, max] or null when there is nothing to show.
+	 */
+	public static function price_range() {
+		global $wpdb;
+
+		if ( empty( $wpdb->wc_product_meta_lookup ) ) {
+			return null;
+		}
+
+		$term = is_product_category() ? get_queried_object() : null;
+
+		if ( $term instanceof WP_Term ) {
+			$sql = $wpdb->prepare(
+				"SELECT MIN(l.min_price) AS min_price, MAX(l.max_price) AS max_price
+				FROM {$wpdb->wc_product_meta_lookup} l
+				INNER JOIN {$wpdb->term_relationships} tr ON tr.object_id = l.product_id
+				INNER JOIN {$wpdb->term_taxonomy} tt ON tt.term_taxonomy_id = tr.term_taxonomy_id
+				WHERE tt.taxonomy = 'product_cat' AND tt.term_id = %d AND l.min_price > 0",
+				$term->term_id
+			);
+		} else {
+			$sql = "SELECT MIN(min_price) AS min_price, MAX(max_price) AS max_price FROM {$wpdb->wc_product_meta_lookup} WHERE min_price > 0";
+		}
+
+		$row = $wpdb->get_row( $sql ); // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared, WordPress.DB.DirectDatabaseQuery -- prepared above, or a constant query.
+
+		if ( ! $row || ! $row->min_price ) {
+			return null;
+		}
+
+		return array( (float) $row->min_price, (float) $row->max_price );
+	}
+
+	/**
+	 * Short, readable price for the sidebar: ۳۰۰ هزار، ۲٫۵ میلیون، ۱٬۲۰۰٬۰۰۰.
+	 *
+	 * @param float $amount Amount.
+	 * @return string
+	 */
+	public static function price_label( $amount ) {
+		$amount = (float) $amount;
+
+		if ( $amount >= 1000000 ) {
+			$scaled = $amount / 1000000;
+			$word   = ' میلیون';
+		} elseif ( $amount >= 1000 ) {
+			$scaled = $amount / 1000;
+			$word   = ' هزار';
+		} else {
+			return self::digits( number_format( $amount ) );
+		}
+
+		$formatted = floor( $scaled ) === $scaled
+			? number_format( $scaled )
+			: rtrim( rtrim( number_format( $scaled, 2, '.', '' ), '0' ), '.' );
+
+		return self::digits( str_replace( '.', '٫', $formatted ) ) . $word;
+	}
+
+	/**
 	 * Render the shop filter panel.
 	 *
 	 * @param string $context `sidebar` or `drawer`.
@@ -617,19 +682,20 @@ class Moon_Shop {
 				</div>
 			<?php endif; ?>
 
-			<div class="moon-filters__group">
-				<p class="moon-filters__label"><?php esc_html_e( 'محدوده قیمت (تومان)', 'moon-theme' ); ?></p>
-				<div class="moon-filters__price">
-					<label>
+			<?php $moon_range = self::price_range(); ?>
+
+			<?php if ( $moon_range ) : ?>
+				<div class="moon-filters__group">
+					<p class="moon-filters__label"><?php esc_html_e( 'بازه قیمت', 'moon-theme' ); ?></p>
+					<p class="moon-filters__range">
 						<span><?php esc_html_e( 'از', 'moon-theme' ); ?></span>
-						<input type="number" name="min_price" min="0" step="100000" value="<?php echo esc_attr( $filters['min'] > 0 ? (string) (int) $filters['min'] : '' ); ?>" inputmode="numeric">
-					</label>
-					<label>
+						<strong><?php echo esc_html( self::price_label( $moon_range[0] ) ); ?></strong>
 						<span><?php esc_html_e( 'تا', 'moon-theme' ); ?></span>
-						<input type="number" name="max_price" min="0" step="100000" value="<?php echo esc_attr( $filters['max'] > 0 ? (string) (int) $filters['max'] : '' ); ?>" inputmode="numeric">
-					</label>
+						<strong><?php echo esc_html( self::price_label( $moon_range[1] ) ); ?></strong>
+						<span><?php esc_html_e( 'تومان', 'moon-theme' ); ?></span>
+					</p>
 				</div>
-			</div>
+			<?php endif; ?>
 
 			<button type="submit" class="moon-btn moon-btn--dark moon-filters__apply"><?php esc_html_e( 'اعمال فیلتر', 'moon-theme' ); ?></button>
 		</form>
@@ -794,7 +860,21 @@ class Moon_Shop {
 								<?php foreach ( $table['rows'] as $row ) : ?>
 									<tr>
 										<?php foreach ( $row as $cell ) : ?>
-											<td><?php echo esc_html( $cell ); ?></td>
+											<?php
+											/*
+											 * Measurements are Latin ranges ("80–84"). Inside a
+											 * right-to-left cell the browser would flip them to
+											 * "84–80", so the numbers get their own LTR run.
+											 */
+											$moon_is_number = (bool) preg_match( '/^[0-9۰-۹][0-9۰-۹\s–—\-.,]*$/u', (string) $cell );
+											?>
+											<td>
+												<?php if ( $moon_is_number ) : ?>
+													<span dir="ltr"><?php echo esc_html( $cell ); ?></span>
+												<?php else : ?>
+													<?php echo esc_html( $cell ); ?>
+												<?php endif; ?>
+											</td>
 										<?php endforeach; ?>
 									</tr>
 								<?php endforeach; ?>

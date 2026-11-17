@@ -16,6 +16,15 @@ if ( ! moon_is_woo() || ! taxonomy_exists( 'product_cat' ) ) {
 	return;
 }
 
+/*
+ * Only on a category archive: on the shop page the same top-level categories
+ * are already listed in the tab strip right above, and the two strips repeated
+ * each other.
+ */
+if ( ! is_product_category() ) {
+	return;
+}
+
 if ( class_exists( 'Moon_Settings' ) && ! Moon_Settings::get( 'category_strip', '1' ) ) {
 	return;
 }

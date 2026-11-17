@@ -44,6 +44,17 @@
   transition: max-width 0.5s ease, padding 0.5s ease, box-shadow 0.5s ease;
 }
 
+/*
+ * No `backdrop-filter` on the pill: it would turn the pill into the containing
+ * block of the mega menu panel, which is why the panel broke and drifted as
+ * soon as the header shrank on scroll. The pill colour itself is opaque, so the
+ * blur was not visible anyway.
+ */
+.moon-header__pill.moon-glass {
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+}
+
 .moon-header.is-scrolled .moon-header__pill {
   max-width: 56rem;
   padding-block: 0.375rem;

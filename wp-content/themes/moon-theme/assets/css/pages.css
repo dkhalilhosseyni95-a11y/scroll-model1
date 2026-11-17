@@ -3,7 +3,7 @@
  */
 
 .moon-page-header {
-  padding: 9rem 0 3rem;
+  padding: 7rem 0 3rem;
 }
 
 .moon-page-header__title {
@@ -260,7 +260,7 @@
  * Single post
  * ------------------------------------------------------------------------ */
 .moon-entry-header {
-  padding: 9rem 0 2.5rem;
+  padding: 7rem 0 2.5rem;
   text-align: center;
 }
 

@@ -26,6 +26,41 @@ WordPress theme (`wp-content/themes/moon-theme`) + demo importer
 - `wp-config.php` turns `WP_DEBUG_DISPLAY` off but `WP_DEBUG_LOG` on; logs land in
   `wp-content/debug.log` inside the container.
 
+## Colour mode
+
+`theme_mode` (ظاهر و طراحی → رنگ‌ها) is `dark`, `light` or `system`. `header.php`
+prints both the class and `data-moon-theme-mode` on `<html>`, then a tiny inline
+script applies the visitor's saved choice before the stylesheet paints, so the
+switch never flashes. `assets/js/chrome.js` owns the toggle and, in `system`
+mode, follows `prefers-color-scheme` live. `--on-overlay` must stay light in
+both modes — overlay panels always paint on a dark scrim.
+
+## External login plugin (SMS / OTP)
+
+`account → login → auth_shortcode` replaces the theme's sign-in/registration
+form with any shortcode (`[digits_phone]`, a SMS-panel plugin, …). Digits is
+also auto-detected through `Moon_OTP::mode()`. A custom HTML homepage section
+runs shortcodes too (`do_shortcode` on its content field).
+
+## Two traps that already cost time
+
+- **Asset versions**: `MOON_THEME_VERSION` is the `?ver=` on every CSS/JS file.
+  Bump it whenever styles change, or the browser serves the old stylesheet and
+  a CSS fix looks like it did nothing.
+- **Empty settings beat defaults**: `Moon_Settings::defaults()` used to prefer
+  the schema's empty `default` over the copy in `moon_option_defaults()`, so the
+  first migration wrote empty strings for the hero, campaign and footer texts
+  and the homepage rendered without a title. `VERSION = 4` repairs an install
+  that already stored those empty strings (`maybe_migrate()` runs on
+  `admin_init`, or run `wp eval 'Moon_Settings::maybe_migrate();'`).
+
+## Where the dialogs live
+
+The quick view and size guide shells are printed by
+`template-parts/footer/quick-view.php`, which `footer.php` only includes when the
+`moon-shop` stylesheet is enqueued — on other screens their markup used to fall
+out of the flow and appear under the footer.
+
 ## Commands
 
 ```bash
