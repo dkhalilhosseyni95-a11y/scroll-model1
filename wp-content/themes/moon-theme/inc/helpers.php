@@ -790,6 +790,10 @@ function moon_footer_default_url( $label ) {
 			return $page( 'contact' );
 		case 'راهنمای سایز':
 			return $page( 'shipping' );
+		case 'حریم خصوصی':
+			return $page( 'privacy' );
+		case 'قوانین و مقررات':
+			return $page( 'terms' );
 	}
 
 	return '';

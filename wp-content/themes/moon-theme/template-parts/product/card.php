@@ -127,34 +127,47 @@ if ( $card_cfg['stock'] && $card['product'] instanceof WC_Product ) {
 		</div>
 		<?php endif; ?>
 
-		<?php if ( $card_cfg['compare'] && $card['id'] ) : ?>
-			<button
-				type="button"
-				class="moon-card__compare"
-				data-moon-compare-add="<?php echo esc_attr( (string) $card['id'] ); ?>"
-				data-name="<?php echo esc_attr( $card['name'] ); ?>"
-				aria-pressed="false"
-				aria-label="<?php echo esc_attr( sprintf( __( 'افزودن %s به مقایسه', 'moon-theme' ), $card['name'] ) ); ?>"
-			>
-				<?php moon_the_icon( 'rotate-ccw', 15 ); ?>
-			</button>
-		<?php endif; ?>
+		<div class="moon-card__tools">
+			<?php if ( $card['id'] && $card_cfg['quickview'] ) : ?>
+				<button
+					type="button"
+					class="moon-card__like moon-card__quick"
+					data-moon-quick="<?php echo esc_attr( (string) $card['id'] ); ?>"
+					aria-label="<?php echo esc_attr( sprintf( __( 'مشاهده سریع %s', 'moon-theme' ), $card['name'] ) ); ?>"
+				>
+					<?php moon_the_icon( 'eye', 15 ); ?>
+				</button>
+			<?php endif; ?>
 
-		<?php if ( $card_cfg['wishlist'] ) : ?>
-		<button
-			type="button"
-			class="moon-card__like"
-			data-moon-like
-			data-id="<?php echo esc_attr( (string) $card['id'] ); ?>"
-			data-name="<?php echo esc_attr( $card['name'] ); ?>"
-			data-url="<?php echo esc_url( $card_url ); ?>"
-			data-image="<?php echo esc_url( $card['image'] ); ?>"
-			aria-pressed="false"
-			aria-label="<?php echo esc_attr( sprintf( __( 'افزودن %s به علاقه‌مندی‌ها', 'moon-theme' ), $card['name'] ) ); ?>"
-		>
-			<?php moon_the_icon( 'heart', 15 ); ?>
-		</button>
-		<?php endif; ?>
+			<?php if ( $card_cfg['wishlist'] ) : ?>
+				<button
+					type="button"
+					class="moon-card__like"
+					data-moon-like
+					data-id="<?php echo esc_attr( (string) $card['id'] ); ?>"
+					data-name="<?php echo esc_attr( $card['name'] ); ?>"
+					data-url="<?php echo esc_url( $card_url ); ?>"
+					data-image="<?php echo esc_url( $card['image'] ); ?>"
+					aria-pressed="false"
+					aria-label="<?php echo esc_attr( sprintf( __( 'افزودن %s به علاقه‌مندی‌ها', 'moon-theme' ), $card['name'] ) ); ?>"
+				>
+					<?php moon_the_icon( 'heart', 15 ); ?>
+				</button>
+			<?php endif; ?>
+
+			<?php if ( $card_cfg['compare'] && $card['id'] ) : ?>
+				<button
+					type="button"
+					class="moon-card__like moon-card__compare"
+					data-moon-compare-add="<?php echo esc_attr( (string) $card['id'] ); ?>"
+					data-name="<?php echo esc_attr( $card['name'] ); ?>"
+					aria-pressed="false"
+					aria-label="<?php echo esc_attr( sprintf( __( 'افزودن %s به مقایسه', 'moon-theme' ), $card['name'] ) ); ?>"
+				>
+					<?php moon_the_icon( 'rotate-ccw', 15 ); ?>
+				</button>
+			<?php endif; ?>
+		</div>
 
 		<?php if ( $card['id'] ) : ?>
 			<div class="moon-card__actions">
@@ -175,17 +188,6 @@ if ( $card_cfg['stock'] && $card['product'] instanceof WC_Product ) {
 						<?php moon_the_icon( 'shopping-bag', 16 ); ?>
 						<span><?php esc_html_e( 'انتخاب گزینه‌ها', 'moon-theme' ); ?></span>
 					</a>
-				<?php endif; ?>
-
-				<?php if ( $card_cfg['quickview'] ) : ?>
-				<button
-					type="button"
-					class="moon-card__act moon-card__act--icon"
-					data-moon-quick="<?php echo esc_attr( (string) $card['id'] ); ?>"
-					aria-label="<?php echo esc_attr( sprintf( __( 'مشاهده سریع %s', 'moon-theme' ), $card['name'] ) ); ?>"
-				>
-					<?php moon_the_icon( 'eye', 16 ); ?>
-				</button>
 				<?php endif; ?>
 			</div>
 		<?php endif; ?>

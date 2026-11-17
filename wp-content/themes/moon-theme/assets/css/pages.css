@@ -144,10 +144,19 @@
   }
 }
 
+.moon-post-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
 .moon-post-card__media {
   display: block;
+  position: relative;
   aspect-ratio: 4 / 3;
   overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
   background: var(--stage);
 }
 
@@ -155,24 +164,55 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 1s ease;
+  transition: transform 1s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.moon-post-card:hover .moon-post-card__media img {
+.moon-post-card:hover .moon-post-card__media img,
+.moon-post-card:focus-within .moon-post-card__media img {
   transform: scale(1.04);
 }
 
-.moon-post-card__date {
+.moon-post-card__placeholder {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+  color: var(--muted-foreground);
+}
+
+.moon-post-card__meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
   margin-top: 1rem;
   font-size: 0.7rem;
   color: var(--muted-foreground);
 }
 
+.moon-post-card__cat {
+  padding: 0.12rem 0.55rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  color: var(--foreground);
+  font-size: 0.66rem;
+  transition: border-color 0.25s ease, color 0.25s ease;
+}
+
+.moon-post-card__cat:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
 .moon-post-card__title {
-  margin: 0.5rem 0 0;
-  font-size: 1.25rem;
-  font-weight: 400;
-  line-height: 1.6;
+  margin: 0.6rem 0 0;
+  font-size: 1.15rem;
+  font-weight: 500;
+  line-height: 1.7;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .moon-post-card__title a:hover {
@@ -180,10 +220,28 @@
 }
 
 .moon-post-card__excerpt {
-  margin-top: 0.75rem;
-  font-size: 0.875rem;
+  margin: 0.55rem 0 0;
+  font-size: 0.85rem;
   line-height: 1.9;
   color: var(--muted-foreground);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.moon-post-card__more {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  margin-top: auto;
+  padding-top: 0.85rem;
+  font-size: 0.78rem;
+  color: var(--accent);
+}
+
+.moon-post-card__more:hover {
+  color: var(--foreground);
 }
 
 .moon-empty {
@@ -439,4 +497,106 @@
 
 .moon-form textarea {
   min-height: 8rem;
+}
+
+/* --------------------------------------------------------------------------
+ * Legal pages (privacy, terms)
+ * ------------------------------------------------------------------------ */
+.moon-legal {
+  padding-bottom: 6rem;
+}
+
+.moon-legal__head {
+  max-width: 80rem;
+  margin-inline: auto;
+  padding: 9rem 1.5rem 2rem;
+}
+
+.moon-legal__title {
+  margin: 1.25rem 0 0;
+  font-size: clamp(2rem, 4.5vw, 3rem);
+  font-weight: 300;
+  line-height: 1.3;
+}
+
+.moon-legal__updated {
+  margin: 0.75rem 0 0;
+  font-size: 0.75rem;
+  color: var(--muted-foreground);
+}
+
+.moon-legal__layout {
+  display: grid;
+  gap: 2.5rem;
+  max-width: 80rem;
+  margin-inline: auto;
+  padding: 1.5rem 1.5rem 0;
+}
+
+.moon-legal__toc {
+  padding: 1.1rem 1.2rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--card);
+}
+
+.moon-legal__toc-title {
+  margin: 0 0 0.75rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  color: var(--muted-foreground);
+}
+
+.moon-legal__toc-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: moon-legal;
+}
+
+.moon-legal__toc-list li {
+  counter-increment: moon-legal;
+}
+
+.moon-legal__toc-list a {
+  display: flex;
+  gap: 0.5rem;
+  font-size: 0.82rem;
+  line-height: 1.7;
+  color: var(--muted-foreground);
+}
+
+.moon-legal__toc-list a::before {
+  content: counter(moon-legal) ".";
+  color: var(--accent);
+  font-variant-numeric: tabular-nums;
+}
+
+.moon-legal__toc-list a:hover {
+  color: var(--foreground);
+}
+
+.moon-legal__content {
+  min-width: 0;
+  max-width: 48rem;
+}
+
+.moon-legal__content h2 {
+  scroll-margin-top: 7rem;
+}
+
+@media (min-width: 1024px) {
+  .moon-legal__layout {
+    grid-template-columns: 17rem minmax(0, 1fr);
+    gap: 3.5rem;
+    align-items: start;
+  }
+
+  .moon-legal__toc {
+    position: sticky;
+    top: 6.5rem;
+  }
 }

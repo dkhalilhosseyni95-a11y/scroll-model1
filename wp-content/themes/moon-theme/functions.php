@@ -12,7 +12,7 @@
 defined( 'ABSPATH' ) || exit;
 
 if ( ! defined( 'MOON_THEME_VERSION' ) ) {
-	define( 'MOON_THEME_VERSION', '2.1.0' );
+	define( 'MOON_THEME_VERSION', '2.1.1' );
 }
 if ( ! defined( 'MOON_THEME_DIR' ) ) {
 	define( 'MOON_THEME_DIR', get_template_directory() );
@@ -35,6 +35,7 @@ require_once MOON_THEME_DIR . '/inc/customizer.php';
 require_once MOON_THEME_DIR . '/inc/newsletter.php';
 require_once MOON_THEME_DIR . '/inc/navigation.php';
 require_once MOON_THEME_DIR . '/inc/integrations/woocommerce.php';
+require_once MOON_THEME_DIR . '/inc/legal.php';
 require_once MOON_THEME_DIR . '/inc/auto-setup.php';
 require_once MOON_THEME_DIR . '/inc/cart-ajax.php';
 require_once MOON_THEME_DIR . '/inc/reviews.php';

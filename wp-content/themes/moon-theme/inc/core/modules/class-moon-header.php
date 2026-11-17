@@ -104,7 +104,7 @@ class Moon_Header {
 				<?php endif; ?>
 
 				<?php if ( 'minimal' !== $layout ) : ?>
-					<nav class="moon-nav" aria-label="<?php esc_attr_e( 'منوی اصلی', 'moon-theme' ); ?>">
+					<nav <?php self::nav_attrs(); ?>>
 						<?php self::nav(); ?>
 					</nav>
 				<?php endif; ?>
@@ -126,7 +126,7 @@ class Moon_Header {
 
 			<?php if ( 'centered' === $layout ) : ?>
 				<div class="moon-header__secondary">
-					<nav class="moon-nav" aria-label="<?php esc_attr_e( 'منوی اصلی', 'moon-theme' ); ?>">
+					<nav <?php self::nav_attrs(); ?>>
 						<?php self::nav(); ?>
 					</nav>
 				</div>
@@ -173,6 +173,31 @@ class Moon_Header {
 			<?php endif; ?>
 		</a>
 		<?php
+	}
+
+	/**
+	 * Attributes of the primary navigation element.
+	 *
+	 * The column count and the panel width of the mega menu are CSS custom
+	 * properties, so the panel follows the panel settings without any inline
+	 * styles leaking into the markup of each item.
+	 */
+	private static function nav_attrs() {
+		$columns = class_exists( 'Moon_Settings' ) ? (int) Moon_Settings::get( 'mega_columns', '4' ) : 4;
+		$columns = max( 2, min( 6, $columns ) );
+
+		$classes = array( 'moon-nav' );
+
+		if ( class_exists( 'Moon_Settings' ) && 'full' === Moon_Settings::get( 'mega_width', 'container' ) ) {
+			$classes[] = 'moon-nav--mega-full';
+		}
+
+		printf(
+			'class="%s" style="--moon-mega-cols:%d" aria-label="%s"',
+			esc_attr( implode( ' ', $classes ) ),
+			(int) $columns,
+			esc_attr__( 'منوی اصلی', 'moon-theme' )
+		);
 	}
 
 	/**
@@ -312,12 +337,42 @@ class Moon_Header {
 	 * @return array
 	 */
 	public static function mark_mega_items( $items, $args ) {
+		$enabled = ! class_exists( 'Moon_Settings' ) || Moon_Settings::get( 'mega_enabled', '1' );
+
 		foreach ( $items as $item ) {
-			$item->moon_mega = (bool) get_post_meta( $item->ID, '_moon_mega', true );
+			$item->moon_mega       = $enabled && (bool) get_post_meta( $item->ID, '_moon_mega', true );
 			$item->moon_mega_image = (int) get_post_meta( $item->ID, '_moon_mega_image', true );
+			$item->moon_mega_title = (string) get_post_meta( $item->ID, '_moon_mega_title', true );
+			$item->moon_mega_text  = (string) get_post_meta( $item->ID, '_moon_mega_text', true );
+			$item->moon_mega_url   = (string) get_post_meta( $item->ID, '_moon_mega_url', true );
 		}
 
 		return $items;
+	}
+
+	/**
+	 * Default promo card, used when a menu item has none of its own.
+	 *
+	 * @return array
+	 */
+	public static function default_promo() {
+		if ( ! class_exists( 'Moon_Settings' ) ) {
+			return array();
+		}
+
+		$title = (string) Moon_Settings::get( 'mega_promo_title' );
+		$image = (int) Moon_Settings::get( 'mega_promo_image', '0' );
+
+		if ( '' === trim( $title ) && ! $image ) {
+			return array();
+		}
+
+		return array(
+			'image' => $image,
+			'title' => $title,
+			'text'  => (string) Moon_Settings::get( 'mega_promo_text' ),
+			'url'   => (string) Moon_Settings::get( 'mega_promo_url' ),
+		);
 	}
 
 	/**
@@ -335,17 +390,36 @@ class Moon_Header {
 
 		$mega  = (bool) get_post_meta( $item_id, '_moon_mega', true );
 		$image = (int) get_post_meta( $item_id, '_moon_mega_image', true );
+		$title = (string) get_post_meta( $item_id, '_moon_mega_title', true );
+		$text  = (string) get_post_meta( $item_id, '_moon_mega_text', true );
+		$url   = (string) get_post_meta( $item_id, '_moon_mega_url', true );
+		$id    = (string) $item_id;
 		?>
-		<p class="moon-mega-field description-wide">
-			<label for="moon-mega-<?php echo esc_attr( (string) $item_id ); ?>">
-				<input type="checkbox" id="moon-mega-<?php echo esc_attr( (string) $item_id ); ?>" name="moon_mega[<?php echo esc_attr( (string) $item_id ); ?>]" value="1" <?php checked( $mega ); ?>>
-				<?php esc_html_e( 'نمایش به‌صورت مگامنو (زیرمنوها در ستون‌ها)', 'moon-theme' ); ?>
-			</label>
-		</p>
-		<p class="moon-mega-field description-wide">
-			<label for="moon-mega-image-<?php echo esc_attr( (string) $item_id ); ?>"><?php esc_html_e( 'تصویر تبلیغاتی مگامنو (شناسه تصویر)', 'moon-theme' ); ?></label>
-			<input type="number" min="0" class="widefat" id="moon-mega-image-<?php echo esc_attr( (string) $item_id ); ?>" name="moon_mega_image[<?php echo esc_attr( (string) $item_id ); ?>]" value="<?php echo esc_attr( (string) $image ); ?>">
-		</p>
+		<div class="moon-mega-fields description-wide">
+			<p class="moon-mega-field">
+				<label for="moon-mega-<?php echo esc_attr( $id ); ?>">
+					<input type="checkbox" id="moon-mega-<?php echo esc_attr( $id ); ?>" name="moon_mega[<?php echo esc_attr( $id ); ?>]" value="1" <?php checked( $mega ); ?>>
+					<strong><?php esc_html_e( 'نمایش به‌صورت مگامنو', 'moon-theme' ); ?></strong>
+				</label>
+				<span class="description"><?php esc_html_e( 'زیرمنوهای این آیتم در ستون‌ها و همراه کارت پیشنهادی نمایش داده می‌شوند.', 'moon-theme' ); ?></span>
+			</p>
+			<p class="moon-mega-field">
+				<label for="moon-mega-image-<?php echo esc_attr( $id ); ?>"><?php esc_html_e( 'کارت پیشنهادی · شناسه تصویر', 'moon-theme' ); ?></label>
+				<input type="number" min="0" class="widefat" id="moon-mega-image-<?php echo esc_attr( $id ); ?>" name="moon_mega_image[<?php echo esc_attr( $id ); ?>]" value="<?php echo esc_attr( (string) $image ); ?>">
+			</p>
+			<p class="moon-mega-field">
+				<label for="moon-mega-title-<?php echo esc_attr( $id ); ?>"><?php esc_html_e( 'کارت پیشنهادی · عنوان', 'moon-theme' ); ?></label>
+				<input type="text" class="widefat" id="moon-mega-title-<?php echo esc_attr( $id ); ?>" name="moon_mega_title[<?php echo esc_attr( $id ); ?>]" value="<?php echo esc_attr( $title ); ?>">
+			</p>
+			<p class="moon-mega-field">
+				<label for="moon-mega-text-<?php echo esc_attr( $id ); ?>"><?php esc_html_e( 'کارت پیشنهادی · توضیح کوتاه', 'moon-theme' ); ?></label>
+				<input type="text" class="widefat" id="moon-mega-text-<?php echo esc_attr( $id ); ?>" name="moon_mega_text[<?php echo esc_attr( $id ); ?>]" value="<?php echo esc_attr( $text ); ?>">
+			</p>
+			<p class="moon-mega-field">
+				<label for="moon-mega-url-<?php echo esc_attr( $id ); ?>"><?php esc_html_e( 'کارت پیشنهادی · لینک', 'moon-theme' ); ?></label>
+				<input type="url" class="widefat" id="moon-mega-url-<?php echo esc_attr( $id ); ?>" name="moon_mega_url[<?php echo esc_attr( $id ); ?>]" value="<?php echo esc_attr( $url ); ?>">
+			</p>
+		</div>
 		<?php
 	}
 
@@ -375,6 +449,23 @@ class Moon_Header {
 		} else {
 			delete_post_meta( $item_id, '_moon_mega_image' );
 		}
+
+		$text_fields = array(
+			'_moon_mega_title' => 'moon_mega_title',
+			'_moon_mega_text'  => 'moon_mega_text',
+			'_moon_mega_url'   => 'moon_mega_url',
+		);
+
+		foreach ( $text_fields as $meta_key => $field ) {
+			$value = isset( $_POST[ $field ][ $item_id ] ) ? wp_unslash( $_POST[ $field ][ $item_id ] ) : ''; // phpcs:ignore WordPress.Security.NonceVerification
+			$value = '_moon_mega_url' === $meta_key ? esc_url_raw( $value ) : sanitize_text_field( $value );
+
+			if ( '' !== $value ) {
+				update_post_meta( $item_id, $meta_key, $value );
+			} else {
+				delete_post_meta( $item_id, $meta_key );
+			}
+		}
 	}
 }
 
@@ -391,9 +482,66 @@ class Moon_Mega_Walker extends Walker_Nav_Menu {
 	 * @param stdClass $args   Args.
 	 */
 	public function start_lvl( &$output, $depth = 0, $args = null ) {
-		$classes = 0 === $depth ? 'moon-submenu' : 'moon-submenu moon-submenu--deep';
+		$classes = 0 === $depth ? 'sub-menu moon-submenu' : 'sub-menu moon-submenu moon-submenu--deep';
 
 		$output .= '<ul class="' . esc_attr( $classes ) . '">';
+
+		if ( 0 === $depth && $this->mega_item ) {
+			$output .= self::promo_markup( $this->mega_item );
+		}
+	}
+
+	/**
+	 * Promo card shown inside the mega panel.
+	 *
+	 * @param WP_Post $item Menu item.
+	 * @return string
+	 */
+	private static function promo_markup( $item ) {
+		$image = isset( $item->moon_mega_image ) ? (int) $item->moon_mega_image : 0;
+		$title = isset( $item->moon_mega_title ) ? (string) $item->moon_mega_title : '';
+		$text  = isset( $item->moon_mega_text ) ? (string) $item->moon_mega_text : '';
+		$url   = isset( $item->moon_mega_url ) ? (string) $item->moon_mega_url : '';
+
+		if ( ! $image && '' === trim( $title ) && class_exists( 'Moon_Header' ) ) {
+			$promo = Moon_Header::default_promo();
+
+			if ( $promo ) {
+				$image = (int) $promo['image'];
+				$title = (string) $promo['title'];
+				$text  = (string) $promo['text'];
+				$url   = (string) $promo['url'];
+			}
+		}
+
+		if ( ! $image && '' === trim( $title ) ) {
+			return '';
+		}
+
+		ob_start();
+		?>
+		<li class="moon-mega__promo">
+			<a class="moon-mega__promo-link" href="<?php echo esc_url( $url ? $url : moon_shop_url() ); ?>">
+				<?php if ( $image ) : ?>
+					<span class="moon-mega__promo-media"><?php echo wp_get_attachment_image( $image, 'medium_large', false, array( 'loading' => 'lazy', 'alt' => $title ) ); ?></span>
+				<?php endif; ?>
+				<span class="moon-mega__promo-body">
+					<?php if ( '' !== trim( $title ) ) : ?>
+						<span class="moon-mega__promo-title"><?php echo esc_html( $title ); ?></span>
+					<?php endif; ?>
+					<?php if ( '' !== trim( $text ) ) : ?>
+						<span class="moon-mega__promo-text"><?php echo esc_html( $text ); ?></span>
+					<?php endif; ?>
+				</span>
+				<span class="moon-mega__promo-cta">
+					<?php esc_html_e( 'مشاهده', 'moon-theme' ); ?>
+					<?php moon_the_icon( 'arrow-left', 14 ); ?>
+				</span>
+			</a>
+		</li>
+		<?php
+
+		return (string) ob_get_clean();
 	}
 
 	/**
@@ -409,23 +557,31 @@ class Moon_Mega_Walker extends Walker_Nav_Menu {
 		$classes   = empty( $item->classes ) ? array() : (array) $item->classes;
 		$classes[] = 'menu-item-' . $item->ID;
 
-		if ( ! empty( $item->moon_mega ) ) {
+		$mega = 0 === (int) $depth && ! empty( $item->moon_mega );
+
+		if ( $mega ) {
 			$classes[] = 'moon-nav__item--mega';
 		}
 
 		$class_names = implode( ' ', array_filter( array_map( 'sanitize_html_class', $classes ) ) );
 		$output     .= '<li class="' . esc_attr( $class_names ) . '">';
 
-		$link = '<a href="' . esc_url( $item->url ) . '"' . ( ! empty( $item->target ) ? ' target="' . esc_attr( $item->target ) . '"' : '' ) . '>' . esc_html( $item->title ) . '</a>';
+		$this->mega_item = $mega ? $item : null;
 
-		if ( ! empty( $item->moon_mega ) ) {
-			$image_id = isset( $item->moon_mega_image ) ? (int) $item->moon_mega_image : 0;
+		$output .= '<a href="' . esc_url( $item->url ) . '"' . ( ! empty( $item->target ) ? ' target="' . esc_attr( $item->target ) . '"' : '' ) . '>';
+		$output .= '<span class="moon-nav__label">' . esc_html( $item->title ) . '</span>';
 
-			$link .= $image_id
-				? '<span class="moon-mega__promo">' . wp_get_attachment_image( $image_id, 'medium', false, array( 'loading' => 'lazy', 'alt' => $item->title ) ) . '</span>'
-				: '';
+		if ( $mega ) {
+			$output .= '<span class="moon-nav__caret" aria-hidden="true">' . moon_icon( 'chevron-right', 13 ) . '</span>';
 		}
 
-		$output .= $link;
+		$output .= '</a>';
 	}
+
+	/**
+	 * Item whose children are currently rendered.
+	 *
+	 * @var WP_Post|null
+	 */
+	private $mega_item = null;
 }

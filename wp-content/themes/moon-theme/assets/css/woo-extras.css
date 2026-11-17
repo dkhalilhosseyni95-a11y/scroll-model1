@@ -8,33 +8,15 @@
 /* --------------------------------------------------------------------------
  * Card additions
  * ------------------------------------------------------------------------ */
-.moon-card__compare {
-  position: absolute;
-  inset-block-start: 3.1rem;
-  inset-inline-start: 0.75rem;
-  display: inline-grid;
-  place-items: center;
-  width: 2rem;
-  height: 2rem;
-  padding: 0;
-  border: 1px solid var(--border);
-  border-radius: 50%;
-  background: var(--glass);
-  color: var(--foreground);
-  backdrop-filter: blur(8px);
-  opacity: 0;
-  transition: opacity 0.25s ease, color 0.2s ease;
-}
-
-.moon-card:hover .moon-card__compare,
-.moon-card__compare:focus-visible {
-  opacity: 1;
-}
-
 .moon-card__compare[aria-pressed="true"] {
   border-color: var(--accent);
   color: var(--accent);
-  opacity: 1;
+}
+
+.moon-card__quick:hover,
+.moon-card__compare:hover {
+  background: var(--foreground);
+  color: var(--background);
 }
 
 .moon-card__stock {

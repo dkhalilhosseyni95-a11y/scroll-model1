@@ -362,6 +362,28 @@ function moon_settings_schema() {
 						moon_field( 'topbar_fg', 'متن نوار', 'color', array( 'default' => '' ) ),
 					),
 				),
+				'mega'     => array(
+					'label'  => __( 'مگامنو', 'moon-theme' ),
+					'desc'   => __( 'مگامنو از زیرمنوهای خودِ وردپرس ساخته می‌شود: در نمایش → فهرست‌ها، زیرمنوهای آیتم اصلی را بسازید و همان آیتم را مگامنو کنید. کارت پیشنهادی هر آیتم را هم در همان‌جا تعیین می‌کنید.', 'moon-theme' ),
+					'fields' => array(
+						moon_field( 'mega_enabled', 'فعال بودن مگامنو', 'checkbox', array( 'default' => 1 ) ),
+						moon_field( 'mega_columns', 'تعداد ستون دسته‌ها', 'number', array( 'min' => 2, 'max' => 6, 'default' => 4 ) ),
+						moon_field( 'mega_width', 'عرض پنل مگامنو', 'select', array(
+							'options' => array(
+								'container' => 'هم‌عرض محتوای سایت',
+								'full'      => 'تمام‌عرض صفحه',
+							),
+							'default' => 'container',
+						) ),
+						moon_field( 'mega_show_images', 'نمایش تصویر دسته‌ها در مگامنو', 'checkbox', array( 'default' => 1 ) ),
+						moon_field( 'mega_promo_image', 'تصویر کارت پیشنهادی (شناسه تصویر)', 'number', array( 'min' => 0, 'default' => 0 ) ),
+						moon_field( 'mega_promo_title', 'عنوان کارت پیشنهادی', 'text', array( 'default' => 'کالکشن جدید' ) ),
+						moon_field( 'mega_promo_text', 'توضیح کوتاه کارت پیشنهادی', 'text', array( 'default' => '' ) ),
+						moon_field( 'mega_promo_url', 'لینک کارت پیشنهادی', 'url', array( 'default' => '' ) ),
+						moon_field( 'category_strip', 'نوار زیردسته‌ها در صفحه دسته‌بندی', 'checkbox', array( 'default' => 1 ) ),
+						moon_field( 'category_strip_images', 'نمایش تصویر در نوار زیردسته‌ها', 'checkbox', array( 'default' => 1 ) ),
+					),
+				),
 			),
 		),
 

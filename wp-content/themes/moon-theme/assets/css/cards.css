@@ -16,7 +16,8 @@
   position: relative;
   overflow: hidden;
   aspect-ratio: 3 / 4;
-  border-radius: 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: 1rem;
   background: var(--stage);
 }
 
@@ -86,12 +87,18 @@
   color: var(--on-overlay);
 }
 
-/* Wishlist */
-.moon-card__like {
+/* Media tools (quick view / wishlist / compare) */
+.moon-card__tools {
   position: absolute;
-  top: 0.75rem;
-  inset-inline-start: 0.75rem;
+  top: 0.7rem;
+  inset-inline-start: 0.7rem;
   z-index: 3;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.moon-card__like {
   display: grid;
   place-items: center;
   width: 2.25rem;

@@ -12,7 +12,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'MOON_SETUP_VERSION', '2.1.0' );
+define( 'MOON_SETUP_VERSION', '2.1.1' );
 
 /**
  * Shop categories shown as tabs on the shop page and in the menu.
@@ -37,12 +37,17 @@ function moon_run_auto_setup() {
 	}
 
 	// Pages.
+	$legal = static function ( $kind ) {
+		return function_exists( 'moon_legal_content_html' ) ? moon_legal_content_html( $kind ) : '';
+	};
+
 	$pages = array(
-		'home'     => array( 'خانه', '' ),
-		'about'    => array( 'درباره ما', '' ),
-		'contact'  => array( 'تماس با ما', '' ),
-		'shipping' => array( 'ارسال و بازگشت', "<p>شرایط ارسال و مرجوعی کالا را اینجا بنویسید.</p>" ),
-		'privacy'  => array( 'حریم خصوصی', "<p>اطلاعات ثبت‌شده فقط برای پردازش سفارش و پشتیبانی استفاده می‌شود.</p>" ),
+		'home'     => array( 'خانه', '', '' ),
+		'about'    => array( 'درباره ما', '', 'page-about.php' ),
+		'contact'  => array( 'تماس با ما', '', 'page-contact.php' ),
+		'shipping' => array( 'ارسال و بازگشت', "<p>شرایط ارسال و مرجوعی کالا را اینجا بنویسید.</p>", '' ),
+		'privacy'  => array( 'حریم خصوصی', $legal( 'privacy' ), 'page-privacy.php' ),
+		'terms'    => array( 'قوانین و مقررات', $legal( 'terms' ), 'page-terms.php' ),
 	);
 
 	foreach ( $pages as $slug => $page ) {
@@ -58,8 +63,33 @@ function moon_run_auto_setup() {
 			'post_type'    => 'page',
 		) );
 
-		if ( $new_id && ! is_wp_error( $new_id ) && in_array( $slug, array( 'about', 'contact' ), true ) ) {
-			update_post_meta( $new_id, '_wp_page_template', 'page-' . $slug . '.php' );
+		if ( $new_id && ! is_wp_error( $new_id ) && ! empty( $page[2] ) ) {
+			update_post_meta( $new_id, '_wp_page_template', $page[2] );
+		}
+	}
+
+	// Legal pages created by an older version still need the designed template
+	// and the shipped copy instead of the one-line placeholder.
+	foreach ( array( 'privacy' => 'page-privacy.php', 'terms' => 'page-terms.php' ) as $legal_slug => $legal_template ) {
+		$legal_page = get_page_by_path( $legal_slug );
+
+		if ( ! $legal_page ) {
+			continue;
+		}
+
+		$legal_current = (string) get_post_meta( $legal_page->ID, '_wp_page_template', true );
+
+		if ( '' === $legal_current || 'default' === $legal_current ) {
+			update_post_meta( $legal_page->ID, '_wp_page_template', $legal_template );
+		}
+
+		$legal_body = (string) $legal_page->post_content;
+
+		if ( '' === trim( $legal_body ) || false !== strpos( $legal_body, 'اطلاعات ثبت‌شده فقط برای پردازش سفارش' ) ) {
+			wp_update_post( array(
+				'ID'           => $legal_page->ID,
+				'post_content' => $legal( $legal_slug ),
+			) );
 		}
 	}
 

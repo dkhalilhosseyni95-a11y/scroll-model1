@@ -153,29 +153,85 @@
   position: static;
 }
 
+.moon-nav .moon-nav__item--mega > a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.moon-nav__caret {
+  display: inline-flex;
+  color: var(--muted-foreground);
+  transition: transform 0.3s ease;
+}
+
+.moon-nav .moon-nav__item--mega:hover > a .moon-nav__caret,
+.moon-nav .moon-nav__item--mega:focus-within > a .moon-nav__caret {
+  transform: rotate(90deg);
+  color: var(--accent);
+}
+
 .moon-nav .moon-nav__item--mega > .sub-menu {
   inset-inline: 0;
   display: none;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 0.35rem 1.5rem;
-  width: min(60rem, calc(100vw - 3rem));
-  margin-inline: auto;
-  padding: 1.25rem 1.5rem;
+  grid-template-columns: repeat(var(--moon-mega-cols, 4), minmax(0, 1fr));
+  gap: 1.5rem 1.75rem;
+  width: min(72rem, calc(100vw - 3rem));
+  max-height: min(72vh, 36rem);
+  overflow-y: auto;
+  margin: 0.6rem auto 0;
+  padding: 1.6rem 1.75rem;
   border: 1px solid var(--border);
   border-radius: var(--radius);
   background: var(--card);
   box-shadow: var(--shadow-soft);
 }
 
+/* Keeps the panel open while the pointer crosses the gap under the link. */
+.moon-nav .moon-nav__item--mega > .sub-menu::before {
+  content: "";
+  position: absolute;
+  inset-inline: 0;
+  top: -0.7rem;
+  height: 0.7rem;
+}
+
+.moon-nav--mega-full .moon-nav__item--mega > .sub-menu {
+  width: auto;
+  max-height: min(80vh, 40rem);
+  margin-inline: 0;
+  border-radius: 0 0 var(--radius) var(--radius);
+}
+
 .moon-nav .moon-nav__item--mega:hover > .sub-menu,
 .moon-nav .moon-nav__item--mega:focus-within > .sub-menu {
   display: grid;
+  align-items: stretch;
+}
+
+.moon-nav .moon-nav__item--mega > .sub-menu > li {
+  min-width: 0;
+}
+
+.moon-nav .moon-nav__item--mega > .sub-menu > li > a {
+  margin-bottom: 0.5rem;
+  padding: 0 0 0.5rem;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: var(--foreground);
+}
+
+.moon-nav .moon-nav__item--mega > .sub-menu > li > a::after {
+  display: none;
 }
 
 .moon-nav .moon-nav__item--mega > .sub-menu .sub-menu {
   position: static;
   display: block;
-  padding: 0 0 0 0.75rem;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
   border: 0;
   box-shadow: none;
   background: none;
@@ -184,17 +240,87 @@
   transform: none;
 }
 
-.moon-mega__promo {
-  display: block;
-  grid-column: 1 / -1;
-  overflow: hidden;
-  border-radius: var(--radius);
+.moon-nav .moon-nav__item--mega > .sub-menu .sub-menu a {
+  padding: 0.3rem 0;
+  font-size: 0.81rem;
+  color: var(--muted-foreground);
 }
 
-.moon-mega__promo img {
+.moon-nav .moon-nav__item--mega > .sub-menu .sub-menu a:hover,
+.moon-nav .moon-nav__item--mega > .sub-menu .sub-menu a:focus-visible {
+  color: var(--foreground);
+}
+
+.moon-nav .moon-nav__item--mega > .sub-menu .sub-menu a::after {
+  display: none;
+}
+
+.moon-mega__promo {
+  min-width: 0;
+  grid-column: 1 / -1;
+  order: 1;
+}
+
+.moon-mega__promo-link {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.6rem 1rem 0.6rem 0.6rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--stage);
+  overflow: hidden;
+}
+
+.moon-mega__promo-media {
+  flex: 0 0 auto;
+  display: block;
+  width: 5.5rem;
+  aspect-ratio: 1;
+  overflow: hidden;
+  border-radius: calc(var(--radius) - 6px);
+}
+
+.moon-mega__promo-media img {
   width: 100%;
-  max-height: 190px;
+  height: 100%;
   object-fit: cover;
+  transition: transform 0.7s ease;
+}
+
+.moon-mega__promo-link:hover .moon-mega__promo-media img {
+  transform: scale(1.05);
+}
+
+.moon-mega__promo-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  min-width: 0;
+}
+
+.moon-mega__promo-title {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--foreground);
+}
+
+.moon-mega__promo-text {
+  font-size: 0.74rem;
+  line-height: 1.8;
+  color: var(--muted-foreground);
+}
+
+.moon-mega__promo-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  margin-inline-start: auto;
+  padding-inline-start: 1rem;
+  font-size: 0.75rem;
+  white-space: nowrap;
+  color: var(--accent);
 }
 
 /* --------------------------------------------------------------------------

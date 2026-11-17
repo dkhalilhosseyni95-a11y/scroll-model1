@@ -745,6 +745,14 @@ class Moon_Demo_Importer {
 	 * Journal posts so the blog page is not empty.
 	 */
 	private static function import_journal() {
+		// The "Hello world!" sample post that ships with WordPress has no image
+		// and an English body, so it would stand out on the Persian journal.
+		$sample = get_page_by_path( 'hello-world', OBJECT, 'post' );
+
+		if ( $sample && false !== strpos( (string) $sample->post_content, 'Welcome to WordPress' ) ) {
+			wp_trash_post( $sample->ID );
+		}
+
 		$posts = array(
 			array(
 				'title'   => 'چگونه کالکشن پاییز را لایه‌لایه بپوشیم',
@@ -1308,6 +1316,7 @@ class Moon_Demo_Importer {
 
 		if ( $menu ) {
 			self::$report['skipped'][] = __( 'منوی اصلی از قبل وجود دارد.', 'moon-theme' );
+			self::build_mega_menus( (int) $menu->term_id );
 		} else {
 			$menu_id = wp_create_nav_menu( $menu_name );
 
@@ -1360,7 +1369,151 @@ class Moon_Demo_Importer {
 			$locations['primary'] = $menu_id;
 			set_theme_mod( 'nav_menu_locations', $locations );
 
+			self::build_mega_menus( (int) $menu_id );
+
 			self::$report['messages'][] = __( 'منوی اصلی ساخته و به هدر متصل شد.', 'moon-theme' );
 		}
+	}
+
+	/**
+	 * Two-level mega panels under the main category links.
+	 *
+	 * An item that already has children is skipped, so a menu the owner has
+	 * reorganised is never overwritten.
+	 *
+	 * @param int $menu_id Menu id.
+	 */
+	private static function build_mega_menus( $menu_id ) {
+		$items = wp_get_nav_menu_items( $menu_id );
+
+		if ( ! $items || ! function_exists( 'wc_get_page_permalink' ) ) {
+			return;
+		}
+
+		$shop_url = untrailingslashit( (string) wc_get_page_permalink( 'shop' ) );
+		$groups   = array();
+
+		foreach ( array( 'women', 'men', 'kids', 'scarves' ) as $slug ) {
+			$term = get_term_by( 'slug', $slug, 'product_cat' );
+
+			if ( ! $term || is_wp_error( $term ) ) {
+				continue;
+			}
+
+			$link = get_term_link( $term );
+
+			if ( is_wp_error( $link ) ) {
+				continue;
+			}
+
+			$groups[] = array(
+				'label' => $term->name,
+				'link'  => $link,
+				'items' => array(
+					__( 'جدیدترین‌ها', 'moon-theme' ) => add_query_arg( 'orderby', 'date', $link ),
+					__( 'پرفروش‌ها', 'moon-theme' )   => add_query_arg( 'orderby', 'popularity', $link ),
+					__( 'ارزان‌ترین', 'moon-theme' )  => add_query_arg( 'orderby', 'price', $link ),
+				),
+			);
+		}
+
+		if ( ! $groups ) {
+			return;
+		}
+
+		foreach ( $items as $item ) {
+			if ( 0 !== (int) $item->menu_item_parent || untrailingslashit( (string) $item->url ) !== $shop_url ) {
+				continue;
+			}
+
+			$has_children = false;
+
+			foreach ( $items as $child ) {
+				if ( (int) $child->menu_item_parent === (int) $item->ID ) {
+					$has_children = true;
+					break;
+				}
+			}
+
+			update_post_meta( $item->ID, '_moon_mega', 1 );
+			update_post_meta( $item->ID, '_moon_mega_title', __( 'کالکشن پاییز', 'moon-theme' ) );
+			update_post_meta( $item->ID, '_moon_mega_text', __( 'لایه‌های گرم برای روزهای سرد', 'moon-theme' ) );
+			update_post_meta( $item->ID, '_moon_mega_url', $item->url );
+
+			$image_id = (int) get_post_meta( $item->ID, '_moon_mega_image', true );
+
+			if ( ! $image_id ) {
+				$image_id = self::attachment_by_file( 'campaign.jpg' );
+			}
+
+			if ( $image_id ) {
+				update_post_meta( $item->ID, '_moon_mega_image', $image_id );
+			}
+
+			if ( $has_children ) {
+				continue;
+			}
+
+			$position = 0;
+
+			foreach ( $groups as $group ) {
+				$group_id = wp_update_nav_menu_item( $menu_id, 0, array(
+					'menu-item-title'     => $group['label'],
+					'menu-item-url'       => $group['link'],
+					'menu-item-type'      => 'custom',
+					'menu-item-status'    => 'publish',
+					'menu-item-parent-id' => $item->ID,
+					'menu-item-position'  => ++$position,
+				) );
+
+				$sub = 0;
+
+				foreach ( $group['items'] as $label => $url ) {
+					wp_update_nav_menu_item( $menu_id, 0, array(
+						'menu-item-title'     => $label,
+						'menu-item-url'       => $url,
+						'menu-item-type'      => 'custom',
+						'menu-item-status'    => 'publish',
+						'menu-item-parent-id' => $group_id,
+						'menu-item-position'  => ++$sub,
+					) );
+				}
+			}
+
+			self::$report['messages'][] = __( 'مگامنوی دسته‌بندی‌ها ساخته و به آیتم «فروشگاه» وصل شد.', 'moon-theme' );
+		}
+	}
+
+	/**
+	 * An already imported demo image, by file name.
+	 *
+	 * @param string $file File name in the theme assets.
+	 * @return int Attachment id or 0.
+	 */
+	private static function attachment_by_file( $file ) {
+		$uploads = wp_upload_dir();
+
+		if ( empty( $uploads['error'] ) ) {
+			$id = attachment_url_to_postid( trailingslashit( $uploads['baseurl'] ) . $file );
+
+			if ( $id ) {
+				return (int) $id;
+			}
+		}
+
+		// An earlier import may have stored the file with a numeric suffix
+		// (campaign-2.jpg), so look the attachment up by its title too.
+		$base  = preg_replace( '/\.[^.]+$/', '', $file );
+		$found = get_posts( array(
+			'post_type'      => 'attachment',
+			'post_status'    => 'inherit',
+			'posts_per_page' => 1,
+			'orderby'        => 'ID',
+			'order'          => 'DESC',
+			's'              => ucfirst( str_replace( array( '-', '_' ), ' ', (string) $base ) ),
+			'fields'         => 'ids',
+		) );
+
+		return $found ? (int) $found[0] : 0;
 	}
 }

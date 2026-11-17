@@ -89,6 +89,33 @@ class Moon_Footer {
 	}
 
 	/**
+	 * Legal page links shown in the footer bar.
+	 *
+	 * @return array
+	 */
+	public static function legal_links() {
+		$pages = array(
+			'privacy'  => __( 'حریم خصوصی', 'moon-theme' ),
+			'terms'    => __( 'قوانین و مقررات', 'moon-theme' ),
+			'shipping' => __( 'ارسال و بازگشت', 'moon-theme' ),
+		);
+		$links = array();
+
+		foreach ( $pages as $slug => $label ) {
+			$page = get_page_by_path( $slug );
+
+			if ( $page ) {
+				$links[] = array(
+					'label' => $label,
+					'url'   => (string) get_permalink( $page ),
+				);
+			}
+		}
+
+		return $links;
+	}
+
+	/**
 	 * Render the footer.
 	 */
 	public static function render() {
@@ -131,6 +158,15 @@ class Moon_Footer {
 
 			<div class="moon-footer__bottom">
 				<span><?php echo esc_html( Moon_Settings::get( 'footer_copyright' ) ); ?></span>
+
+				<?php $legal = self::legal_links(); ?>
+				<?php if ( $legal ) : ?>
+					<span class="moon-footer__legal">
+						<?php foreach ( $legal as $legal_link ) : ?>
+							<a href="<?php echo esc_url( $legal_link['url'] ); ?>"><?php echo esc_html( $legal_link['label'] ); ?></a>
+						<?php endforeach; ?>
+					</span>
+				<?php endif; ?>
 
 				<?php $badges = self::payments(); ?>
 				<?php if ( $badges ) : ?>

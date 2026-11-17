@@ -31,6 +31,7 @@ $moon_sorts = array(
 $moon_total = (int) wc_get_loop_prop( 'total' );
 ?>
 <?php get_template_part( 'template-parts/shop/category-tabs' ); ?>
+<?php get_template_part( 'template-parts/shop/subcategories' ); ?>
 <div class="moon-shop__layout">
 	<?php if ( class_exists( 'Moon_Shop' ) ) : ?>
 		<aside class="moon-shop__filters" id="moon-shop-filters" aria-label="<?php esc_attr_e( 'فیلتر محصولات', 'moon-theme' ); ?>">
