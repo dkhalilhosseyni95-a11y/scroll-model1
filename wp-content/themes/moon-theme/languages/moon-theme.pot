@@ -1,0 +1,2173 @@
+# Copyright (C) 2026 MOON Studio
+# This file is distributed under the GNU General Public License v2 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: MOON — Luxury Fashion Ecommerce Theme 2.1.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/theme/theme\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-11-17T05:08:10+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.12.0\n"
+"X-Domain: moon-theme\n"
+
+#. Theme Name of the theme
+#: style.css
+msgid "MOON — Luxury Fashion Ecommerce Theme"
+msgstr ""
+
+#. Theme URI of the theme
+#. Author URI of the theme
+#: style.css
+msgid "https://moon-theme.local"
+msgstr ""
+
+#. Description of the theme
+#: style.css
+msgid "قالب فروشگاهی پوشاک MOON؛ یک‌پارچه و بدون نیاز به افزونه جانبی. صفحه‌ساز داخلی، هدر و فوتر ساز، طراحی مبتنی بر متغیرهای CSS، ورود و ثبت‌نام با تأیید شماره موبایل، مقایسه محصولات، سبد خرید آنی و سازگار با ووکامرس و المنتور."
+msgstr ""
+
+#. Author of the theme
+#: style.css
+msgid "MOON Studio"
+msgstr ""
+
+#: 404.php:13
+msgid "این صفحه پیدا نشد"
+msgstr ""
+
+#: 404.php:14
+msgid "ممکن است نشانی تغییر کرده باشد. از فروشگاه شروع کنید."
+msgstr ""
+
+#: 404.php:16
+msgid "بازگشت به خانه"
+msgstr ""
+
+#: 404.php:17
+#: inc/core/admin/class-moon-admin.php:45
+#: inc/core/settings/schema.php:424
+#: template-parts/footer/site-footer.php:24
+#: template-parts/header/bottom-nav.php:37
+msgid "فروشگاه"
+msgstr ""
+
+#: functions.php:62
+msgid "افزونه قدیمی «MOON Core» هنوز فعال است. آن را غیرفعال و حذف کنید؛ تمام قابلیت‌ها اکنون داخل خود قالب هستند."
+msgstr ""
+
+#: header.php:20
+msgid "رفتن به محتوا"
+msgstr ""
+
+#: inc/account-flow.php:51
+msgid "سبد خرید شما محفوظ است. برای ثبت سفارش با شماره موبایل وارد شوید."
+msgstr ""
+
+#: inc/account-flow.php:61
+msgid "برای ثبت سفارش ابتدا با شماره موبایل وارد شوید."
+msgstr ""
+
+#: inc/cart-ajax.php:33
+msgid "کاهش تعداد"
+msgstr ""
+
+#: inc/cart-ajax.php:35
+msgid "افزایش تعداد"
+msgstr ""
+
+#: inc/checkout.php:21
+#: woocommerce/myaccount/form-login.php:56
+#: woocommerce/myaccount/form-login.php:127
+msgid "شماره موبایل"
+msgstr ""
+
+#: inc/checkout.php:33
+#: inc/contact.php:83
+#: inc/core/admin/views/subscribers.php:37
+#: page-contact.php:47
+#: page-contact.php:86
+msgid "ایمیل"
+msgstr ""
+
+#: inc/checkout.php:47
+msgid "شماره موبایل الزامی است."
+msgstr ""
+
+#: inc/checkout.php:57
+msgid "شماره موبایل معتبر نیست. نمونه: 09123456789"
+msgstr ""
+
+#: inc/checkout.php:78
+msgid "قبلاً ثبت‌نام کرده‌اید؟"
+msgstr ""
+
+#: inc/checkout.php:78
+#: inc/reviews.php:28
+#: woocommerce/myaccount/form-login.php:50
+msgid "ورود با شماره موبایل"
+msgstr ""
+
+#: inc/contact.php:17
+#: inc/contact.php:19
+msgid "پیام‌های تماس"
+msgstr ""
+
+#: inc/contact.php:18
+msgid "پیام تماس"
+msgstr ""
+
+#: inc/contact.php:41
+msgid "پیام شما ثبت شد."
+msgstr ""
+
+#: inc/contact.php:49
+msgid "کمی بعد دوباره تلاش کنید."
+msgstr ""
+
+#: inc/contact.php:59
+msgid "نام، متن پیام و ایمیل یا شماره تماس را کامل وارد کنید."
+msgstr ""
+
+#: inc/contact.php:63
+msgid "متن پیام بیش از حد طولانی است."
+msgstr ""
+
+#: inc/contact.php:77
+msgid "ثبت پیام انجام نشد. دوباره تلاش کنید."
+msgstr ""
+
+#: inc/contact.php:83
+#: woocommerce/myaccount/form-login.php:149
+msgid "نام"
+msgstr ""
+
+#: inc/contact.php:83
+#: page-contact.php:80
+msgid "تلفن"
+msgstr ""
+
+#: inc/contact.php:86
+#, php-format
+msgid "پیام تازه از سایت: %s"
+msgstr ""
+
+#: inc/contact.php:88
+msgid "پیام شما ثبت شد. حداکثر تا یک روز کاری پاسخ می‌دهیم."
+msgstr ""
+
+#: inc/core/admin/class-moon-admin.php:40
+#: inc/core/admin/views/dashboard.php:16
+msgid "داشبورد"
+msgstr ""
+
+#: inc/core/admin/class-moon-admin.php:41
+#: inc/core/settings/schema.php:81
+msgid "صفحه اصلی"
+msgstr ""
+
+#: inc/core/admin/class-moon-admin.php:42
+#: inc/core/settings/schema.php:224
+msgid "ظاهر و طراحی"
+msgstr ""
+
+#: inc/core/admin/class-moon-admin.php:43
+#: inc/core/settings/schema.php:312
+msgid "هدر"
+msgstr ""
+
+#: inc/core/admin/class-moon-admin.php:44
+#: inc/core/settings/schema.php:372
+msgid "فوتر"
+msgstr ""
+
+#: inc/core/admin/class-moon-admin.php:46
+#: inc/core/modules/class-moon-header.php:222
+#: inc/core/settings/schema.php:509
+msgid "حساب کاربری"
+msgstr ""
+
+#: inc/core/admin/class-moon-admin.php:47
+#: inc/core/settings/schema.php:527
+msgid "موبایل"
+msgstr ""
+
+#: inc/core/admin/class-moon-admin.php:48
+msgid "عملکرد"
+msgstr ""
+
+#: inc/core/admin/class-moon-admin.php:49
+#: inc/core/settings/schema.php:574
+msgid "سئو و کد سفارشی"
+msgstr ""
+
+#: inc/core/admin/class-moon-admin.php:50
+msgid "ابزارها"
+msgstr ""
+
+#: inc/core/admin/class-moon-admin.php:51
+#: inc/core/admin/views/subscribers.php:16
+#: inc/core/settings/class-moon-settings.php:360
+#: inc/core/settings/schema.php:210
+msgid "خبرنامه"
+msgstr ""
+
+#: inc/core/admin/class-moon-admin.php:69
+#: inc/core/admin/class-moon-admin.php:70
+#: inc/customizer.php:61
+#: template-parts/footer/site-footer.php:26
+msgid "MOON"
+msgstr ""
+
+#: inc/core/admin/class-moon-admin.php:240
+msgid "بخش‌های تنظیمات"
+msgstr ""
+
+#: inc/core/admin/class-moon-admin.php:267
+msgid "ذخیره تنظیمات"
+msgstr ""
+
+#: inc/core/admin/class-moon-admin.php:268
+#: inc/core/admin/views/dashboard.php:190
+msgid "مشاهده سایت"
+msgstr ""
+
+#: inc/core/admin/class-moon-admin.php:269
+msgid "تنظیمات این صفحه به مقادیر پیش‌فرض بازگردد؟"
+msgstr ""
+
+#: inc/core/admin/class-moon-admin.php:269
+msgid "بازگردانی این بخش"
+msgstr ""
+
+#: inc/core/admin/class-moon-admin.php:300
+#: inc/core/admin/class-moon-stats.php:363
+#: inc/core/admin/class-moon-stats.php:368
+#: inc/core/admin/class-moon-stats.php:373
+#: inc/core/admin/views/builder.php:40
+msgid "فعال"
+msgstr ""
+
+#: inc/core/admin/class-moon-admin.php:359
+#: inc/core/admin/views/builder.php:58
+msgid "انتخاب تصویر"
+msgstr ""
+
+#: inc/core/admin/class-moon-admin.php:360
+#: inc/core/admin/views/builder.php:59
+msgid "حذف"
+msgstr ""
+
+#: inc/core/admin/class-moon-admin.php:365
+msgid "انتخاب فایل"
+msgstr ""
+
+#: inc/core/admin/class-moon-admin.php:394
+msgid "تنظیمات ذخیره شد."
+msgstr ""
+
+#: inc/core/admin/class-moon-admin.php:395
+msgid "ترتیب ذخیره شد."
+msgstr ""
+
+#: inc/core/admin/class-moon-admin.php:396
+msgid "بخش جدید اضافه شد. برای نمایش در سایت، تغییرات را منتشر کنید."
+msgstr ""
+
+#: inc/core/admin/class-moon-admin.php:397
+msgid "بخش کپی شد."
+msgstr ""
+
+#: inc/core/admin/class-moon-admin.php:398
+msgid "بخش حذف شد."
+msgstr ""
+
+#: inc/core/admin/class-moon-admin.php:399
+msgid "تغییرات صفحه اصلی منتشر شد."
+msgstr ""
+
+#: inc/core/admin/class-moon-admin.php:400
+msgid "پیش‌نویس کنار گذاشته شد."
+msgstr ""
+
+#: inc/core/admin/class-moon-admin.php:401
+msgid "صفحه اصلی به حالت پیش‌فرض بازگشت."
+msgstr ""
+
+#: inc/core/admin/class-moon-admin.php:402
+msgid "ستون‌های فوتر ذخیره شد."
+msgstr ""
+
+#: inc/core/admin/class-moon-admin.php:403
+msgid "ستون‌های فوتر به حالت پیش‌فرض بازگشت."
+msgstr ""
+
+#: inc/core/admin/class-moon-admin.php:404
+msgid "فایل تنظیمات ساخته شد."
+msgstr ""
+
+#: inc/core/admin/class-moon-admin.php:405
+msgid "تنظیمات با موفقیت وارد شد."
+msgstr ""
+
+#: inc/core/admin/class-moon-admin.php:406
+msgid "فایل تنظیمات معتبر نبود؛ چیزی تغییر نکرد."
+msgstr ""
+
+#: inc/core/admin/class-moon-admin.php:407
+msgid "نسخه پشتیبان از تنظیمات ذخیره شد."
+msgstr ""
+
+#: inc/core/admin/class-moon-admin.php:408
+msgid "تنظیمات از نسخه پشتیبان بازگردانده شد."
+msgstr ""
+
+#: inc/core/admin/class-moon-admin.php:409
+msgid "همه تنظیمات به مقادیر پیش‌فرض بازگشتند."
+msgstr ""
+
+#: inc/core/admin/class-moon-admin.php:410
+msgid "عملیات انجام نشد؛ دسترسی یا nonce معتبر نبود."
+msgstr ""
+
+#: inc/core/admin/class-moon-admin.php:431
+#: inc/core/admin/class-moon-admin.php:523
+#: inc/core/modules/class-moon-footer.php:251
+#: inc/core/modules/class-moon-sections.php:513
+msgid "دسترسی کافی ندارید."
+msgstr ""
+
+#: inc/core/admin/class-moon-stats.php:342
+msgid "وردپرس"
+msgstr ""
+
+#: inc/core/admin/class-moon-stats.php:347
+msgid "ووکامرس"
+msgstr ""
+
+#: inc/core/admin/class-moon-stats.php:348
+#: inc/core/admin/class-moon-stats.php:363
+#: inc/core/admin/class-moon-stats.php:373
+msgid "غیرفعال"
+msgstr ""
+
+#: inc/core/admin/class-moon-stats.php:352
+msgid "نسخه PHP"
+msgstr ""
+
+#: inc/core/admin/class-moon-stats.php:357
+msgid "قالب MOON"
+msgstr ""
+
+#: inc/core/admin/class-moon-stats.php:362
+msgid "جداول سفارش HPOS"
+msgstr ""
+
+#: inc/core/admin/class-moon-stats.php:367
+msgid "پیوندهای یکتا"
+msgstr ""
+
+#: inc/core/admin/class-moon-stats.php:368
+msgid "ساده"
+msgstr ""
+
+#: inc/core/admin/class-moon-stats.php:372
+msgid "HTTPS"
+msgstr ""
+
+#: inc/core/admin/class-moon-stats.php:377
+msgid "حافظه PHP"
+msgstr ""
+
+#: inc/core/admin/class-moon-stats.php:393
+msgid "ووکامرس فعال نیست؛ فروشگاه در دسترس کاربران نیست."
+msgstr ""
+
+#: inc/core/admin/class-moon-stats.php:407
+msgid "هیچ روش پرداختی فعال نیست؛ مشتری نمی‌تواند سفارش را نهایی کند."
+msgstr ""
+
+#: inc/core/admin/class-moon-stats.php:418
+msgid "هیچ روش ارسالی تعریف نشده است."
+msgstr ""
+
+#: inc/core/admin/class-moon-stats.php:425
+#: template-parts/homepage/products.php:46
+msgid "هنوز محصولی منتشر نشده است."
+msgstr ""
+
+#: inc/core/admin/class-moon-stats.php:430
+msgid "شماره تماس فروشگاه در پنل ثبت نشده است (فوتر → تماس)."
+msgstr ""
+
+#: inc/core/admin/class-moon-stats.php:434
+msgid "لینک شبکه‌های اجتماعی ثبت نشده است."
+msgstr ""
+
+#: inc/core/admin/class-moon-stats.php:438
+msgid "سایت روی HTTPS اجرا نمی‌شود؛ برای پرداخت و امنیت حساب، گواهی SSL لازم است."
+msgstr ""
+
+#: inc/core/admin/class-moon-stats.php:442
+msgid "WP_DEBUG روی محیط عملیاتی فعال است؛ خطاها را در مرورگر نمایش ندهید."
+msgstr ""
+
+#: inc/core/admin/views/builder.php:78
+msgid "صفحه‌ساز صفحه اصلی"
+msgstr ""
+
+#: inc/core/admin/views/builder.php:80
+msgid "پیش‌نویس منتشرنشده"
+msgstr ""
+
+#: inc/core/admin/views/builder.php:93
+msgid "ذخیره پیش‌نویس"
+msgstr ""
+
+#: inc/core/admin/views/builder.php:99
+msgid "انتشار تغییرات"
+msgstr ""
+
+#: inc/core/admin/views/builder.php:102
+msgid "پیش‌نمایش پیش‌نویس"
+msgstr ""
+
+#: inc/core/admin/views/builder.php:109
+msgid "پیش‌نویس کنار گذاشته شود؟"
+msgstr ""
+
+#: inc/core/admin/views/builder.php:109
+msgid "بازگردانی تغییرات"
+msgstr ""
+
+#: inc/core/admin/views/builder.php:117
+msgid "صفحه اصلی به چیدمان پیش‌فرض بازگردد؟"
+msgstr ""
+
+#: inc/core/admin/views/builder.php:117
+#: inc/core/admin/views/footer.php:126
+msgid "بازگردانی پیش‌فرض"
+msgstr ""
+
+#: inc/core/admin/views/builder.php:146
+msgid "نمایش"
+msgstr ""
+
+#: inc/core/admin/views/builder.php:149
+msgid "تنظیمات"
+msgstr ""
+
+#: inc/core/admin/views/builder.php:156
+msgid "کپی بخش"
+msgstr ""
+
+#: inc/core/admin/views/builder.php:164
+msgid "این بخش حذف شود؟"
+msgstr ""
+
+#: inc/core/admin/views/builder.php:164
+msgid "حذف بخش"
+msgstr ""
+
+#: inc/core/admin/views/builder.php:170
+msgid "محتوای این بخش در تب‌های «صفحه اصلی» تنظیم می‌شود؛ اینجا فقط چیدمان آن را تغییر می‌دهید."
+msgstr ""
+
+#: inc/core/admin/views/builder.php:193
+msgid "نوع بخش جدید"
+msgstr ""
+
+#: inc/core/admin/views/builder.php:199
+msgid "افزودن بخش"
+msgstr ""
+
+#: inc/core/admin/views/builder.php:203
+msgid "بخش‌های فعلی طرح MOON (هیرو، رگال، استودیو، داستان اسکرولی…) محتوای خود را از تب‌های «صفحه اصلی» می‌خوانند و مانند قبل کار می‌کنند. تغییرات تا زمان انتشار فقط در پیش‌نمایش دیده می‌شود."
+msgstr ""
+
+#: inc/core/admin/views/dashboard.php:24
+msgid "نیاز به بررسی"
+msgstr ""
+
+#: inc/core/admin/views/dashboard.php:37
+msgid "فروش کل"
+msgstr ""
+
+#: inc/core/admin/views/dashboard.php:39
+msgid "همه سفارش‌های پرداخت‌شده"
+msgstr ""
+
+#: inc/core/admin/views/dashboard.php:43
+msgid "فروش امروز"
+msgstr ""
+
+#: inc/core/admin/views/dashboard.php:49
+msgid "فروش این ماه"
+msgstr ""
+
+#: inc/core/admin/views/dashboard.php:55
+#: inc/core/admin/views/dashboard.php:185
+#: inc/core/admin/views/tools.php:85
+msgid "سفارش‌ها"
+msgstr ""
+
+#: inc/core/admin/views/dashboard.php:57
+#, php-format
+msgid "%s در انتظار پردازش"
+msgstr ""
+
+#: inc/core/admin/views/dashboard.php:61
+#: inc/core/admin/views/dashboard.php:184
+#: inc/core/settings/schema.php:130
+#: inc/live-search.php:103
+msgid "محصولات"
+msgstr ""
+
+#: inc/core/admin/views/dashboard.php:63
+#, php-format
+msgid "%s تخفیف‌دار"
+msgstr ""
+
+#: inc/core/admin/views/dashboard.php:67
+#: inc/core/modules/class-moon-compare.php:216
+#: inc/live-search.php:69
+#: single-moon_outfit.php:147
+#: template-parts/product/card.php:123
+msgid "ناموجود"
+msgstr ""
+
+#: inc/core/admin/views/dashboard.php:69
+msgid "محصولات بدون موجودی"
+msgstr ""
+
+#: inc/core/admin/views/dashboard.php:73
+msgid "سفارش‌های در انتظار"
+msgstr ""
+
+#: inc/core/admin/views/dashboard.php:75
+msgid "پرداخت‌نشده"
+msgstr ""
+
+#: inc/core/admin/views/dashboard.php:79
+msgid "مشتریان"
+msgstr ""
+
+#: inc/core/admin/views/dashboard.php:81
+#, php-format
+msgid "%s مشتری"
+msgstr ""
+
+#: inc/core/admin/views/dashboard.php:99
+msgid "فروش ۱۴ روز گذشته"
+msgstr ""
+
+#: inc/core/admin/views/dashboard.php:100
+msgid "نمودار فروش دو هفته اخیر"
+msgstr ""
+
+#: inc/core/admin/views/dashboard.php:110
+msgid "امروز"
+msgstr ""
+
+#: inc/core/admin/views/dashboard.php:115
+msgid "محصولات پرفروش"
+msgstr ""
+
+#: inc/core/admin/views/dashboard.php:125
+#, php-format
+msgid "%s فروش"
+msgstr ""
+
+#: inc/core/admin/views/dashboard.php:130
+msgid "پس از ثبت اولین سفارش، پرفروش‌ها اینجا نمایش داده می‌شوند."
+msgstr ""
+
+#: inc/core/admin/views/dashboard.php:135
+msgid "آخرین سفارش‌ها"
+msgstr ""
+
+#: inc/core/admin/views/dashboard.php:140
+msgid "سفارش"
+msgstr ""
+
+#: inc/core/admin/views/dashboard.php:141
+msgid "مشتری"
+msgstr ""
+
+#: inc/core/admin/views/dashboard.php:142
+msgid "وضعیت"
+msgstr ""
+
+#: inc/core/admin/views/dashboard.php:143
+msgid "مبلغ"
+msgstr ""
+
+#: inc/core/admin/views/dashboard.php:144
+#: inc/core/admin/views/subscribers.php:38
+msgid "تاریخ"
+msgstr ""
+
+#: inc/core/admin/views/dashboard.php:160
+msgid "هنوز سفارشی ثبت نشده است."
+msgstr ""
+
+#: inc/core/admin/views/dashboard.php:165
+msgid "وضعیت سیستم"
+msgstr ""
+
+#: inc/core/admin/views/dashboard.php:179
+msgid "دسترسی سریع"
+msgstr ""
+
+#: inc/core/admin/views/dashboard.php:181
+msgid "صفحه‌ساز"
+msgstr ""
+
+#: inc/core/admin/views/dashboard.php:182
+msgid "رنگ و فونت"
+msgstr ""
+
+#: inc/core/admin/views/dashboard.php:183
+msgid "هدر و مگامنو"
+msgstr ""
+
+#: inc/core/admin/views/dashboard.php:186
+msgid "پشتیبان‌گیری"
+msgstr ""
+
+#: inc/core/admin/views/dashboard.php:188
+msgid "درون‌ریز دمو"
+msgstr ""
+
+#: inc/core/admin/views/footer.php:17
+msgid "سازنده فوتر"
+msgstr ""
+
+#: inc/core/admin/views/footer.php:31
+msgid "ستون بدون عنوان"
+msgstr ""
+
+#: inc/core/admin/views/footer.php:32
+#: inc/core/admin/views/footer.php:83
+msgid "حذف ستون"
+msgstr ""
+
+#: inc/core/admin/views/footer.php:37
+#: inc/core/admin/views/footer.php:87
+msgid "عنوان ستون"
+msgstr ""
+
+#: inc/core/admin/views/footer.php:44
+#: inc/core/admin/views/footer.php:93
+msgid "نوع محتوا"
+msgstr ""
+
+#: inc/core/admin/views/footer.php:55
+#: inc/core/admin/views/footer.php:103
+#: inc/core/modules/class-moon-header.php:121
+msgid "منو"
+msgstr ""
+
+#: inc/core/admin/views/footer.php:58
+#: inc/core/admin/views/footer.php:106
+msgid "— انتخاب منو —"
+msgstr ""
+
+#: inc/core/admin/views/footer.php:67
+#: inc/core/admin/views/footer.php:114
+msgid "محتوا"
+msgstr ""
+
+#: inc/core/admin/views/footer.php:70
+msgid "در حالت «لینک‌های دستی» هر خط: عنوان|نشانی"
+msgstr ""
+
+#: inc/core/admin/views/footer.php:82
+msgid "ستون جدید"
+msgstr ""
+
+#: inc/core/admin/views/footer.php:124
+msgid "افزودن ستون"
+msgstr ""
+
+#: inc/core/admin/views/footer.php:125
+msgid "ذخیره فوتر"
+msgstr ""
+
+#: inc/core/admin/views/footer.php:126
+msgid "ستون‌ها به حالت پیش‌فرض بازگردند؟"
+msgstr ""
+
+#: inc/core/admin/views/subscribers.php:25
+#, php-format
+msgid "%s عضو"
+msgstr ""
+
+#: inc/core/admin/views/subscribers.php:32
+msgid "هنوز کسی در خبرنامه ثبت‌نام نکرده است. فرم عضویت در فوتر سایت قرار دارد."
+msgstr ""
+
+#: inc/core/admin/views/tools.php:16
+msgid "ابزارها و پشتیبان‌گیری"
+msgstr ""
+
+#: inc/core/admin/views/tools.php:23
+msgid "خروجی تنظیمات"
+msgstr ""
+
+#: inc/core/admin/views/tools.php:24
+msgid "یک فایل JSON از همه تنظیمات، بخش‌های صفحه اصلی و ستون‌های فوتر بگیرید. برای انتقال سایت یا بازگردانی امن به کار می‌رود."
+msgstr ""
+
+#: inc/core/admin/views/tools.php:26
+msgid "دانلود فایل تنظیمات"
+msgstr ""
+
+#: inc/core/admin/views/tools.php:31
+msgid "وارد کردن تنظیمات"
+msgstr ""
+
+#: inc/core/admin/views/tools.php:32
+msgid "فایل خروجی MOON را انتخاب کنید. مقادیر با همان اعتبارسنجی پنل ذخیره می‌شوند و محتوای نامعتبر رد می‌شود."
+msgstr ""
+
+#: inc/core/admin/views/tools.php:38
+msgid "وارد کردن"
+msgstr ""
+
+#: inc/core/admin/views/tools.php:43
+msgid "نسخه پشتیبان داخلی"
+msgstr ""
+
+#: inc/core/admin/views/tools.php:44
+msgid "قبل از تغییرات بزرگ، یک نسخه از تنظیمات را در دیتابیس ذخیره کنید تا در صورت نیاز بازگردانی شود."
+msgstr ""
+
+#: inc/core/admin/views/tools.php:48
+#, php-format
+msgid "آخرین نسخه: %s"
+msgstr ""
+
+#: inc/core/admin/views/tools.php:53
+msgid "ساخت نسخه پشتیبان"
+msgstr ""
+
+#: inc/core/admin/views/tools.php:56
+msgid "تنظیمات فعلی با نسخه پشتیبان جایگزین شود؟"
+msgstr ""
+
+#: inc/core/admin/views/tools.php:56
+msgid "بازگردانی نسخه پشتیبان"
+msgstr ""
+
+#: inc/core/admin/views/tools.php:62
+msgid "بازگردانی کامل"
+msgstr ""
+
+#: inc/core/admin/views/tools.php:63
+msgid "همه تنظیمات طراحی و فروشگاه به مقادیر پیش‌فرض قالب برمی‌گردد. محصولات، سفارش‌ها و مشتریان دست‌نخورده می‌مانند."
+msgstr ""
+
+#: inc/core/admin/views/tools.php:65
+msgid "همه تنظیمات به پیش‌فرض بازگردند؟"
+msgstr ""
+
+#: inc/core/admin/views/tools.php:65
+msgid "بازگردانی همه تنظیمات"
+msgstr ""
+
+#: inc/core/admin/views/tools.php:71
+msgid "گزارش وضعیت"
+msgstr ""
+
+#: inc/core/admin/views/tools.php:81
+msgid "محصولات منتشرشده"
+msgstr ""
+
+#: inc/core/modules/class-moon-colors.php:320
+#: inc/core/modules/class-moon-colors.php:336
+msgid "کد رنگ"
+msgstr ""
+
+#: inc/core/modules/class-moon-colors.php:322
+msgid "کد هگز رنگ برای نمایش در سواچ محصول (مثلاً #101010)."
+msgstr ""
+
+#: inc/core/modules/class-moon-colors.php:339
+msgid "کد هگز رنگ برای نمایش در سواچ محصول."
+msgstr ""
+
+#: inc/core/modules/class-moon-compare.php:62
+#: inc/core/modules/class-moon-header.php:242
+msgid "مقایسه محصولات"
+msgstr ""
+
+#: inc/core/modules/class-moon-compare.php:109
+msgid "تصویر"
+msgstr ""
+
+#: inc/core/modules/class-moon-compare.php:110
+msgid "قیمت"
+msgstr ""
+
+#: inc/core/modules/class-moon-compare.php:111
+msgid "موجودی"
+msgstr ""
+
+#: inc/core/modules/class-moon-compare.php:112
+msgid "امتیاز"
+msgstr ""
+
+#: inc/core/modules/class-moon-compare.php:113
+msgid "شناسه (SKU)"
+msgstr ""
+
+#: inc/core/modules/class-moon-compare.php:114
+msgid "ویژگی‌ها"
+msgstr ""
+
+#: inc/core/modules/class-moon-compare.php:115
+msgid "توضیح کوتاه"
+msgstr ""
+
+#: inc/core/modules/class-moon-compare.php:116
+msgid "خرید"
+msgstr ""
+
+#: inc/core/modules/class-moon-compare.php:146
+msgid "هنوز محصولی برای مقایسه اضافه نکرده‌اید. از دکمه مقایسه روی کارت محصول استفاده کنید."
+msgstr ""
+
+#: inc/core/modules/class-moon-compare.php:147
+msgid "رفتن به فروشگاه"
+msgstr ""
+
+#: inc/core/modules/class-moon-compare.php:159
+msgid "جدول مقایسه محصولات"
+msgstr ""
+
+#: inc/core/modules/class-moon-compare.php:162
+msgid "مشخصات"
+msgstr ""
+
+#: inc/core/modules/class-moon-compare.php:165
+#, php-format
+msgid "حذف %s از مقایسه"
+msgstr ""
+
+#: inc/core/modules/class-moon-compare.php:210
+msgid "موجود"
+msgstr ""
+
+#: inc/core/modules/class-moon-compare.php:213
+#, php-format
+msgid "%s عدد"
+msgstr ""
+
+#: inc/core/modules/class-moon-compare.php:225
+#, php-format
+msgid "امتیاز %s از ۵"
+msgstr ""
+
+#: inc/core/modules/class-moon-compare.php:263
+#: single-moon_outfit.php:149
+msgid "مشاهده محصول"
+msgstr ""
+
+#: inc/core/modules/class-moon-compare.php:287
+msgid "برای افزودن محصول، از دکمه مقایسه (↺) روی کارت محصول استفاده کنید."
+msgstr ""
+
+#: inc/core/modules/class-moon-compare.php:315
+msgid "برای همگام‌سازی وارد شوید."
+msgstr ""
+
+#: inc/core/modules/class-moon-fields.php:30
+msgid "مشخصات قلم رگال"
+msgstr ""
+
+#: inc/core/modules/class-moon-fields.php:31
+msgid "مشخصات استایل"
+msgstr ""
+
+#: inc/core/modules/class-moon-fields.php:48
+#: inc/core/modules/class-moon-fields.php:82
+msgid "نام انگلیسی"
+msgstr ""
+
+#: inc/core/modules/class-moon-fields.php:52
+msgid "قیمت نمایشی"
+msgstr ""
+
+#: inc/core/modules/class-moon-fields.php:54
+msgid "اگر محصول ووکامرس انتخاب شود، قیمت واقعی محصول نمایش داده می‌شود."
+msgstr ""
+
+#: inc/core/modules/class-moon-fields.php:57
+#: inc/core/settings/schema.php:227
+msgid "رنگ‌ها"
+msgstr ""
+
+#: inc/core/modules/class-moon-fields.php:59
+msgid "کدهای رنگ را با کاما جدا کنید."
+msgstr ""
+
+#: inc/core/modules/class-moon-fields.php:62
+#: inc/core/modules/class-moon-fields.php:90
+msgid "محصول ووکامرس"
+msgstr ""
+
+#: inc/core/modules/class-moon-fields.php:65
+msgid "تصویر شاخص این قلم باید PNG با پس‌زمینه شفاف باشد تا روی رگال درست دیده شود."
+msgstr ""
+
+#: inc/core/modules/class-moon-fields.php:86
+#: template-parts/homepage/studio.php:83
+msgid "پالت رنگ"
+msgstr ""
+
+#: inc/core/modules/class-moon-fields.php:94
+#: single-moon_outfit.php:75
+msgid "اقلام این استایل"
+msgstr ""
+
+#: inc/core/modules/class-moon-fields.php:96
+msgid "همه لباس‌هایی که این استایل را می‌سازند (کت، شلوار، شال…). با Ctrl روی چند مورد کلیک کنید."
+msgstr ""
+
+#: inc/core/modules/class-moon-fields.php:98
+msgid "تصویر شاخص، تصویر مدل با این استایل است (نسبت پیشنهادی ۲:۳)."
+msgstr ""
+
+#: inc/core/modules/class-moon-fields.php:112
+#: inc/core/modules/class-moon-fields.php:143
+msgid "ووکامرس فعال نیست."
+msgstr ""
+
+#: inc/core/modules/class-moon-fields.php:154
+msgid "— بدون اتصال —"
+msgstr ""
+
+#: inc/core/modules/class-moon-footer.php:33
+msgid "اینستاگرام"
+msgstr ""
+
+#: inc/core/modules/class-moon-footer.php:34
+msgid "تلگرام"
+msgstr ""
+
+#: inc/core/modules/class-moon-footer.php:35
+#: inc/core/modules/class-moon-footer.php:192
+#: page-contact.php:83
+msgid "واتس‌اپ"
+msgstr ""
+
+#: inc/core/modules/class-moon-footer.php:36
+msgid "یوتیوب"
+msgstr ""
+
+#: inc/core/modules/class-moon-footer.php:37
+msgid "پینترست"
+msgstr ""
+
+#: inc/core/modules/class-moon-footer.php:38
+msgid "ایکس"
+msgstr ""
+
+#: inc/core/modules/class-moon-header.php:107
+#: inc/core/modules/class-moon-header.php:129
+#: inc/setup.php:36
+#: template-parts/header/site-header.php:25
+msgid "منوی اصلی"
+msgstr ""
+
+#: inc/core/modules/class-moon-header.php:211
+#: inc/template-functions.php:102
+#: template-parts/header/bottom-nav.php:41
+#: template-parts/header/search-overlay.php:15
+#: template-parts/header/search-overlay.php:20
+msgid "جستجو"
+msgstr ""
+
+#: inc/core/modules/class-moon-header.php:230
+#: template-parts/header/wishlist-panel.php:9
+msgid "علاقه‌مندی‌ها"
+msgstr ""
+
+#: inc/core/modules/class-moon-header.php:256
+#, php-format
+msgid "سبد خرید، %s کالا"
+msgstr ""
+
+#: inc/core/modules/class-moon-header.php:265
+msgid "تغییر حالت روشن و تاریک"
+msgstr ""
+
+#: inc/core/modules/class-moon-header.php:342
+msgid "نمایش به‌صورت مگامنو (زیرمنوها در ستون‌ها)"
+msgstr ""
+
+#: inc/core/modules/class-moon-header.php:346
+msgid "تصویر تبلیغاتی مگامنو (شناسه تصویر)"
+msgstr ""
+
+#. translators: %s: verification code.
+#: inc/core/modules/class-moon-otp.php:241
+#, php-format
+msgid "کد ورود شما به MOON: %s"
+msgstr ""
+
+#: inc/core/modules/class-moon-otp.php:277
+msgid "شماره موبایل معتبر نیست. نمونه: ۰۹۱۲۳۴۵۶۷۸۹"
+msgstr ""
+
+#: inc/core/modules/class-moon-otp.php:285
+msgid "تعداد درخواست‌ها زیاد است. کمی بعد دوباره تلاش کنید."
+msgstr ""
+
+#: inc/core/modules/class-moon-otp.php:291
+msgid "برای این شماره تعداد درخواست کد زیاد بوده است. یک ساعت دیگر تلاش کنید."
+msgstr ""
+
+#: inc/core/modules/class-moon-otp.php:295
+msgid "کد قبلی هنوز معتبر است. چند لحظه صبر کنید."
+msgstr ""
+
+#. translators: %s: code.
+#: inc/core/modules/class-moon-otp.php:315
+#, php-format
+msgid "حالت آزمایشی: کد شما %s است."
+msgstr ""
+
+#: inc/core/modules/class-moon-otp.php:331
+msgid "ارسال پیامک در حال حاضر ممکن نیست. کمی بعد دوباره تلاش کنید."
+msgstr ""
+
+#: inc/core/modules/class-moon-otp.php:335
+msgid "کد تأیید ارسال شد."
+msgstr ""
+
+#: inc/core/modules/class-moon-otp.php:355
+msgid "شماره موبایل یا کد را کامل وارد کنید."
+msgstr ""
+
+#: inc/core/modules/class-moon-otp.php:361
+msgid "تلاش‌های ناموفق زیاد بوده است. یک ساعت دیگر تلاش کنید."
+msgstr ""
+
+#: inc/core/modules/class-moon-otp.php:368
+msgid "کد منقضی شده است. دوباره درخواست کنید."
+msgstr ""
+
+#: inc/core/modules/class-moon-otp.php:373
+msgid "تعداد تلاش‌ها زیاد شد. کد جدید بگیرید."
+msgstr ""
+
+#: inc/core/modules/class-moon-otp.php:379
+msgid "کد وارد شده درست نیست."
+msgstr ""
+
+#: inc/core/modules/class-moon-otp.php:393
+msgid "خوش آمدید! در حال انتقال به حساب کاربری…"
+msgstr ""
+
+#: inc/core/modules/class-moon-otp.php:400
+msgid "حسابی با این شماره پیدا نشد و ثبت‌نام در این فروشگاه غیرفعال است."
+msgstr ""
+
+#: inc/core/modules/class-moon-otp.php:409
+msgid "شماره شما تأیید شد. نام خود را کامل کنید."
+msgstr ""
+
+#: inc/core/modules/class-moon-otp.php:431
+msgid "شماره موبایل معتبر نیست."
+msgstr ""
+
+#: inc/core/modules/class-moon-otp.php:438
+msgid "برای ساخت حساب، ابتدا شماره موبایل خود را با کد تأیید کنید."
+msgstr ""
+
+#: inc/core/modules/class-moon-otp.php:442
+msgid "ثبت‌نام در این فروشگاه غیرفعال است."
+msgstr ""
+
+#: inc/core/modules/class-moon-otp.php:446
+msgid "نام خود را وارد کنید."
+msgstr ""
+
+#: inc/core/modules/class-moon-otp.php:450
+msgid "رمز عبور باید حداقل ۸ کاراکتر باشد."
+msgstr ""
+
+#: inc/core/modules/class-moon-otp.php:454
+msgid "این شماره قبلاً ثبت شده است. وارد شوید."
+msgstr ""
+
+#: inc/core/modules/class-moon-otp.php:468
+msgid "حساب شما ساخته شد. خوش آمدید!"
+msgstr ""
+
+#: inc/core/modules/class-moon-sections.php:787
+msgid "مشاهده"
+msgstr ""
+
+#: inc/core/modules/class-moon-sections.php:797
+#, php-format
+msgid "اسلاید %s"
+msgstr ""
+
+#: inc/core/modules/class-moon-sections.php:931
+#, php-format
+msgid "%s محصول"
+msgstr ""
+
+#: inc/core/modules/class-moon-sections.php:1029
+#: inc/core/modules/class-moon-woo-extras.php:152
+msgid "روز"
+msgstr ""
+
+#: inc/core/modules/class-moon-sections.php:1030
+#: inc/core/modules/class-moon-woo-extras.php:153
+msgid "ساعت"
+msgstr ""
+
+#: inc/core/modules/class-moon-sections.php:1031
+#: inc/core/modules/class-moon-woo-extras.php:154
+msgid "دقیقه"
+msgstr ""
+
+#: inc/core/modules/class-moon-sections.php:1032
+#: inc/core/modules/class-moon-woo-extras.php:155
+msgid "ثانیه"
+msgstr ""
+
+#: inc/core/modules/class-moon-shop.php:83
+#: inc/integrations/woocommerce.php:275
+#: inc/integrations/woocommerce.php:346
+msgid "ویژه"
+msgstr ""
+
+#: inc/core/modules/class-moon-shop.php:202
+msgid "این محصول در دسترس نیست."
+msgstr ""
+
+#. translators: %s: number of products.
+#: inc/core/modules/class-moon-shop.php:404
+#: woocommerce/archive-product.php:59
+#, php-format
+msgid "نمایش %s محصول"
+msgstr ""
+
+#: inc/core/modules/class-moon-shop.php:464
+#: woocommerce/archive-product.php:102
+msgid "محصولی با این فیلترها پیدا نشد."
+msgstr ""
+
+#: inc/core/modules/class-moon-shop.php:465
+#: woocommerce/archive-product.php:103
+msgid "پاک کردن فیلترها"
+msgstr ""
+
+#: inc/core/modules/class-moon-shop.php:486
+msgid "صفحه‌بندی محصولات"
+msgstr ""
+
+#: inc/core/modules/class-moon-shop.php:556
+#: woocommerce/archive-product.php:47
+msgid "فیلترها"
+msgstr ""
+
+#: inc/core/modules/class-moon-shop.php:557
+msgid "پاک کردن"
+msgstr ""
+
+#: inc/core/modules/class-moon-shop.php:558
+msgid "بستن فیلترها"
+msgstr ""
+
+#: inc/core/modules/class-moon-shop.php:565
+msgid "دسته‌بندی"
+msgstr ""
+
+#: inc/core/modules/class-moon-shop.php:586
+msgid "رنگ"
+msgstr ""
+
+#: inc/core/modules/class-moon-shop.php:608
+msgid "سایز"
+msgstr ""
+
+#: inc/core/modules/class-moon-shop.php:621
+msgid "محدوده قیمت (تومان)"
+msgstr ""
+
+#: inc/core/modules/class-moon-shop.php:624
+msgid "از"
+msgstr ""
+
+#: inc/core/modules/class-moon-shop.php:628
+msgid "تا"
+msgstr ""
+
+#: inc/core/modules/class-moon-shop.php:634
+msgid "اعمال فیلتر"
+msgstr ""
+
+#: inc/core/modules/class-moon-shop.php:648
+msgid "سبد خرید در دسترس نیست."
+msgstr ""
+
+#: inc/core/modules/class-moon-shop.php:669
+msgid "هیچ‌کدام از اقلام این استایل موجود نیست."
+msgstr ""
+
+#: inc/core/modules/class-moon-shop.php:687
+#: inc/navigation.php:18
+msgid "زنانه"
+msgstr ""
+
+#: inc/core/modules/class-moon-shop.php:688
+msgid "اندازه‌ها بر حسب سانتی‌متر و دور بدن است. اگر بین دو سایز هستید، سایز بزرگ‌تر را انتخاب کنید."
+msgstr ""
+
+#: inc/core/modules/class-moon-shop.php:700
+#: inc/navigation.php:22
+msgid "مردانه"
+msgstr ""
+
+#: inc/core/modules/class-moon-shop.php:701
+msgid "برای کت و پالتو، دور سینه را با یک لایه لباس زیر اندازه بگیرید."
+msgstr ""
+
+#: inc/core/modules/class-moon-shop.php:712
+msgid "کودکان"
+msgstr ""
+
+#: inc/core/modules/class-moon-shop.php:713
+msgid "سایز را بر اساس قد کودک انتخاب کنید؛ اگر کودک در حال رشد است یک سایز بالاتر مناسب‌تر است."
+msgstr ""
+
+#: inc/core/modules/class-moon-shop.php:725
+msgid "شال و روسری"
+msgstr ""
+
+#: inc/core/modules/class-moon-shop.php:726
+msgid "ابعاد باز شده پس از اتوی ملایم اندازه‌گیری شده است؛ تلرانس ±۲ سانتی‌متر طبیعی است."
+msgstr ""
+
+#: inc/core/modules/class-moon-shop.php:763
+#: inc/core/templates/moon-quick-view.php:106
+#: inc/integrations/woocommerce.php:408
+msgid "راهنمای سایز"
+msgstr ""
+
+#: inc/core/modules/class-moon-shop.php:766
+#: inc/core/templates/moon-quick-view.php:27
+#: template-parts/header/cart-drawer.php:28
+#: template-parts/header/mobile-menu.php:12
+#: template-parts/header/wishlist-panel.php:12
+msgid "بستن"
+msgstr ""
+
+#. translators: %s: remaining amount.
+#: inc/core/modules/class-moon-woo-extras.php:80
+#, php-format
+msgid "%s تا ارسال رایگان باقی مانده"
+msgstr ""
+
+#: inc/core/modules/class-moon-woo-extras.php:85
+msgid "ارسال این سفارش رایگان است 🎉"
+msgstr ""
+
+#: inc/core/modules/class-moon-woo-extras.php:109
+#: template-parts/product/card.php:166
+#, php-format
+msgid "افزودن %s به سبد خرید"
+msgstr ""
+
+#: inc/core/modules/class-moon-woo-extras.php:119
+#: single-moon_outfit.php:147
+#: template-parts/homepage/rack.php:90
+#: template-parts/product/card.php:169
+msgid "افزودن به سبد"
+msgstr ""
+
+#: inc/core/modules/class-moon-woo-extras.php:123
+#: template-parts/product/card.php:176
+msgid "انتخاب گزینه‌ها"
+msgstr ""
+
+#: inc/core/modules/class-moon-woo-extras.php:151
+msgid "پایان تخفیف"
+msgstr ""
+
+#: inc/core/modules/class-moon-woo-extras.php:235
+msgid "اخیراً مشاهده کرده‌اید"
+msgstr ""
+
+#: inc/core/post-types/class-moon-post-types.php:28
+#: inc/core/post-types/class-moon-post-types.php:33
+msgid "اقلام رگال"
+msgstr ""
+
+#: inc/core/post-types/class-moon-post-types.php:29
+msgid "قلم رگال"
+msgstr ""
+
+#: inc/core/post-types/class-moon-post-types.php:30
+msgid "افزودن قلم"
+msgstr ""
+
+#: inc/core/post-types/class-moon-post-types.php:31
+msgid "افزودن قلم رگال"
+msgstr ""
+
+#: inc/core/post-types/class-moon-post-types.php:32
+msgid "ویرایش قلم رگال"
+msgstr ""
+
+#: inc/core/post-types/class-moon-post-types.php:34
+#: inc/core/settings/schema.php:113
+msgid "رگال"
+msgstr ""
+
+#: inc/core/post-types/class-moon-post-types.php:48
+#: inc/core/post-types/class-moon-post-types.php:53
+msgid "استایل‌ها"
+msgstr ""
+
+#: inc/core/post-types/class-moon-post-types.php:49
+msgid "استایل"
+msgstr ""
+
+#: inc/core/post-types/class-moon-post-types.php:50
+#: inc/core/post-types/class-moon-post-types.php:51
+msgid "افزودن استایل"
+msgstr ""
+
+#: inc/core/post-types/class-moon-post-types.php:52
+msgid "ویرایش استایل"
+msgstr ""
+
+#: inc/core/post-types/class-moon-post-types.php:54
+#: inc/core/settings/schema.php:122
+#: inc/navigation.php:30
+msgid "استودیو"
+msgstr ""
+
+#: inc/core/settings/class-moon-settings.php:355
+msgid "لینک‌های دستی"
+msgstr ""
+
+#: inc/core/settings/class-moon-settings.php:356
+msgid "منوی وردپرس"
+msgstr ""
+
+#: inc/core/settings/class-moon-settings.php:357
+msgid "متن آزاد"
+msgstr ""
+
+#: inc/core/settings/class-moon-settings.php:358
+msgid "اطلاعات تماس"
+msgstr ""
+
+#: inc/core/settings/class-moon-settings.php:359
+msgid "شبکه‌های اجتماعی"
+msgstr ""
+
+#: inc/core/settings/class-moon-settings.php:361
+msgid "روش‌های پرداخت"
+msgstr ""
+
+#: inc/core/settings/class-moon-settings.php:477
+msgid "فایل تنظیمات معتبر نیست."
+msgstr ""
+
+#: inc/core/settings/schema.php:84
+msgid "هیرو"
+msgstr ""
+
+#: inc/core/settings/schema.php:98
+msgid "دسته‌بندی‌ها"
+msgstr ""
+
+#: inc/core/settings/schema.php:147
+msgid "کمپین"
+msgstr ""
+
+#: inc/core/settings/schema.php:158
+msgid "داستان برند"
+msgstr ""
+
+#: inc/core/settings/schema.php:182
+msgid "داستان اسکرولی"
+msgstr ""
+
+#: inc/core/settings/schema.php:196
+msgid "نظرات"
+msgstr ""
+
+#: inc/core/settings/schema.php:228
+msgid "همه رنگ‌ها به‌صورت متغیر CSS اعمال می‌شوند؛ نیازی به ویرایش کد نیست."
+msgstr ""
+
+#: inc/core/settings/schema.php:249
+msgid "فونت و تایپوگرافی"
+msgstr ""
+
+#: inc/core/settings/schema.php:279
+msgid "چیدمان و استایل"
+msgstr ""
+
+#: inc/core/settings/schema.php:297
+msgid "انیمیشن"
+msgstr ""
+
+#: inc/core/settings/schema.php:298
+msgid "انیمیشن‌ها سبک و با prefers-reduced-motion سازگارند. برای فروشگاه‌های شلوغ می‌توانید همه را خاموش کنید."
+msgstr ""
+
+#: inc/core/settings/schema.php:315
+msgid "چیدمان"
+msgstr ""
+
+#: inc/core/settings/schema.php:337
+msgid "عناصر و ترتیب"
+msgstr ""
+
+#: inc/core/settings/schema.php:338
+msgid "با کشیدن هر ردیف ترتیب نمایش را تغییر دهید؛ تیک هر ردیف آن عنصر را در هدر نشان می‌دهد."
+msgstr ""
+
+#: inc/core/settings/schema.php:356
+msgid "نوار اطلاع‌رسانی"
+msgstr ""
+
+#: inc/core/settings/schema.php:375
+msgid "ستون‌ها"
+msgstr ""
+
+#: inc/core/settings/schema.php:379
+msgid "محتوا و تماس"
+msgstr ""
+
+#: inc/core/settings/schema.php:402
+msgid "تماس و شبکه‌های اجتماعی"
+msgstr ""
+
+#: inc/core/settings/schema.php:427
+msgid "صفحه فروشگاه"
+msgstr ""
+
+#: inc/core/settings/schema.php:451
+msgid "کارت محصول"
+msgstr ""
+
+#: inc/core/settings/schema.php:473
+msgid "صفحه محصول"
+msgstr ""
+
+#: inc/core/settings/schema.php:493
+msgid "سبد خرید و تسویه"
+msgstr ""
+
+#: inc/core/settings/schema.php:512
+msgid "ورود و ثبت‌نام"
+msgstr ""
+
+#: inc/core/settings/schema.php:513
+msgid "ثبت‌نام فقط پس از تأیید کد پیامکی شماره موبایل امکان‌پذیر است؛ این رفتار قابل خاموش‌کردن نیست."
+msgstr ""
+
+#: inc/core/settings/schema.php:530
+msgid "چیدمان موبایل"
+msgstr ""
+
+#: inc/core/settings/schema.php:555
+msgid "عملکرد و سرعت"
+msgstr ""
+
+#: inc/core/settings/schema.php:558
+msgid "بهینه‌سازی"
+msgstr ""
+
+#: inc/core/settings/schema.php:577
+msgid "سئو"
+msgstr ""
+
+#: inc/core/settings/schema.php:578
+msgid "اگر Rank Math یا Yoast فعال باشد، تولید متاتگ و Schema تکراری خودکار متوقف می‌شود."
+msgstr ""
+
+#: inc/core/settings/schema.php:586
+msgid "کد سفارشی"
+msgstr ""
+
+#: inc/core/settings/schema.php:587
+msgid "این کدها فقط برای مدیر نمایش داده و ذخیره می‌شوند؛ آن‌ها را از منبع مطمئن وارد کنید."
+msgstr ""
+
+#. translators: %s: image number.
+#: inc/core/templates/moon-quick-view.php:52
+#, php-format
+msgid "تصویر %s"
+msgstr ""
+
+#. translators: 1: rating, 2: review count.
+#: inc/core/templates/moon-quick-view.php:75
+#, php-format
+msgid "%1$s از ۵ — %2$s نظر"
+msgstr ""
+
+#: inc/core/templates/moon-quick-view.php:82
+msgid "اولین نظر را شما ثبت کنید"
+msgstr ""
+
+#: inc/core/templates/moon-quick-view.php:99
+msgid "ارسال ۲۴ تا ۷۲ ساعته"
+msgstr ""
+
+#: inc/core/templates/moon-quick-view.php:103
+msgid "۷ روز مهلت بازگشت"
+msgstr ""
+
+#: inc/core/templates/moon-quick-view.php:111
+msgid "مشاهده صفحه کامل محصول"
+msgstr ""
+
+#. translators: %s: settings page URL.
+#: inc/customizer.php:65
+#, php-format
+msgid "تنظیمات کامل قالب (رنگ برند، بخش‌های صفحه اصلی، هدر و فوتر، رگال و استودیو) در پنل اختصاصی MOON است: %s"
+msgstr ""
+
+#: inc/customizer.php:66
+msgid "باز کردن پنل MOON"
+msgstr ""
+
+#: inc/gateways/class-moon-zibal-gateway.php:23
+msgid "زیبال"
+msgstr ""
+
+#: inc/gateways/class-moon-zibal-gateway.php:24
+msgid "پرداخت آنلاین با درگاه زیبال. برای تست مرچنت را zibal بگذارید."
+msgstr ""
+
+#: inc/gateways/class-moon-zibal-gateway.php:44
+msgid "فعال‌سازی"
+msgstr ""
+
+#: inc/gateways/class-moon-zibal-gateway.php:46
+msgid "پرداخت با زیبال"
+msgstr ""
+
+#: inc/gateways/class-moon-zibal-gateway.php:50
+msgid "عنوان"
+msgstr ""
+
+#: inc/gateways/class-moon-zibal-gateway.php:52
+msgid "پرداخت آنلاین (زیبال)"
+msgstr ""
+
+#: inc/gateways/class-moon-zibal-gateway.php:55
+msgid "توضیح"
+msgstr ""
+
+#: inc/gateways/class-moon-zibal-gateway.php:57
+msgid "پرداخت امن با کارت‌های عضو شتاب."
+msgstr ""
+
+#: inc/gateways/class-moon-zibal-gateway.php:60
+msgid "کد مرچنت"
+msgstr ""
+
+#: inc/gateways/class-moon-zibal-gateway.php:62
+msgid "کد مرچنت پنل زیبال. برای حالت آزمایشی بنویسید: zibal"
+msgstr ""
+
+#: inc/gateways/class-moon-zibal-gateway.php:122
+msgid "پاسخ نامعتبر از درگاه."
+msgstr ""
+
+#: inc/gateways/class-moon-zibal-gateway.php:136
+msgid "مبلغ سفارش برای پرداخت آنلاین معتبر نیست."
+msgstr ""
+
+#. translators: %s: order number.
+#: inc/gateways/class-moon-zibal-gateway.php:151
+#, php-format
+msgid "سفارش شماره %s"
+msgstr ""
+
+#: inc/gateways/class-moon-zibal-gateway.php:165
+msgid "اتصال به درگاه پرداخت برقرار نشد. لطفاً دوباره تلاش کنید."
+msgstr ""
+
+#: inc/gateways/class-moon-zibal-gateway.php:206
+msgid "شناسه پرداخت با سفارش مطابقت ندارد."
+msgstr ""
+
+#: inc/gateways/class-moon-zibal-gateway.php:210
+msgid "پرداخت توسط کاربر لغو شد یا ناموفق بود."
+msgstr ""
+
+#: inc/gateways/class-moon-zibal-gateway.php:222
+msgid "تأیید پرداخت انجام نشد."
+msgstr ""
+
+#: inc/gateways/class-moon-zibal-gateway.php:230
+msgid "مبلغ پرداختی با سفارش یکسان نیست. با پشتیبانی تماس بگیرید."
+msgstr ""
+
+#. translators: 1: reference number, 2: track id.
+#: inc/gateways/class-moon-zibal-gateway.php:244
+#, php-format
+msgid "پرداخت زیبال موفق. شماره پیگیری: %1$s، trackId: %2$s"
+msgstr ""
+
+#: inc/integrations/woocommerce.php:86
+#: inc/integrations/woocommerce.php:390
+#: inc/template-functions.php:112
+msgid "مسیر صفحه"
+msgstr ""
+
+#: inc/integrations/woocommerce.php:272
+#: inc/integrations/woocommerce.php:344
+msgid "تخفیف"
+msgstr ""
+
+#: inc/integrations/woocommerce.php:361
+msgid "ارسال سریع"
+msgstr ""
+
+#: inc/integrations/woocommerce.php:361
+msgid "ارسال به سراسر ایران"
+msgstr ""
+
+#: inc/integrations/woocommerce.php:362
+msgid "بازگشت آسان"
+msgstr ""
+
+#: inc/integrations/woocommerce.php:362
+msgid "تا ۷ روز پس از دریافت"
+msgstr ""
+
+#: inc/integrations/woocommerce.php:363
+msgid "پرداخت امن"
+msgstr ""
+
+#: inc/integrations/woocommerce.php:363
+msgid "درگاه رمزنگاری‌شده"
+msgstr ""
+
+#: inc/integrations/woocommerce.php:424
+msgid "موجود در انبار MOON"
+msgstr ""
+
+#: inc/integrations/woocommerce.php:424
+msgid "فعلاً ناموجود"
+msgstr ""
+
+#: inc/integrations/woocommerce.php:427
+msgid "ارسال ۲۴ تا ۷۲ ساعته — سفارش‌های امروز فردا بسته‌بندی می‌شوند."
+msgstr ""
+
+#: inc/integrations/woocommerce.php:428
+msgid "اصالت پارچه و دوخت تضمین‌شده توسط MOON."
+msgstr ""
+
+#: inc/integrations/woocommerce.php:429
+msgid "ارسال رایگان برای سفارش‌های بالای ۵ میلیون تومان."
+msgstr ""
+
+#: inc/integrations/woocommerce.php:482
+#: inc/template-functions.php:73
+#: template-parts/header/bottom-nav.php:33
+msgid "خانه"
+msgstr ""
+
+#: inc/live-search.php:107
+msgid "مقاله‌ها"
+msgstr ""
+
+#: inc/live-search.php:113
+#, php-format
+msgid "نتیجه‌ای برای «%s» پیدا نشد. کلمه دیگری را امتحان کنید."
+msgstr ""
+
+#: inc/live-search.php:120
+#, php-format
+msgid "دیدن همه نتایج برای «%s»"
+msgstr ""
+
+#: inc/navigation.php:26
+msgid "کالکشن جدید"
+msgstr ""
+
+#: inc/navigation.php:34
+msgid "داستان ما"
+msgstr ""
+
+#: inc/newsletter.php:22
+msgid "ایمیل معتبر نیست."
+msgstr ""
+
+#: inc/newsletter.php:30
+msgid "تعداد درخواست‌ها زیاد است. بعداً تلاش کنید."
+msgstr ""
+
+#: inc/newsletter.php:39
+msgid "ظرفیت فهرست تکمیل است."
+msgstr ""
+
+#: inc/newsletter.php:44
+#: inc/newsletter.php:55
+msgid "ممنون! به زودی خبرتان می‌کنیم."
+msgstr ""
+
+#: inc/reviews.php:28
+msgid "برای ثبت نظر ابتدا با شماره موبایل وارد شوید."
+msgstr ""
+
+#: inc/setup.php:37
+msgid "منوی فوتر"
+msgstr ""
+
+#: inc/setup.php:55
+msgid "فیلتر فروشگاه"
+msgstr ""
+
+#: inc/setup.php:57
+msgid "ویجت‌های فیلتر محصولات (ووکامرس)."
+msgstr ""
+
+#: inc/setup.php:65
+msgid "نوار کناری وبلاگ"
+msgstr ""
+
+#. translators: %s: search query.
+#: inc/template-functions.php:38
+#, php-format
+msgid "نتایج جستجو برای «%s»"
+msgstr ""
+
+#: inc/template-functions.php:40
+#: inc/template-functions.php:107
+msgid "صفحه پیدا نشد"
+msgstr ""
+
+#: inc/template-functions.php:148
+msgid "قبلی"
+msgstr ""
+
+#: inc/template-functions.php:149
+msgid "بعدی"
+msgstr ""
+
+#: inc/template-functions.php:156
+msgid "صفحه‌بندی"
+msgstr ""
+
+#: inc/template-functions.php:199
+#, php-format
+msgid "%s دیدگاه"
+msgid_plural "%s دیدگاه"
+msgstr[0] ""
+msgstr[1] ""
+
+#. Template Name of the theme
+msgid "درباره ما — MOON"
+msgstr ""
+
+#: page-about.php:31
+msgid "فروشگاه پوشاک؛ جایی برای انتخاب آگاهانه‌تر و ساختن استایلی که به شما می‌آید."
+msgstr ""
+
+#: page-about.php:32
+msgid "انتخابی ساده‌تر، تجربه‌ای مطمئن‌تر"
+msgstr ""
+
+#: page-about.php:33
+msgid "تلاش می‌کنیم مجموعه‌ای از پوشاک را با توجه به استایل، کاربرد و سلیقه‌های متفاوت گردآوری کنیم تا پیش از خرید بتوانید تصاویر، رنگ‌ها و سایزبندی را با دقت بررسی کنید."
+msgstr ""
+
+#: page-about.php:34
+msgid "نگاه ما به خرید آنلاین"
+msgstr ""
+
+#: page-about.php:35
+msgid "خرید اینترنتی باید ساده باشد: از جستجو و مقایسه تا ثبت سفارش و پیگیری آن. اطلاعات محصولات را شفاف نگه می‌داریم و مسیر خرید را کوتاه."
+msgstr ""
+
+#: page-about.php:40
+msgid "مشاهده محصولات"
+msgstr ""
+
+#. Template Name of the theme
+msgid "تماس با ما — MOON"
+msgstr ""
+
+#: page-contact.php:34
+msgid "پیام خود را بنویسید"
+msgstr ""
+
+#: page-contact.php:35
+msgid "برای پیگیری سفارش، شماره سفارش را در متن پیام بنویسید."
+msgstr ""
+
+#: page-contact.php:39
+msgid "نام و نام خانوادگی"
+msgstr ""
+
+#: page-contact.php:43
+msgid "شماره تماس"
+msgstr ""
+
+#: page-contact.php:51
+msgid "موضوع"
+msgstr ""
+
+#: page-contact.php:59
+msgid "متن پیام"
+msgstr ""
+
+#: page-contact.php:67
+msgid "ارسال پیام"
+msgstr ""
+
+#: page-contact.php:89
+msgid "ساعات پاسخگویی"
+msgstr ""
+
+#: page-contact.php:92
+msgid "نشانی"
+msgstr ""
+
+#: sidebar.php:12
+msgid "نوار کناری"
+msgstr ""
+
+#: single-moon_outfit.php:52
+msgid "The fitting room"
+msgstr ""
+
+#: single-moon_outfit.php:65
+msgid "افزودن کل استایل به سبد"
+msgstr ""
+
+#: single-moon_outfit.php:68
+msgid "بازگشت به فروشگاه"
+msgstr ""
+
+#: template-parts/content/none.php:10
+msgid "چیزی پیدا نشد"
+msgstr ""
+
+#: template-parts/content/none.php:11
+msgid "عبارت دیگری را جستجو کنید یا از فروشگاه دیدن کنید."
+msgstr ""
+
+#: template-parts/footer/newsletter.php:16
+#: template-parts/footer/newsletter.php:17
+msgid "ایمیل شما"
+msgstr ""
+
+#: template-parts/footer/newsletter.php:19
+msgid "عضویت در خبرنامه"
+msgstr ""
+
+#: template-parts/footer/site-footer.php:25
+msgid "خدمات"
+msgstr ""
+
+#: template-parts/header/bottom-nav.php:29
+msgid "ناوبری سریع"
+msgstr ""
+
+#: template-parts/header/bottom-nav.php:45
+msgid "علاقه‌مندی"
+msgstr ""
+
+#: template-parts/header/bottom-nav.php:51
+msgid "سبد"
+msgstr ""
+
+#: template-parts/header/bottom-nav.php:55
+msgid "حساب"
+msgstr ""
+
+#: template-parts/header/cart-drawer.php:21
+msgid "پیش‌نمایش سبد خرید"
+msgstr ""
+
+#: template-parts/header/cart-drawer.php:26
+msgid "سبد خرید"
+msgstr ""
+
+#: template-parts/header/mobile-menu.php:17
+msgid "منوی موبایل"
+msgstr ""
+
+#: template-parts/header/search-overlay.php:10
+msgid "بستن جستجو"
+msgstr ""
+
+#: template-parts/header/search-overlay.php:16
+msgid "جستجوی محصولات…"
+msgstr ""
+
+#: template-parts/header/wishlist-panel.php:18
+msgid "هنوز محصولی را نشان نکرده‌اید."
+msgstr ""
+
+#: template-parts/header/wishlist-panel.php:22
+msgid "این فهرست در همین مرورگر ذخیره می‌شود."
+msgstr ""
+
+#: template-parts/homepage/campaign.php:18
+msgid "کمپین صحرای MOON"
+msgstr ""
+
+#: template-parts/homepage/hero.php:19
+msgid "مدل با پالتو مشکی کالکشن جدید MOON"
+msgstr ""
+
+#: template-parts/homepage/products.php:27
+msgid "دوخته‌شده با دقت در جزئیات، از پارچه‌های منتخب. سایزبندی استاندارد اروپایی."
+msgstr ""
+
+#: template-parts/homepage/products.php:36
+msgid "محصولات قبلی"
+msgstr ""
+
+#: template-parts/homepage/products.php:39
+msgid "محصولات بعدی"
+msgstr ""
+
+#: template-parts/homepage/rack.php:42
+#, php-format
+msgid "برداشتن %s از رگال"
+msgstr ""
+
+#: template-parts/homepage/rack.php:72
+msgid "رنگ‌های موجود"
+msgstr ""
+
+#: template-parts/homepage/rack.php:79
+#, php-format
+msgid "رنگ %s"
+msgstr ""
+
+#: template-parts/homepage/rack.php:93
+msgid "بازگرداندن به رگال"
+msgstr ""
+
+#: template-parts/homepage/story.php:28
+msgid "خیاط در آتلیه MOON"
+msgstr ""
+
+#: template-parts/homepage/studio.php:42
+#, php-format
+msgid "مدل با %s"
+msgstr ""
+
+#: template-parts/homepage/studio.php:56
+msgid "استایل قبلی"
+msgstr ""
+
+#: template-parts/homepage/studio.php:59
+msgid "استایل بعدی"
+msgstr ""
+
+#: template-parts/homepage/testimonials.php:31
+msgid "نظرات نمونه (نمایشی)"
+msgstr ""
+
+#: template-parts/homepage/testimonials.php:44
+#, php-format
+msgid "نظر %s"
+msgstr ""
+
+#: template-parts/product/card.php:137
+#, php-format
+msgid "افزودن %s به مقایسه"
+msgstr ""
+
+#: template-parts/product/card.php:153
+#, php-format
+msgid "افزودن %s به علاقه‌مندی‌ها"
+msgstr ""
+
+#: template-parts/product/card.php:172
+msgid "تمام شد"
+msgstr ""
+
+#: template-parts/product/card.php:185
+#, php-format
+msgid "مشاهده سریع %s"
+msgstr ""
+
+#: template-parts/product/card.php:206
+msgid "رنگ‌بندی"
+msgstr ""
+
+#. translators: %s: quantity left.
+#: template-parts/product/card.php:239
+#, php-format
+msgid "تنها %s عدد باقی مانده"
+msgstr ""
+
+#: template-parts/shop/category-tabs.php:35
+msgid "دسته‌بندی محصولات"
+msgstr ""
+
+#: template-parts/shop/category-tabs.php:36
+msgid "همه"
+msgstr ""
+
+#: woocommerce/archive-product.php:24
+msgid "پیشنهاد MOON"
+msgstr ""
+
+#: woocommerce/archive-product.php:25
+msgid "محبوب‌ترین"
+msgstr ""
+
+#: woocommerce/archive-product.php:26
+msgid "بیشترین امتیاز"
+msgstr ""
+
+#: woocommerce/archive-product.php:27
+msgid "جدیدترین"
+msgstr ""
+
+#: woocommerce/archive-product.php:28
+msgid "ارزان‌ترین"
+msgstr ""
+
+#: woocommerce/archive-product.php:29
+msgid "گران‌ترین"
+msgstr ""
+
+#: woocommerce/archive-product.php:36
+msgid "فیلتر محصولات"
+msgstr ""
+
+#: woocommerce/archive-product.php:67
+msgid "حالت نمایش محصولات"
+msgstr ""
+
+#: woocommerce/archive-product.php:68
+msgid "نمایش شبکه‌ای"
+msgstr ""
+
+#: woocommerce/archive-product.php:71
+msgid "نمایش لیستی"
+msgstr ""
+
+#: woocommerce/archive-product.php:78
+msgid "ترتیب نمایش"
+msgstr ""
+
+#: woocommerce/archive-product.php:118
+msgid "محصولات بیشتر"
+msgstr ""
+
+#: woocommerce/myaccount/form-login.php:36
+#: woocommerce/myaccount/form-login.php:40
+msgid "ورود با کد پیامکی"
+msgstr ""
+
+#: woocommerce/myaccount/form-login.php:37
+msgid "ورود با رمز"
+msgstr ""
+
+#: woocommerce/myaccount/form-login.php:39
+#: woocommerce/myaccount/form-login.php:98
+msgid "ورود"
+msgstr ""
+
+#: woocommerce/myaccount/form-login.php:44
+msgid "ثبت‌نام"
+msgstr ""
+
+#: woocommerce/myaccount/form-login.php:51
+msgid "شماره موبایل خود را وارد کنید؛ کد تأیید پیامک می‌شود و بدون رمز عبور وارد حساب می‌شوید."
+msgstr ""
+
+#: woocommerce/myaccount/form-login.php:59
+#: woocommerce/myaccount/form-login.php:130
+msgid "ارسال کد"
+msgstr ""
+
+#: woocommerce/myaccount/form-login.php:63
+msgid "کد تأیید"
+msgstr ""
+
+#: woocommerce/myaccount/form-login.php:67
+#: woocommerce/myaccount/form-login.php:74
+msgid "ورود به حساب"
+msgstr ""
+
+#: woocommerce/myaccount/form-login.php:75
+msgid "با شماره موبایل یا ایمیل و رمز عبور وارد شوید."
+msgstr ""
+
+#: woocommerce/myaccount/form-login.php:81
+msgid "شماره موبایل یا ایمیل"
+msgstr ""
+
+#: woocommerce/myaccount/form-login.php:86
+msgid "رمز عبور"
+msgstr ""
+
+#: woocommerce/myaccount/form-login.php:102
+msgid "مرا به خاطر بسپار"
+msgstr ""
+
+#: woocommerce/myaccount/form-login.php:109
+msgid "رمز عبور را فراموش کرده‌اید؟"
+msgstr ""
+
+#: woocommerce/myaccount/form-login.php:111
+msgid "ساخت حساب جدید"
+msgstr ""
+
+#: woocommerce/myaccount/form-login.php:119
+msgid "ساخت حساب کاربری"
+msgstr ""
+
+#: woocommerce/myaccount/form-login.php:120
+msgid "با شماره موبایل ثبت‌نام کنید؛ سفارش‌ها، آدرس‌ها و علاقه‌مندی‌هایتان یک‌جا ذخیره می‌شود."
+msgstr ""
+
+#: woocommerce/myaccount/form-login.php:134
+msgid "کد تأیید پیامکی"
+msgstr ""
+
+#: woocommerce/myaccount/form-login.php:138
+msgid "تأیید شماره موبایل"
+msgstr ""
+
+#: woocommerce/myaccount/form-login.php:143
+msgid "شماره شما تأیید شد. اطلاعات حساب را کامل کنید."
+msgstr ""
+
+#: woocommerce/myaccount/form-login.php:153
+msgid "نام خانوادگی"
+msgstr ""
+
+#: woocommerce/myaccount/form-login.php:159
+msgid "ایمیل (اختیاری)"
+msgstr ""
+
+#: woocommerce/myaccount/form-login.php:164
+msgid "رمز عبور (اختیاری)"
+msgstr ""
+
+#: woocommerce/myaccount/form-login.php:168
+msgid "ثبت‌نام و ورود"
+msgstr ""

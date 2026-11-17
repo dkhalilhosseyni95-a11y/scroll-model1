@@ -1,0 +1,868 @@
+/*!
+ * MOON — builder output.
+ *
+ * Styles for everything the panel can add on top of the shipped design:
+ * header layout variants, the announcement bar, mega menu, footer columns and
+ * the optional homepage sections. Colours come from the design tokens, so a
+ * palette change is inherited here.
+ */
+
+/* --------------------------------------------------------------------------
+ * Announcement bar
+ * ------------------------------------------------------------------------ */
+.moon-topbar {
+  position: relative;
+  z-index: 51;
+  background: var(--topbar-bg, var(--accent));
+  color: var(--topbar-fg, var(--accent-foreground));
+  font-size: 0.78rem;
+  letter-spacing: 0.02em;
+}
+
+.moon-topbar__inner {
+  display: flex;
+  justify-content: center;
+  padding-block: 0.5rem;
+  text-align: center;
+}
+
+.moon-topbar a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* The fixed header sits below the bar until the page scrolls. */
+.moon-topbar ~ .moon-header {
+  top: 2.25rem;
+}
+
+/* --------------------------------------------------------------------------
+ * Header variants
+ * ------------------------------------------------------------------------ */
+.moon-header__bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  width: 100%;
+  min-height: var(--header-height, 72px);
+  padding-inline: 1.5rem;
+  border-bottom: 1px solid var(--border);
+  background: var(--header-bg, var(--background));
+  color: var(--header-fg, inherit);
+}
+
+.moon-header--standard.is-scrolled .moon-header__bar {
+  background: var(--header-bg, var(--card));
+  box-shadow: var(--shadow-soft);
+}
+
+.moon-header--minimal .moon-header__pill,
+.moon-header--minimal .moon-header__bar {
+  justify-content: space-between;
+}
+
+.moon-header__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex: 1;
+}
+
+.moon-header__spacer {
+  width: 1px;
+  flex: 0 0 auto;
+}
+
+.moon-header--centered .moon-header__pill,
+.moon-header--centered .moon-header__bar {
+  flex-wrap: wrap;
+  border-radius: var(--radius);
+  padding-block: 0.5rem;
+}
+
+.moon-header--centered .moon-brand {
+  justify-content: center;
+}
+
+.moon-header__secondary {
+  display: none;
+  width: 100%;
+  border-top: 1px solid var(--border);
+  justify-content: center;
+}
+
+@media (min-width: 992px) {
+  .moon-header--centered {
+    flex-direction: column;
+  }
+
+  .moon-header__secondary {
+    display: flex;
+  }
+
+  .moon-header--centered .moon-nav {
+    display: none;
+  }
+}
+
+.moon-header.is-transparent .moon-header__pill,
+.moon-header.is-transparent .moon-header__bar {
+  background: transparent;
+  border-color: transparent;
+  box-shadow: none;
+  backdrop-filter: none;
+}
+
+.moon-header.is-transparent.is-scrolled .moon-header__pill,
+.moon-header.is-transparent.is-scrolled .moon-header__bar {
+  background: var(--header-bg, var(--glass));
+  border-color: var(--glass-border);
+}
+
+.moon-header.is-hide-on-scroll {
+  transition: transform 0.35s ease;
+}
+
+.moon-header.is-hide-on-scroll.is-hidden {
+  transform: translateY(-110%);
+}
+
+.moon-header__cta {
+  min-height: 38px;
+  padding: 0.5rem 1.1rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+}
+
+.moon-header__social {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--muted-foreground);
+}
+
+.moon-header__social a:hover {
+  color: var(--accent);
+}
+
+/* --------------------------------------------------------------------------
+ * Mega menu
+ * ------------------------------------------------------------------------ */
+.moon-nav .moon-nav__item--mega {
+  position: static;
+}
+
+.moon-nav .moon-nav__item--mega > .sub-menu {
+  inset-inline: 0;
+  display: none;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.35rem 1.5rem;
+  width: min(60rem, calc(100vw - 3rem));
+  margin-inline: auto;
+  padding: 1.25rem 1.5rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--card);
+  box-shadow: var(--shadow-soft);
+}
+
+.moon-nav .moon-nav__item--mega:hover > .sub-menu,
+.moon-nav .moon-nav__item--mega:focus-within > .sub-menu {
+  display: grid;
+}
+
+.moon-nav .moon-nav__item--mega > .sub-menu .sub-menu {
+  position: static;
+  display: block;
+  padding: 0 0 0 0.75rem;
+  border: 0;
+  box-shadow: none;
+  background: none;
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+}
+
+.moon-mega__promo {
+  display: block;
+  grid-column: 1 / -1;
+  overflow: hidden;
+  border-radius: var(--radius);
+}
+
+.moon-mega__promo img {
+  width: 100%;
+  max-height: 190px;
+  object-fit: cover;
+}
+
+/* --------------------------------------------------------------------------
+ * Footer columns
+ * ------------------------------------------------------------------------ */
+.moon-footer__brandcol {
+  max-width: 26rem;
+}
+
+.moon-footer__column {
+  min-width: 0;
+}
+
+.moon-footer__text {
+  color: var(--muted-foreground);
+  font-size: 0.9rem;
+  line-height: 1.9;
+}
+
+.moon-footer--cols-1 .moon-footer__grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.moon-footer--cols-2 .moon-footer__grid {
+  grid-template-columns: 1.4fr repeat(2, minmax(0, 1fr));
+}
+
+.moon-footer--cols-3 .moon-footer__grid {
+  grid-template-columns: 1.4fr repeat(3, minmax(0, 1fr));
+}
+
+.moon-footer--cols-4 .moon-footer__grid,
+.moon-footer--cols-5 .moon-footer__grid,
+.moon-footer--cols-6 .moon-footer__grid {
+  grid-template-columns: 1.4fr repeat(4, minmax(0, 1fr));
+}
+
+.moon-footer__pay {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.moon-pay-badge {
+  padding: 0.25rem 0.6rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--muted-foreground);
+  font-size: 0.7rem;
+  letter-spacing: 0.04em;
+}
+
+@media (max-width: 991px) {
+  .moon-footer--cols-3 .moon-footer__grid,
+  .moon-footer--cols-4 .moon-footer__grid,
+  .moon-footer--cols-5 .moon-footer__grid,
+  .moon-footer--cols-6 .moon-footer__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 767px) {
+  .moon-footer-cols-1.moon-body .moon-footer .moon-footer__grid,
+  .moon-footer--mobile-1 .moon-footer__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .moon-footer--mobile-2 .moon-footer__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* --------------------------------------------------------------------------
+ * Sections added by the builder
+ * ------------------------------------------------------------------------ */
+.moon-sec {
+  position: relative;
+  padding-block: var(--section-space, 96px);
+}
+
+.moon-sec--space-none {
+  padding-block: 0;
+}
+
+.moon-sec--space-sm {
+  padding-block: calc(var(--section-space, 96px) * 0.5);
+}
+
+.moon-sec--space-lg {
+  padding-block: calc(var(--section-space, 96px) * 1.5);
+}
+
+.moon-sec--hide-mobile {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .moon-sec--hide-mobile {
+    display: block;
+  }
+}
+
+.moon-sec-head {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.moon-sec-head__title {
+  margin: 0.5rem 0 0;
+  font-size: calc(clamp(1.6rem, 3.4vw, 2.6rem) * var(--heading-scale, 1));
+  font-weight: var(--heading-weight, 300);
+}
+
+/* Slider ------------------------------------------------------------------ */
+.moon-slider {
+  position: relative;
+  overflow: hidden;
+  background: var(--stage);
+}
+
+.moon-slider--md {
+  min-height: 48vh;
+}
+
+.moon-slider--lg {
+  min-height: 68vh;
+}
+
+.moon-slider--full {
+  min-height: 92vh;
+}
+
+.moon-slider__track {
+  display: grid;
+  min-height: inherit;
+}
+
+.moon-slider__slide {
+  position: relative;
+  grid-area: 1 / 1;
+  margin: 0;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+  pointer-events: none;
+}
+
+.moon-slider__slide.is-active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.moon-slider__slide img {
+  width: 100%;
+  height: 100%;
+  min-height: inherit;
+  object-fit: cover;
+}
+
+.moon-slider__caption {
+  position: absolute;
+  inset-block-end: 12%;
+  inset-inline-start: 6%;
+  max-width: min(34rem, 84%);
+  color: var(--on-overlay);
+}
+
+.moon-slider__caption h2 {
+  margin: 0 0 0.5rem;
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  font-weight: 300;
+  color: #fff;
+  text-shadow: 0 2px 24px rgba(0, 0, 0, 0.45);
+}
+
+.moon-slider__caption p {
+  margin: 0 0 1rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.moon-slider__dots {
+  position: absolute;
+  inset-block-end: 1.25rem;
+  inset-inline: 0;
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.moon-slider__dot {
+  width: 9px;
+  height: 9px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.45);
+}
+
+.moon-slider__dot.is-active {
+  background: #fff;
+}
+
+/* Banner ------------------------------------------------------------------ */
+.moon-banner {
+  position: relative;
+  display: grid;
+  min-height: 380px;
+  overflow: hidden;
+  place-items: center;
+  background: var(--card);
+  border-radius: var(--radius);
+}
+
+.moon-banner__media,
+.moon-banner__scrim {
+  position: absolute;
+  inset: 0;
+}
+
+.moon-banner__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.moon-banner__scrim {
+  background: #000;
+  pointer-events: none;
+}
+
+.moon-banner__body {
+  position: relative;
+  padding: 3rem 1.5rem;
+  max-width: 40rem;
+  color: var(--on-overlay);
+  text-align: center;
+}
+
+.moon-banner--start .moon-banner__body {
+  justify-self: start;
+  text-align: start;
+  padding-inline-start: clamp(1.5rem, 6vw, 5rem);
+}
+
+.moon-banner__title {
+  margin: 0.5rem 0;
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  font-weight: 300;
+  color: #fff;
+  text-shadow: 0 2px 24px rgba(0, 0, 0, 0.45);
+}
+
+.moon-banner__text {
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.moon-banner[data-empty] .moon-banner__title,
+.moon-banner[data-empty] .moon-banner__text {
+  color: var(--foreground);
+  text-shadow: none;
+}
+
+/* Multi banner ------------------------------------------------------------ */
+.moon-banners {
+  display: grid;
+  gap: 1rem;
+}
+
+.moon-banners--2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.moon-banners--3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+@media (max-width: 767px) {
+  .moon-banners,
+  .moon-banners--2,
+  .moon-banners--3 {
+    grid-template-columns: 1fr;
+  }
+}
+
+.moon-banners__item {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  border-radius: var(--radius);
+  background: var(--card);
+}
+
+.moon-banners__item img {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.moon-banners__item:hover img {
+  transform: scale(1.04);
+}
+
+.moon-banners__title {
+  position: absolute;
+  inset-block-end: 1rem;
+  inset-inline-start: 1rem;
+  padding: 0.35rem 0.8rem;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.55);
+  color: #fff;
+  font-size: 0.82rem;
+  backdrop-filter: blur(6px);
+}
+
+/* Collections ------------------------------------------------------------- */
+.moon-collections {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+}
+
+.moon-collections__item {
+  position: relative;
+  display: grid;
+  gap: 0.25rem;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--card);
+  text-align: center;
+}
+
+.moon-collections__item img {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+}
+
+.moon-collections__ph {
+  display: grid;
+  place-items: center;
+  aspect-ratio: 3 / 4;
+  background: var(--muted);
+  color: var(--muted-foreground);
+  font-family: var(--font-display);
+  font-size: 3rem;
+}
+
+.moon-collections__name {
+  padding-block-start: 0.6rem;
+  font-weight: 500;
+}
+
+.moon-collections__count {
+  padding-block-end: 0.8rem;
+  color: var(--muted-foreground);
+  font-size: 0.75rem;
+}
+
+/* Features ---------------------------------------------------------------- */
+.moon-features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.moon-features__item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.8rem;
+  padding: 1.1rem 1.2rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--card);
+}
+
+.moon-features__icon {
+  color: var(--accent);
+}
+
+.moon-features__item strong {
+  display: block;
+  font-weight: 500;
+}
+
+.moon-features__item span {
+  color: var(--muted-foreground);
+  font-size: 0.82rem;
+}
+
+/* Brands ------------------------------------------------------------------ */
+.moon-brands {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  padding: 1rem 0;
+}
+
+.moon-brands__item {
+  filter: grayscale(1);
+  opacity: 0.65;
+  transition: opacity 0.3s ease, filter 0.3s ease;
+}
+
+.moon-brands__item:hover {
+  filter: none;
+  opacity: 1;
+}
+
+.moon-brands__item img {
+  max-height: 46px;
+  width: auto;
+}
+
+/* Promo / countdown ------------------------------------------------------- */
+.moon-promo {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 2rem;
+  align-items: center;
+  padding: clamp(1rem, 3vw, 2.5rem);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--card);
+}
+
+@media (max-width: 767px) {
+  .moon-promo {
+    grid-template-columns: 1fr;
+  }
+}
+
+.moon-promo__media img {
+  width: 100%;
+  border-radius: var(--radius);
+  object-fit: cover;
+}
+
+.moon-promo__body h2 {
+  margin: 0.5rem 0;
+}
+
+.moon-countdown {
+  display: flex;
+  align-items: baseline;
+  gap: 0.4rem;
+  margin: 1rem 0;
+  font-variant-numeric: tabular-nums;
+}
+
+.moon-countdown span {
+  padding: 0.3rem 0.6rem;
+  border-radius: var(--radius-sm);
+  background: var(--muted);
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.moon-countdown small {
+  color: var(--muted-foreground);
+  font-size: 0.72rem;
+}
+
+/* Video ------------------------------------------------------------------- */
+.moon-video {
+  max-width: 60rem;
+  margin-inline: auto;
+}
+
+.moon-video video,
+.moon-video iframe {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 0;
+  border-radius: var(--radius);
+}
+
+.moon-video__text {
+  margin-top: 1rem;
+  color: var(--muted-foreground);
+  text-align: center;
+}
+
+/* Gallery ----------------------------------------------------------------- */
+.moon-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 0.6rem;
+}
+
+.moon-gallery-grid__item {
+  margin: 0;
+  overflow: hidden;
+  border-radius: var(--radius);
+}
+
+.moon-gallery-grid__item img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.moon-gallery-grid__item:hover img {
+  transform: scale(1.05);
+}
+
+/* Posts ------------------------------------------------------------------- */
+.moon-posts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+}
+
+.moon-posts__item {
+  display: grid;
+  gap: 0.6rem;
+}
+
+.moon-posts__media img {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  border-radius: var(--radius);
+  object-fit: cover;
+}
+
+.moon-posts__body time {
+  color: var(--muted-foreground);
+  font-size: 0.75rem;
+}
+
+.moon-posts__body h3 {
+  margin: 0.3rem 0;
+  font-size: 1.1rem;
+}
+
+.moon-posts__body p {
+  color: var(--muted-foreground);
+  font-size: 0.86rem;
+}
+
+/* FAQ --------------------------------------------------------------------- */
+.moon-faq {
+  max-width: 52rem;
+  margin-inline: auto;
+}
+
+.moon-faq__item {
+  border-bottom: 1px solid var(--border);
+}
+
+.moon-faq__item summary {
+  padding: 1rem 0;
+  font-weight: 500;
+  cursor: pointer;
+  list-style: none;
+}
+
+.moon-faq__item summary::-webkit-details-marker {
+  display: none;
+}
+
+.moon-faq__item summary::after {
+  content: "+";
+  float: inline-end;
+  color: var(--accent);
+}
+
+.moon-faq__item[open] summary::after {
+  content: "−";
+}
+
+.moon-faq__item p {
+  margin: 0 0 1rem;
+  color: var(--muted-foreground);
+  font-size: 0.9rem;
+  line-height: 1.9;
+}
+
+/* Counters ---------------------------------------------------------------- */
+.moon-counters {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1rem;
+  text-align: center;
+}
+
+.moon-counters__item {
+  padding: 1.5rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--card);
+}
+
+.moon-counters__item strong {
+  display: block;
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  font-weight: 300;
+  color: var(--accent);
+}
+
+.moon-counters__item span {
+  color: var(--muted-foreground);
+  font-size: 0.82rem;
+}
+
+/* Newsletter block used as a section -------------------------------------- */
+.moon-sec--newsletter .moon-newsletter {
+  padding: 0;
+}
+
+.moon-sec--newsletter .moon-newsletter h2 {
+  margin: 0.5rem 0 1.2rem;
+}
+
+/* --------------------------------------------------------------------------
+ * Product card variants and image ratios
+ * ------------------------------------------------------------------------ */
+.moon-ratio-square .moon-card__media img,
+.moon-ratio-square .moon-card__image {
+  aspect-ratio: 1;
+}
+
+.moon-ratio-landscape .moon-card__media img,
+.moon-ratio-landscape .moon-card__image {
+  aspect-ratio: 4 / 3;
+}
+
+.moon-card-style-bordered .moon-card {
+  border: var(--border-w, 1px) solid var(--border);
+  border-radius: var(--radius);
+  padding-block-end: 0.75rem;
+  background: var(--card);
+}
+
+.moon-card-style-elevated .moon-card {
+  border-radius: var(--radius);
+  background: var(--card);
+  box-shadow: var(--shadow-soft);
+}
+
+.moon-cards-minimal .moon-card__cat,
+.moon-cards-minimal .moon-card__en {
+  display: none;
+}
+
+.moon-cards-modern .moon-card__name {
+  font-size: 1.05rem;
+}
+
+.moon-cards-detailed .moon-card__body {
+  gap: 0.35rem;
+}
+
+.moon-hover-off .moon-card img,
+.moon-hover-off .moon-banners__item img,
+.moon-hover-off .moon-gallery-grid__item img {
+  transform: none !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .moon-slider__slide,
+  .moon-banners__item img,
+  .moon-gallery-grid__item img {
+    transition: none;
+  }
+}

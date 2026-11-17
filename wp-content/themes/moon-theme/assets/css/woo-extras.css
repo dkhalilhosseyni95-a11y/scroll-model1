@@ -1,0 +1,454 @@
+/*!
+ * MOON — shop extras.
+ *
+ * Comparison, sticky buy bar, free-shipping progress, grid/list switch,
+ * recently viewed and product gallery layouts. Loaded only on shop screens.
+ */
+
+/* --------------------------------------------------------------------------
+ * Card additions
+ * ------------------------------------------------------------------------ */
+.moon-card__compare {
+  position: absolute;
+  inset-block-start: 3.1rem;
+  inset-inline-start: 0.75rem;
+  display: inline-grid;
+  place-items: center;
+  width: 2rem;
+  height: 2rem;
+  padding: 0;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  background: var(--glass);
+  color: var(--foreground);
+  backdrop-filter: blur(8px);
+  opacity: 0;
+  transition: opacity 0.25s ease, color 0.2s ease;
+}
+
+.moon-card:hover .moon-card__compare,
+.moon-card__compare:focus-visible {
+  opacity: 1;
+}
+
+.moon-card__compare[aria-pressed="true"] {
+  border-color: var(--accent);
+  color: var(--accent);
+  opacity: 1;
+}
+
+.moon-card__stock {
+  margin: 0.35rem 0 0;
+  color: var(--sale, var(--accent));
+  font-size: 0.72rem;
+}
+
+.moon-compare-count {
+  position: absolute;
+  inset-block-start: -2px;
+  inset-inline-end: -4px;
+  min-width: 15px;
+  height: 15px;
+  padding: 0 3px;
+  border-radius: 999px;
+  background: var(--accent);
+  color: var(--accent-foreground);
+  font-size: 10px;
+  line-height: 15px;
+  text-align: center;
+}
+
+.moon-iconbtn[data-moon-compare-link] {
+  position: relative;
+}
+
+/* --------------------------------------------------------------------------
+ * Shop toolbar: grid / list switch
+ * ------------------------------------------------------------------------ */
+.moon-shop__views {
+  display: inline-flex;
+  gap: 0.25rem;
+  padding: 0.2rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+}
+
+.moon-shop__view {
+  display: inline-grid;
+  place-items: center;
+  width: 2rem;
+  height: 1.7rem;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: none;
+  color: var(--muted-foreground);
+}
+
+.moon-shop__view[aria-pressed="true"] {
+  background: var(--muted);
+  color: var(--foreground);
+}
+
+/* List view --------------------------------------------------------------- */
+.moon-shop--list .moon-shop__grid {
+  display: block;
+}
+
+.moon-shop--list .moon-shop__grid > li,
+.moon-shop--list .moon-shop__grid > .product {
+  display: block;
+  width: 100%;
+}
+
+.moon-shop--list .moon-card {
+  display: grid;
+  grid-template-columns: minmax(150px, 220px) minmax(0, 1fr);
+  gap: 1.25rem;
+  align-items: start;
+  padding-block-end: 1rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.moon-shop--list .moon-card__media {
+  width: 100%;
+}
+
+.moon-shop--list .moon-card__body {
+  padding: 0.5rem 0 0;
+}
+
+.moon-shop--list .moon-card__name {
+  font-size: 1.15rem;
+}
+
+.moon-shop--list .moon-card__actions {
+  position: static;
+  justify-content: flex-start;
+  margin-top: 0.75rem;
+  transform: none;
+  opacity: 1;
+}
+
+@media (max-width: 600px) {
+  .moon-shop--list .moon-card {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Filters hidden or always in a drawer ------------------------------------ */
+.moon-filters-none .moon-shop__filters,
+.moon-filters-none .moon-shop__filter-btn {
+  display: none;
+}
+
+.moon-filters-none .moon-shop__layout {
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 992px) {
+  .moon-filters-drawer .moon-shop__layout {
+    grid-template-columns: 1fr;
+  }
+
+  .moon-filters-drawer .moon-shop__filters {
+    position: fixed;
+    inset-block: 0;
+    inset-inline-start: 0;
+    z-index: 60;
+    width: min(24rem, 88vw);
+    overflow-y: auto;
+    border-inline-end: 1px solid var(--border);
+    background: var(--background);
+    transform: translateX(-105%);
+    transition: transform 0.3s ease;
+  }
+
+  [dir="rtl"] .moon-filters-drawer .moon-shop__filters {
+    transform: translateX(105%);
+  }
+
+  .moon-filters-drawer .moon-shop__filters.is-open {
+    transform: none;
+  }
+}
+
+/* Load more --------------------------------------------------------------- */
+.moon-loadmore {
+  display: flex;
+  justify-content: center;
+  padding-block: 2rem;
+}
+
+.moon-loadmore .moon-btn[disabled] {
+  opacity: 0.55;
+  pointer-events: none;
+}
+
+/* --------------------------------------------------------------------------
+ * Free shipping progress
+ * ------------------------------------------------------------------------ */
+.moon-shipbar {
+  margin: 0 0 1rem;
+  padding: 0.75rem 0.9rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--card);
+}
+
+.moon-shipbar__text {
+  margin: 0 0 0.5rem;
+  font-size: 0.8rem;
+}
+
+.moon-shipbar__text--ok {
+  color: var(--success, #4c6b52);
+}
+
+.moon-shipbar__track {
+  display: block;
+  height: 6px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: var(--muted);
+}
+
+.moon-shipbar__fill {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--accent), var(--primary));
+  transition: width 0.4s ease;
+}
+
+/* --------------------------------------------------------------------------
+ * Sticky buy bar
+ * ------------------------------------------------------------------------ */
+.moon-sticky-buy {
+  position: fixed;
+  inset-inline: 0;
+  inset-block-end: 0;
+  z-index: 45;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.6rem 0.9rem calc(0.6rem + env(safe-area-inset-bottom));
+  border-top: 1px solid var(--border);
+  background: var(--glass);
+  backdrop-filter: blur(14px);
+  transform: translateY(110%);
+  transition: transform 0.3s ease;
+}
+
+.moon-sticky-buy.is-visible {
+  transform: none;
+}
+
+.moon-sticky-buy__info {
+  display: grid;
+  min-width: 0;
+  font-size: 0.78rem;
+}
+
+.moon-sticky-buy__info strong {
+  overflow: hidden;
+  font-weight: 500;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.moon-sticky-buy__price {
+  color: var(--accent);
+}
+
+.moon-sticky-buy .moon-btn {
+  min-height: 40px;
+  padding-inline: 1rem;
+  font-size: 0.8rem;
+}
+
+@media (min-width: 992px) {
+  .moon-sticky-buy {
+    display: none !important;
+  }
+}
+
+/* --------------------------------------------------------------------------
+ * Comparison table
+ * ------------------------------------------------------------------------ */
+.moon-compare {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.moon-compare__table {
+  width: 100%;
+  min-width: 640px;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+}
+
+.moon-compare__table th,
+.moon-compare__table td {
+  padding: 0.85rem 0.9rem;
+  border-bottom: 1px solid var(--border);
+  text-align: start;
+  vertical-align: top;
+}
+
+.moon-compare__table thead th {
+  position: relative;
+  padding-top: 2rem;
+  background: var(--card);
+}
+
+.moon-compare__table tbody th {
+  width: 12rem;
+  color: var(--muted-foreground);
+  font-weight: 400;
+}
+
+.moon-compare__product a {
+  display: grid;
+  gap: 0.5rem;
+  font-weight: 500;
+}
+
+.moon-compare__product img {
+  width: 100%;
+  max-width: 160px;
+  border-radius: var(--radius);
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+}
+
+.moon-compare__remove {
+  position: absolute;
+  inset-block-start: 0.5rem;
+  inset-inline-end: 0.5rem;
+  width: 1.6rem;
+  height: 1.6rem;
+  padding: 0;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  background: var(--background);
+  color: var(--muted-foreground);
+  line-height: 1;
+}
+
+.moon-compare__remove:hover {
+  color: var(--destructive);
+  border-color: var(--destructive);
+}
+
+.moon-compare__empty {
+  padding: 3rem 1rem;
+  border: 1px dashed var(--border);
+  border-radius: var(--radius);
+  text-align: center;
+}
+
+.moon-compare__empty p {
+  color: var(--muted-foreground);
+}
+
+.moon-compare__hint {
+  color: var(--muted-foreground);
+  font-size: 0.85rem;
+}
+
+/* --------------------------------------------------------------------------
+ * Product gallery layouts
+ * ------------------------------------------------------------------------ */
+.moon-gallery-thumbs-right .woocommerce-product-gallery,
+.moon-gallery-thumbs-left .woocommerce-product-gallery {
+  display: grid;
+  grid-template-columns: 88px minmax(0, 1fr);
+  gap: 0.75rem;
+  align-items: start;
+}
+
+.moon-gallery-thumbs-right .woocommerce-product-gallery__image:first-child {
+  grid-column: 2;
+}
+
+.moon-gallery-thumbs-right .flex-control-thumbs {
+  grid-row: 1;
+  grid-column: 1;
+  display: grid;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.moon-gallery-thumbs-left .flex-control-thumbs {
+  grid-row: 1;
+  grid-column: 1;
+  order: -1;
+  display: grid;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.moon-gallery-thumbs-bottom .flex-control-thumbs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0.75rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.moon-gallery-grid .woocommerce-product-gallery__wrapper {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.5rem;
+}
+
+.moon-gallery-grid .flex-control-thumbs {
+  display: none;
+}
+
+.moon-gallery-grid .woocommerce-product-gallery__image:first-child {
+  grid-column: 1 / -1;
+}
+
+/* --------------------------------------------------------------------------
+ * Recently viewed
+ * ------------------------------------------------------------------------ */
+.moon-recent {
+  margin-top: 3rem;
+}
+
+.moon-recent__title {
+  margin-bottom: 1.25rem;
+  font-size: 1.3rem;
+}
+
+.moon-recent__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* --------------------------------------------------------------------------
+ * Countdown on the product page
+ * ------------------------------------------------------------------------ */
+.moon-countdown--product {
+  flex-wrap: wrap;
+  margin: 0.75rem 0;
+}
+
+.moon-countdown__label {
+  width: 100%;
+  margin-bottom: 0.25rem;
+  color: var(--muted-foreground);
+  font-size: 0.75rem;
+}
