@@ -63,19 +63,22 @@ services:
       start_period: 90s
 
   setup:
+    # Installs WordPress, WooCommerce and the demo content, then keeps the
+    # container running so the sandbox health check can confirm the install.
     image: wordpress:cli-php8.3
     depends_on:
       db:
         condition: service_healthy
       wordpress:
         condition: service_started
-    restart: "no"
+    restart: on-failure
     user: "33:33"
     environment:
       WORDPRESS_DB_HOST: db:3306
       WORDPRESS_DB_USER: wordpress
       WORDPRESS_DB_PASSWORD: moon_dev_password
       WORDPRESS_DB_NAME: wordpress
+      WP_CLI_CACHE_DIR: /tmp/wp-cli-cache
       MOON_ADMIN_USER: admin
       MOON_ADMIN_PASSWORD: moon-dev-admin
       MOON_ADMIN_EMAIL: admin@moon.local
@@ -86,7 +89,13 @@ services:
       - ./wp-content/themes/moon-theme:/var/www/html/wp-content/themes/moon-theme
       - ./wp-content/plugins/moon-demo-importer:/var/www/html/wp-content/plugins/moon-demo-importer
       - ./docker:/scripts:ro
-    command: ["sh", "/scripts/setup.sh"]
+    command: ["sh", "-c", "sh /scripts/setup.sh && touch /var/www/html/.moon-setup-ok && exec tail -f /dev/null"]
+    healthcheck:
+      test: ["CMD-SHELL", "test -f /var/www/html/.moon-setup-ok && wp core is-installed --path=/var/www/html >/dev/null 2>&1"]
+      interval: 15s
+      timeout: 10s
+      retries: 5
+      start_period: 180s
 
 volumes:
   db_data:

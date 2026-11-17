@@ -1,0 +1,15 @@
+{
+  "previewPort": 3000,
+  "healthPath": "/",
+  "startCommand": "docker compose -f docker-compose.base44.yml up -d --build",
+  "secrets": [],
+  "services": {
+    "wordpress": "Apache + PHP 8.3, serves the store on host port 3000",
+    "db": "MariaDB 11.4 with a named volume",
+    "setup": "One-shot installer (WP core, WooCommerce, MOON theme, demo content). Runs, writes /var/www/html/.moon-setup-ok and then stays up so the health check can verify the install."
+  },
+  "notes": [
+    "The theme and the demo importer are bind-mounted from the repository; no build step is needed for PHP/CSS edits.",
+    "Admin login for the sandbox: admin / moon-dev-admin."
+  ]
+}
