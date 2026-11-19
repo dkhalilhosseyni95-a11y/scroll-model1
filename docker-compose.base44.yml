@@ -1,0 +1,103 @@
+# Base44 development environment for the NETELEC WordPress theme.
+#
+# WordPress core lives in a named volume (populated from the official image),
+# while the theme itself is bind-mounted from ./netelec so every edit is live.
+# Local infrastructure credentials are generated here; no external secrets are
+# needed for the theme to boot (SMS provider keys are entered by the site admin
+# in wp-admin and are stored in the WordPress database only).
+name: netelec
+
+services:
+  db:
+    image: mariadb:10.11
+    restart: on-failure
+    environment:
+      MARIADB_DATABASE: wordpress
+      MARIADB_USER: wordpress
+      MARIADB_PASSWORD: netelec_local_db
+      MARIADB_ROOT_PASSWORD: netelec_local_root
+      MARIADB_AUTO_UPGRADE: "1"
+    volumes:
+      - netelec_db:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      interval: 5s
+      timeout: 5s
+      retries: 40
+      start_period: 10s
+
+  # One-shot: seeds WordPress core into the shared volume and fixes ownership
+  # of wp-content (the official entrypoint only does this for apache2/php-fpm
+  # commands, so it cannot run inside our own start command).
+  init:
+    image: wordpress:latest
+    restart: "no"
+    entrypoint: ["sh", "-c"]
+    command:
+      - |
+        set -e
+        if [ ! -f /var/www/html/index.php ]; then
+          cp -a /usr/src/wordpress/. /var/www/html/
+        fi
+        mkdir -p /var/www/html/wp-content/uploads /var/www/html/wp-content/plugins
+        chown -R www-data:www-data /var/www/html/wp-content
+        echo "WordPress core ready"
+    volumes:
+      - netelec_wp:/var/www/html
+      - ./netelec:/var/www/html/wp-content/themes/netelec
+
+  wordpress:
+    image: wordpress:latest
+    restart: on-failure
+    depends_on:
+      db:
+        condition: service_healthy
+      init:
+        condition: service_completed_successfully
+    ports:
+      - "3000:80"
+    environment:
+      WORDPRESS_DB_HOST: db:3306
+      WORDPRESS_DB_USER: wordpress
+      WORDPRESS_DB_PASSWORD: netelec_local_db
+      WORDPRESS_DB_NAME: wordpress
+      BASE44_PREVIEW_MODE: ${BASE44_PREVIEW_MODE:-}
+      # Used by docker/wp-config.php to build URLs for the public preview host.
+      BASE44_PUBLIC_HOST_SUFFIX: ${BASE44_PUBLIC_HOST_SUFFIX:-}
+      BASE44_SANDBOX_HOST_DOMAIN: ${BASE44_SANDBOX_HOST_DOMAIN:-}
+    volumes:
+      - netelec_wp:/var/www/html
+      - ./netelec:/var/www/html/wp-content/themes/netelec
+      - ./docker/wp-config.php:/var/www/html/wp-config.php:ro
+      - ./docker/php.ini:/usr/local/etc/php/conf.d/zz-netelec.ini:ro
+    command: ["apache2-foreground"]
+    healthcheck:
+      # Probes the real application, not just an open port.
+      test: ["CMD-SHELL", "php -r '$$b=@file_get_contents(\"http://127.0.0.1:80/\"); exit($$b===false?1:0);'"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+      start_period: 40s
+
+  # One-shot WP-CLI runner: `docker compose -f docker-compose.base44.yml run --rm cli <args>`
+  cli:
+    image: wordpress:cli
+    profiles: ["tools"]
+    user: "33:33"
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      WORDPRESS_DB_HOST: db:3306
+      WORDPRESS_DB_USER: wordpress
+      WORDPRESS_DB_PASSWORD: netelec_local_db
+      WORDPRESS_DB_NAME: wordpress
+    volumes:
+      - netelec_wp:/var/www/html
+      - ./netelec:/var/www/html/wp-content/themes/netelec:ro
+      - ./docker/wp-config.php:/var/www/html/wp-config.php:ro
+    entrypoint: ["wp"]
+
+volumes:
+  netelec_db:
+  netelec_wp:

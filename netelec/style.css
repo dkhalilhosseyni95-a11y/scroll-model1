@@ -1,0 +1,27 @@
+<?php
+/**
+ * Theme stylesheet header.
+ *
+ * The actual design system lives in assets/css/base.css and
+ * assets/css/woocommerce.css, enqueued conditionally by inc/assets.php.
+ *
+ * @package Netelec
+ */
+
+/*
+Theme Name: NETELEC
+Theme URI: https://example.com/netelec
+Author: NETELEC
+Author URI: https://example.com
+Description: قالب فروشگاهی حرفه‌ای و راست‌چین NETELEC برای فروش تجهیزات شبکه و الکترونیک؛ سازگار با ووکامرس، دارای پنل تنظیمات اختصاصی، ورود پیامکی، علاقه‌مندی‌ها، مقایسه محصولات، مشاهده سریع و جستجوی زنده.
+Version: 2.0.0
+Requires at least: 6.4
+Tested up to: 7.1
+Requires PHP: 7.4
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: netelec
+Tags: e-commerce, rtl-language-support, custom-colors, custom-logo, custom-menu, featured-images, translation-ready, blog, right-sidebar
+*/
+
+/* Styles are loaded from assets/css/base.css — see inc/assets.php. */

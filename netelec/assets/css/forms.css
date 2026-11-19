@@ -1,0 +1,98 @@
+/* Content forms and blocks */
+.entry-content form:not(.search-form):not(.woocommerce-form) {
+	display: grid;
+	gap: 12px;
+	background: var(--nc-card);
+	border: 1px solid var(--nc-border);
+	border-radius: var(--nc-radius);
+	padding: 20px;
+	margin-block: 20px;
+}
+
+.entry-content form label {
+	font-size: 12.5px;
+	font-weight: 600;
+}
+
+.entry-content input[type="text"],
+.entry-content input[type="email"],
+.entry-content input[type="tel"],
+.entry-content input[type="url"],
+.entry-content input[type="number"],
+.entry-content input[type="password"],
+.entry-content select,
+.entry-content textarea {
+	width: 100%;
+	border: 1px solid var(--nc-border);
+	border-radius: var(--nc-radius-sm);
+	padding: 10px 12px;
+	font-size: 13px;
+	background: #fff;
+	outline: 0;
+}
+
+.entry-content input:focus,
+.entry-content select:focus,
+.entry-content textarea:focus {
+	border-color: var(--nc-primary);
+	box-shadow: 0 0 0 3px var(--nc-primary-soft);
+}
+
+.entry-content input[type="submit"],
+.entry-content button[type="submit"] {
+	background: var(--nc-primary);
+	color: #fff;
+	border: 0;
+	border-radius: var(--nc-radius-sm);
+	padding: 11px 24px;
+	font-weight: 600;
+	width: fit-content;
+	cursor: pointer;
+}
+
+.entry-content .wp-block-button__link {
+	background: var(--nc-primary);
+	border-radius: var(--nc-radius-sm);
+	font-size: 14px;
+	padding: 12px 26px;
+}
+
+.entry-content .wp-block-quote {
+	border-inline-start: 4px solid var(--nc-primary);
+}
+
+.entry-content figure {
+	margin-block: 20px;
+}
+
+.entry-content figcaption {
+	font-size: 11.5px;
+	color: var(--nc-muted);
+	text-align: center;
+	margin-top: 6px;
+}
+
+.entry-content .wp-block-table table {
+	border-radius: var(--nc-radius-sm);
+	overflow: hidden;
+}
+
+.page-links {
+	display: flex;
+	gap: 6px;
+	align-items: center;
+	margin-block: 20px;
+	font-size: 12.5px;
+}
+
+.page-links a,
+.page-links > span {
+	min-width: 32px;
+	height: 32px;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	border: 1px solid var(--nc-border);
+	border-radius: 8px;
+	padding-inline: 8px;
+}
