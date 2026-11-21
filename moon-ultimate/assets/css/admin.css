@@ -1,0 +1,5 @@
+/* MOON — small admin-side helpers for the Appearance → MOON screen and the rack editor. */
+.moon-admin-notice code { direction: ltr; unicode-bidi: embed; }
+.post-type-moon_rack .postbox .inside { direction: rtl; }
+.post-type-moon_rack .postbox input[type="number"],
+.post-type-moon_rack .postbox input[type="text"] { max-width: 100%; }

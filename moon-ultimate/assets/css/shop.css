@@ -1,0 +1,2392 @@
+/*!
+ * MOON — shop, product, cart, checkout and account surfaces.
+ */
+
+/* --------------------------------------------------------------------------
+ * Shop layout
+ * ------------------------------------------------------------------------ */
+.moon-shop {
+  padding-top: 6.5rem;
+}
+
+.moon-shop__header {
+  margin: 0 0 1.75rem;
+}
+
+.moon-breadcrumb-wrap {
+  font-size: 0.72rem;
+  color: var(--muted-foreground);
+}
+
+.moon-breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.moon-breadcrumb a {
+  color: var(--muted-foreground);
+}
+
+.moon-breadcrumb a:hover {
+  color: var(--foreground);
+}
+
+.moon-shop__title {
+  margin: 0.85rem 0 0;
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 300;
+  line-height: 1.2;
+}
+
+.moon-shop__desc {
+  max-width: 44rem;
+  margin: 0.6rem 0 0;
+  font-size: 0.9rem;
+  color: var(--muted-foreground);
+}
+
+.moon-shop__layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.75rem;
+  padding: 0 0 5rem;
+}
+
+@media (min-width: 1024px) {
+  .moon-shop__layout {
+    grid-template-columns: 16rem minmax(0, 1fr);
+    gap: 2.5rem;
+    align-items: start;
+  }
+}
+
+.moon-shop__main {
+  min-width: 0;
+}
+
+.moon-shop__backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 64;
+  background: var(--overlay-60);
+  -webkit-backdrop-filter: blur(2px);
+  backdrop-filter: blur(2px);
+}
+
+/* Toolbar */
+.moon-shop__toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.75rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.moon-shop__count {
+  margin-inline-start: auto;
+  font-size: 0.8rem;
+  color: var(--muted-foreground);
+}
+
+.moon-shop__filter-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.6rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--foreground);
+  font-family: inherit;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+
+@media (min-width: 1024px) {
+  .moon-shop__filter-btn {
+    display: none;
+  }
+}
+
+.moon-shop__filter-dot {
+  width: 0.45rem;
+  height: 0.45rem;
+  border-radius: 999px;
+  background: var(--accent);
+}
+
+.moon-shop__sort select {
+  padding: 0.55rem 0.9rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--foreground);
+  font-family: inherit;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+
+/* Grid */
+.moon-shop__grid {
+  position: relative;
+  transition: opacity 0.25s ease;
+}
+
+.moon-shop__grid.is-loading {
+  opacity: 0.45;
+  pointer-events: none;
+}
+
+.woocommerce ul.products {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2rem 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@media (min-width: 640px) {
+  .woocommerce ul.products {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 2rem 1.25rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .woocommerce ul.products {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+.woocommerce ul.products::before,
+.woocommerce ul.products::after {
+  display: none;
+}
+
+.woocommerce ul.products li.product {
+  width: 100%;
+  float: none;
+  margin: 0;
+  padding: 0;
+  text-align: start;
+}
+
+.woocommerce .star-rating,
+.woocommerce ul.products li.product .star-rating {
+  display: none;
+}
+
+.moon-shop__empty {
+  grid-column: 1 / -1;
+  padding: 4rem 1rem;
+  text-align: center;
+  color: var(--muted-foreground);
+}
+
+.moon-pager {
+  display: flex;
+  justify-content: center;
+  gap: 0.4rem;
+  margin-top: 3rem;
+}
+
+.moon-pager__link {
+  display: grid;
+  place-items: center;
+  min-width: 2.5rem;
+  height: 2.5rem;
+  padding: 0 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--foreground);
+  font-family: inherit;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.moon-pager__link:hover,
+.moon-pager__link.is-current {
+  background: var(--foreground);
+  color: var(--background);
+  border-color: transparent;
+}
+
+.woocommerce nav.woocommerce-pagination {
+  margin-top: 3rem;
+}
+
+.woocommerce nav.woocommerce-pagination ul {
+  display: flex;
+  justify-content: center;
+  gap: 0.4rem;
+  border: 0;
+}
+
+.woocommerce nav.woocommerce-pagination ul li {
+  border: 0;
+}
+
+.woocommerce nav.woocommerce-pagination ul li a,
+.woocommerce nav.woocommerce-pagination ul li span {
+  display: grid;
+  place-items: center;
+  min-width: 2.5rem;
+  height: 2.5rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  font-size: 0.85rem;
+}
+
+.woocommerce nav.woocommerce-pagination ul li span.current {
+  background: var(--foreground);
+  color: var(--background);
+}
+
+/* --------------------------------------------------------------------------
+ * Filters
+ * ------------------------------------------------------------------------ */
+.moon-filters {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 1.25rem;
+  border: 1px solid var(--border);
+  border-radius: 0.9rem;
+  background: var(--card);
+}
+
+.moon-filters__head {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.moon-filters__title {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.moon-filters__reset {
+  margin-inline-start: auto;
+  border: 0;
+  background: transparent;
+  color: var(--muted-foreground);
+  font-family: inherit;
+  font-size: 0.72rem;
+  cursor: pointer;
+}
+
+.moon-filters__reset:hover {
+  color: var(--foreground);
+}
+
+.moon-filters__close {
+  display: grid;
+  place-items: center;
+  width: 1.9rem;
+  height: 1.9rem;
+  border: 0;
+  border-radius: 999px;
+  background: var(--fg-5);
+  color: var(--foreground);
+  cursor: pointer;
+}
+
+@media (min-width: 1024px) {
+  .moon-filters__close {
+    display: none;
+  }
+}
+
+.moon-filters__group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  padding-top: 1.1rem;
+  border-top: 1px solid var(--border);
+}
+
+.moon-filters__group:first-of-type {
+  padding-top: 0;
+  border-top: 0;
+}
+
+.moon-filters__label {
+  margin: 0;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--foreground);
+}
+
+.moon-filters__cats {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.moon-check {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  font-size: 0.82rem;
+  color: var(--muted-foreground);
+}
+
+.moon-check input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.moon-check__box {
+  display: grid;
+  place-items: center;
+  width: 1rem;
+  height: 1rem;
+  border: 1px solid var(--fg-30);
+  border-radius: 0.2rem;
+  flex: 0 0 auto;
+}
+
+.moon-check input:checked + .moon-check__box {
+  border-color: var(--foreground);
+  background: var(--foreground);
+}
+
+.moon-check input:checked + .moon-check__box::after {
+  content: "";
+  width: 0.35rem;
+  height: 0.6rem;
+  border: solid var(--background);
+  border-width: 0 1.5px 1.5px 0;
+  transform: rotate(45deg) translate(-1px, -1px);
+}
+
+.moon-check input:checked ~ .moon-check__label {
+  color: var(--foreground);
+}
+
+.moon-check__label {
+  flex: 1;
+}
+
+.moon-check__count {
+  font-size: 0.7rem;
+  opacity: 0.7;
+}
+
+.moon-filters__colors {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.moon-color-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.3rem 0.55rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--muted-foreground);
+  font-family: inherit;
+  font-size: 0.72rem;
+  cursor: pointer;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.moon-color-chip:hover,
+.moon-color-chip.is-active {
+  border-color: var(--foreground);
+  color: var(--foreground);
+}
+
+.moon-color-chip__dot {
+  width: 0.8rem;
+  height: 0.8rem;
+  border-radius: 999px;
+  background: var(--swatch, #c9c4bb);
+  box-shadow: inset 0 0 0 1px oklch(0 0 0 / 20%);
+}
+
+.moon-filters__sizes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.moon-size-chip {
+  position: relative;
+  cursor: pointer;
+}
+
+.moon-size-chip input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.moon-size-chip span {
+  display: grid;
+  place-items: center;
+  min-width: 2.4rem;
+  height: 2.2rem;
+  padding: 0 0.6rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  font-size: 0.78rem;
+  color: var(--muted-foreground);
+  transition: all 0.2s ease;
+}
+
+.moon-size-chip:hover span {
+  border-color: var(--fg-30);
+  color: var(--foreground);
+}
+
+.moon-size-chip.is-active span,
+.moon-size-chip input:checked + span {
+  border-color: var(--foreground);
+  background: var(--foreground);
+  color: var(--background);
+}
+
+.moon-filters__price {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+}
+
+.moon-filters__price label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  font-size: 0.7rem;
+  color: var(--muted-foreground);
+}
+
+.moon-filters__price input {
+  width: 100%;
+  padding: 0.55rem 0.7rem;
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+  background: transparent;
+  color: var(--foreground);
+  font-family: inherit;
+  font-size: 0.8rem;
+}
+
+.moon-filters__apply {
+  width: 100%;
+}
+
+/* Mobile: the panel slides in over the grid. */
+@media (max-width: 1023px) {
+  .moon-filters {
+    position: fixed;
+    inset-block: 0;
+    inset-inline-end: 0;
+    z-index: 70;
+    width: min(22rem, 90vw);
+    max-height: 100vh;
+    overflow-y: auto;
+    border-radius: 0;
+    transform: translateX(105%);
+    visibility: hidden;
+    transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), visibility 0.4s;
+  }
+
+  html[dir="rtl"] .moon-filters {
+    transform: translateX(-105%);
+  }
+
+  .moon-filters.is-open {
+    transform: none;
+    visibility: visible;
+  }
+
+  .moon-shop__filters {
+    display: contents;
+  }
+}
+
+/* --------------------------------------------------------------------------
+ * Quick view
+ * ------------------------------------------------------------------------ */
+.moon-qv {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  display: grid;
+  place-items: center;
+  padding: 1.25rem;
+  background: var(--overlay-60);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s;
+}
+
+.moon-qv.is-open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.moon-qv__dialog {
+  width: 100%;
+  max-width: 62rem;
+  max-height: 92vh;
+  overflow: hidden;
+  display: flex;
+}
+
+.moon-qv__panel {
+  position: relative;
+  display: grid;
+  width: 100%;
+  max-height: 92vh;
+  overflow-y: auto;
+  border-radius: 1rem;
+  background: var(--background);
+  box-shadow: var(--shadow-soft);
+  transform: translateY(24px) scale(0.98);
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.moon-qv.is-open .moon-qv__panel {
+  transform: none;
+}
+
+.moon-qv__close {
+  position: absolute;
+  top: 0.85rem;
+  inset-inline-end: 0.85rem;
+  z-index: 5;
+  display: grid;
+  place-items: center;
+  width: 2.2rem;
+  height: 2.2rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--background);
+  color: var(--foreground);
+  cursor: pointer;
+}
+
+.moon-qv__media {
+  position: relative;
+  background: var(--stage);
+}
+
+.moon-qv__stage {
+  position: relative;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+}
+
+.moon-qv__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+.moon-qv__img.is-active {
+  opacity: 1;
+}
+
+.moon-qv__badge {
+  position: absolute;
+  top: 0.9rem;
+  inset-inline-start: 0.9rem;
+  padding: 0.25rem 0.6rem;
+  border-radius: 999px;
+  background: var(--accent);
+  color: var(--accent-foreground);
+  font-size: 0.7rem;
+  font-weight: 600;
+}
+
+.moon-qv__thumbs {
+  display: flex;
+  gap: 0.4rem;
+  padding: 0.6rem;
+  overflow-x: auto;
+}
+
+.moon-qv__thumb {
+  flex: 0 0 auto;
+  width: 3.2rem;
+  height: 4rem;
+  padding: 0;
+  border: 1px solid transparent;
+  border-radius: 0.4rem;
+  overflow: hidden;
+  background: var(--stage);
+  cursor: pointer;
+}
+
+.moon-qv__thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.moon-qv__thumb.is-active {
+  border-color: var(--foreground);
+}
+
+.moon-qv__body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1.75rem 1.75rem 2rem;
+}
+
+.moon-qv__eyebrow {
+  margin: 0;
+  color: var(--accent);
+}
+
+.moon-qv__title {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.moon-qv__en {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  color: var(--muted-foreground);
+}
+
+.moon-qv__rating {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.75rem;
+  color: var(--muted-foreground);
+}
+
+.moon-qv__price {
+  margin: 0.35rem 0 0.25rem;
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.moon-qv__price del {
+  font-size: 0.85rem;
+  font-weight: 400;
+  opacity: 0.55;
+  margin-inline-end: 0.4rem;
+}
+
+.moon-qv__price ins {
+  text-decoration: none;
+  color: var(--accent);
+}
+
+.moon-qv__desc {
+  margin: 0;
+  font-size: 0.85rem;
+  line-height: 1.9;
+  color: var(--muted-foreground);
+}
+
+.moon-qv__desc p {
+  margin: 0;
+}
+
+.moon-qv__form {
+  margin-top: 0.5rem;
+}
+
+.moon-qv__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.25rem;
+  margin: 0.85rem 0 0;
+  padding: 0.85rem 0 0;
+  border-top: 1px solid var(--border);
+  list-style: none;
+  font-size: 0.73rem;
+  color: var(--muted-foreground);
+}
+
+.moon-qv__meta li {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.moon-qv__more {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-top: 0.75rem;
+  font-size: 0.8rem;
+  color: var(--foreground);
+  text-decoration: underline;
+  text-underline-offset: 0.3em;
+}
+
+.moon-qv__error {
+  padding: 3rem;
+  text-align: center;
+  color: var(--muted-foreground);
+}
+
+.moon-qv__loader {
+  width: 2rem;
+  height: 2rem;
+  margin: 6rem auto;
+  border: 2px solid var(--fg-20);
+  border-top-color: var(--foreground);
+  border-radius: 999px;
+  animation: moon-spin 0.8s linear infinite;
+}
+
+@keyframes moon-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (min-width: 860px) {
+  .moon-qv__panel {
+    grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+    overflow: hidden;
+  }
+
+  .moon-qv__media {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .moon-qv__body {
+    max-height: 92vh;
+    overflow-y: auto;
+  }
+}
+
+@media (max-width: 859px) {
+  .moon-qv {
+    padding: 0;
+    align-items: end;
+  }
+
+  .moon-qv__panel {
+    border-radius: 1rem 1rem 0 0;
+    max-height: 94vh;
+  }
+
+  .moon-qv__stage {
+    aspect-ratio: 1 / 1;
+  }
+
+  .moon-qv__body {
+    padding: 1.25rem 1.25rem 2rem;
+  }
+}
+
+/* --------------------------------------------------------------------------
+ * Swatches (product page and quick view)
+ * ------------------------------------------------------------------------ */
+.moon-swatches {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.moon-swatch--color {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.28rem 0.6rem 0.28rem 0.35rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--muted-foreground);
+  font-family: inherit;
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.moon-swatch--color:hover,
+.moon-swatch--color.is-active {
+  border-color: var(--foreground);
+  color: var(--foreground);
+}
+
+.moon-swatch--size {
+  display: grid;
+  place-items: center;
+  min-width: 3rem;
+  height: 2.6rem;
+  padding: 0 0.8rem;
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+  background: transparent;
+  color: var(--foreground);
+  font-family: inherit;
+  font-size: 0.82rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.moon-swatch--size:hover,
+.moon-swatch--size.is-active {
+  border-color: var(--foreground);
+  background: var(--foreground);
+  color: var(--background);
+}
+
+.moon-swatch.is-disabled {
+  opacity: 0.35;
+  text-decoration: line-through;
+  cursor: not-allowed;
+}
+
+.moon-swatch__dot {
+  width: 1.1rem;
+  height: 1.1rem;
+  border-radius: 999px;
+  background: var(--swatch, #c9c4bb);
+  box-shadow: inset 0 0 0 1px oklch(0 0 0 / 20%);
+}
+
+.moon-swatches__native {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+.moon-swatches__native select {
+  width: 1px;
+  height: 1px;
+}
+
+/* --------------------------------------------------------------------------
+ * Quantity stepper
+ * ------------------------------------------------------------------------ */
+.moon-qty__btn {
+  display: grid;
+  place-items: center;
+  width: 2.4rem;
+  height: 2.4rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--foreground);
+  font-family: inherit;
+  font-size: 1rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.moon-qty__btn:hover {
+  border-color: var(--foreground);
+}
+
+.quantity {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.quantity input.qty {
+  width: 3rem;
+  padding: 0.5rem 0.2rem;
+  border: 0;
+  background: transparent;
+  color: var(--foreground);
+  font-family: inherit;
+  font-size: 0.9rem;
+  text-align: center;
+  -moz-appearance: textfield;
+}
+
+.quantity input.qty::-webkit-outer-spin-button,
+.quantity input.qty::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+ * Single product
+ * ------------------------------------------------------------------------ */
+.single-product .moon-shop {
+  padding-top: 7rem;
+}
+
+.woocommerce div.product {
+  padding: 0 0 5rem;
+}
+
+.woocommerce div.product::before,
+.woocommerce div.product::after {
+  display: none;
+}
+
+.woocommerce div.product div.images,
+.woocommerce div.product div.summary {
+  width: 100%;
+  float: none;
+  margin: 0;
+}
+
+@media (min-width: 900px) {
+  .woocommerce div.product {
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+    gap: 3rem;
+    align-items: start;
+  }
+
+  .woocommerce div.product div.images {
+    position: sticky;
+    top: 7rem;
+  }
+
+  .woocommerce div.product .woocommerce-tabs,
+  .woocommerce div.product .related,
+  .woocommerce div.product .upsells,
+  .woocommerce div.product .up-sells {
+    grid-column: 1 / -1;
+  }
+}
+
+.woocommerce div.product div.images img {
+  border-radius: 0.75rem;
+}
+
+.woocommerce div.product div.images .flex-control-thumbs {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+  padding: 0;
+  list-style: none;
+}
+
+.woocommerce div.product div.images .flex-control-thumbs li {
+  width: 4.5rem;
+}
+
+.woocommerce div.product div.images .flex-control-thumbs img {
+  border: 1px solid transparent;
+  border-radius: 0.4rem;
+  opacity: 0.55;
+  cursor: pointer;
+}
+
+.woocommerce div.product div.images .flex-control-thumbs img.flex-active,
+.woocommerce div.product div.images .flex-control-thumbs img:hover {
+  opacity: 1;
+  border-color: var(--foreground);
+}
+
+.woocommerce div.product .summary {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.woocommerce div.product .product_title {
+  margin: 0;
+  font-size: clamp(1.5rem, 3vw, 2.1rem);
+  font-weight: 500;
+  line-height: 1.45;
+}
+
+.woocommerce div.product .woocommerce-product-rating {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin: 0;
+  font-size: 0.78rem;
+}
+
+.woocommerce div.product .woocommerce-product-rating .woocommerce-review-link {
+  color: var(--muted-foreground);
+}
+
+.woocommerce div.product p.price,
+.woocommerce div.product span.price {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.5rem;
+  margin: 0.35rem 0 0.35rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--foreground);
+}
+
+.woocommerce div.product p.price del {
+  font-size: 0.95rem;
+  font-weight: 400;
+  opacity: 0.55;
+}
+
+.woocommerce div.product p.price ins {
+  text-decoration: none;
+  color: var(--accent);
+}
+
+.woocommerce div.product .woocommerce-product-details__short-description {
+  font-size: 0.88rem;
+  line-height: 1.9;
+  color: var(--muted-foreground);
+}
+
+.woocommerce div.product .woocommerce-product-details__short-description p {
+  margin: 0 0 0.5rem;
+}
+
+.woocommerce div.product form.cart {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 0.75rem;
+  margin: 0.5rem 0 0;
+}
+
+.woocommerce div.product form.cart .variations {
+  width: 100%;
+  margin: 0 0 0.5rem;
+  border: 0;
+}
+
+.woocommerce div.product form.cart .variations tbody,
+.woocommerce div.product form.cart .variations tr {
+  display: block;
+  margin-bottom: 0.9rem;
+}
+
+.woocommerce div.product form.cart .variations th,
+.woocommerce div.product form.cart .variations td {
+  display: block;
+  width: 100%;
+  padding: 0 0 0.35rem;
+  border: 0;
+  text-align: start;
+}
+
+.woocommerce div.product form.cart .variations th.label label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--foreground);
+}
+
+.woocommerce div.product form.cart .variations td.value {
+  position: relative;
+}
+
+.woocommerce div.product form.cart .reset_variations {
+  display: inline-block;
+  margin-top: 0.35rem;
+  font-size: 0.72rem;
+  color: var(--muted-foreground);
+}
+
+.woocommerce div.product .woocommerce-variation-price {
+  margin: 0.35rem 0;
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+.woocommerce div.product .woocommerce-variation-availability {
+  font-size: 0.78rem;
+}
+
+.woocommerce div.product form.cart button.single_add_to_cart_button {
+  flex: 1;
+  min-width: 12rem;
+  height: 3.1rem;
+  border-radius: 999px;
+  background: var(--foreground);
+  color: var(--background);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.woocommerce div.product form.cart button.single_add_to_cart_button:hover {
+  background: var(--accent);
+  color: var(--accent-foreground);
+}
+
+.woocommerce div.product form.cart .quantity {
+  height: 3.1rem;
+  padding: 0 0.35rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+}
+
+.woocommerce div.product .stock {
+  font-size: 0.78rem;
+  color: var(--accent);
+}
+
+.woocommerce div.product .out-of-stock {
+  color: var(--destructive);
+}
+
+.moon-single__head {
+  padding: 0 0 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.moon-single__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  font-size: 0.75rem;
+  color: var(--muted-foreground);
+}
+
+/* WooCommerce's own meta row repeats the SKU/category we already print. */
+.woocommerce div.product .product_meta {
+  display: none;
+}
+
+.moon-single__meta a {
+  color: var(--accent);
+}
+
+.moon-single__sizeguide {
+  display: flex;
+  justify-content: flex-start;
+  margin: 0.35rem 0 0;
+}
+
+.moon-linkbtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--foreground);
+  font-family: inherit;
+  font-size: 0.78rem;
+  text-decoration: underline;
+  text-underline-offset: 0.3em;
+  cursor: pointer;
+}
+
+/* Buy box extras */
+.moon-buybox {
+  display: grid;
+  gap: 0.55rem;
+  margin-top: 0.85rem;
+  padding: 0.9rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+  background: var(--card);
+  font-size: 0.78rem;
+  color: var(--muted-foreground);
+}
+
+.moon-buybox__row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.moon-buybox a {
+  color: var(--foreground);
+  text-decoration: underline;
+  text-underline-offset: 0.25em;
+}
+
+.moon-trust {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(7rem, 1fr));
+  gap: 0.75rem;
+  margin: 1.25rem 0 0;
+  padding: 1rem 0 0;
+  border-top: 1px solid var(--border);
+}
+
+.moon-trust__item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.45rem;
+  font-size: 0.72rem;
+  line-height: 1.7;
+  color: var(--muted-foreground);
+}
+
+.moon-trust__item strong {
+  display: block;
+  font-weight: 600;
+  color: var(--foreground);
+}
+
+.moon-trust__item em {
+  font-style: normal;
+}
+
+/* Tabs */
+.woocommerce div.product .woocommerce-tabs {
+  margin-top: 3.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border);
+}
+
+.woocommerce div.product .woocommerce-tabs ul.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0 0 1.75rem;
+  padding: 0;
+}
+
+.woocommerce div.product .woocommerce-tabs ul.tabs::before,
+.woocommerce div.product .woocommerce-tabs ul.tabs::after {
+  display: none;
+}
+
+.woocommerce div.product .woocommerce-tabs ul.tabs li {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+}
+
+.woocommerce div.product .woocommerce-tabs ul.tabs li::before,
+.woocommerce div.product .woocommerce-tabs ul.tabs li::after {
+  display: none;
+}
+
+.woocommerce div.product .woocommerce-tabs ul.tabs li a {
+  display: block;
+  padding: 0.6rem 1.1rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--muted-foreground);
+}
+
+.woocommerce div.product .woocommerce-tabs ul.tabs li.active a {
+  border-color: transparent;
+  background: var(--foreground);
+  color: var(--background);
+}
+
+.woocommerce div.product .woocommerce-tabs .panel {
+  margin: 0;
+  padding: 0;
+  font-size: 0.92rem;
+  line-height: 1.95;
+}
+
+.woocommerce div.product .woocommerce-tabs .panel h2 {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.woocommerce table.shop_attributes {
+  border: 0;
+}
+
+.woocommerce table.shop_attributes th,
+.woocommerce table.shop_attributes td {
+  padding: 0.65rem 0.5rem;
+  border-inline: 0;
+  border-top: 1px solid var(--border);
+  font-size: 0.85rem;
+  font-style: normal;
+}
+
+.woocommerce table.shop_attributes th {
+  width: 32%;
+  font-weight: 500;
+  color: var(--muted-foreground);
+}
+
+/* Reviews */
+.woocommerce #reviews {
+  display: grid;
+  gap: 2rem;
+}
+
+@media (min-width: 900px) {
+  .woocommerce #reviews {
+    grid-template-columns: minmax(0, 1fr) 20rem;
+    align-items: start;
+  }
+
+  .woocommerce #reviews #comments {
+    grid-column: 1;
+  }
+
+  .woocommerce #reviews #review_form_wrapper {
+    grid-column: 2;
+    position: sticky;
+    top: 7rem;
+  }
+}
+
+.woocommerce #reviews ol.commentlist {
+  display: grid;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.woocommerce #reviews ol.commentlist li {
+  margin: 0;
+}
+
+.woocommerce #reviews .comment_container {
+  display: grid;
+  grid-template-columns: 2.5rem minmax(0, 1fr);
+  gap: 0.85rem;
+  padding: 1.1rem;
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+  background: var(--card);
+}
+
+.woocommerce #reviews .comment_container img.avatar {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 999px;
+  position: static;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.woocommerce #reviews .comment-text {
+  margin: 0;
+  border: 0;
+  padding: 0;
+}
+
+.woocommerce #reviews .comment-text p.meta {
+  margin: 0 0 0.35rem;
+  font-size: 0.75rem;
+  color: var(--muted-foreground);
+}
+
+.woocommerce #reviews .comment-text .description {
+  font-size: 0.85rem;
+  line-height: 1.9;
+}
+
+.woocommerce #review_form_wrapper {
+  padding: 1.25rem;
+  border: 1px solid var(--border);
+  border-radius: 0.9rem;
+  background: var(--card);
+}
+
+.woocommerce #review_form .comment-reply-title {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.woocommerce #review_form .comment-form-rating {
+  margin-bottom: 0.75rem;
+}
+
+.woocommerce p.stars a {
+  color: var(--accent);
+}
+
+.woocommerce .comment-form input[type="text"],
+.woocommerce .comment-form input[type="email"],
+.woocommerce .comment-form textarea {
+  width: 100%;
+  padding: 0.7rem 0.9rem;
+  border: 1px solid var(--border);
+  border-radius: 0.6rem;
+  background: transparent;
+  color: var(--foreground);
+  font-family: inherit;
+  font-size: 0.85rem;
+}
+
+/* Related products */
+.woocommerce .related.products,
+.woocommerce .upsells.products {
+  margin-top: 3.5rem;
+}
+
+.woocommerce .related.products > h2,
+.woocommerce .upsells.products > h2 {
+  margin-bottom: 1.5rem;
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 3vw, 1.9rem);
+  font-weight: 300;
+}
+
+/* --------------------------------------------------------------------------
+ * Cart and checkout
+ * ------------------------------------------------------------------------ */
+.woocommerce-cart .moon-shop,
+.woocommerce-checkout .moon-shop,
+.woocommerce-account .moon-shop {
+  padding-top: 5rem;
+}
+
+.woocommerce-cart .moon-shop__header,
+.woocommerce-checkout .moon-shop__header,
+.woocommerce-account .moon-shop__header {
+  padding-inline: 0;
+}
+
+.woocommerce table.shop_table {
+  width: 100%;
+  border: 0;
+  border-collapse: collapse;
+  border-radius: 0;
+}
+
+.woocommerce table.shop_table th {
+  padding: 0.7rem 0.5rem;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: var(--muted-foreground);
+  text-align: start;
+}
+
+.woocommerce table.shop_table td {
+  padding: 1rem 0.5rem;
+  border-top: 1px solid var(--border);
+  vertical-align: middle;
+  font-size: 0.88rem;
+}
+
+.woocommerce table.cart img {
+  width: 4.5rem;
+  border-radius: 0.5rem;
+}
+
+.woocommerce table.cart .product-name a {
+  font-size: 0.88rem;
+}
+
+.woocommerce table.cart .product-remove a.remove {
+  display: grid;
+  place-items: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: 999px;
+  background: var(--fg-10);
+  color: var(--foreground);
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.woocommerce table.cart .product-remove a.remove:hover {
+  background: var(--destructive);
+  color: #fff;
+}
+
+.woocommerce .cart-collaterals {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 2rem;
+}
+
+.woocommerce .cart-collaterals .cart_totals {
+  width: 100%;
+  max-width: 25rem;
+  padding: 1.5rem;
+  border: 1px solid var(--border);
+  border-radius: 0.9rem;
+  background: var(--card);
+}
+
+.woocommerce .cart-collaterals .cart_totals h2 {
+  margin: 0 0 1rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.woocommerce .cart_totals table.shop_table th,
+.woocommerce .cart_totals table.shop_table td {
+  border-top: 1px solid var(--border);
+  font-size: 0.88rem;
+}
+
+.woocommerce .wc-proceed-to-checkout a.checkout-button {
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.woocommerce .cart .actions {
+  padding: 1rem 0 0;
+}
+
+.woocommerce .cart .actions .coupon {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.woocommerce .cart .actions .coupon input.input-text {
+  width: 12rem;
+  padding: 0.7rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--foreground);
+  font-family: inherit;
+}
+
+@media (max-width: 767px) {
+  .woocommerce table.cart {
+    display: block;
+  }
+
+  .woocommerce table.cart thead {
+    display: none;
+  }
+
+  .woocommerce table.cart tbody,
+  .woocommerce table.cart tr,
+  .woocommerce table.cart td {
+    display: block;
+    width: 100%;
+  }
+
+  .woocommerce table.cart tr {
+    position: relative;
+    display: grid;
+    grid-template-columns: 5rem minmax(0, 1fr);
+    gap: 0.35rem 0.85rem;
+    padding: 1rem 0;
+    border-top: 1px solid var(--border);
+  }
+
+  .woocommerce table.cart td {
+    padding: 0;
+    border: 0;
+  }
+
+  .woocommerce table.cart td.product-thumbnail {
+    grid-row: 1 / span 3;
+    width: auto;
+  }
+
+  .woocommerce table.cart td.product-thumbnail img {
+    width: 100%;
+  }
+
+  .woocommerce table.cart td.product-name,
+  .woocommerce table.cart td.product-price,
+  .woocommerce table.cart td.product-quantity,
+  .woocommerce table.cart td.product-subtotal {
+    grid-column: 2;
+  }
+
+  .woocommerce table.cart td.product-price::before {
+    content: "قیمت: ";
+    color: var(--muted-foreground);
+  }
+
+  .woocommerce table.cart td.product-subtotal::before {
+    content: "جمع: ";
+    color: var(--muted-foreground);
+  }
+
+  .woocommerce table.cart td.product-remove {
+    position: absolute;
+    top: 0.6rem;
+    inset-inline-start: 0.2rem;
+  }
+
+  .woocommerce table.cart td.actions {
+    grid-column: 1 / -1;
+  }
+
+  .woocommerce .cart-collaterals {
+    margin-top: 1.5rem;
+  }
+
+  .woocommerce .cart-collaterals .cart_totals {
+    max-width: none;
+  }
+}
+
+/* Checkout */
+.woocommerce form.checkout {
+  display: grid;
+  gap: 2rem;
+}
+
+@media (min-width: 900px) {
+  .woocommerce form.checkout {
+    grid-template-columns: 1.1fr 0.9fr;
+    align-items: start;
+  }
+
+  .woocommerce form.checkout #customer_details {
+    grid-column: 1;
+  }
+
+  .woocommerce form.checkout #order_review_heading,
+  .woocommerce form.checkout #order_review {
+    grid-column: 2;
+  }
+
+  .woocommerce form.checkout #order_review {
+    position: sticky;
+    top: 6.5rem;
+    padding: 1.5rem;
+    border: 1px solid var(--border);
+    border-radius: 0.9rem;
+    background: var(--card);
+  }
+}
+
+.woocommerce form.checkout h3 {
+  margin: 0 0 1rem;
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+.woocommerce form.checkout .woocommerce-billing-fields__field-wrapper,
+.woocommerce form.checkout .woocommerce-shipping-fields__field-wrapper,
+.woocommerce form.checkout .woocommerce-additional-fields__field-wrapper {
+  display: grid;
+  gap: 0.75rem;
+}
+
+@media (min-width: 640px) {
+  .woocommerce form.checkout .form-row-first,
+  .woocommerce form.checkout .form-row-last {
+    width: 100%;
+    float: none;
+  }
+
+  .woocommerce form.checkout .woocommerce-billing-fields__field-wrapper,
+  .woocommerce form.checkout .woocommerce-shipping-fields__field-wrapper {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .woocommerce form.checkout .form-row-wide {
+    grid-column: 1 / -1;
+  }
+}
+
+.woocommerce form.checkout .form-row label {
+  display: block;
+  margin-bottom: 0.3rem;
+  font-size: 0.76rem;
+  color: var(--muted-foreground);
+}
+
+.woocommerce form.checkout .form-row input.input-text,
+.woocommerce form.checkout .form-row textarea,
+.woocommerce form.checkout .form-row select,
+.woocommerce form .form-row input.input-text,
+.woocommerce form .form-row select,
+.woocommerce form .form-row textarea {
+  width: 100%;
+  padding: 0.7rem 0.9rem;
+  border: 1px solid var(--border);
+  border-radius: 0.6rem;
+  background: transparent;
+  color: var(--foreground);
+  font-family: inherit;
+  font-size: 0.85rem;
+}
+
+.woocommerce form.checkout .form-row .required {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.woocommerce #order_review table.shop_table {
+  margin-bottom: 1rem;
+}
+
+.woocommerce #payment {
+  border-radius: 0.75rem;
+  background: transparent;
+}
+
+.woocommerce #payment ul.payment_methods {
+  padding: 0;
+  border: 0;
+}
+
+.woocommerce #payment ul.payment_methods li {
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.woocommerce #payment div.payment_box {
+  margin: 0.5rem 0 0;
+  padding: 0.85rem 1rem;
+  border-radius: 0.6rem;
+  background: var(--fg-5);
+  font-size: 0.82rem;
+}
+
+.woocommerce #payment div.payment_box::before {
+  display: none;
+}
+
+.woocommerce #payment div.form-row {
+  padding: 1rem 0 0;
+}
+
+.woocommerce #payment #place_order {
+  width: 100%;
+  height: 3rem;
+  border-radius: 999px;
+}
+
+/* --------------------------------------------------------------------------
+ * Account
+ * ------------------------------------------------------------------------ */
+.woocommerce-account .woocommerce {
+  display: grid;
+  gap: 2rem;
+}
+
+@media (min-width: 900px) {
+  .woocommerce-account .woocommerce {
+    grid-template-columns: 15rem minmax(0, 1fr);
+    align-items: start;
+  }
+}
+
+.woocommerce-account .woocommerce-MyAccount-navigation ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  margin: 0;
+  padding: 0.6rem;
+  border: 1px solid var(--border);
+  border-radius: 0.9rem;
+  background: var(--card);
+  list-style: none;
+}
+
+.woocommerce-account .woocommerce-MyAccount-navigation ul li a {
+  display: block;
+  padding: 0.65rem 0.9rem;
+  border-radius: 0.55rem;
+  font-size: 0.85rem;
+  color: var(--muted-foreground);
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.woocommerce-account .woocommerce-MyAccount-navigation ul li a:hover {
+  background: var(--fg-5);
+  color: var(--foreground);
+}
+
+.woocommerce-account .woocommerce-MyAccount-navigation ul li.is-active a {
+  background: var(--foreground);
+  color: var(--background);
+}
+
+.woocommerce-account .woocommerce-MyAccount-content {
+  font-size: 0.92rem;
+}
+
+.woocommerce-account .woocommerce-MyAccount-content h2,
+.woocommerce-account .woocommerce-MyAccount-content h3 {
+  font-weight: 600;
+}
+
+/* Auth screens */
+.moon-auth {
+  max-width: 44rem;
+  margin-inline: auto;
+  padding: 1.5rem;
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  background: var(--card);
+}
+
+.moon-auth__tabs {
+  display: flex;
+  gap: 0.35rem;
+  margin-bottom: 1.5rem;
+  padding: 0.3rem;
+  border-radius: 999px;
+  background: var(--fg-5);
+}
+
+.moon-auth__tab {
+  flex: 1;
+  padding: 0.65rem 0.5rem;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--muted-foreground);
+  font-family: inherit;
+  font-size: 0.82rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.moon-auth__tab.is-active {
+  background: var(--foreground);
+  color: var(--background);
+}
+
+.moon-auth__panel {
+  display: none;
+}
+
+.moon-auth__panel.is-active {
+  display: block;
+}
+
+.moon-auth__panel h2 {
+  margin: 0 0 0.4rem;
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+.moon-auth__hint {
+  margin: 0 0 1.1rem;
+  font-size: 0.8rem;
+  line-height: 1.8;
+  color: var(--muted-foreground);
+}
+
+.moon-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  margin-bottom: 0.85rem;
+}
+
+.moon-field span {
+  font-size: 0.76rem;
+  color: var(--muted-foreground);
+}
+
+.moon-field input {
+  width: 100%;
+  padding: 0.75rem 0.95rem;
+  border: 1px solid var(--border);
+  border-radius: 0.6rem;
+  background: transparent;
+  color: var(--foreground);
+  font-family: inherit;
+  font-size: 0.88rem;
+}
+
+.moon-field input:focus {
+  border-color: var(--accent);
+  outline: none;
+}
+
+.moon-field--inline {
+  flex-direction: row;
+  align-items: flex-end;
+  gap: 0.5rem;
+}
+
+.moon-field--inline .moon-field__grow {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.moon-auth__row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+}
+
+@media (max-width: 520px) {
+  .moon-auth__row {
+    grid-template-columns: 1fr;
+  }
+}
+
+.moon-auth__remember {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 0.75rem;
+  font-size: 0.78rem;
+  color: var(--muted-foreground);
+  cursor: pointer;
+}
+
+.moon-auth__submit {
+  width: 100%;
+  margin-top: 0.35rem;
+}
+
+.moon-auth__send {
+  height: 2.9rem;
+  padding: 0 1.1rem;
+  border: 1px solid var(--border);
+  border-radius: 0.6rem;
+  background: transparent;
+  color: var(--foreground);
+  font-family: inherit;
+  font-size: 0.8rem;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.moon-auth__send:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.moon-auth__note {
+  min-height: 1.2rem;
+  margin: 0.6rem 0 0;
+  font-size: 0.78rem;
+  color: var(--accent);
+}
+
+.moon-auth__note.is-error {
+  color: var(--destructive);
+}
+
+.moon-auth__alt {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-top: 0.85rem;
+  font-size: 0.75rem;
+  color: var(--muted-foreground);
+}
+
+.moon-auth__alt a {
+  color: var(--foreground);
+  text-decoration: underline;
+  text-underline-offset: 0.25em;
+}
+
+/* --------------------------------------------------------------------------
+ * Look (fitting room) page
+ * ------------------------------------------------------------------------ */
+.moon-look {
+  max-width: 80rem;
+  margin-inline: auto;
+  padding: 6.5rem 1.5rem 5rem;
+}
+
+.moon-look__hero {
+  display: grid;
+  gap: 1.75rem;
+  align-items: center;
+  margin-bottom: 3rem;
+}
+
+@media (min-width: 900px) {
+  .moon-look__hero {
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+    gap: 3rem;
+  }
+}
+
+.moon-look__media {
+  border-radius: 1rem;
+  overflow: hidden;
+  background: var(--stage);
+  aspect-ratio: 3 / 4;
+}
+
+.moon-look__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.moon-look__title {
+  margin: 0.5rem 0 0;
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 300;
+}
+
+.moon-look__en {
+  margin: 0.35rem 0 0;
+  font-family: var(--font-display);
+  letter-spacing: 0.1em;
+  color: var(--muted-foreground);
+}
+
+.moon-look__desc {
+  margin: 1rem 0 0;
+  max-width: 34rem;
+  font-size: 0.92rem;
+  line-height: 1.9;
+  color: var(--muted-foreground);
+}
+
+.moon-look__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 1.5rem;
+}
+
+.moon-look__pieces {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
+  gap: 1.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.moon-look__piece {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--border);
+  border-radius: 0.9rem;
+  overflow: hidden;
+  background: var(--card);
+}
+
+.moon-look__piece-media {
+  position: relative;
+  aspect-ratio: 3 / 4;
+  background: var(--stage);
+}
+
+.moon-look__piece-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.moon-look__piece-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  padding: 0.9rem 1rem 1.1rem;
+}
+
+.moon-look__piece-cat {
+  margin: 0;
+  font-size: 0.68rem;
+  color: var(--muted-foreground);
+}
+
+.moon-look__piece-name {
+  margin: 0;
+  font-size: 0.9rem;
+  font-weight: 500;
+  line-height: 1.6;
+}
+
+.moon-look__piece-price {
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.moon-look__piece-price del {
+  font-size: 0.75rem;
+  font-weight: 400;
+  opacity: 0.55;
+  margin-inline-end: 0.3rem;
+}
+
+.moon-look__colors {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin-top: 0.2rem;
+}
+
+.moon-look__color {
+  display: grid;
+  place-items: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  padding: 0;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: transparent;
+  cursor: pointer;
+}
+
+.moon-look__color.is-active {
+  border-color: var(--foreground);
+}
+
+.moon-look__color span {
+  width: 1rem;
+  height: 1rem;
+  border-radius: 999px;
+  background: var(--swatch, #c9c4bb);
+  box-shadow: inset 0 0 0 1px oklch(0 0 0 / 18%);
+}
+
+.moon-look__piece-foot {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: auto;
+  padding-top: 0.75rem;
+}
+
+.moon-look__piece-add {
+  flex: 1;
+  height: 2.4rem;
+  border: 0;
+  border-radius: 999px;
+  background: var(--foreground);
+  color: var(--background);
+  font-family: inherit;
+  font-size: 0.78rem;
+  cursor: pointer;
+}
+
+.moon-look__piece-add:hover {
+  background: var(--accent);
+  color: var(--accent-foreground);
+}
+
+.moon-look__piece-link {
+  display: grid;
+  place-items: center;
+  width: 2.4rem;
+  height: 2.4rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  color: var(--foreground);
+}
+
+/* --------------------------------------------------------------------------
+ * Size guide dialog
+ * ------------------------------------------------------------------------ */
+.moon-sizeguide-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 85;
+  display: grid;
+  place-items: center;
+  padding: 1.25rem;
+  background: var(--overlay-60);
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s;
+}
+
+.moon-sizeguide-modal.is-open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.moon-sizeguide {
+  width: 100%;
+  max-width: 44rem;
+  max-height: 88vh;
+  overflow-y: auto;
+  padding: 1.75rem;
+  border-radius: 1rem;
+  background: var(--background);
+  box-shadow: var(--shadow-soft);
+}
+
+.moon-sizeguide--inline {
+  max-width: none;
+  max-height: none;
+  padding: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.moon-sizeguide__head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.moon-sizeguide__title {
+  margin: 0.4rem 0 0;
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+.moon-sizeguide__close {
+  display: grid;
+  place-items: center;
+  width: 2.1rem;
+  height: 2.1rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--foreground);
+  cursor: pointer;
+}
+
+.moon-sizeguide__tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 1.25rem 0;
+}
+
+.moon-sizeguide__tab {
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--muted-foreground);
+  font-family: inherit;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+
+.moon-sizeguide__tab.is-active {
+  border-color: transparent;
+  background: var(--foreground);
+  color: var(--background);
+}
+
+.moon-sizeguide__panel {
+  display: none;
+}
+
+.moon-sizeguide__panel.is-active {
+  display: block;
+}
+
+.moon-sizeguide__intro {
+  margin: 0 0 1rem;
+  font-size: 0.82rem;
+  line-height: 1.9;
+  color: var(--muted-foreground);
+}
+
+.moon-sizeguide__scroll {
+  overflow-x: auto;
+}
+
+.moon-sizeguide table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.82rem;
+}
+
+.moon-sizeguide th,
+.moon-sizeguide td {
+  padding: 0.65rem 0.5rem;
+  border-bottom: 1px solid var(--border);
+  text-align: start;
+  white-space: nowrap;
+}
+
+.moon-sizeguide th {
+  font-weight: 600;
+  color: var(--muted-foreground);
+  font-size: 0.75rem;
+}
+
+.moon-sizeguide tbody tr:hover td {
+  background: var(--fg-5);
+}
+
+/* --------------------------------------------------------------------------
+ * Toast
+ * ------------------------------------------------------------------------ */
+.moon-toast {
+  position: fixed;
+  inset-inline: 0;
+  bottom: 1.5rem;
+  z-index: 90;
+  width: fit-content;
+  margin-inline: auto;
+  padding: 0.75rem 1.35rem;
+  border-radius: 999px;
+  background: var(--foreground);
+  color: var(--background);
+  font-size: 0.82rem;
+  box-shadow: var(--shadow-soft);
+  opacity: 0;
+  transform: translateY(12px);
+  pointer-events: none;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.moon-toast.is-open {
+  opacity: 1;
+  transform: none;
+}
+
+/* --------------------------------------------------------------------------
+ * Small screens
+ * ------------------------------------------------------------------------ */
+@media (max-width: 640px) {
+  .moon-shop,
+  .moon-look {
+    padding-top: 5.5rem;
+  }
+
+  .moon-look {
+    padding-inline: 1rem;
+  }
+
+  .moon-shop__title {
+    font-size: 1.9rem;
+  }
+
+  .woocommerce ul.products {
+    gap: 1.5rem 0.75rem;
+  }
+
+  .moon-card__name {
+    font-size: 0.85rem;
+  }
+
+  .moon-card__price {
+    font-size: 0.85rem;
+  }
+
+  .moon-auth {
+    padding: 1.1rem;
+  }
+
+  .moon-sizeguide {
+    padding: 1.25rem;
+    max-height: 92vh;
+  }
+}

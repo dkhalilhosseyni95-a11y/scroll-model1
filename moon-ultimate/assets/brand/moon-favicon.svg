@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="MOON">
+  <title>MOON</title>
+  <circle cx="32" cy="32" r="32" fill="#0A0A0A"/>
+  <g transform="translate(4.76 7.08) scale(0.78)" fill="none" stroke="#FDFDFD" stroke-width="2" stroke-linejoin="miter" stroke-linecap="square">
+    <path d="M8 50V14l18 24 18-24"/>
+    <path d="M44 14a18 18 0 0 1 0 36 22 22 0 0 0 0-36Z" fill="#FDFDFD" stroke="none"/>
+  </g>
+</svg>

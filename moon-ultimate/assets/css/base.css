@@ -1,0 +1,493 @@
+/*!
+ * MOON — base design system
+ * Colors, typography and primitives ported 1:1 from the source design tokens.
+ */
+
+/* --------------------------------------------------------------------------
+ * Fonts (self-hosted subsets of Vazirmatn and Cormorant Garamond)
+ * ------------------------------------------------------------------------ */
+@font-face {
+  font-family: "Vazirmatn";
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("../fonts/vazirmatn-arabic-normal-100_900.woff2") format("woff2");
+  unicode-range: U+0600-06FF, U+0750-077F, U+0870-0891, U+0897-08E1, U+08E3-08FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC, U+102E0-102FB, U+10E60-10E7E, U+10EC2-10EC7, U+10EC9-10EEE, U+10EF0-10EFF, U+1EE00-1EE03, U+1EE05-1EE1F, U+1EE21-1EE22, U+1EE24, U+1EE27, U+1EE29-1EE32, U+1EE34-1EE37, U+1EE39, U+1EE3B, U+1EE42, U+1EE47, U+1EE49, U+1EE4B, U+1EE4D-1EE4F, U+1EE51-1EE52, U+1EE54, U+1EE57, U+1EE59, U+1EE5B, U+1EE5D, U+1EE5F, U+1EE61-1EE62, U+1EE64, U+1EE67-1EE6A, U+1EE6C-1EE72, U+1EE74-1EE77, U+1EE79-1EE7C, U+1EE7E, U+1EE80-1EE89, U+1EE8B-1EE9B, U+1EEA1-1EEA3, U+1EEA5-1EEA9, U+1EEAB-1EEBB, U+1EEF0-1EEF1;
+}
+
+@font-face {
+  font-family: "Vazirmatn";
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("../fonts/vazirmatn-latin-ext-normal-100_900.woff2") format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+@font-face {
+  font-family: "Vazirmatn";
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("../fonts/vazirmatn-latin-normal-100_900.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: "Cormorant Garamond";
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url("../fonts/cormorant-latin-normal-300.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: "Cormorant Garamond";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../fonts/cormorant-latin-normal-400.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: "Cormorant Garamond";
+  font-style: normal;
+  font-weight: 500 600;
+  font-display: swap;
+  src: url("../fonts/cormorant-latin-normal-500.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* --------------------------------------------------------------------------
+ * Design tokens
+ * Dark is the default look, matching the source project.
+ * ------------------------------------------------------------------------ */
+:root {
+  --radius: 0.25rem;
+
+  --font-sans: "Vazirmatn", system-ui, sans-serif;
+  --font-display: "Cormorant Garamond", "Vazirmatn", serif;
+
+  --background: oklch(0.17 0 0);
+  --foreground: oklch(0.95 0.01 85);
+  --card: oklch(0.215 0 0);
+  --muted: oklch(0.24 0 0);
+  --muted-foreground: oklch(0.67 0.008 70);
+  --primary: oklch(0.95 0.012 85);
+  --primary-foreground: oklch(0.17 0 0);
+  --accent: oklch(0.74 0.075 80);
+  --accent-foreground: oklch(0.16 0 0);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.74 0.075 80);
+  --glass: oklch(0.2 0 0 / 55%);
+  --glass-border: oklch(1 0 0 / 10%);
+  --stage: oklch(0.21 0 0);
+  --overlay: oklch(0.1 0 0);
+  --on-overlay: oklch(0.97 0.01 85);
+  --shadow-soft: 0 30px 60px -30px oklch(0 0 0 / 70%);
+
+  /* foreground alpha steps */
+  --fg-5: oklch(0.95 0.01 85 / 5%);
+  --fg-10: oklch(0.95 0.01 85 / 10%);
+  --fg-20: oklch(0.95 0.01 85 / 20%);
+  --fg-30: oklch(0.95 0.01 85 / 30%);
+  --fg-45: oklch(0.95 0.01 85 / 45%);
+  --fg-60: oklch(0.95 0.01 85 / 60%);
+  --fg-80: oklch(0.95 0.01 85 / 80%);
+
+  /* overlay alpha steps (fixed in both themes) */
+  --overlay-10: oklch(0.1 0 0 / 10%);
+  --overlay-20: oklch(0.1 0 0 / 20%);
+  --overlay-30: oklch(0.1 0 0 / 30%);
+  --overlay-40: oklch(0.1 0 0 / 40%);
+  --overlay-45: oklch(0.1 0 0 / 45%);
+  --overlay-60: oklch(0.1 0 0 / 60%);
+  --overlay-70: oklch(0.1 0 0 / 70%);
+  --overlay-80: oklch(0.1 0 0 / 80%);
+  --overlay-90: oklch(0.1 0 0 / 90%);
+
+  --on-overlay-10: oklch(0.97 0.01 85 / 10%);
+  --on-overlay-20: oklch(0.97 0.01 85 / 20%);
+  --on-overlay-40: oklch(0.97 0.01 85 / 40%);
+  --on-overlay-60: oklch(0.97 0.01 85 / 60%);
+  --on-overlay-70: oklch(0.97 0.01 85 / 70%);
+  --on-overlay-80: oklch(0.97 0.01 85 / 80%);
+
+  color-scheme: dark;
+}
+
+html.moon-light {
+  --background: oklch(0.96 0.012 85);
+  --foreground: oklch(0.2 0 0);
+  --card: oklch(0.985 0.006 85);
+  --muted: oklch(0.92 0.015 80);
+  --muted-foreground: oklch(0.5 0.008 70);
+  --primary: oklch(0.2 0 0);
+  --primary-foreground: oklch(0.96 0.012 85);
+  --accent: oklch(0.74 0.075 80);
+  --accent-foreground: oklch(0.16 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.2 0 0 / 12%);
+  --input: oklch(0.2 0 0 / 15%);
+  --ring: oklch(0.74 0.075 80);
+  --glass: oklch(1 0 0 / 55%);
+  --glass-border: oklch(0.2 0 0 / 10%);
+  --stage: oklch(0.9 0.02 80);
+  --shadow-soft: 0 30px 60px -30px oklch(0.2 0 0 / 35%);
+
+  --fg-5: oklch(0.2 0 0 / 5%);
+  --fg-10: oklch(0.2 0 0 / 10%);
+  --fg-20: oklch(0.2 0 0 / 20%);
+  --fg-30: oklch(0.2 0 0 / 30%);
+  --fg-45: oklch(0.2 0 0 / 45%);
+  --fg-60: oklch(0.2 0 0 / 60%);
+  --fg-80: oklch(0.2 0 0 / 80%);
+
+  color-scheme: light;
+}
+
+/* --------------------------------------------------------------------------
+ * Reset and base
+ * ------------------------------------------------------------------------ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 1.75;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body,
+header,
+section,
+footer,
+div,
+button,
+a,
+span,
+p,
+h1,
+h2,
+h3 {
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+* {
+  border-color: var(--border);
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--accent-foreground);
+}
+
+img,
+svg,
+video,
+canvas {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0 0 0.5em;
+  font-weight: 300;
+  line-height: 1.35;
+  color: inherit;
+}
+
+p {
+  margin: 0 0 1em;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.moon-skip {
+  position: absolute;
+  inset-inline-start: -9999px;
+  top: 0;
+  z-index: 200;
+  background: var(--background);
+  color: var(--foreground);
+  padding: 0.75rem 1.25rem;
+}
+
+.moon-skip:focus {
+  inset-inline-start: 1rem;
+  top: 1rem;
+}
+
+.moon-icon {
+  flex-shrink: 0;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.moon-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* --------------------------------------------------------------------------
+ * Primitives
+ * ------------------------------------------------------------------------ */
+.moon-container {
+  width: 100%;
+  max-width: 80rem;
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+}
+
+.moon-eyebrow {
+  font-family: var(--font-display);
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  line-height: 1.4;
+  margin: 0;
+}
+
+.moon-glass {
+  background: var(--glass);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+  backdrop-filter: blur(18px) saturate(140%);
+  border: 1px solid var(--glass-border);
+}
+
+.moon-grain {
+  position: relative;
+}
+
+.moon-grain::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.08;
+  z-index: 1;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.9'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.moon-noscroll {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.moon-noscroll::-webkit-scrollbar {
+  display: none;
+}
+
+.moon-display {
+  font-family: var(--font-display);
+}
+
+.moon-section-title__eyebrow {
+  color: var(--accent);
+}
+
+.moon-section-title__title {
+  margin: 1rem 0 0;
+  font-size: clamp(1.75rem, 4vw, 3rem);
+  font-weight: 300;
+  line-height: 1.25;
+}
+
+/* Buttons */
+.moon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  max-width: 100%;
+  text-align: center;
+  padding: 0.875rem 1.75rem;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  font-family: inherit;
+  font-size: 0.875rem;
+  line-height: 1.2;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, filter 0.3s ease, transform 0.3s ease;
+}
+
+.moon-btn--solid {
+  background: var(--accent);
+  color: var(--accent-foreground);
+}
+
+.moon-btn--solid:hover {
+  filter: brightness(1.1);
+}
+
+.moon-btn--ghost {
+  border-color: var(--on-overlay-40);
+  color: var(--on-overlay);
+}
+
+.moon-btn--ghost:hover {
+  background: var(--on-overlay-10);
+}
+
+.moon-btn--outline {
+  border-color: var(--fg-30);
+  color: var(--foreground);
+}
+
+.moon-btn--outline:hover {
+  background: var(--foreground);
+  color: var(--background);
+}
+
+.moon-btn--dark {
+  background: var(--foreground);
+  color: var(--background);
+}
+
+.moon-btn--dark:hover {
+  background: var(--accent);
+  color: var(--accent-foreground);
+}
+
+.moon-btn--block {
+  width: 100%;
+}
+
+/* Image protection: no drag ghost, no long-press callout, no selection. */
+img {
+  -webkit-user-drag: none;
+  -webkit-touch-callout: none;
+  user-select: none;
+}
+
+/* Scroll reveal (Reveal component) */
+.moon-reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 1s cubic-bezier(0.22, 1, 0.36, 1), transform 1s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.moon-reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+html.moon-no-js .moon-reveal {
+  opacity: 1;
+  transform: none;
+}
+
+/* Placeholder for missing product images */
+.moon-placeholder {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+  color: var(--muted-foreground);
+  background: var(--stage);
+}
+
+/* Forms */
+input[type="text"],
+input[type="email"],
+input[type="url"],
+input[type="password"],
+input[type="search"],
+input[type="number"],
+input[type="tel"],
+textarea,
+select {
+  font-family: inherit;
+  font-size: 1rem;
+  color: var(--foreground);
+  background: transparent;
+  border: 1px solid var(--input, var(--border));
+  border-radius: var(--radius);
+  padding: 0.7rem 0.9rem;
+  max-width: 100%;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--muted-foreground);
+}
+
+/* --------------------------------------------------------------------------
+ * Accessibility: reduced motion
+ * ------------------------------------------------------------------------ */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .moon-reveal {
+    opacity: 1;
+    transform: none;
+  }
+}

@@ -1,0 +1,237 @@
+/*
+ * MOON ULTIMATE — product card layout variants.
+ *
+ * The variant is chosen in MOON → فروشگاه → کارت محصول and applied as
+ * `moon-cards-{variant}` on <body>. All colours come from the design tokens.
+ */
+
+/* Shared: the tool buttons (wishlist + compare) stack in the inline-start corner
+ * (right in RTL), leaving the sale/new badge on the opposite side. */
+.moon-card__tools {
+	position: absolute;
+	top: 0.7rem;
+	inset-inline-start: 0.7rem;
+	inset-inline-end: auto;
+	display: flex;
+	flex-direction: column;
+	gap: 0.4rem;
+	z-index: 3;
+}
+
+.moon-card__tools .moon-card__like {
+	position: static;
+	top: auto;
+	inset-inline-end: auto;
+}
+
+.moon-card__compare.is-active {
+	border-color: var(--accent);
+	color: var(--accent);
+}
+
+.moon-card__stock {
+	margin: 0.35rem 0 0;
+	font-size: 0.72rem;
+	color: var(--sale, #b23a3a);
+}
+
+/* ---- Minimal: image, name, price only ------------------------------- */
+.moon-cards-minimal .moon-card__cat,
+.moon-cards-minimal .moon-card__en,
+.moon-cards-minimal .moon-card__colors,
+.moon-cards-minimal .moon-card__rating,
+.moon-cards-minimal .moon-card__stock {
+	display: none;
+}
+
+.moon-cards-minimal .moon-card__body {
+	padding: 0.65rem 0 0;
+}
+
+.moon-cards-minimal .moon-card__name {
+	font-size: 0.92rem;
+	font-weight: 400;
+}
+
+/* ---- Modern: taller image, price on its own line --------------------- */
+.moon-cards-modern .moon-card__media {
+	aspect-ratio: 3 / 4;
+}
+
+.moon-cards-modern .moon-card__body {
+	padding-top: 0.9rem;
+}
+
+.moon-cards-modern .moon-card__foot {
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 0.25rem;
+}
+
+.moon-cards-modern .moon-card__name {
+	font-size: 1.05rem;
+	letter-spacing: 0.01em;
+}
+
+/* ---- Luxury: centred, serif, generous air ---------------------------- */
+.moon-cards-luxury .moon-card {
+	text-align: center;
+	background: transparent;
+}
+
+.moon-cards-luxury .moon-card__body {
+	padding: 1.1rem 0.5rem 0;
+}
+
+.moon-cards-luxury .moon-card__name {
+	font-family: var(--font-display);
+	font-size: 1.15rem;
+	font-weight: 400;
+	letter-spacing: 0.04em;
+}
+
+.moon-cards-luxury .moon-card__foot {
+	justify-content: center;
+}
+
+.moon-cards-luxury .moon-card__colors {
+	justify-content: center;
+}
+
+/* ---- Fashion: full-bleed image, uppercase label ---------------------- */
+.moon-cards-fashion .moon-card {
+	border: 0;
+	background: transparent;
+}
+
+.moon-cards-fashion .moon-card__media {
+	border-radius: 0;
+}
+
+.moon-cards-fashion .moon-card__body {
+	padding: 0.85rem 0 0;
+}
+
+.moon-cards-fashion .moon-card__name {
+	text-transform: uppercase;
+	letter-spacing: 0.12em;
+	font-size: 0.8rem;
+	font-weight: 600;
+}
+
+.moon-cards-fashion .moon-card__en {
+	display: none;
+}
+
+/* ---- Compact: tight grid, small type --------------------------------- */
+.moon-cards-compact .moon-card__body {
+	padding: 0.55rem 0 0;
+}
+
+.moon-cards-compact .moon-card__name {
+	font-size: 0.85rem;
+	line-height: 1.5;
+}
+
+.moon-cards-compact .moon-card__cat,
+.moon-cards-compact .moon-card__en,
+.moon-cards-compact .moon-card__colors,
+.moon-cards-compact .moon-card__rating {
+	display: none;
+}
+
+.moon-cards-compact .moon-card__price {
+	font-size: 0.85rem;
+}
+
+/* ---- Overlay: text sits on the image --------------------------------- */
+.moon-cards-overlay .moon-card {
+	position: relative;
+	overflow: hidden;
+	border: 0;
+}
+
+.moon-cards-overlay .moon-card__body {
+	position: absolute;
+	inset-inline: 0;
+	bottom: 0;
+	z-index: 2;
+	padding: 2.4rem 1rem 1rem;
+	color: #fff;
+	background: linear-gradient(to top, rgba(0, 0, 0, 0.72), rgba(0, 0, 0, 0));
+	opacity: 0;
+	transform: translateY(0.6rem);
+	transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.moon-cards-overlay .moon-card:hover .moon-card__body,
+.moon-cards-overlay .moon-card:focus-within .moon-card__body {
+	opacity: 1;
+	transform: none;
+}
+
+.moon-cards-overlay .moon-card__name,
+.moon-cards-overlay .moon-card__name a,
+.moon-cards-overlay .moon-card__cat,
+.moon-cards-overlay .moon-card__price,
+.moon-cards-overlay .moon-card__en {
+	color: #fff;
+}
+
+.moon-cards-overlay .moon-card__actions {
+	bottom: 0.7rem;
+}
+
+/* ---- Horizontal: media beside the text ------------------------------- */
+@media (min-width: 768px) {
+	.moon-cards-horizontal .moon-card {
+		display: grid;
+		grid-template-columns: minmax(120px, 40%) 1fr;
+		align-items: stretch;
+		grid-column: span 2;
+	}
+
+	.moon-cards-horizontal .moon-card__media {
+		height: 100%;
+	}
+
+	.moon-cards-horizontal .moon-card__media-link,
+	.moon-cards-horizontal .moon-card__img,
+	.moon-cards-horizontal .moon-card__hover {
+		height: 100%;
+	}
+
+	.moon-cards-horizontal .moon-card__body {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		padding: 1rem 1.2rem;
+	}
+
+	.moon-cards-horizontal .moon-card__foot {
+		margin-top: auto;
+		padding-top: 0.6rem;
+	}
+}
+
+/* ---- Classic: bordered card with inner padding ----------------------- */
+.moon-cards-classic .moon-card {
+	border: 1px solid var(--border);
+	background: var(--card);
+}
+
+.moon-cards-classic .moon-card__body {
+	padding: 1rem;
+}
+
+.moon-cards-classic .moon-card__media {
+	border-radius: 0;
+}
+
+/* Touch devices: overlay cards keep their text visible. */
+@media (hover: none) {
+	.moon-cards-overlay .moon-card__body {
+		opacity: 1;
+		transform: none;
+	}
+}

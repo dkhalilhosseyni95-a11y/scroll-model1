@@ -1,0 +1,108 @@
+/* MOON — shop category tabs + mobile bottom navigation */
+.moon-cattabs{display:flex;gap:.5rem;overflow-x:auto;padding:.25rem 0 1rem;margin:0 0 .5rem;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.moon-cattabs::-webkit-scrollbar{display:none}
+.moon-cattabs__tab{flex:0 0 auto;padding:.55rem 1.1rem;border:1px solid var(--border);border-radius:999px;color:var(--fg-80);font-size:.9rem;white-space:nowrap;text-decoration:none;transition:background .15s,color .15s,border-color .15s}
+.moon-cattabs__tab:hover{border-color:var(--accent);color:var(--foreground)}
+.moon-cattabs__tab.is-active{background:var(--accent);border-color:var(--accent);color:var(--accent-foreground)}
+
+.moon-bottomnav{display:none}
+@media (max-width:767px){
+  .moon-bottomnav{position:fixed;inset:auto 0 0 0;z-index:90;display:grid;grid-auto-flow:column;grid-auto-columns:1fr;background:var(--card);border-top:1px solid var(--border);padding:.35rem .25rem calc(.35rem + env(safe-area-inset-bottom));box-shadow:0 -10px 30px -15px oklch(0 0 0 / 50%)}
+  .moon-bottomnav__item{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.2rem;min-height:3.25rem;padding:.25rem;background:none;border:0;color:var(--muted-foreground);font:inherit;font-size:.7rem;text-decoration:none;cursor:pointer;-webkit-tap-highlight-color:transparent}
+  .moon-bottomnav__item.is-active,.moon-bottomnav__item:active{color:var(--accent)}
+  .moon-bottomnav .moon-cart-count{position:absolute;top:.15rem;inset-inline-start:calc(50% + .35rem);min-width:1.1rem;height:1.1rem;padding:0 .25rem;border-radius:999px;background:var(--accent);color:var(--accent-foreground);font-size:.65rem;line-height:1.1rem;text-align:center;display:none}
+  .moon-bottomnav .moon-cart-count.has-count{display:block}
+  body{padding-bottom:calc(4.25rem + env(safe-area-inset-bottom))}
+  .moon-header .moon-iconbtn--sm-hide{display:none}
+}
+
+/* mini-cart stepper */
+.moon-mq{display:inline-flex;align-items:center;gap:.5rem;border:1px solid var(--border);border-radius:999px;padding:.1rem .3rem;margin-top:.35rem}
+.moon-mq__btn{width:1.6rem;height:1.6rem;border:0;border-radius:50%;background:var(--fg-10);color:var(--foreground);font-size:1rem;line-height:1;cursor:pointer;touch-action:manipulation}
+.moon-mq__btn:active{background:var(--accent);color:var(--accent-foreground)}
+.moon-mq__n{min-width:1.2rem;text-align:center;font-size:.85rem}
+.moon-cart-drawer .woocommerce-mini-cart-item .quantity{display:block}
+
+/* Persian brand names: no letter-spacing (it breaks joined letters) */
+.moon-brand__text.is-fa,.moon-footer__brand.is-fa{letter-spacing:0;text-transform:none;font-family:var(--font-body,inherit);font-weight:700}
+
+/* Header on phones: fits the pill, cart moves to the bottom bar */
+@media (max-width:767px){
+  .moon-header__pill{gap:.5rem;padding:.45rem .6rem;width:100%;max-width:none}
+  .moon-brand{min-width:0;flex:1 1 auto;padding-inline-start:.35rem}
+  .moon-brand__text{font-size:1.1rem;letter-spacing:.16em;overflow:hidden;text-overflow:ellipsis;max-width:100%}
+  .moon-brand__text.is-fa{font-size:1.15rem;letter-spacing:0}
+  .moon-actions{flex-shrink:0;gap:.25rem}
+  .moon-header .moon-cart-toggle{display:none}
+}
+
+/* No horizontal scroll: WooCommerce's zoom layer and wide blocks stay inside their container */
+html,body{overflow-x:clip;max-width:100%}
+.woocommerce-product-gallery,.woocommerce-product-gallery__image{overflow:hidden}
+.zoomImg{max-width:none}
+img,svg,video,iframe,table{max-width:100%}
+
+/* Product cards: price row wraps instead of overlapping; compact action buttons on phones */
+.moon-card__price{display:flex;flex-wrap:wrap;align-items:baseline;gap:.15rem .5rem;white-space:normal}
+.moon-card__price del{order:2;margin:0}
+.moon-card__price .woocommerce-Price-currencySymbol{margin-inline-start:.3em}
+.woocommerce-Price-amount bdi{white-space:nowrap}
+.woocommerce-Price-currencySymbol{margin-inline-start:.3em}
+@media (max-width:767px){
+  .moon-card__act{font-size:.72rem;padding-inline:.5rem;white-space:nowrap;gap:.25rem}
+  .moon-card__act svg{width:16px;height:16px;flex:0 0 auto}
+  .woocommerce div.product .product_title{margin-top:1rem}
+  .woocommerce div.product div.images,.woocommerce div.product div.summary{float:none;width:100%}
+}
+@media (max-width:767px){ .woocommerce div.product .summary{padding-top:1.25rem;margin-top:0} .woocommerce div.product .woocommerce-product-gallery{margin-bottom:1rem} }
+
+/* Cart: quantity auto-saves, so the manual update button is hidden once JS is ready */
+body.moon-cart-auto .woocommerce-cart-form button[name="update_cart"]{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);opacity:0}
+.moon-checkout-login{margin:0 0 1.25rem;padding:.9rem 1.1rem;border:1px solid var(--border);border-radius:var(--radius,12px);background:var(--card);font-size:.9rem}
+.moon-checkout-login a{color:var(--accent);margin-inline-start:.4rem}
+
+/* Cart rows on phones: remove button sits at the far side, not on the thumbnail */
+@media (max-width:767px){
+  .woocommerce table.cart td.product-remove{inset-inline-start:auto;inset-inline-end:.2rem;top:.8rem}
+  .woocommerce table.cart td.product-name{padding-inline-end:2rem}
+  .woocommerce-shipping-calculator .shipping-calculator-button::before{display:none}
+}
+.woocommerce-shipping-calculator .shipping-calculator-button::before,.woocommerce-shipping-calculator .shipping-calculator-button::after{display:none}
+
+/* Contact + about templates */
+.moon-contact{display:grid;gap:2rem;grid-template-columns:1.4fr 1fr;align-items:start}
+@media (max-width:900px){.moon-contact{grid-template-columns:1fr}}
+.moon-contact__title{font-size:1.5rem;margin:0 0 .35rem}
+.moon-contact__note{color:var(--muted-foreground);margin:0 0 1.25rem;font-size:.92rem}
+.moon-contact__form{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+@media (max-width:600px){.moon-contact__form{grid-template-columns:1fr}}
+.moon-field{display:flex;flex-direction:column;gap:.35rem}
+.moon-field--full{grid-column:1/-1}
+.moon-field label{font-size:.85rem;color:var(--fg-80)}
+.moon-field input,.moon-field select,.moon-field textarea{width:100%;padding:.75rem .9rem;border:1px solid var(--border);border-radius:var(--radius,12px);background:var(--card);color:var(--foreground);font:inherit}
+.moon-field input:focus,.moon-field select:focus,.moon-field textarea:focus{outline:2px solid var(--accent);outline-offset:1px}
+.moon-field [aria-invalid="true"]{border-color:#e5484d}
+.moon-field--honeypot{position:absolute;inset-inline-start:-9999px;width:1px;height:1px;overflow:hidden}
+.moon-contact__footer{grid-column:1/-1;display:flex;flex-wrap:wrap;align-items:center;gap:1rem}
+.moon-contact__status[data-state="ok"]{color:#3fb950}
+.moon-contact__status[data-state="error"]{color:#e5484d}
+.moon-contact__list{list-style:none;margin:0;padding:0;display:grid;gap:1rem}
+.moon-contact__list li{display:flex;gap:.85rem;align-items:flex-start;padding:1rem;border:1px solid var(--border);border-radius:var(--radius,12px);background:var(--card)}
+.moon-contact__list small{display:block;color:var(--muted-foreground);font-size:.78rem}
+.moon-about__cover{margin:0 0 1.5rem}.moon-about__cover img{width:100%;height:auto;border-radius:var(--radius,12px)}
+.moon-about__lead{font-size:1.25rem;line-height:2}
+
+/* Live search results */
+.moon-ls{max-width:42rem;margin:1rem auto 0;max-height:60vh;overflow:auto}
+.moon-ls__title{margin:.75rem 0 .35rem;font-size:.8rem;color:var(--muted-foreground)}
+.moon-ls__list{list-style:none;margin:0;padding:0;display:grid;gap:.35rem}
+.moon-ls__row{display:flex;gap:.8rem;align-items:center;padding:.5rem;border-radius:var(--radius,12px);text-decoration:none;color:inherit}
+.moon-ls__row:hover,.moon-ls__row:focus-visible{background:var(--fg-10)}
+.moon-ls__thumb{flex:0 0 3.2rem;width:3.2rem;height:4rem;border-radius:8px;overflow:hidden;background:var(--card)}
+.moon-ls__thumb img{width:100%;height:100%;object-fit:cover;display:block}
+.moon-ls__text{display:flex;flex-direction:column;gap:.15rem;min-width:0}
+.moon-ls__name{font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.moon-ls__meta{font-size:.85rem;color:var(--muted-foreground)}
+.moon-ls__more{display:block;margin:.75rem 0;text-align:center;color:var(--accent)}
+.moon-ls__empty{text-align:center;color:var(--muted-foreground);padding:1rem}
+[data-moon-wish-count][hidden],[data-moon-wish-count]:empty{display:none}

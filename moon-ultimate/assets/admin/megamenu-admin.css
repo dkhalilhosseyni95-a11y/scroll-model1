@@ -1,0 +1,18 @@
+.moon-mega-admin { max-width: 1200px; }
+.moon-mega-admin__top { display: flex; gap: 1.5rem; align-items: center; flex-wrap: wrap; margin: 1rem 0; padding: 0.9rem 1rem; background: #fff; border: 1px solid #dcdcde; border-radius: 8px; }
+.moon-mega-admin__layout { display: grid; grid-template-columns: 240px 1fr; gap: 1rem; align-items: start; }
+.moon-mega-admin__rail { margin: 0; padding: 0.5rem; background: #fff; border: 1px solid #dcdcde; border-radius: 8px; list-style: none; }
+.moon-mega-admin__rail li { display: flex; align-items: center; gap: 0.4rem; padding: 0.55rem 0.6rem; margin: 0 0 0.25rem; border-radius: 6px; cursor: pointer; background: #f6f7f7; }
+.moon-mega-admin__rail li.is-active { background: #2271b1; color: #fff; }
+.moon-mega-admin__rail .handle { cursor: grab; opacity: 0.6; }
+.moon-mega-admin__editor { background: #fff; border: 1px solid #dcdcde; border-radius: 8px; padding: 1rem 1.25rem; min-height: 200px; }
+.moon-mega-admin__row { display: flex; gap: 0.75rem; align-items: center; flex-wrap: wrap; margin-bottom: 0.75rem; }
+.moon-mega-admin__row input[type=text], .moon-mega-admin__row input[type=url] { flex: 1; min-width: 160px; }
+.moon-mega-admin__col { border: 1px solid #dcdcde; border-radius: 8px; padding: 0.75rem; margin: 0.75rem 0; background: #fafafa; }
+.moon-mega-admin__link { display: flex; gap: 0.4rem; align-items: center; margin: 0.35rem 0; }
+.moon-mega-admin__link input { flex: 1; }
+.moon-mega-admin__thumb { width: 36px; height: 36px; border-radius: 6px; object-fit: cover; background: #e2e4e7; cursor: pointer; }
+.moon-mega-admin__banner { margin-top: 1rem; padding: 0.75rem; border: 1px dashed #c3c4c7; border-radius: 8px; }
+.moon-mega-admin__banner img { max-width: 160px; border-radius: 8px; display: block; margin-top: 0.5rem; }
+.moon-mega-admin .danger { color: #b32d2e; }
+@media (max-width: 800px) { .moon-mega-admin__layout { grid-template-columns: 1fr; } }
